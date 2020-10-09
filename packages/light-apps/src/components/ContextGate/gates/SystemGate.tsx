@@ -10,6 +10,9 @@ import { ProviderContext } from '../../context';
 
 /**
  * A gate that shows a loading screen if the node is not connected yet
+ *
+ * SystemContext defines basic polkadot components and their states, please see:
+ *   https://github.com/paritytech/substrate-js-utils/blob/master/react-context/src/SystemContext.tsx
  */
 export function SystemGate({
   children,
