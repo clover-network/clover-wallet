@@ -7,7 +7,7 @@ import Header from '../common/header/header.component';
 import ViewSelector from '../view-selector';
 import Network from '../network/network';
 import Options from '../options';
-import EnzymeBanner from '../common/enzyme-banner';
+import CloverBanner from '../common/clover-banner';
 import CloverLogo from '../common/clover-logo';
 import { NetworkDisconnectionIcon } from '../common/icon';
 import './styles.css';
@@ -72,7 +72,7 @@ export default class CloverApp extends Component {
         <div {...otherProps}>
           <Header page={page} className={CloverHeaderClassNames}>
             <CloverLogo onClick={onLogoClick} className={CloverLogoClassNames} />
-            <EnzymeBanner className={CloverBannerClassNames} />
+            <CloverBanner className={CloverBannerClassNames} />
             <div className={CloverConfigClassNames}>
               <NetworkDisconnectionIcon
                 title="Network unavailable"
