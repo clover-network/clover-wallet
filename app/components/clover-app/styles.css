@@ -2,16 +2,16 @@
   display: none;
 }
 
-.enzyme-logo {
+.clover-logo {
   width: 36px;
   height: 28px;
 }
 
-.enzyme-banner {
+.clover-banner {
   height: 23px;
 }
 
-.enzyme-header {
+.clover-header {
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 1);
@@ -21,28 +21,28 @@
   align-items: center;
 }
 
-.enzyme-header-banner {
+.clover-header-banner {
   justify-content: center;
 }
 
-.enzyme-header-boarded {
+.clover-header-boarded {
   justify-content: space-between;
 }
 
-.enzyme-network {
+.clover-network {
 }
 
-.enzyme-network-status {
+.clover-network-status {
   margin-right: 13.37px;
 }
 
-.enzyme-config {
+.clover-config {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.enzyme-settings {
+.clover-settings {
   margin-left: 16px;
   align-self: center;
   display: flex;

@@ -8,7 +8,7 @@ import ViewSelector from '../view-selector';
 import Network from '../network/network';
 import Options from '../options';
 import EnzymeBanner from '../common/enzyme-banner';
-import EnzymeLogo from '../common/enzyme-logo';
+import CloverLogo from '../common/clover-logo';
 import { NetworkDisconnectionIcon } from '../common/icon';
 import './styles.css';
 
@@ -34,62 +34,62 @@ export default class CloverApp extends Component {
       ...otherProps
     } = this.props;
 
-    const EnzymeHeaderClassNames = classnames({
-      'enzyme-header': showHeader,
-      'enzyme-header-banner':
+    const CloverHeaderClassNames = classnames({
+      'clover-header': showHeader,
+      'clover-header-banner':
         showHeader && showBanner && !showLogo && !showNetwork && !showSettings,
-      'enzyme-header-boarded': showHeader && !showBanner && showLogo && showNetwork && showSettings,
+      'clover-header-boarded': showHeader && !showBanner && showLogo && showNetwork && showSettings,
       'display-none': !showHeader,
     });
 
-    const EnzymeLogoClassNames = classnames({
-      'enzyme-logo': showLogo,
+    const CloverLogoClassNames = classnames({
+      'clover-logo': showLogo,
       'display-none': !showLogo,
       'clickable-icon': showLogo,
     });
-    const EnzymeNetworkClassNames = classnames({
-      'enzyme-network': showNetwork,
+    const CloverNetworkClassNames = classnames({
+      'clover-network': showNetwork,
       'display-none': !showNetwork,
     });
-    const EnzymeNetworkStatusClassNames = classnames({
+    const CloverNetworkStatusClassNames = classnames({
       'display-none': isConnected,
-      'enzyme-network-status': !isConnected,
+      'clover-network-status': !isConnected,
     });
-    const EnzymeBannerClassNames = classnames({
-      'enzyme-banner': showBanner,
+    const CloverBannerClassNames = classnames({
+      'clover-banner': showBanner,
       'display-none': !showBanner,
     });
-    const EnzymeSettingsClassNames = classnames({
-      'enzyme-settings': showSettings,
+    const CloverSettingsClassNames = classnames({
+      'clover-settings': showSettings,
       'display-none': !showSettings,
     });
-    const EnzymeConfigClassNames = classnames({
-      'enzyme-config': showNetwork && showSettings,
+    const CloverConfigClassNames = classnames({
+      'clover-config': showNetwork && showSettings,
       'display-none': showBanner,
     });
     return (
       <CloverContainer blocking={isLoading}>
         <div {...otherProps}>
-          <Header page={page} className={EnzymeHeaderClassNames}>
-            <EnzymeLogo onClick={onLogoClick} className={EnzymeLogoClassNames} />
-            <EnzymeBanner className={EnzymeBannerClassNames} />
-            <div className={EnzymeConfigClassNames}>
+          <Header page={page} className={CloverHeaderClassNames}>
+            <CloverLogo onClick={onLogoClick} className={CloverLogoClassNames} />
+            <EnzymeBanner className={CloverBannerClassNames} />
+            <div className={CloverConfigClassNames}>
               <NetworkDisconnectionIcon
                 title="Network unavailable"
-                className={EnzymeNetworkStatusClassNames}
+                className={CloverNetworkStatusClassNames}
               />
               <Network
                 networks={networks}
                 network={network}
                 onNetworkChange={onNetworkChange}
-                className={EnzymeNetworkClassNames}
+                className={CloverNetworkClassNames}
                 page={page}
               />
               <Options
                 onToggleDeveloperMode={onToggleDeveloperMode}
                 options={options}
                 onOptionsChange={onOptionsChange}
-                className={EnzymeSettingsClassNames}
+                className={CloverSettingsClassNames}
                 isDeveloperMode={isDeveloperMode}
                 page={page}
               />
