@@ -3,7 +3,7 @@ import BlockUi from 'react-block-ui';
 import 'react-block-ui/style.css';
 import EnzymeLoader from '../common/enzyme-loader';
 
-export default class EnzymeContainer extends PureComponent {
+export default class CloverContainer extends PureComponent {
   render() {
     const { children, blocking, ...otherProps } = this.props;
     return (

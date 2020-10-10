@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classnames from 'classnames';
-import EnzymeContainer from '../enzyme-container';
+import CloverContainer from '../clover-container';
 import Header from '../common/header/header.component';
 import ViewSelector from '../view-selector';
 import Network from '../network/network';
@@ -12,7 +12,7 @@ import EnzymeLogo from '../common/enzyme-logo';
 import { NetworkDisconnectionIcon } from '../common/icon';
 import './styles.css';
 
-export default class EnzymeApp extends Component {
+export default class CloverApp extends Component {
   render() {
     const {
       page,
@@ -68,7 +68,7 @@ export default class EnzymeApp extends Component {
       'display-none': showBanner,
     });
     return (
-      <EnzymeContainer blocking={isLoading}>
+      <CloverContainer blocking={isLoading}>
         <div {...otherProps}>
           <Header page={page} className={EnzymeHeaderClassNames}>
             <EnzymeLogo onClick={onLogoClick} className={EnzymeLogoClassNames} />
@@ -98,7 +98,7 @@ export default class EnzymeApp extends Component {
           <ViewSelector page={page} />
           <ToastContainer />
         </div>
-      </EnzymeContainer>
+      </CloverContainer>
     );
   }
 }

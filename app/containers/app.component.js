@@ -6,7 +6,7 @@ import {
   LOADER_OVERLAY,
   ONBOARDING_PAGES_GROUP,
 } from '../constants/navigation';
-import EnzymeApp from '../components/enzyme-app';
+import CloverApp from '../components/clover-app';
 import './styles.css';
 
 export default class App extends Component {
@@ -88,7 +88,7 @@ export default class App extends Component {
       },
     } = this;
     return (
-      <EnzymeApp
+      <CloverApp
         className="app"
         isLoading={isLoading}
         page={page}
