@@ -1,0 +1,21 @@
+.sign-up-container {
+  padding: 40px 18px 0px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up-password {
+  display: flex;
+  margin-top: 28.5px;
+  width: 321px;
+  height: 54.82px;
+}
+
+.sign-up-password-meter {
+  margin-top: 50px;
+}
+
+.key-pair-crypto-type {
+  margin-top: 50px;
+  align-self: center;
+}

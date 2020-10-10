@@ -1,96 +1,97 @@
-![license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
-[![Actions Status](https://github.com/paritytech/substrate-light-ui/workflows/pr/badge.svg)](https://github.com/paritytech/substrate-light-ui/actions)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=paritytech/substrate-light-ui)](https://dependabot.com)
-[![CodeClimate](https://api.codeclimate.com/v1/badges/bdff9a9d1f154523d3b9/maintainability)](https://codeclimate.com/github/paritytech/substrate-light-ui/maintainability)
+# Enzyme
 
-# Lichen (working title, previously "Substrate Light UI")
+Enzyme is a wallet for for [Polkadot blockchain.](https://polkadot.network/)
 
-Lichen is a light-client-based, in-browser wallet for Substrate.
+Enzyme is currently a work in progress, so changes will occur.
 
-The Light UI is meant to be **an intuitive interface for beginner users** to easily interact with various Substrate chains. It is provided in two forms:
 
-- A Chrome/Firefox browser extension
-- A desktop application, built with Electron
+## Prerequisites
 
-Both provide the same functionalities and use the same UI, feel free to choose the medium that suits you best.
+- NodeJS >= v11
+- Yarn latest
 
-A _very alpha_ version of the browser extension can be found in the [Github Releases](https://github.com/paritytech/substrate-light-ui/releases) page.
+## Get It
 
-You can also check out the `master` branch and [build from source](#build-from-sources).
+Once published Enzyme will be installable from the Chrome Web Store. Until then, it can be run via yarn by cloning this repo. Unpacked builds will be made available at [https://github.com/blockxlabs/enzyme](https://github.com/blockxlabs/enzyme) shortly.
 
-## Overview
+### Installation
 
-As of v0.3.0, the main functions are as follows:
+Execute the following to clone, install dependencies, and run a development server:
 
-- [x] Identity management - manage accounts and addresses, including ability to create, edit, restore, backup, and forget them.
-- [x] Transfer balance - send and receive funds in the currency of the relevant substrate chain.
-- [x] Embed a light client in a browser extension, and let Light UI be the user interface of this extension.
+    git clone https://github.com/blockxlabs/enzyme.git
+    cd enzyme
+    yarn install
+    yarn run dev
 
-And here is a rough roadmap of what's coming next (see the [`v0.4.0-MVP` milestone](https://github.com/paritytech/substrate-light-ui/milestone/3) for details):
+Once running Chrome:
 
-- [ ] Handle changing:
-  - [x] provider,
-  - [x] chain spec,
-  - [ ] user uploaded light client WASM blob or chain spec.
-- [ ] Provider injection inside dapps.
-- [ ] Improve overall beginner-friendliness (e.g. [#67](https://github.com/paritytech/substrate-light-ui/issues/67)).
+- Go to chrome://extensions
+- Enable 'Developer Mode' (top right corner of window)
+- Click "Load Unpacked" and select the enzyme/dev/chrome directory
+- Navigate to : https://localhost:3000 and accept the https connection
 
-## Build from sources
+The Enzyme icon should show up in your Chrome toolbar.
 
-### Dependencies
+Once running Firefox:
 
-Make sure you have [yarn >= 1.13.0](http://yarnpkg.com/) and [nodejs >= 10.10.0](https://nodejs.org/en/). Then run
+- Go to about:debugging#/runtime/this-firefox
+- Click 'Load Temporary Addon' 
+- select the enzyme/dev/firefox directory
+- Navigate to : https://localhost:3000 and accept the https connection
 
-```bash
-git clone https://github.com/paritytech/substrate-light-ui
-cd ./substrate-light-ui
-yarn install
-```
+The Enzyme icon should show up in your Firefox toolbar.
 
-### Run the Browser Extension
+## Getting Started
 
-```bash
-yarn build:extension
-```
+### Initial Setup
 
-Then install the extension:
+After agreeing to the Terms of Use, create a strong password. This is used to encrypt your data so that other Chrome extensions can't read it.
 
-- Chrome:
-  - go to `chrome://extensions/`
-  - ensure you have the Development flag set
-  - "Load unpacked" and point to `packages/extension-app/build`
-  - if developing, after making changes - refresh the extension
-- Firefox:
-  - go to `about:debugging#addons`
-  - check "Enable add-on debugging"
-  - click on "Load Temporary Add-on" and point to `packages/extension-app/build/manifest.json`
-  - if developing, after making changes - reload the extension
+<img src="./docs/images/password.png" width="300">
 
-### Run the Electron App
+If you want to start fresh, use the newly-generated account. Copy the seed phrase and save it somewhere safe (as it is required to send DOTs and sign transactions).
 
-For now, you need to bundle a Substrate node manually into the Electron app. To do so, first build a Substrate node for your platform (note: it can of course be a Polkadot/Kusama node, or any other Substrate node), and copy it as `./packages/electron-app/static/substrate`:
+<img src="./docs/images/generate.png" width="300">
 
-```bash
-cp /path/to/polkadot ./packages/electron-app/static/substrate
-```
+If you have an existing account you want to use, click the Import tab and paste your existing seed phrase in.
 
-Then run:
+<img src="./docs/images/import.png" width="300">
 
-```bash
-yarn build:electron
-```
+## Usage
 
-The building might take some time, but you should see an Electron application after a while.
+### Dashboard
+See labels on screenshot.
 
-> Troubleshooting: If it hangs on a white screen in Electron even though it has compiled and has been syncing for a long time, then simply choose 'View > Reload' (CMD + R on macOS) from the Electron menu.
+<img src="./docs/images/1-fresh-annotated.png" width="300">
 
-## Contributing
 
-We welcome any and all contributions whether it is in the form of raising an issue, filing a PR, or participating in the discussions. Please read the [Contributing Docs](CONTRIBUTING.md) first.
+### Receive
+Just click Receive from the main screen to get here.
 
-### Run with Hot-Reloading
+Either scan the QR code, or copy and paste the account address by clicking it.
 
-If you would like to run this project with hot-reloading, use the following commands:
+<img src="./docs/images/2-receive.png" width="300">
 
-- `yarn start:ui`: If you would only like to modify the UI, run this command and visit http://localhost:3000
-- `yarn start:electron`: Run the Electron app with hot reloading
+
+### Send
+
+Input the details
+
+<img src="./docs/images/4-send-1-annotated.png" width="300">
+
+Verify the details
+
+<img src="./docs/images/5-send-2-annotated.png" width="300">
+
+Once sent, wait for it to confirm.
+
+<img src="./docs/images/6-pending-annotated.png" width="300">
+
+It has confirmed.
+
+<img src="./docs/images/7-success.png" width="300">
+
+
+## Links
+
+License: [AGPL v3](https://github.com/blockxlabs/enzyme/blob/master/LICENSE.md)

@@ -1,0 +1,16 @@
+.header-container-none {
+  display: none;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #000000;
+  height: 50px;
+  width: 100%;
+  opacity: 100%;
+  align-items: center;
+  padding: 16px 13px 13px 15px;
+  justify-content: space-between;
+  /* justify-content: center; */
+}

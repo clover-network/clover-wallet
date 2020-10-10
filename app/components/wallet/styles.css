@@ -1,0 +1,23 @@
+.account-avatar {
+  margin-right: 11px;
+}
+
+.account-detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 265px;
+}
+
+.account-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-list-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 29.18px;
+}

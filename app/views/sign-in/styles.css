@@ -1,0 +1,19 @@
+.sign-in-container {
+  padding: 40px 18px 0px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-in-password-container {
+  display: flex;
+  margin-top: 28.5px;
+  width: 321px;
+  height: 54.82px;
+}
+
+.sign-in-button {
+  position: absolute;
+  top: 524px;
+  align-self: center;
+  justify-content: center;
+}

@@ -1,0 +1,14 @@
+.content-header-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header-title {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.content-header-description {
+  padding-top: 6px;
+  font-size: 12px;
+}

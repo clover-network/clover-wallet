@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "allowJs": true,
-    "lib": ["DOM", "ESNext"],
-    "outDir": "./build"
-  },
-  "extends": "../../tsconfig",
-  "include": ["./src"]
-}
