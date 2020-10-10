@@ -3,11 +3,11 @@
   "background": {
     "page": "background.html"
   },
-  "name": "Enzyme",
+  "name": "Clover",
   "manifest_version": 2,
   "description": "Polkadot DApp Wallet",
   "browser_action": {
-    "default_title": "Enzyme",
+    "default_title": "Clover",
     "default_popup": "popup.html"
   },
   "icons": {
