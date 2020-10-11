@@ -4,7 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { styles } from './styles';
 
-class EnzymeTabs extends Component {
+class CloverTabs extends Component {
   render() {
     const {
       value, onChange, classes, labels, ...otherProps
@@ -29,4 +29,4 @@ class EnzymeTabs extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeTabs);
+export default withStyles(styles)(CloverTabs);

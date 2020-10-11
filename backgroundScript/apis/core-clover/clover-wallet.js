@@ -18,7 +18,7 @@ import {
       const { address } = pairAlice;
       return address;
     } catch (err) {
-      throw new Error('Error in Kusama getAddress');
+      throw new Error('Error in clover getAddress');
     }
   };
   
@@ -30,7 +30,7 @@ import {
       const fBalance = formatBalance(value, true, 12);
       return fBalance;
     } catch (err) {
-      throw new Error('Error in kusam valueFormatter');
+      throw new Error('Error in clover valueFormatter');
     }
   };
   

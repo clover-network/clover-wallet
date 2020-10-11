@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Clear from '@material-ui/icons/Clear';
 import SubHeader from '../../components/common/sub-header';
 import CreateContactForm from '../../components/address-book/create-contact-form';
-import EnzymeValidator from '../../utils/enzyme-validator';
+import CloverValidator from '../../utils/clover-validator';
 import { DASHBOARD_PAGE } from '../../constants/navigation';
-import validator from '../../utils/enzyme-validator/validator';
+import validator from '../../utils/clover-validator/validator';
 import './styles.css';
 import { findChainByName } from '../../../lib/constants/chain';
 
@@ -30,8 +30,8 @@ export default class CreateAddressBook extends Component {
       buttonText: 'Submit',
       network: '',
     };
-    this.lnameValidator = new EnzymeValidator(validator.lnameValidation);
-    this.fnameValidator = new EnzymeValidator(validator.fnameValidation);
+    this.lnameValidator = new CloverValidator(validator.lnameValidation);
+    this.fnameValidator = new CloverValidator(validator.fnameValidation);
     this.addressInputRef = React.createRef();
     this.fnameInputRef = React.createRef();
     this.lnameInputRef = React.createRef();

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import EnzymeValidator from '../../utils/enzyme-validator';
-import validator from '../../utils/enzyme-validator/validator';
+import CloverValidator from '../../utils/clover-validator';
+import validator from '../../utils/clover-validator/validator';
 import CreateAccountForm from '../../components/account/create-account-form';
-import EnzymeTabs from '../../components/common/enzyme-tabs';
+import CloverTabs from '../../components/common/clover-tabs';
 import { MANAGE_ACCOUNT_PAGE } from '../../constants/navigation';
 import CreateAccountSettings from '../../components/account/create-account-settings';
 import FooterButton from '../../components/common/footer-button';
@@ -33,8 +33,8 @@ export default class CreateAccount extends Component {
       confirmSeedPhraseInputName: 'confirmSeedPhrase',
       aliasInputName: 'alias',
     };
-    this.validator = new EnzymeValidator(validator.importSeedPhraseValidation);
-    this.aliasValidator = new EnzymeValidator(validator.aliasValidation);
+    this.validator = new CloverValidator(validator.importSeedPhraseValidation);
+    this.aliasValidator = new CloverValidator(validator.aliasValidation);
     this.aliasInput = React.createRef();
     this.seedInput = React.createRef();
     this.confirmSeedInput = React.createRef();
@@ -284,7 +284,7 @@ export default class CreateAccount extends Component {
 
     return (
       <div>
-        <EnzymeTabs value={value} onChange={this.handleChange} labels={labels} />
+        <CloverTabs value={value} onChange={this.handleChange} labels={labels} />
         <CreateAccountForm
           value={formValue}
           generatedSeedWords={seedWords}

@@ -1,4 +1,4 @@
-class EnzymeValidator {
+class CloverValidator {
   constructor(validations) {
     this.validations = validations;
   }
@@ -53,4 +53,4 @@ class EnzymeValidator {
     return otherProperties;
   }
 }
-export default EnzymeValidator;
+export default CloverValidator;
