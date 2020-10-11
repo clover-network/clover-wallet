@@ -10,9 +10,7 @@
 
 .password-meter-bar meter {
   width: 100%;
-  height: 5px;
   margin-top: 16px;
-  background-color: rgba(77, 77, 77, 0.3);
 }
 
 .password-meter-bar meter.no-appearance {
