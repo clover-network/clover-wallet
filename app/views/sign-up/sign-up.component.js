@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import EnzymePassword from '../../components/common/password/enzyme-password';
+import CloverPassword from '../../components/common/password/clover-password';
 import ContentHeader from '../../components/common/content-header';
 import PasswordStrength from '../../components/common/password/password-strength';
 import FooterButton from '../../components/common/footer-button';
@@ -79,7 +79,7 @@ export default class SignUp extends Component {
           title="Create a password to secure your account"
           description="The password is used to protect your Enigma seed phrase(s) so that other Chrome extensions can't access them."
         />
-        <EnzymePassword
+        <CloverPassword
           className="sign-up-password"
           onChange={this.handleOnChange}
           isError={isError}

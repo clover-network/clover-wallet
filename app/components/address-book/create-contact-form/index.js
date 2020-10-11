@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TransferTo from '../../transfer/transfer-to';
-import EnzymeInput from '../../common/enzyme-input';
+import CloverInput from '../../common/clover-input';
 import FooterButton from '../../common/footer-button';
 import DropDown from '../../common/drop-down';
 import './styles.css';
@@ -51,7 +51,7 @@ export default class CreateContactForm extends Component {
           onChange={handleToChange}
           inputRef={addressInputRef}
         />
-        <EnzymeInput
+        <CloverInput
           className="contact-fname-input"
           value={fname}
           onChange={handleFnameChange(fnamePropName)}
@@ -62,7 +62,7 @@ export default class CreateContactForm extends Component {
           inputRef={fnameInputRef}
           onBlur={handleFnameOnBlur}
         />
-        <EnzymeInput
+        <CloverInput
           className="contact-lname-input"
           value={lname}
           onChange={handleLnameChange(lnamePropName)}

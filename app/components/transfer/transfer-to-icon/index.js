@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Avatar from '../../common/identicon';
-import EnzymeInput from '../../common/enzyme-input';
+import CloverInput from '../../common/clover-input';
 import AddressBookAdorment from '../address-book-adornment';
 
 export default class TransferToIcon extends Component {
@@ -31,7 +31,7 @@ export default class TransferToIcon extends Component {
         {...otherProps}
       >
         <Avatar value={addressValue} size={size} theme={theme} />
-        <EnzymeInput
+        <CloverInput
           style={{
             width: '251px',
             justifySelf: 'flex-start',

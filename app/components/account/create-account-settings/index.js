@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EnzymeInput from '../../common/enzyme-input';
+import CloverInput from '../../common/clover-input';
 import CreateAccountAdvancedConfig from '../create-account-advanced-config';
 import './styles.css';
 
@@ -24,7 +24,7 @@ export default class CreateAccountSettings extends Component {
     this.aliasRef = aliasRef;
     return (
       <div {...otherProps}>
-        <EnzymeInput
+        <CloverInput
           className="account-alias-input"
           value={alias}
           onChange={handleAliasChange(aliasPropName)}

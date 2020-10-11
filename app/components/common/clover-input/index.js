@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import classNames from 'classnames';
 import { styles } from './styles';
 
-class EnzymeInput extends Component {
+class CloverInput extends Component {
   render() {
     const {
       classes,
@@ -56,4 +56,4 @@ class EnzymeInput extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeInput);
+export default withStyles(styles)(CloverInput);

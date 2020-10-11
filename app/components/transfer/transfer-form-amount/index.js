@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EnzymeInput from '../../common/enzyme-input';
+import CloverInput from '../../common/clover-input';
 import DropDown from '../../common/drop-down';
 
 export default class TransferFormAmount extends Component {
@@ -26,7 +26,7 @@ export default class TransferFormAmount extends Component {
         }}
         {...otherProps}
       >
-        <EnzymeInput
+        <CloverInput
           style={{ width: '171.23px' }}
           error={error}
           label={label}

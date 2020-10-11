@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PasswordAdornment from '../password-adornment';
-import EnzymeInput from '../../enzyme-input';
+import CloverInput from '../../clover-input';
 
 const showColor = {
   color: 'rgba(215, 95, 160, 1)',
@@ -10,7 +10,7 @@ const hideColor = {
   color: 'rgba(0, 0, 0, 0.5)',
 };
 
-export default class EnzymePassword extends Component {
+export default class CloverPassword extends Component {
   state = {
     showPassword: false,
   };
@@ -35,7 +35,7 @@ export default class EnzymePassword extends Component {
     const { showPassword } = this.state;
     return (
       <div className={className}>
-        <EnzymeInput
+        <CloverInput
           {...otherProps}
           className={className}
           error={isError}
