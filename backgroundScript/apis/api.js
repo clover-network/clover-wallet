@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { setChain } from './chain';
-import { EDGEWARE_NETWORK, BERESHEET_NETWORK } from '../../lib/constants/networks';
+import { EDGEWARE_NETWORK, BERESHEET_NETWORK, CLOVER_NETWORK } from '../../lib/constants/networks';
 import { edgeWareTypes, typesAlias } from './core-edgeware/edgeware-types';
+import { cloverTypes } from './core-clover/clover-types';
 
 const connection = {
   isConnected: false,
@@ -41,6 +42,11 @@ const connect = async network => {
           provider,
           types: edgeWareTypes,
           typesAlias,
+        });
+      } else if (name === CLOVER_NETWORK.name) {
+        api = await ApiPromise.create({
+          provider,
+          types: cloverTypes
         });
       } else {
         api = await ApiPromise.create({ provider });
