@@ -1,6 +1,6 @@
 import * as Constants from '../../lib/constants/api';
 
-const EnzymeException = (message, status) => {
+const CloverException = (message, status) => {
   const error = new Error(message);
   error.code = status;
   return error;
@@ -8,6 +8,6 @@ const EnzymeException = (message, status) => {
 
 export const throwIfNoSuccess = ({ message, status }) => {
   if (status !== Constants.SUCCESS) {
-    throw EnzymeException(message, status);
+    throw CloverException(message, status);
   }
 };

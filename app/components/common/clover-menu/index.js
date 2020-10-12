@@ -7,7 +7,7 @@ import { styles } from './styles';
 import { IconCheckCircle } from '../icon/index';
 import FontRegular from '../fonts/font-regular';
 
-class EnzymeMenu extends Component {
+class CloverMenu extends Component {
   handleClose = prop => () => {
     if (prop) {
       this.props.onChange(prop);
@@ -71,4 +71,4 @@ class EnzymeMenu extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeMenu);
+export default withStyles(styles)(CloverMenu);

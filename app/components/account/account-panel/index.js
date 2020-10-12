@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountDetails from '../account-details';
 import { WalletDropDownIcon } from '../../common/icon';
-import EnzymeMenu from '../../common/enzyme-menu';
+import CloverMenu from '../../common/clover-menu';
 
 export default class AccountPanel extends Component {
   state = {
@@ -54,7 +54,7 @@ export default class AccountPanel extends Component {
           }}
         />
         <WalletDropDownIcon onClick={this.handleClick} className="account-list-icon" />
-        <EnzymeMenu
+        <CloverMenu
           options={accountMenu}
           onChange={option => {
             onAccountMenuOptionsChange(option, selectedAccount);

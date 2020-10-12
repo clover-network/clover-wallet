@@ -5,7 +5,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Avatar from '../identicon';
 import { MoreVertIcon } from '../icon';
-import EnzymeMenu from '../enzyme-menu';
+import CloverMenu from '../clover-menu';
 import ClickToCopyAddress from '../click-to-copy-address';
 import DarkDivider from '../divider/dark-divider';
 import './styles.css';
@@ -80,7 +80,7 @@ class ListItemCard extends Component {
               className="more-list-icon"
             />
           )}
-          <EnzymeMenu
+          <CloverMenu
             options={moreMenu}
             onChange={option => {
               onMoreMenuOptionsChange(option, listItem);

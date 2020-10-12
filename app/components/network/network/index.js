@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EnzymeMenu from '../../common/enzyme-menu';
+import CloverMenu from '../../common/clover-menu';
 import FontRegular from '../../common/fonts/font-regular';
 import { DISABLE_NETWORKS_PAGES_GROUP } from '../../../constants/navigation';
 import { shortenName } from '../../../services/wallet-service';
@@ -33,7 +33,7 @@ export default class Network extends Component {
           text={shortenName(network.text)}
           onClick={this.handleClick}
         />
-        <EnzymeMenu
+        <CloverMenu
           selected={network}
           options={networks}
           onChange={onNetworkChange}
