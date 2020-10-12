@@ -1,10 +1,10 @@
 # Usage
 
-This is a short guide on how to use the `EnzymeValidator` within a component.
+This is a short guide on how to use the `CloverValidator` within a component.
 
 ### Steps:
 
-- Import the `EnzymeValidator` class.
+- Import the `CloverValidator` class.
 
 ### Code Example:
 

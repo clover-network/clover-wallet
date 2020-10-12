@@ -1,25 +1,25 @@
 export const WEBSITE = {
   text: 'Website',
   value: 'website',
-  url: 'https://getenzyme.dev',
+  url: 'https://cloverdefi.com/',
 };
 
 export const FAQ = {
   text: 'FAQ',
   value: 'faq',
-  url: 'https://github.com/blockxlabs/enzyme/blob/master/faq.md',
+  url: 'https://github.com/clover-network/clover-wallet/blob/master/faq.md',
 };
 
 export const GITHUB = {
   text: 'Github',
   value: 'github',
-  url: 'https://github.com/blockxlabs/enzyme/',
+  url: 'https://github.com/clover-network/clover-wallet/',
 };
 
 export const TERMS_OF_USE = {
   text: 'Terms of Use',
   value: 'tou',
-  url: 'https://getenzyme.dev/legal/terms/index.html',
+  url: 'https://cloverdefi.com/legal/terms/index.html',
 };
 
 export const LINKS = [WEBSITE, FAQ, GITHUB, TERMS_OF_USE];

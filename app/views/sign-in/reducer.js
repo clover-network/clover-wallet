@@ -7,14 +7,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.UNLOCK_ENZYME_SUCCESS:
+    case Types.UNLOCK_CLOVER_SUCCESS:
       return {
         ...state,
         ...{
           success: true,
         },
       };
-    case Types.UNLOCK_ENZYME_ERROR:
+    case Types.UNLOCK_CLOVER_ERROR:
       return {
         ...state,
         ...{

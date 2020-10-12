@@ -37,9 +37,9 @@ export default class SignIn extends Component {
   };
 
   handleClick = () => {
-    const { unlockEnzyme } = this.props;
+    const { unlockClover } = this.props;
     const { password } = this.state;
-    unlockEnzyme(password);
+    unlockClover(password);
   };
 
   render() {
@@ -69,9 +69,9 @@ export default class SignIn extends Component {
 }
 
 SignIn.defaultProps = {
-  unlockEnzyme: undefined,
+  unlockClover: undefined,
 };
 
 SignIn.propTypes = {
-  unlockEnzyme: PropTypes.func,
+  unlockClover: PropTypes.func,
 };

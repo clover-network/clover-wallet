@@ -1,4 +1,4 @@
-import { ENZYME_UPDATE_TIME } from '../../lib/constants/update';
+import { CLOVER_UPDATE_TIME } from '../../lib/constants/update';
 import { Transaction, Network } from '../api';
 import { SUCCESS, FAIL } from '../../lib/constants/transaction';
 import { getTransactions, updateTransactions } from '../views/dashboard/actions';
@@ -77,5 +77,5 @@ export async function updateApplicationState(store) {
   await updateApplicationStateHelper(store);
   setInterval(async () => {
     await updateApplicationStateHelper(store);
-  }, ENZYME_UPDATE_TIME);
+  }, CLOVER_UPDATE_TIME);
 }

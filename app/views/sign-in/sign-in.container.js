@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import SignIn from './sign-in.component';
-import { unlockEnzyme } from './actions';
+import { unlockClover } from './actions';
 import { onBoard } from '../../actions/initialize';
 
 const mapStateToProps = state => ({
-  error: state.unlockEnzymeReducer.error,
-  success: state.unlockEnzymeReducer.success,
+  error: state.unlockCloverReducer.error,
+  success: state.unlockCloverReducer.success,
 });
 
 const mapDispatchToProps = {
-  unlockEnzyme,
+  unlockClover,
   onBoard,
 };
 

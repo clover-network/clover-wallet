@@ -4,20 +4,20 @@ import * as SignInActionTypes from './action-types';
 import * as APIConstants from '../../../lib/constants/api';
 import { updateAppLoading } from '../../containers/actions';
 
-const unlockEnzymeSuccess = () => ({
-  type: SignInActionTypes.UNLOCK_ENZYME_SUCCESS,
+const unlockCloverSuccess = () => ({
+  type: SignInActionTypes.UNLOCK_CLOVER_SUCCESS,
 });
 
-const unlockEnzymeError = error => ({
-  type: SignInActionTypes.UNLOCK_ENZYME_ERROR,
+const unlockCloverError = error => ({
+  type: SignInActionTypes.UNLOCK_CLOVER_ERROR,
   error,
 });
 
-export const unlockEnzyme = password => async dispatch => {
+export const unlockClover = password => async dispatch => {
   try {
     dispatch(updateAppLoading(true));
     await APITypes.OnBoarding.setHashKey(keccak512(password));
-    dispatch(unlockEnzymeSuccess());
+    dispatch(unlockCloverSuccess());
   } catch (e) {
     dispatch(updateAppLoading(false));
     const error = {
@@ -30,6 +30,6 @@ export const unlockEnzyme = password => async dispatch => {
         break;
       default:
     }
-    dispatch(unlockEnzymeError(error));
+    dispatch(unlockCloverError(error));
   }
 };

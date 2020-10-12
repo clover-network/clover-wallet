@@ -17,14 +17,14 @@ export default class TermsText extends Component {
           <li className="c1 c3">
             <span>API Consulting dba BlockX Labs </span>
             <span>
-              provides Enzyme as a platform for managing Polkadot Network accounts, and allowing
+              provides Clover Wallet as a platform for managing Polkadot Network accounts, and allowing
               ordinary websites to interact with the Polkadot Network, while keeping the user in
               control over what transactions they approve, through our website located at
             </span>
             <span>&nbsp;</span>
             <span className="c13">
-              <Link className="c12" href="http://www.blockxlabs.com">
-                www.blockxlabs.com
+              <Link className="c12" href="https://cloverdefi.com/">
+                www.cloverdefi.com
               </Link>
             </span>
             <span>&nbsp; </span>
@@ -53,8 +53,8 @@ export default class TermsText extends Component {
               consent to the collection, use, disclosure and other handling of information as
               described in our Privacy Policy&nbsp;
               <span>
-                <Link className="c13" href="https://getenzyme.dev/legal/privacy/">
-                  (https://getenzyme.dev/legal/privacy/)
+                <Link className="c13" href="https://cloverdefi.com/legal/privacy/">
+                  (https://cloverdefi.com/legal/privacy/)
                 </Link>
               </span>
               &nbsp;and (3) any additional terms, rules and conditions of participation issued by
@@ -111,7 +111,7 @@ export default class TermsText extends Component {
           </li>
           <li className="c1 c3">
             <span className="c0">
-              Enzyme is a global platform and by accessing the Content or Services, you are
+              Clover Wallet is a global platform and by accessing the Content or Services, you are
               representing and warranting that, you are of the legal age of majority in your
               jurisdiction as is required to access such Services and Content and enter into
               arrangements as provided by the Service. You further represent that you are otherwise
@@ -135,7 +135,7 @@ export default class TermsText extends Component {
         <ol className="c7 lst-kix_f407rd3ximl-0 start" start="1">
           <li className="c1 c3">
             <span className="c0">
-              When setting up an account within Enzyme, you will be responsible for keeping your own
+              When setting up an account within Clover Wallet, you will be responsible for keeping your own
               account secrets, which may be a twelve-word mnemonic, an account file, or other
               locally stored secret information.
               {' '}
@@ -144,16 +144,16 @@ export default class TermsText extends Component {
           </li>
           <li className="c1 c3">
             <span>
-              Enzyme encrypts this information locally with a password you provide, that we never
-              send to our servers. You agree to (a) never use the same password for Enzyme
+              Clover Wallet encrypts this information locally with a password you provide, that we never
+              send to our servers. You agree to (a) never use the same password for Clover Wallet
               &nbsp;that you have ever used outside of this service; (b) keep your secret
               information and password confidential and do not share them with anyone else;
               {' '}
             </span>
             <span>(c)</span>
             <span className="c0">
-              &nbsp; immediately notify Enzyme of any unauthorized use of your account or breach of
-              security. Enzyme cannot and will not be liable for any loss or damage arising from
+              &nbsp; immediately notify Clover Wallet of any unauthorized use of your account or breach of
+              security. Clover Wallet cannot and will not be liable for any loss or damage arising from
               your failure to comply with this section.
             </span>
           </li>
@@ -237,7 +237,7 @@ export default class TermsText extends Component {
         </p>
         <p className="c1">
           <span className="c0">
-            Enzyme &nbsp;and the Polkadot Network could be impacted by one or more regulatory
+            Clover Wallet &nbsp;and the Polkadot Network could be impacted by one or more regulatory
             inquiries or regulatory action, which could impede or limit the ability of BlockX Labs
             to continue to develop, or which could impede or limit your ability to access or use the
             Service or the Polkadot Network blockchain.
@@ -306,7 +306,7 @@ export default class TermsText extends Component {
             acknowledge and represent that Polkadot Network applications can be written maliciously
             or negligently, that BlockX Labs and Polkadot Network cannot be held liable for your
             interaction with such applications and that such applications may cause the loss of
-            property or even identity. This warning and others later provided by Enzyme, BlockX
+            property or even identity. This warning and others later provided by Clover Wallet, BlockX
             Labs, and the Polkadot Network &nbsp;in no way evidence or represent an on-going duty to
             alert you to all of the potential risks of utilizing the Service or Content.
           </span>
@@ -329,9 +329,9 @@ export default class TermsText extends Component {
             costs (including attorneys&rsquo; fees and court costs) claims or actions of any kind
             whatsoever arising or resulting from your use of the Service, your violation of these
             Terms of Use, and any of your acts or omissions that implicate publicity rights,
-            defamation or invasion of privacy. Enzyme &nbsp;reserves the right, at its own expense,
+            defamation or invasion of privacy. Clover Wallet &nbsp;reserves the right, at its own expense,
             to assume exclusive defense and control of any matter otherwise subject to
-            indemnification by you and, in such case, you agree to cooperate with Enzyme &nbsp;in
+            indemnification by you and, in such case, you agree to cooperate with Clover Wallet &nbsp;in
             the defense of such matter.
           </span>
         </p>
@@ -365,11 +365,11 @@ export default class TermsText extends Component {
             <span className="c0">
               You acknowledge and agree that your use of the site and service is at your own risk.
               Recognizing such, you understand and agree that, to the fullest extent permitted by
-              applicable law, neither Enzyme nor its Suppliers or Licensors will be liable to you
+              applicable law, neither Clover Wallet nor its Suppliers or Licensors will be liable to you
               for any direct, indirect, incidental, special, consequential, punitive, exemplary, or
               other damages of any kind, including without limitation damages for loss of profits,
               goodwill, use, data or other tangible and intangible losses or any other damages based
-              on contract, tort, strict liability, or any other theory (even if Enzyme had been
+              on contract, tort, strict liability, or any other theory (even if Clover Wallet had been
               advised of the possibility of such damages), resulting from the site or service; the
               use or inability to use the site or service; unauthorized access or alteration of your
               transmissions or data; statements or conduct of any third party on the site or
@@ -429,7 +429,7 @@ export default class TermsText extends Component {
         </ol>
         <p className="c1 c5">
           <span className="c0">
-            Enzyme and BlockX Labs trademarks may not be used in connection with any product or
+            Clover Wallet and BlockX Labs trademarks may not be used in connection with any product or
             service that is unrelated to BlockX Labs in any manner that is likely to cause confusion
             among customers, or which disparages or discredits BlockX Labs. All other trademarks are
             not owed by BlockX Labs or its subsidiaries that appear on this Site are the property of
@@ -465,12 +465,12 @@ export default class TermsText extends Component {
         <p className="c1">
           <span className="c0">
             The Service provides, or third parties may provide, links to other World Wide Web or
-            accessible sites, applications or resources. Enzyme &nbsp;has no control over such
-            sites, applications and resources, you acknowledge and agree that Enzyme &nbsp;is not
+            accessible sites, applications or resources. Clover Wallet &nbsp;has no control over such
+            sites, applications and resources, you acknowledge and agree that Clover Wallet &nbsp;is not
             responsible for the availability of such external sites, applications or resources, and
             does not endorse and is not responsible or liable for any content, advertising, products
             or other materials on or available from such sites or resources. You further acknowledge
-            and agree that Enzyme &nbsp;shall not be responsible or liable, directly or indirectly,
+            and agree that Clover Wallet &nbsp;shall not be responsible or liable, directly or indirectly,
             for any damage or loss caused or alleged to be caused by or in connection with use of or
             reliance on any such content, goods or services available on or through any such site or
             resource.
@@ -485,7 +485,7 @@ export default class TermsText extends Component {
         <p className="c1">
           <span>BlockX Labs</span>
           <span className="c0">
-            &nbsp; may terminate or suspend all or part of the Service and your Enzyme access
+            &nbsp; may terminate or suspend all or part of the Service and your Clover Wallet access
             immediately, without prior notice or liability, if you breach any of the terms or
             conditions of the Terms. Upon termination of your access, your right to use the Service
             will immediately cease.
@@ -734,10 +734,10 @@ export default class TermsText extends Component {
         </p>
         <p className="c1">
           <span className="c0">
-            These Terms (and any additional terms, rules and conditions of participation that Enzyme
-            &nbsp;may post on the Service) constitute the entire agreement between you and Enzyme
+            These Terms (and any additional terms, rules and conditions of participation that Clover Wallet
+            &nbsp;may post on the Service) constitute the entire agreement between you and Clover Wallet
             &nbsp;with respect to the Service and supersedes any prior agreements, oral or written,
-            between you and Enzyme . In the event of a conflict between these Terms and the
+            between you and Clover Wallet . In the event of a conflict between these Terms and the
             additional terms, rules and conditions of participation, the latter will prevail over
             the Terms to the extent of the conflict.
           </span>
@@ -753,7 +753,7 @@ export default class TermsText extends Component {
         </p>
         <p className="c1">
           <span className="c0">
-            The failure of Enzyme &nbsp;to exercise or enforce any right or provision of the Terms
+            The failure of Clover Wallet &nbsp;to exercise or enforce any right or provision of the Terms
             shall not constitute a waiver of such right or provision. If any provision of the Terms
             is found by an arbitrator or court of competent jurisdiction to be invalid, the Parties
             nevertheless agree that the arbitrator or court should endeavor to give effect to the
