@@ -1,27 +1,16 @@
-# Generated files
-build/
-dist/
-lib/
-coverage/
-master-build.zip
-packages/electron-app/static/substrate
-packages/light-apps/public/*.wasm
-
-# node_modules
-node_modules/
-
-# OS files
-tmp/
+node_modules
+npm-debug.log
 .DS_Store
+
+build/
+dev/
+coverage/
+
+*.zip
+*.crx
+*.pem
+update.xml
 .vscode
-
-# Yalc
-.yalc/
-yalc.lock
-
-# Logs
-lerna-debug.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.idea
+yarn.lock
+package-lock.json
+.nyc_output

@@ -1,0 +1,43 @@
+{
+  "version": "0.5.6",
+  "applications": {
+    "gecko": {
+      "id": "info@blockxlabs.com",
+      "strict_min_version": "48.0"
+    }
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "name": "Clover",
+  "manifest_version": 2,
+  "description": "Clover is a wallet for polkadot",
+  "browser_action": {
+    "default_icon": "img/icon-32.png",
+    "default_title": "Clover",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "img/icon-16.png",
+    "32": "img/icon-32.png",
+    "128": "img/icon-128.png"
+  },
+  "web_accessible_resources": [
+    "inject.html",
+    "content-script.js",
+    "/js/inPageScript.bundle.js",
+    "js/inPageScript.bundle.js"
+  ],
+  "permissions": [
+    "notifications",
+    "storage",
+    "tabs",
+    "management",
+    "activeTab",
+    "https://*/*",
+    "http://*/*",
+    "wss://*/*",
+    "ws://*/*"
+  ],
+  "content_security_policy": "script-src 'self' blob: 'unsafe-eval' 'wasm-eval'; img-src * data:; object-src 'self';"
+}

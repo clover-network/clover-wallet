@@ -1,0 +1,31 @@
+{
+  "version": "0.5.6",
+  "background": {
+    "page": "background.html"
+  },
+  "name": "Clover",
+  "manifest_version": 2,
+  "description": "Polkadot DApp Wallet",
+  "browser_action": {
+    "default_title": "Clover",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "img/icon-16-dev.png",
+    "32": "img/icon-32-dev.png",
+    "128": "img/icon-128-dev.png"
+  },
+  "web_accessible_resources": ["inject.html", "in-page-script.js"],
+  "permissions": [
+    "notifications",
+    "storage",
+    "tabs",
+    "management",
+    "activeTab",
+    "https://*/*",
+    "http://*/*",
+    "wss://*/*",
+    "ws://*/*"
+  ],
+  "content_security_policy": "script-src 'self' http://localhost:3000 https://localhost:3000 'sha256-b1HHnCfUE1yJ5o2Yta0R1iIh3rA1NcE567vWVSrcloc=' 'unsafe-eval'; object-src 'self'"
+}
