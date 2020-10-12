@@ -57,14 +57,14 @@ const connect = async network => {
 
       // set connection
       connection.provider = provider;
-      connection.isConnected = provider.isConnected();
+      connection.isConnected = provider.isConnected;
       connection.api = api;
       connection.currentNetwork = network;
       await setChain(api);
       return connection;
     } catch (err) {
       // eslint-disable-next-line no-console
-      console.log('Error in polkadot connection');
+      console.log('Error in polkadot connection', err);
     }
   }
 };
