@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import FontRegular from '../fonts/font-regular';
 import { styles } from './styles';
 
-class EnzymeExpansionPanel extends Component {
+class CloverExpansionPanel extends Component {
   state = {
     expanded: false,
   };
@@ -52,4 +52,4 @@ class EnzymeExpansionPanel extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeExpansionPanel);
+export default withStyles(styles)(CloverExpansionPanel);

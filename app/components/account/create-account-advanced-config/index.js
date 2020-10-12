@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import EnzymeExpansionPanel from '../../common/enzyme-expansion-panel';
-import EnzymeRadioButtonGroup from '../../common/enzyme-radio-button-group';
+import CloverExpansionPanel from '../../common/clover-expansion-panel';
+import CloverRadioButtonGroup from '../../common/clover-radio-button-group';
 import FontRegular from '../../common/fonts/font-regular';
 
 export default class CreateAccountAdvancedConfig extends Component {
@@ -15,7 +15,7 @@ export default class CreateAccountAdvancedConfig extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <EnzymeExpansionPanel disabled={disableAccountSettings} title="Advanced">
+        <CloverExpansionPanel disabled={disableAccountSettings} title="Advanced">
           <FontRegular
             text="Keypair Crypto Type"
             style={{
@@ -24,13 +24,13 @@ export default class CreateAccountAdvancedConfig extends Component {
               margin: '14px 0px 14px 0px',
             }}
           />
-          <EnzymeRadioButtonGroup
+          <CloverRadioButtonGroup
             options={keypairTypes}
             value={keypairType}
             onChange={onKeypairTypeChange}
             disabled={disableAccountSettings}
           />
-        </EnzymeExpansionPanel>
+        </CloverExpansionPanel>
       </div>
     );
   }

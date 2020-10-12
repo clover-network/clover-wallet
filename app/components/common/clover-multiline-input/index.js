@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { styles } from './styles';
 
-class EnzymeMultilineInput extends Component {
+class CloverMultilineInput extends Component {
   render() {
     const {
       classes,
@@ -52,4 +52,4 @@ class EnzymeMultilineInput extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeMultilineInput);
+export default withStyles(styles)(CloverMultilineInput);

@@ -5,7 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { styles } from './styles';
 
-class EnzymeRadioButtonGroup extends Component {
+class CloverRadioButtonGroup extends Component {
   render() {
     const {
       classes, options, value, onChange, disabled, ...otherProps
@@ -43,4 +43,4 @@ class EnzymeRadioButtonGroup extends Component {
   }
 }
 
-export default withStyles(styles)(EnzymeRadioButtonGroup);
+export default withStyles(styles)(CloverRadioButtonGroup);
