@@ -1,7 +1,7 @@
 Before filing a new issue, please provide the following information.
 
 ## Basic Details
-#### Enzyme version
+#### Clover wallet version
 0.x
 
 #### Installed from Chrome Web Store or Github release?

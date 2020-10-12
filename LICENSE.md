@@ -21,16 +21,16 @@
 
     In accordance with Section 7(b) of the GNU Affero General Public License,
     a covered work must retain the producer line in every User Interface that is
-    created or manipulated using Enzyme.
+    created or manipulated using clover wallet.
 
     You can be released from the requirements of the license by purchasing
     a commercial license. Buying such a license is mandatory as soon as you
-    develop commercial activities involving Enzyme without disclosing the source
+    develop commercial activities involving clover wallet without disclosing the source
     code of your own applications.
 
     These activities include: offering paid services to customers as an ASP,
     signing transactions, account balances, transaction management on the fly
     in a web application, HTML5 components, Web Extensions for any blockchain
-    shipping Enzyme codebase or part of codebase with a closed source product.
+    shipping clover wallet codebase or part of codebase with a closed source product.
 
     For more information, please contact BlockX Labs at cpatel@blockxlabs.com

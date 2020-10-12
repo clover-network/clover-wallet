@@ -1,8 +1,8 @@
-# Enzyme
+# Clover Wallet
 
-Enzyme is a wallet for for [Polkadot blockchain.](https://polkadot.network/)
+Clover Wallet is a wallet for for [Polkadot blockchain.](https://polkadot.network/)
 
-Enzyme is currently a work in progress, so changes will occur.
+Clover Wallet is currently a work in progress, so changes will occur.
 
 
 ## Prerequisites
@@ -12,14 +12,14 @@ Enzyme is currently a work in progress, so changes will occur.
 
 ## Get It
 
-Once published Enzyme will be installable from the Chrome Web Store. Until then, it can be run via yarn by cloning this repo. Unpacked builds will be made available at [https://github.com/blockxlabs/enzyme](https://github.com/blockxlabs/enzyme) shortly.
+Once published Clover Wallet will be installable from the Chrome Web Store. Until then, it can be run via yarn by cloning this repo. Unpacked builds will be made available at [https://github.com/clover-network/clover-wallet](https://github.com/clover-network/clover-wallet) shortly.
 
 ### Installation
 
 Execute the following to clone, install dependencies, and run a development server:
 
-    git clone https://github.com/blockxlabs/enzyme.git
-    cd enzyme
+    git clone https://github.com/clover-network/clover-wallet.git
+    cd clover-wallet
     yarn install
     yarn run dev
 
@@ -27,19 +27,19 @@ Once running Chrome:
 
 - Go to chrome://extensions
 - Enable 'Developer Mode' (top right corner of window)
-- Click "Load Unpacked" and select the enzyme/dev/chrome directory
+- Click "Load Unpacked" and select the clover-wallet/dev/chrome directory
 - Navigate to : https://localhost:3000 and accept the https connection
 
-The Enzyme icon should show up in your Chrome toolbar.
+The Clover Wallet icon should show up in your Chrome toolbar.
 
 Once running Firefox:
 
 - Go to about:debugging#/runtime/this-firefox
 - Click 'Load Temporary Addon' 
-- select the enzyme/dev/firefox directory
+- select the clover-wallet/dev/firefox directory
 - Navigate to : https://localhost:3000 and accept the https connection
 
-The Enzyme icon should show up in your Firefox toolbar.
+The Clover Wallet icon should show up in your Firefox toolbar.
 
 ## Getting Started
 
@@ -94,4 +94,4 @@ It has confirmed.
 
 ## Links
 
-License: [AGPL v3](https://github.com/blockxlabs/enzyme/blob/master/LICENSE.md)
+License: [AGPL v3](https://github.com/clover-network/clover-wallet/blob/master/LICENSE.md)
