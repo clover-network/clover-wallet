@@ -7,11 +7,15 @@ export default class TermsText extends Component {
     const { ...otherProps } = this.props;
     return (
       <div className="terms-text" {...otherProps}>
-        <p className="c1">
-          <span className="c6">I. Acceptance of Terms of Use</span>
-        </p>
         <p className="c1 c4">
           <span className="c6" />
+        </p>
+        <p className="c1">
+          <span className="terms-header">TERMS OF USE</span>
+        </p>
+
+        <p className="c1">
+          <span className="c6">I. Acceptance of Terms of Use</span>
         </p>
         <ol className="c7 lst-kix_ibdn0zobuwho-0 start" start="1">
           <li className="c1 c3">
@@ -776,9 +780,6 @@ export default class TermsText extends Component {
             action arising out of or related to the use of the Service or the Terms must be filed
             within one (1) year after such claim or cause of action arose or be forever barred.
           </span>
-        </p>
-        <p className="c1 c4">
-          <span className="c0" />
         </p>
         <p className="c1 c4">
           <span className="c0" />

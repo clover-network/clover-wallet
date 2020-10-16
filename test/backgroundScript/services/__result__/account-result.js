@@ -40,22 +40,22 @@ export const accountForDapp = [
   {
     address: '5FPMNegDhvC2wjnYjrpT9dejWidSVRPqFEAZDczCnJvL3tBJ',
     name: 'Account 1',
-    meta: { name: 'Account 1', source: 'enzyme' },
+    meta: { name: 'Account 1', source: 'clover' },
   },
   {
     address: '5Ck3PxgztrtsYs1EECp92VT9BCKCsBe1hECQBCjtt7d4iwCa',
     name: 'Account 2',
-    meta: { name: 'Account 2', source: 'enzyme' },
+    meta: { name: 'Account 2', source: 'clover' },
   },
   {
     address: '5CBnZwkc7zPwaDoGLJRM5yeNoSc2SVw5PgdVpztu3d8JiFWu',
     name: 'Account 3',
-    meta: { name: 'Account 3', source: 'enzyme' },
+    meta: { name: 'Account 3', source: 'clover' },
   },
   {
     address: '5FSGZeAhTmfh2FUFV6fnA6v5mXtgSaXmkEqTkZ7rs3LMi11b',
     name: 'Account 4',
-    meta: { name: 'Account 4', source: 'enzyme' },
+    meta: { name: 'Account 4', source: 'clover' },
   },
 ];
 

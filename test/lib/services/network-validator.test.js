@@ -1,34 +1,34 @@
 import { createFullNetworkURL } from '../../../lib/services/network-validator';
 
 test('Get Network for valid url', async () => {
-  const url = 'getenzyme.dev';
+  const url = 'cloverdefi.dev';
   const result = createFullNetworkURL(url);
   const network = {
-    networkURL: 'ws://getenzyme.dev/',
+    networkURL: 'ws://cloverdefi.dev/',
     networkPort: '9944',
-    networkFullUrl: 'ws://getenzyme.dev:9944/',
+    networkFullUrl: 'ws://cloverdefi.dev:9944/',
   };
   expect(result).toMatchObject(network);
 });
 
 test('Get Network for valid url', async () => {
-  const url = 'getenzyme.dev:9966';
+  const url = 'cloverdefi.dev:9966';
   const result = createFullNetworkURL(url);
   const network = {
-    networkURL: 'ws://getenzyme.dev/',
+    networkURL: 'ws://cloverdefi.dev/',
     networkPort: '9966',
-    networkFullUrl: 'ws://getenzyme.dev:9966/',
+    networkFullUrl: 'ws://cloverdefi.dev:9966/',
   };
   expect(result).toMatchObject(network);
 });
 
 test('Get Network for valid url', async () => {
-  const url = 'getenzyme.dev:9966/apikey/';
+  const url = 'cloverdefi.dev:9966/apikey/';
   const result = createFullNetworkURL(url);
   const network = {
-    networkURL: 'ws://getenzyme.dev/apikey/',
+    networkURL: 'ws://cloverdefi.dev/apikey/',
     networkPort: '9966',
-    networkFullUrl: 'ws://getenzyme.dev:9966/apikey/',
+    networkFullUrl: 'ws://cloverdefi.dev:9966/apikey/',
   };
   expect(result).toMatchObject(network);
 });
@@ -86,16 +86,16 @@ test('Get Network for valid url', async () => {
 });
 
 test('Throw error for Invalid url', async () => {
-  const url = 'http://getenzyme.dev:9966/apikey/';
+  const url = 'http://cloverdefi.dev:9966/apikey/';
   expect(() => createFullNetworkURL(url)).toThrowError('Invalid URL.');
 });
 
 test('Throw error for Invalid url', async () => {
-  const url = 'https://getenzyme.dev:9944/apikey/';
+  const url = 'https://cloverdefi.dev:9944/apikey/';
   expect(() => createFullNetworkURL(url)).toThrowError('Invalid URL.');
 });
 
 test('Throw error for Invalid url', async () => {
-  const url = 'https://getenzyme.dev:9966/apikey/';
+  const url = 'https://cloverdefi.dev:9966/apikey/';
   expect(() => createFullNetworkURL(url)).toThrowError('Invalid URL.');
 });

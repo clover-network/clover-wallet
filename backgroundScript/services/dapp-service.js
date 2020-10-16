@@ -22,7 +22,7 @@ export const failure = {
 
 export const enableResponse = {
   accounts: {},
-  name: 'enzyme',
+  name: 'clover',
   signer: {},
   version: '0.0.1',
 };

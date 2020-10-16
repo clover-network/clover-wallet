@@ -40,13 +40,6 @@ export default class Terms extends Component {
   render() {
     return (
       <div className="tou-grid-container">
-        <TOUHeader
-          className="tou-header"
-          titleClassName="tou-title"
-          subTitleClassName="tou-subtitle"
-          title="Terms of use"
-          subtitle={this.state.titleText}
-        />
         <TermsOfUse className="tou-main" onScroll={this.handleScroll} />
         <TOUFooter
           className="tou-footer"

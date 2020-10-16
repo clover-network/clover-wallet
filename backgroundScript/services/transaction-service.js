@@ -96,7 +96,7 @@ export const getTransactionFees = async (txnType, senderAddress, toAddress, tran
 export const sendOSNotification = async transaction => {
   const { message } = createTransactionToastMessage(transaction);
   const txnDetailURl = `${transaction.internal.network.transactionUrl}/${transaction.txnHash}`;
-  await Notification.createNotification('ENZYME', message, txnDetailURl);
+  await Notification.createNotification('CLOVER', message, txnDetailURl);
 };
 
 export const updateTransactionState = async (transaction, txnHash, txnStatus) => {

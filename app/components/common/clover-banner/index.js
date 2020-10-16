@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Banner from '../../../images/clover_banner.png';
+import Banner from '../../../images/clover_banner.svg';
 
 export default class CloverBanner extends Component {
   render() {
