@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Footer from '../../common/footer';
-import ButtonMD from '../../common/buttons/button-md';
+import ButtonLG from '../../common/buttons/button-lg';
 
 export default class TOUFooter extends Component {
   render() {
@@ -10,9 +10,9 @@ export default class TOUFooter extends Component {
     return (
       <div {...otherProps}>
         <Footer>
-          <ButtonMD disabled={disabled} onClick={onClick}>
+          <ButtonLG disabled={disabled} onClick={onClick}>
             {buttonName}
-          </ButtonMD>
+          </ButtonLG>
         </Footer>
       </div>
     );

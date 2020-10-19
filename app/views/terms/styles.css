@@ -38,13 +38,13 @@
   line-height: 1.15;
 }
 .tou-main {
-  margin-top: 14px;
   grid-area: main;
   padding: 0 20px;
   height: 460px;
   overflow: hidden;
   overflow-y: scroll;
   text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .tou-header {
@@ -64,4 +64,17 @@
     "footer";
 
   opacity: 100%;
+}
+
+.button-lg button {
+  height: 45px;
+  width: 320px;
+  margin: 20px 20px 10px 20px;
+  background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
+  color: #FFFFFF;
+}
+
+.button-lg button:disabled, .button-lg button[disabled] {
+  background: #F4F4F4;
+  color: rgba(0, 0, 0, 0.5);
 }

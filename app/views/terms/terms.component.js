@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
-import TOUHeader from '../../components/terms/tou-header';
 import TermsOfUse from '../../components/terms/terms-of-use';
 import TOUFooter from '../../components/terms/tou-footer';
 import './styles.css';
@@ -12,7 +11,6 @@ export default class Terms extends Component {
     super(props, context);
     this.state = {
       disabled: true,
-      titleText: 'Read and agree to the following items',
     };
   }
 
