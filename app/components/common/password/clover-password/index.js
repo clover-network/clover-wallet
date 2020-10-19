@@ -27,7 +27,6 @@ export default class CloverPassword extends Component {
       isError,
       password,
       errorMessage,
-      label,
       className,
       handleClickShowPassword,
       ...otherProps
@@ -40,21 +39,18 @@ export default class CloverPassword extends Component {
           className={className}
           error={isError}
           type={showPassword ? 'text' : 'password'}
-          label={label}
           value={password}
           onChange={onChange('password')}
           helperText={errorMessage}
-          InputProps={{
-            endAdornment: (
-              <PasswordAdornment
-                position="end"
-                onClick={this.handleClickShowPassword}
-                showPassword={showPassword}
-                showColor={showColor}
-                hideColor={hideColor}
-              />
-            ),
-          }}
+          endAdornment={(
+            <PasswordAdornment
+              position="end"
+              onClick={this.handleClickShowPassword}
+              showPassword={showPassword}
+              showColor={showColor}
+              hideColor={hideColor}
+            />
+          )}
         />
       </div>
     );

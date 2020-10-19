@@ -19,6 +19,7 @@ export default class SignUp extends Component {
       isRepeatError: false,
       errorTextRepeat: '',
       walletName: '',
+      isWalletNameError: false,
     };
     this.walletNameInput = React.createRef();
     this.passwordInput = React.createRef();
@@ -26,13 +27,14 @@ export default class SignUp extends Component {
   }
 
   componentDidMount() {
-    // this.walletNameInput.focus();
+    this.walletNameInput.focus();
   }
 
   handleOnNameChange = prop => e => {
     const { value } = e.target;
     this.setState({
       [prop]: value,
+      isWalletNameError: false,
     });
   };
 
@@ -49,6 +51,15 @@ export default class SignUp extends Component {
     this.setState({
       [prop]: value,
       isError,
+    });
+  };
+
+  handleOnNameBlur = () => {
+    const { walletName } = this.state;
+    let { isWalletNameError } = this.state;
+    isWalletNameError = walletName.trim() === '';
+    this.setState({
+      isWalletNameError,
     });
   };
 
@@ -109,6 +120,7 @@ export default class SignUp extends Component {
       isRepeatError,
       errorTextRepeat,
       walletName,
+      isWalletNameError,
     } = this.state;
     return (
       <div className="sign-up-container">
@@ -121,14 +133,21 @@ export default class SignUp extends Component {
         <CloverInput
           className="sign-up-password wallet-name-margin"
           type="text"
-          label="Wallet Name"
+          labelWidth={0}
+          placeholder="Wallet Name"
           value={walletName}
           inputRef={input => {
             this.walletNameInput = input;
           }}
           onChange={this.handleOnNameChange('walletName')}
-          helperText=""
+          onBlur={this.handleOnNameBlur}
         />
+
+        {isWalletNameError ? (
+          <span className="error-msg">Wallet name cannot be empty</span>
+        ) : (
+          <span className="place-holder"> </span>
+        )}
 
         <CloverPassword
           className="sign-up-password"
@@ -140,17 +159,19 @@ export default class SignUp extends Component {
           }}
           password={password}
           errorMessage={isError ? errorText : null}
-          label="Password"
+          placeholder="Password"
           handleClickShowPassword={this.handleClickShowPassword}
         />
 
         <CloverInput
           className="sign-up-password input-margin"
-          error={isRepeatError}
-          type="password"
-          label="Repeat Password"
-          value={passwordRepeat}
           onChange={this.handleOnRepeatChange('passwordRepeat')}
+          type="password"
+          placeholder="Repeat Password"
+          value={passwordRepeat}
+          inputRef={input => {
+            this.passwordRepeatInput = input;
+          }}
           helperText={isRepeatError ? errorTextRepeat : null}
         />
 
