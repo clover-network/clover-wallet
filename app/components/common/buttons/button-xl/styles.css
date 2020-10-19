@@ -9,10 +9,6 @@
   color: #FFFFFF;
 }
 
-.button-xl button:hover {
-  background: #F4F4F4;
-}
-
 .button-xl button:disabled, .button-xl button[disabled] {
   background: #F4F4F4;
   color: rgba(0, 0, 0, 0.5);

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CloverPassword from '../../components/common/password/clover-password';
 import ContentHeader from '../../components/common/content-header';
-import PasswordStrength from '../../components/common/password/password-strength';
 import FooterButton from '../../components/common/footer-button';
 import './styles.css';
+import CloverInput from '../../components/common/clover-input';
 
 const errorMessage = 'Must be 8 characters or more in length.';
 const requiredErrorMessage = 'Password required';
@@ -14,11 +14,27 @@ export default class SignUp extends Component {
     this.state = {
       password: '',
       isError: false,
-      label: 'Password',
       errorText: '',
+      passwordRepeat: '',
+      isRepeatError: false,
+      errorTextRepeat: '',
+      walletName: '',
     };
+    this.walletNameInput = React.createRef();
     this.passwordInput = React.createRef();
+    this.passwordRepeatInput = React.createRef();
   }
+
+  componentDidMount() {
+    // this.walletNameInput.focus();
+  }
+
+  handleOnNameChange = prop => e => {
+    const { value } = e.target;
+    this.setState({
+      [prop]: value,
+    });
+  };
 
   handleOnChange = prop => e => {
     const { value } = e.target;
@@ -40,14 +56,31 @@ export default class SignUp extends Component {
     const { password } = this.state;
     let { errorText } = this.state;
     let isError = false;
-    if (password !== '') {
-      this.passwordInput.focus();
-    }
     if (password && password.length < 8) {
       isError = true;
       errorText = errorMessage;
     }
     this.setState({ isError, errorText });
+  };
+
+  handleOnRepeatBlur = () => {
+    const { password, passwordRepeat } = this.state;
+    let { errorTextRepeat } = this.state;
+    let isRepeatError = false;
+    if (passwordRepeat !== password) {
+      isRepeatError = true;
+      errorTextRepeat = 'Password and repeat are not same.';
+    }
+    this.setState({ isRepeatError, errorTextRepeat });
+  };
+
+  handleOnRepeatChange = prop => e => {
+    const { value } = e.target;
+    const isRepeatError = false;
+    this.setState({
+      [prop]: value,
+      isRepeatError,
+    });
   };
 
   handleClick = () => {
@@ -68,17 +101,35 @@ export default class SignUp extends Component {
   };
 
   render() {
-    const { score } = this.props;
     const {
-      isError, password, label, errorText
+      isError,
+      password,
+      passwordRepeat,
+      errorText,
+      isRepeatError,
+      errorTextRepeat,
+      walletName,
     } = this.state;
     return (
       <div className="sign-up-container">
         <ContentHeader
           className="sign-up-content-header"
-          title="Create a password to secure your account"
+          title="Create A Password To Secure Your Account"
           description="The password is used to protect your Enigma seed phrase(s) so that other Chrome extensions can't access them."
         />
+
+        <CloverInput
+          className="sign-up-password wallet-name-margin"
+          type="text"
+          label="Wallet Name"
+          value={walletName}
+          inputRef={input => {
+            this.walletNameInput = input;
+          }}
+          onChange={this.handleOnNameChange('walletName')}
+          helperText=""
+        />
+
         <CloverPassword
           className="sign-up-password"
           onChange={this.handleOnChange}
@@ -89,17 +140,21 @@ export default class SignUp extends Component {
           }}
           password={password}
           errorMessage={isError ? errorText : null}
-          label={label}
+          label="Password"
           handleClickShowPassword={this.handleClickShowPassword}
         />
-        <PasswordStrength
-          className="sign-up-password-meter"
-          title="Password Strength"
-          max="4"
-          score={score}
-          min="0"
+
+        <CloverInput
+          className="sign-up-password input-margin"
+          error={isRepeatError}
+          type="password"
+          label="Repeat Password"
+          value={passwordRepeat}
+          onChange={this.handleOnRepeatChange('passwordRepeat')}
+          helperText={isRepeatError ? errorTextRepeat : null}
         />
-        <FooterButton onClick={this.handleClick} name="create" />
+
+        <FooterButton onClick={this.handleClick} name="next" />
       </div>
     );
   }
@@ -108,11 +163,9 @@ export default class SignUp extends Component {
 SignUp.defaultProps = {
   signUp: undefined,
   setPasswordMeterScore: undefined,
-  score: 0,
 };
 
 SignUp.propTypes = {
   signUp: PropTypes.func,
   setPasswordMeterScore: PropTypes.func,
-  score: PropTypes.number,
 };

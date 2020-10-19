@@ -1,8 +1,8 @@
 export const styles = () => ({
   helperText: {
     '&$helperTextError': {
-      color: 'rgba(176, 0, 32, 1)',
-      fontFamily: 'Roboto-Regular',
+      color: '#FA5050',
+      fontFamily: 'Roboto',
       fontSize: '11px',
     },
   },
@@ -26,21 +26,21 @@ export const styles = () => ({
   inputError: {},
   rootLabel: {
     color: 'rgba(0, 0, 0, 0.6)',
-    fontSize: '15px',
-    fontFamily: 'Roboto-Regular',
+    fontSize: '13px',
+    fontFamily: 'Roboto',
     '&$focusedLabel': {
-      color: 'rgba(215, 95, 160, 1)',
-      fontFamily: 'Roboto-Regular',
+      color: '#E11B7B',
+      fontFamily: 'Roboto',
       transform: 'translate(10px,12px) scale(0.73)',
     },
   },
   rootErrorLabel: {
     color: 'rgba(0, 0, 0, 0.6)',
-    fontSize: '15px',
-    fontFamily: 'Roboto-Regular',
+    fontSize: '13px',
+    fontFamily: 'Roboto',
     '&$errorLabel': {
-      color: 'rgba(176, 0, 32, 1)',
-      fontFamily: 'Roboto-Regular',
+      color: '#FA5050',
+      fontFamily: 'Roboto',
       transform: 'translate(10px,12px) scale(0.73)',
     },
   },
@@ -49,7 +49,7 @@ export const styles = () => ({
       color: '#000000',
       opacity: '0.6',
       fontSize: '16px',
-      fontFamily: 'Roboto-Regular',
+      fontFamily: 'Roboto',
     },
   },
   inputWithWhiteColor: {
@@ -58,7 +58,7 @@ export const styles = () => ({
       color: '#000000',
       opacity: '0.6',
       fontSize: '16px',
-      fontFamily: 'Roboto-Regular',
+      fontFamily: 'Roboto',
     },
   },
   focusedLabel: {},

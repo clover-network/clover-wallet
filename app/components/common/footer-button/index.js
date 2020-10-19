@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ButtonMD from '../buttons/button-md';
+import ButtonXL from '../buttons/button-xl';
 
 export default class FooterButton extends Component {
   render() {
@@ -13,13 +13,12 @@ export default class FooterButton extends Component {
           top: '524px',
           alignSelf: 'center',
           justifyContent: 'center',
-          right: '106.445px',
           display: 'flex',
           ...style,
         }}
         {...otherProps}
       >
-        <ButtonMD onClick={onClick}>{name}</ButtonMD>
+        <ButtonXL onClick={onClick}>{name}</ButtonXL>
       </div>
     );
   }
