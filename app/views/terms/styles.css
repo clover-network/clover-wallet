@@ -66,15 +66,6 @@
   opacity: 100%;
 }
 
-.button-lg button {
-  height: 45px;
-  width: 320px;
+.button-xl button {
   margin: 20px 20px 10px 20px;
-  background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
-  color: #FFFFFF;
-}
-
-.button-lg button:disabled, .button-lg button[disabled] {
-  background: #F4F4F4;
-  color: rgba(0, 0, 0, 0.5);
 }

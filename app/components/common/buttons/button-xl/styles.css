@@ -1,0 +1,19 @@
+.button-xl button {
+  font-size: 14px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  height: 45px;
+  width: 320px;
+  background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
+  color: #FFFFFF;
+}
+
+.button-xl button:hover {
+  background: #F4F4F4;
+}
+
+.button-xl button:disabled, .button-xl button[disabled] {
+  background: #F4F4F4;
+  color: rgba(0, 0, 0, 0.5);
+}
