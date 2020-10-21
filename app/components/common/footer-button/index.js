@@ -4,7 +4,7 @@ import ButtonXL from '../buttons/button-xl';
 export default class FooterButton extends Component {
   render() {
     const {
-      style, name, onClick, ...otherProps
+      style, name, onClick, disabled, ...otherProps
     } = this.props;
     return (
       <div
@@ -18,7 +18,9 @@ export default class FooterButton extends Component {
         }}
         {...otherProps}
       >
-        <ButtonXL onClick={onClick}>{name}</ButtonXL>
+        <ButtonXL disabled={disabled} onClick={onClick}>
+          {name}
+        </ButtonXL>
       </div>
     );
   }

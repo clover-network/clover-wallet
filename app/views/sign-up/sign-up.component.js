@@ -6,20 +6,23 @@ import FooterButton from '../../components/common/footer-button';
 import './styles.css';
 import CloverInput from '../../components/common/clover-input';
 
-const errorMessage = 'Must be 8 characters or more in length.';
-const requiredErrorMessage = 'Password required';
 export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       password: '',
-      isError: false,
-      errorText: '',
+      isPasswordError: true,
+      passwordError: '',
+      // password repeat
       passwordRepeat: '',
-      isRepeatError: false,
-      errorTextRepeat: 'Passwords are not the same.',
+      isPasswordRepeatError: true,
+      passwordRepeatError: '',
+      // wallet name
       walletName: '',
-      isWalletNameError: false,
+      wallNameError: '',
+      isWalletNameError: true,
+      // button status
+      disabled: true,
     };
     this.walletNameInput = React.createRef();
   }
@@ -28,80 +31,60 @@ export default class SignUp extends Component {
     this.walletNameInput.focus();
   }
 
-  handleOnNameChange = prop => e => {
-    const { value } = e.target;
-    this.setState({
-      [prop]: value,
-      isWalletNameError: false,
-    });
-  };
-
   handleOnChange = prop => e => {
     const { value } = e.target;
-    this.setState({
-      [prop]: value,
-      isError: false,
-    });
-  };
-
-  handleOnNameBlur = () => {
-    const { walletName } = this.state;
-    const isWalletNameError = walletName.trim() === '';
-    this.setState({
-      isWalletNameError,
-    });
-  };
-
-  handleOnBlur = () => {
-    const { password } = this.state;
-    let { errorText } = this.state;
-    let isError = false;
-    if (password && password.length < 8) {
-      isError = true;
-      errorText = errorMessage;
+    const {
+      password, isWalletNameError, isPasswordError, isPasswordRepeatError
+    } = this.state;
+    if (prop === 'walletName') {
+      const isWalletNameErrorN = value.trim() === '';
+      const valid = !isWalletNameErrorN && !isPasswordError && !isPasswordRepeatError;
+      this.setState({
+        [prop]: value,
+        isWalletNameError: isWalletNameErrorN,
+        wallNameError: isWalletNameErrorN ? 'Wallet name cannot be empty' : '',
+        disabled: !valid,
+      });
+    } else if (prop === 'password') {
+      const isPasswordErrorN = value.length < 8;
+      const valid = !isWalletNameError && !isPasswordErrorN && !isPasswordRepeatError;
+      this.setState({
+        [prop]: value,
+        isPasswordError: isPasswordErrorN,
+        passwordError: isPasswordErrorN ? 'Must be 8 characters or more in length.' : '',
+        disabled: !valid,
+      });
+    } else {
+      const isPasswordRepeatErrorN = password !== value;
+      const valid = !isWalletNameError && !isPasswordError && !isPasswordRepeatErrorN;
+      this.setState({
+        [prop]: value,
+        isPasswordRepeatError: isPasswordRepeatErrorN,
+        passwordRepeatError: isPasswordRepeatErrorN ? 'Passwords are not the same.' : '',
+        disabled: !valid,
+      });
     }
-    this.setState({ isError, errorText });
-  };
-
-  handleOnRepeatChange = prop => e => {
-    const { value } = e.target;
-    const isRepeatError = false;
-    this.setState({
-      [prop]: value,
-      isRepeatError,
-    });
   };
 
   handleClick = () => {
     const { signUp } = this.props;
-    const { password, type, passwordRepeat } = this.state;
-    let { errorText } = this.state;
-    let isError = false;
-    let isRepeatError = false;
-    if (password.length === 0) {
-      isError = true;
-      errorText = requiredErrorMessage;
-    } else if (password.length < 8) {
-      isError = true;
-      errorText = errorMessage;
-    } else if (password !== passwordRepeat) {
-      isRepeatError = true;
-    } else {
-      signUp(password, type);
-    }
-    this.setState({ isError, errorText, isRepeatError });
+    const { password, type } = this.state;
+    signUp(password, type);
   };
 
   render() {
     const {
-      isError,
+      isPasswordError,
       password,
+      passwordError,
+
       passwordRepeat,
-      errorText,
-      isRepeatError,
-      errorTextRepeat,
+      isPasswordRepeatError,
+      passwordRepeatError,
+
       walletName,
       isWalletNameError,
+      wallNameError,
     } = this.state;
     return (
       <div className="sign-up-container">
@@ -120,46 +103,44 @@ export default class SignUp extends Component {
           inputRef={input => {
             this.walletNameInput = input;
           }}
-          onChange={this.handleOnNameChange('walletName')}
-          onBlur={this.handleOnNameBlur}
+          onChange={this.handleOnChange('walletName')}
         />
 
         {isWalletNameError ? (
-          <span className="error-msg">Wallet name cannot be empty</span>
+          <span className="error-msg">{wallNameError}</span>
         ) : (
           <span className="place-holder"> </span>
         )}
 
         <CloverPassword
           className="sign-up-password"
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
+          onChange={e => this.handleOnChange('password', e)}
           password={password}
           placeholder="Password"
           handleClickShowPassword={this.handleClickShowPassword}
         />
 
-        {isError ? (
-          <span className="error-msg">{errorText}</span>
+        {isPasswordError ? (
+          <span className="error-msg">{passwordError}</span>
         ) : (
           <span className="place-holder"> </span>
         )}
 
         <CloverInput
           className="sign-up-password"
-          onChange={this.handleOnRepeatChange('passwordRepeat')}
+          onChange={this.handleOnChange('passwordRepeat')}
           type="password"
           placeholder="Repeat Password"
           value={passwordRepeat}
         />
 
-        {isRepeatError ? (
-          <span className="error-msg">{errorTextRepeat}</span>
+        {isPasswordRepeatError ? (
+          <span className="error-msg">{passwordRepeatError}</span>
         ) : (
           <span className="place-holder"> </span>
         )}
 
-        <FooterButton onClick={this.handleClick} name="next" />
+        <FooterButton onClick={this.handleClick} disabled={this.state.disabled} name="next" />
       </div>
     );
   }
