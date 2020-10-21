@@ -17,12 +17,10 @@ class CloverInput extends Component {
     return (
       <OutlinedInput
         labelWidth={0}
-        {...otherProps}
         inputProps={{
-          style: {
-            fontSize: '14px',
-          },
+          className: classes.cloverInput,
         }}
+        {...otherProps}
       />
     );
   }

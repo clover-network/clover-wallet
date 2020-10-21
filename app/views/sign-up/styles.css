@@ -4,15 +4,21 @@
   flex-direction: column;
 }
 
-.sign-up-container fieldset {
-  border: 0;
-  background-color: rgba(65, 72, 93, 0.1)
-}
-
 .sign-up-password {
   display: flex;
   width: 321px;
   height: 54.82px;
+}
+
+.sign-up-password fieldset {
+  border: 0;
+  font-size: 14px;
+  background-color: rgba(65, 72, 93, 0.1);
+}
+
+.sign-up-password:focus-within fieldset {
+  background-color: transparent;
+  border: 2px solid #ECEDEF !important;
 }
 
 .input-margin {

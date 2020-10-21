@@ -40,17 +40,11 @@ export default class SignUp extends Component {
 
   handleOnChange = prop => e => {
     const { value } = e.target;
-    const { password } = this.state;
-    let { isError } = this.state;
 
     this.props.setPasswordMeterScore(value);
-
-    if (isError && password && password.length >= 8) {
-      isError = false;
-    }
     this.setState({
       [prop]: value,
-      isError,
+      isError: false,
     });
   };
 
@@ -162,6 +156,12 @@ export default class SignUp extends Component {
           placeholder="Password"
           handleClickShowPassword={this.handleClickShowPassword}
         />
+
+        {isError ? (
+          <span className="error-msg">{errorText}</span>
+        ) : (
+          <span className="place-holder"> </span>
+        )}
 
         <CloverInput
           className="sign-up-password input-margin"

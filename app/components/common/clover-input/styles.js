@@ -1,4 +1,11 @@
 export const styles = () => ({
+  cloverInput: {
+    fontSize: '14px',
+    '&:focus': {
+      border: 'none',
+      color: 'black',
+    },
+  },
   helperText: {
     '&$helperTextError': {
       color: '#FA5050',
