@@ -17,13 +17,11 @@ export default class SignUp extends Component {
       errorText: '',
       passwordRepeat: '',
       isRepeatError: false,
-      errorTextRepeat: '',
+      errorTextRepeat: 'Passwords are not the same.',
       walletName: '',
       isWalletNameError: false,
     };
     this.walletNameInput = React.createRef();
-    this.passwordInput = React.createRef();
-    this.passwordRepeatInput = React.createRef();
   }
 
   componentDidMount() {
@@ -40,8 +38,6 @@ export default class SignUp extends Component {
 
   handleOnChange = prop => e => {
     const { value } = e.target;
-
-    this.props.setPasswordMeterScore(value);
     this.setState({
       [prop]: value,
       isError: false,
@@ -50,8 +46,7 @@ export default class SignUp extends Component {
 
   handleOnNameBlur = () => {
     const { walletName } = this.state;
-    let { isWalletNameError } = this.state;
-    isWalletNameError = walletName.trim() === '';
+    const isWalletNameError = walletName.trim() === '';
     this.setState({
       isWalletNameError,
     });
@@ -68,17 +63,6 @@ export default class SignUp extends Component {
     this.setState({ isError, errorText });
   };
 
-  handleOnRepeatBlur = () => {
-    const { password, passwordRepeat } = this.state;
-    let { errorTextRepeat } = this.state;
-    let isRepeatError = false;
-    if (passwordRepeat !== password) {
-      isRepeatError = true;
-      errorTextRepeat = 'Password and repeat are not same.';
-    }
-    this.setState({ isRepeatError, errorTextRepeat });
-  };
-
   handleOnRepeatChange = prop => e => {
     const { value } = e.target;
     const isRepeatError = false;
@@ -90,19 +74,22 @@ export default class SignUp extends Component {
 
   handleClick = () => {
     const { signUp } = this.props;
-    const { password, type } = this.state;
+    const { password, type, passwordRepeat } = this.state;
     let { errorText } = this.state;
     let isError = false;
+    let isRepeatError = false;
     if (password.length === 0) {
       isError = true;
       errorText = requiredErrorMessage;
     } else if (password.length < 8) {
       isError = true;
       errorText = errorMessage;
+    } else if (password !== passwordRepeat) {
+      isRepeatError = true;
     } else {
       signUp(password, type);
     }
-    this.setState({ isError, errorText });
+    this.setState({ isError, errorText, isRepeatError });
   };
 
   render() {
@@ -146,13 +133,8 @@ export default class SignUp extends Component {
         <CloverPassword
           className="sign-up-password"
           onChange={this.handleOnChange}
-          isError={isError}
           onBlur={this.handleOnBlur}
-          inputRef={input => {
-            this.passwordInput = input;
-          }}
           password={password}
-          errorMessage={isError ? errorText : null}
           placeholder="Password"
           handleClickShowPassword={this.handleClickShowPassword}
         />
@@ -164,16 +146,18 @@ export default class SignUp extends Component {
         )}
 
         <CloverInput
-          className="sign-up-password input-margin"
+          className="sign-up-password"
           onChange={this.handleOnRepeatChange('passwordRepeat')}
           type="password"
           placeholder="Repeat Password"
           value={passwordRepeat}
-          inputRef={input => {
-            this.passwordRepeatInput = input;
-          }}
-          helperText={isRepeatError ? errorTextRepeat : null}
         />
+
+        {isRepeatError ? (
+          <span className="error-msg">{errorTextRepeat}</span>
+        ) : (
+          <span className="place-holder"> </span>
+        )}
 
         <FooterButton onClick={this.handleClick} name="next" />
       </div>
@@ -183,10 +167,8 @@ export default class SignUp extends Component {
 
 SignUp.defaultProps = {
   signUp: undefined,
-  setPasswordMeterScore: undefined,
 };
 
 SignUp.propTypes = {
   signUp: PropTypes.func,
-  setPasswordMeterScore: PropTypes.func,
 };
