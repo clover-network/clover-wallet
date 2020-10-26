@@ -3,7 +3,7 @@ export const styles = () => ({
     backgroundColor: 'rgba(255, 255, 255, 1)',
   },
   tabsIndicator: {
-    backgroundColor: 'rgba(215, 95, 160, 1)',
+    backgroundColor: '#FB822A',
     height: '2px',
   },
   tabRoot: {
@@ -12,17 +12,17 @@ export const styles = () => ({
     height: '48px',
     textTransform: 'capitalise',
     fontSize: '14px',
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Roboto',
     '&:hover': {
-      color: 'rgba(215, 95, 160, 1)',
+      color: '#FB822A',
       opacity: 1,
     },
     '&$tabSelected': {
-      color: 'rgba(215, 95, 160, 1)',
+      color: '#FB822A',
       fontSize: '14px',
     },
     '&:focus': {
-      color: 'rgba(215, 95, 160, 1)',
+      color: '#FB822A',
     },
   },
   tabSelected: {},

@@ -24,7 +24,7 @@ export default class CreateAccount extends Component {
       confirmSeedPhrase: '',
       isError: false,
       errorMessage: null,
-      labels: ['generate', 'import'],
+      labels: ['create', 'import'],
       alias: '',
       disableAccountSettings: false,
       isAliasError: false,
