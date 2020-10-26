@@ -10,6 +10,7 @@ import FooterButton from '../../components/common/footer-button';
 import FooterWithTwoButton from '../../components/common/footer-with-two-button';
 import * as Account from '../../constants/account';
 import './styles.css';
+import { copyDataMessage } from '../../../lib/services/static-message-factory-service';
 
 export default class CreateAccount extends Component {
   constructor(props) {
@@ -118,7 +119,7 @@ export default class CreateAccount extends Component {
     });
   };
 
-  handelBack = () => {
+  handleBack = () => {
     if (
       this.state.formValue === Account.CREATE_ACCOUNT
       || this.state.formValue === Account.IMPORT_ACCOUNT
@@ -186,6 +187,10 @@ export default class CreateAccount extends Component {
       isError,
       errorMessage,
     });
+  };
+
+  onCopy = () => {
+    this.props.createToast({ message: copyDataMessage(), type: 'info' });
   };
 
   onKeypairTypeChange = e => {
@@ -297,6 +302,7 @@ export default class CreateAccount extends Component {
           importSeedPhraseInputName={importSeedPhraseInputName}
           confirmSeedPhraseInputName={confirmSeedPhraseInputName}
           alias={alias}
+          onCopy={this.onCopy}
           seedRef={input => {
             this.seedInput = input;
           }}
@@ -328,7 +334,7 @@ export default class CreateAccount extends Component {
         {formValue === Account.CONFIRM_ACCOUNT || account !== undefined ? (
           <FooterWithTwoButton
             onNextClick={onSubmit}
-            onBackClick={this.handelBack}
+            onBackClick={this.handleBack}
             backButtonName={backButtonName}
             nextButtonName={buttonName}
           />

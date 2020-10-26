@@ -7,11 +7,13 @@ export const styles = () => ({
     height: '2px',
   },
   tabRoot: {
-    color: 'rgba(0, 0, 0, 0.6)',
+    color: 'black',
     width: '180px',
     height: '48px',
+    opacity: '1',
     textTransform: 'capitalise',
-    fontSize: '14px',
+    fontSize: '16px',
+    fontWeight: 'bold',
     fontFamily: 'Roboto',
     '&:hover': {
       color: '#FB822A',
@@ -19,7 +21,8 @@ export const styles = () => ({
     },
     '&$tabSelected': {
       color: '#FB822A',
-      fontSize: '14px',
+      opacity: '1',
+      fontSize: '16px',
     },
     '&:focus': {
       color: '#FB822A',

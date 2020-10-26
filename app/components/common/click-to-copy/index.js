@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import FontRegular from '../fonts/font-regular';
+import './styles.css';
 
 export default class ClickToCopy extends Component {
   render() {
@@ -9,7 +10,10 @@ export default class ClickToCopy extends Component {
     } = this.props;
     return (
       <CopyToClipboard text={value} onCopy={onCopy}>
-        <FontRegular {...otherProps} text={text} />
+        <div className="copy-container">
+          <div className="copy-image" />
+          <FontRegular {...otherProps} text={text} />
+        </div>
       </CopyToClipboard>
     );
   }
