@@ -18,6 +18,8 @@
   width: 18px;
   height: 18px;
   display: inline-block;
+  margin-top: -6px;
+  vertical-align: middle;
 }
 
 .copy-container:hover .copy-image {
@@ -26,6 +28,8 @@
   width: 18px;
   height: 18px;
   display: inline-block;
+  margin-top: -6px;
+  vertical-align: middle;
 }
 
 svg:hover {

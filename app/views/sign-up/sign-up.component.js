@@ -34,7 +34,11 @@ export default class SignUp extends Component {
   handleOnChange = prop => e => {
     const { value } = e.target;
     const {
-      password, isWalletNameError, isPasswordError, isPasswordRepeatError
+      password,
+      passwordRepeat,
+      isWalletNameError,
+      isPasswordError,
+      isPasswordRepeatError,
     } = this.state;
     if (prop === 'walletName') {
       const isWalletNameErrorN = value.trim() === '';
@@ -47,11 +51,15 @@ export default class SignUp extends Component {
       });
     } else if (prop === 'password') {
       const isPasswordErrorN = value.length < 8;
-      const valid = !isWalletNameError && !isPasswordErrorN && !isPasswordRepeatError;
+      const isPasswordRepeatErrorN = passwordRepeat !== value;
+      const valid = !isWalletNameError && !isPasswordErrorN && !isPasswordRepeatErrorN;
       this.setState({
         [prop]: value,
         isPasswordError: isPasswordErrorN,
         passwordError: isPasswordErrorN ? 'Must be 8 characters or more in length.' : '',
+        isPasswordRepeatError: isPasswordRepeatErrorN,
+        passwordRepeatError:
+          passwordRepeat && isPasswordRepeatErrorN ? 'Passwords are not the same.' : '',
         disabled: !valid,
       });
     } else {
@@ -67,9 +75,10 @@ export default class SignUp extends Component {
   };
 
   handleClick = () => {
-    const { signUp } = this.props;
-    const { password, type } = this.state;
-    signUp(password, type);
+    const { signUp, setWalletName } = this.props;
+    const { password, walletName } = this.state;
+    setWalletName(walletName);
+    signUp(password);
   };
 
   render() {
@@ -148,8 +157,10 @@ export default class SignUp extends Component {
 
 SignUp.defaultProps = {
   signUp: undefined,
+  setWalletName: undefined,
 };
 
 SignUp.propTypes = {
   signUp: PropTypes.func,
+  setWalletName: PropTypes.func,
 };

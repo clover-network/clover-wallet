@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
 import SignUp from './sign-up.component';
-import { signUp, setPasswordMeterScore } from './actions';
+import { signUp, setWalletName } from './actions';
 
 const mapStateToProps = state => ({
-  score: state.signUpReducer.score,
+  name: state.signUpReducer.name,
 });
 
 const mapDispatchToProps = {
   signUp,
-  setPasswordMeterScore,
+  setWalletName,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

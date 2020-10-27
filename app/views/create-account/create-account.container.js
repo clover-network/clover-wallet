@@ -18,6 +18,7 @@ const mapStateToProps = state => ({
   success: state.createAccountReducer.success,
   keypairType: state.createAccountReducer.keypairType,
   keypairTypes: state.createAccountReducer.keypairTypes,
+  alias: state.signUpReducer.name,
 });
 
 const mapDispatchToProps = {

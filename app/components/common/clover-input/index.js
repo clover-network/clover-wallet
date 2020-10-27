@@ -5,15 +5,7 @@ import { styles } from './styles';
 
 class CloverInput extends Component {
   render() {
-    const {
-      classes,
-      helperText,
-      error,
-      InputProps,
-      inputStyles,
-      withWhiteColor,
-      ...otherProps
-    } = this.props;
+    const { classes, InputProps, ...otherProps } = this.props;
     return (
       <OutlinedInput
         labelWidth={0}
