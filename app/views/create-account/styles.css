@@ -8,10 +8,10 @@
 }
 
 .create-account-settings {
-  position: absolute;
-  top: 260px;
-  left: 18px;
+  margin-top: 30px;
   width: 321px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button-primary button {
