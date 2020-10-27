@@ -3,11 +3,11 @@ import PasswordAdornment from '../password-adornment';
 import CloverInput from '../../clover-input';
 
 const showColor = {
-  color: 'rgba(215, 95, 160, 1)',
+  color: 'black',
 };
 
 const hideColor = {
-  color: 'rgba(0, 0, 0, 0.5)',
+  color: 'black',
 };
 
 export default class CloverPassword extends Component {
@@ -26,8 +26,6 @@ export default class CloverPassword extends Component {
       onChange,
       isError,
       password,
-      errorMessage,
-      label,
       className,
       handleClickShowPassword,
       ...otherProps
@@ -40,21 +38,17 @@ export default class CloverPassword extends Component {
           className={className}
           error={isError}
           type={showPassword ? 'text' : 'password'}
-          label={label}
           value={password}
           onChange={onChange('password')}
-          helperText={errorMessage}
-          InputProps={{
-            endAdornment: (
-              <PasswordAdornment
-                position="end"
-                onClick={this.handleClickShowPassword}
-                showPassword={showPassword}
-                showColor={showColor}
-                hideColor={hideColor}
-              />
-            ),
-          }}
+          endAdornment={(
+            <PasswordAdornment
+              position="end"
+              onClick={this.handleClickShowPassword}
+              showPassword={showPassword}
+              showColor={showColor}
+              hideColor={hideColor}
+            />
+          )}
         />
       </div>
     );

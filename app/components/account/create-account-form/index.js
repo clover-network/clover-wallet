@@ -22,11 +22,14 @@ export default class CreateAccountForm extends Component {
       handleConfirmSeedWordsOnBlur,
       confirmedSeedWords,
       alias,
+      onCopy,
       ...otherProps
     } = this.props;
     return (
       <div {...otherProps}>
-        {value === Account.CREATE_ACCOUNT && <GenerateSeedPhrase seedWords={generatedSeedWords} />}
+        {value === Account.CREATE_ACCOUNT && (
+          <GenerateSeedPhrase seedWords={generatedSeedWords} onCopy={onCopy} />
+        )}
         {value === Account.IMPORT_ACCOUNT && (
           <ImportSeedPhrase
             onChange={onChange}

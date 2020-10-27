@@ -2,7 +2,7 @@ import * as Types from './action-types';
 
 const initialState = {
   success: false,
-  score: 0,
+  name: '',
 };
 
 const reducer = (state = { initialState }, action) => {
@@ -14,11 +14,11 @@ const reducer = (state = { initialState }, action) => {
           success: true,
         },
       };
-    case Types.UPDATE_PASSWORD_METER_SCORE:
+    case Types.UPDATE_WALLET_NAME:
       return {
         ...state,
         ...{
-          score: action.score,
+          name: action.name,
         },
       };
     default:

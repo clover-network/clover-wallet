@@ -8,6 +8,7 @@ import {
   createFirstAccountWithSeedPhraseSuccess,
 } from './actions';
 import { updateAppLoading, changePage } from '../../containers/actions';
+import { createToast } from '../../constants/toast';
 
 const mapStateToProps = state => ({
   seedWords: state.accountReducer.seedWords,
@@ -17,6 +18,7 @@ const mapStateToProps = state => ({
   success: state.createAccountReducer.success,
   keypairType: state.createAccountReducer.keypairType,
   keypairTypes: state.createAccountReducer.keypairTypes,
+  alias: state.signUpReducer.name,
 });
 
 const mapDispatchToProps = {
@@ -27,6 +29,7 @@ const mapDispatchToProps = {
   createFirstAccountWithSeedPhraseSuccess,
   updateAppLoading,
   changePage,
+  createToast,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);

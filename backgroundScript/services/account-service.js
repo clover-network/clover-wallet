@@ -207,7 +207,7 @@ export const accountForDapp = accountState => {
         name: obj.alias,
         meta: {
           name: obj.alias,
-          source: 'enzyme',
+          source: 'clover',
         },
       };
       return accountsWithoutSeedWords;

@@ -1,14 +1,28 @@
 .sign-up-container {
-  padding: 40px 18px 0px 18px;
+  padding: 30px 18px 0 18px;
   display: flex;
   flex-direction: column;
 }
 
 .sign-up-password {
   display: flex;
-  margin-top: 28.5px;
   width: 321px;
   height: 54.82px;
+}
+
+.sign-up-password fieldset {
+  border: 0;
+  font-size: 14px;
+  background-color: rgba(65, 72, 93, 0.1);
+}
+
+.sign-up-password:focus-within fieldset {
+  background-color: transparent;
+  border: 2px solid #ECEDEF !important;
+}
+
+.input-margin {
+  margin-top: 12px !important;
 }
 
 .sign-up-password-meter {
@@ -18,4 +32,18 @@
 .key-pair-crypto-type {
   margin-top: 50px;
   align-self: center;
+}
+
+.wallet-name-margin {
+  margin-top: 30px !important;
+  font-size: 12px;
+}
+
+.error-msg {
+  color: #FA5050;
+  height: 20px;
+}
+
+.place-holder {
+  height: 20px;
 }

@@ -8,21 +8,21 @@
 }
 
 .clover-banner {
-  height: 23px;
+  height: 30px;
 }
 
 .clover-header {
   display: flex;
   flex-direction: row;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #FAFAFA;
   padding: 11px 17.1px 11px 15px;
-  height: 50px;
+  height: 62px;
   width: 360px;
   align-items: center;
 }
 
 .clover-header-banner {
-  justify-content: center;
+  justify-content: left;
 }
 
 .clover-header-boarded {

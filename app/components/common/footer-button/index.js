@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ButtonMD from '../buttons/button-md';
+import ButtonXL from '../buttons/button-xl';
 
 export default class FooterButton extends Component {
   render() {
     const {
-      style, name, onClick, ...otherProps
+      style, name, onClick, disabled, ...otherProps
     } = this.props;
     return (
       <div
@@ -13,13 +13,14 @@ export default class FooterButton extends Component {
           top: '524px',
           alignSelf: 'center',
           justifyContent: 'center',
-          right: '106.445px',
           display: 'flex',
           ...style,
         }}
         {...otherProps}
       >
-        <ButtonMD onClick={onClick}>{name}</ButtonMD>
+        <ButtonXL disabled={disabled} onClick={onClick}>
+          {name}
+        </ButtonXL>
       </div>
     );
   }

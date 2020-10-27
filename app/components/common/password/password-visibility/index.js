@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IconVisibility } from '../../icon';
+import { IconVisibility, IconVisibilityOff } from '../../icon';
 
 export default class PasswordVisibility extends Component {
   render() {
@@ -8,7 +8,11 @@ export default class PasswordVisibility extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        {showPassword ? <IconVisibility style={showColor} /> : <IconVisibility style={hideColor} />}
+        {showPassword ? (
+          <IconVisibility style={showColor} />
+        ) : (
+          <IconVisibilityOff style={hideColor} />
+        )}
       </div>
     );
   }
