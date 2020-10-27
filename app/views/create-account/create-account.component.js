@@ -11,6 +11,7 @@ import FooterWithTwoButton from '../../components/common/footer-with-two-button'
 import * as Account from '../../constants/account';
 import './styles.css';
 import { copyDataMessage } from '../../../lib/services/static-message-factory-service';
+import HintDialog from '../hint/hint.component';
 
 export default class CreateAccount extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ export default class CreateAccount extends Component {
       disableAccountSettings: false,
       importSeedPhraseInputName: 'importedSeedPhrase',
       confirmSeedPhraseInputName: 'confirmSeedPhrase',
+      openModal: true,
     };
     this.validator = new CloverValidator(validator.importSeedPhraseValidation);
     this.seedInput = React.createRef();
@@ -174,6 +176,12 @@ export default class CreateAccount extends Component {
     }
   };
 
+  handleClose = () => {
+    this.setState({
+      openModal: false,
+    });
+  };
+
   validateSeedPhrase(importedSeedPhrase) {
     let { isError, errorMessage } = this.state;
     const validation = this.validator.validate({
@@ -211,10 +219,16 @@ export default class CreateAccount extends Component {
       importSeedPhraseInputName,
       confirmSeedPhraseInputName,
       backButtonName,
+      openModal,
     } = this.state;
 
     return (
       <div>
+        <HintDialog
+          isOpen={openModal}
+          handleClose={this.handleClose}
+          handleYes={this.handleClose}
+        />
         <CloverTabs value={value} onChange={this.handleChange} labels={labels} />
         <CreateAccountForm
           value={formValue}

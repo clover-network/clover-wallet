@@ -19,7 +19,7 @@ export default class CreateAccountAdvancedConfig extends Component {
           <FontRegular
             text="Keypair Crypto Type"
             style={{
-              fontSize: 14,
+              fontSize: 13,
               margin: '14px 0px 14px 0px',
             }}
           />

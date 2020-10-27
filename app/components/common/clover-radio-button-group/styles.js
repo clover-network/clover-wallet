@@ -2,7 +2,7 @@ export const styles = () => ({
   root: { marginRight: 0, marginLeft: 0 },
   label: {
     fontFamily: 'Roboto',
-    fontSize: '14px',
+    fontSize: '13px',
   },
   colorSecondary: {
     color: 'none',
