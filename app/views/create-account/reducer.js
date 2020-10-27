@@ -1,11 +1,11 @@
 import * as Types from './action-types';
-import { KEYPAIR_EDWARDS, KEYPAIR_TYPES } from '../../../lib/constants/api';
+import { KEYPAIR_SCHNORRKEL, KEYPAIR_TYPES } from '../../../lib/constants/api';
 
 const initialState = {
   success: false,
   aliasError: null,
   error: null,
-  keypairType: KEYPAIR_EDWARDS,
+  keypairType: KEYPAIR_SCHNORRKEL,
   keypairTypes: KEYPAIR_TYPES,
 };
 

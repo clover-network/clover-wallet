@@ -40,7 +40,7 @@ class CloverExpansionPanel extends Component {
             expandIcon: classes.expandIcon,
           }}
           // eslint-disable-next-line react/no-children-prop
-          children={<FontRegular text={title} style={{ fontSize: 14, fontWeight: 'bolder' }} />}
+          children={<FontRegular text={title} style={{ fontSize: 16, fontWeight: 'normal' }} />}
         />
         <ExpansionPanelDetails
           classes={{ root: classes.detailsRoot }}

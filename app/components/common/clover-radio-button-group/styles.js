@@ -1,15 +1,14 @@
 export const styles = () => ({
   root: { marginRight: 0, marginLeft: 0 },
   label: {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: 'Roboto',
     fontSize: '14px',
-    fontWeight: 'bolder',
   },
   colorSecondary: {
     color: 'none',
     padding: '0px 3px 0px 0px',
     '&$checked': {
-      color: 'rgba(215, 95, 160, 1)',
+      color: '#FB822A',
       padding: '0px 3px 0px 0px',
     },
   },
