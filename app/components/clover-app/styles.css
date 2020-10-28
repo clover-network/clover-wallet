@@ -30,6 +30,11 @@
 }
 
 .clover-network {
+  background: #FFFFFF;
+  border: 1px solid #FB822A;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding: 10px 10px;
 }
 
 .clover-network-status {
@@ -38,13 +43,15 @@
 
 .clover-config {
   display: flex;
-  flex-direction: row;
+  width: 100%;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 .clover-settings {
   margin-left: 16px;
   align-self: center;
   display: flex;
+  cursor: pointer;
   flex-direction: row;
 }

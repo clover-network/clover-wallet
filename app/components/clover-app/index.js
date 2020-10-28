@@ -9,7 +9,6 @@ import Network from '../network/network';
 import Options from '../options';
 import CloverBanner from '../common/clover-banner';
 import CloverLogo from '../common/clover-logo';
-import { NetworkDisconnectionIcon } from '../common/icon';
 import './styles.css';
 
 export default class CloverApp extends Component {
@@ -51,10 +50,6 @@ export default class CloverApp extends Component {
       'clover-network': showNetwork,
       'display-none': !showNetwork,
     });
-    const CloverNetworkStatusClassNames = classnames({
-      'display-none': isConnected,
-      'clover-network-status': !isConnected,
-    });
     const CloverBannerClassNames = classnames({
       'clover-banner': showBanner,
       'display-none': !showBanner,
@@ -74,23 +69,19 @@ export default class CloverApp extends Component {
             <CloverLogo onClick={onLogoClick} className={CloverLogoClassNames} />
             <CloverBanner className={CloverBannerClassNames} />
             <div className={CloverConfigClassNames}>
-              <NetworkDisconnectionIcon
-                title="Network unavailable"
-                className={CloverNetworkStatusClassNames}
-              />
-              <Network
-                networks={networks}
-                network={network}
-                onNetworkChange={onNetworkChange}
-                className={CloverNetworkClassNames}
-                page={page}
-              />
               <Options
                 onToggleDeveloperMode={onToggleDeveloperMode}
                 options={options}
                 onOptionsChange={onOptionsChange}
                 className={CloverSettingsClassNames}
                 isDeveloperMode={isDeveloperMode}
+                page={page}
+              />
+              <Network
+                networks={networks}
+                network={network}
+                onNetworkChange={onNetworkChange}
+                className={CloverNetworkClassNames}
                 page={page}
               />
             </div>

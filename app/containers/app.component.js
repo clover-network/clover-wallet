@@ -35,7 +35,7 @@ export default class App extends Component {
     if (prevProps.page !== LOADER_OVERLAY) {
       if (ONBOARDING_PAGES_GROUP.indexOf(prevProps.page) !== -1) {
         return {
-          showHeader: prevProps.page !== SIGN_IN_PAGE, // no change
+          showHeader: prevProps.page !== SIGN_IN_PAGE,
           showLogo: false,
           showBanner: true,
           showNetwork: false,
@@ -43,9 +43,9 @@ export default class App extends Component {
         };
       }
       return {
-        showHeader: true, // no change
-        showLogo: true,
-        showBanner: false,
+        showHeader: true,
+        showLogo: false,
+        showBanner: true,
         showNetwork: true,
         showSettings: true,
       };

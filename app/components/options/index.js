@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { IconSettings } from '../common/icon';
 import CloverMenu from '../common/clover-menu';
 import { DISABLE_SETTINGS_PAGES_GROUP } from '../../constants/navigation';
+import Settings from '../../images/setting.svg';
 
 export default class Options extends Component {
   state = {
@@ -30,9 +30,12 @@ export default class Options extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <IconSettings
-          style={{ color: 'rgba(255, 255, 255, 1)', fontSize: '18px' }}
+        <img
+          src={Settings}
+          aria-hidden="true"
           onClick={this.handleClick}
+          alt="settings"
+          width="26"
         />
         <CloverMenu
           isDeveloperMode={isDeveloperMode}
