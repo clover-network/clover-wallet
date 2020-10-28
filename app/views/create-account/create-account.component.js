@@ -73,10 +73,10 @@ export default class CreateAccount extends Component {
   };
 
   handleImportSeedWordsChange = prop => e => {
-    let { value } = e.target;
+    const { value } = e.target;
     let { isError, errorMessage } = this.state;
     const { error, resetImportAccountWithSeedPhraseError } = this.props;
-    value = value.trim().replace(/\n/g, ' ');
+    // value = value.trim().replace(/\n/g, ' ');
     if (error) {
       resetImportAccountWithSeedPhraseError();
     }
