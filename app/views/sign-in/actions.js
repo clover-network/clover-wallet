@@ -26,7 +26,7 @@ export const unlockClover = password => async dispatch => {
     };
     switch (e.code) {
       case APIConstants.FAILURE:
-        error.message = password !== '' ? 'Password is incorrect.' : 'Password is required.';
+        error.message = password !== '' ? 'Incorrect password' : 'Password is required';
         break;
       default:
     }

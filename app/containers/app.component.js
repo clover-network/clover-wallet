@@ -4,6 +4,7 @@ import {
   DASHBOARD_PAGE,
   CUSTOM_NETWORK_PAGE,
   LOADER_OVERLAY,
+  SIGN_IN_PAGE,
   ONBOARDING_PAGES_GROUP,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
@@ -34,7 +35,7 @@ export default class App extends Component {
     if (prevProps.page !== LOADER_OVERLAY) {
       if (ONBOARDING_PAGES_GROUP.indexOf(prevProps.page) !== -1) {
         return {
-          showHeader: true, // no change
+          showHeader: prevProps.page !== SIGN_IN_PAGE, // no change
           showLogo: false,
           showBanner: true,
           showNetwork: false,
