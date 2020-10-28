@@ -10,19 +10,19 @@ export default class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      password: '11111111',
+      password: '',
       isPasswordError: true,
       passwordError: '',
       // password repeat
-      passwordRepeat: '11111111',
+      passwordRepeat: '',
       isPasswordRepeatError: true,
       passwordRepeatError: '',
       // wallet name
-      walletName: 'werlandy',
+      walletName: '',
       wallNameError: '',
       isWalletNameError: true,
       // button status
-      disabled: false,
+      disabled: true,
     };
     this.walletNameInput = React.createRef();
   }

@@ -10,7 +10,7 @@ export function createToast(_options = {}, _hideProgressBar) {
   return () => {
     if (_options) {
       const {
-        message, type, isCustom, autoClose, toastType, onClick
+        message, type, isCustom, autoClose, toastType, onClick, toastPosition
       } = _options;
       switch (type) {
         case 'success':
@@ -32,7 +32,7 @@ export function createToast(_options = {}, _hideProgressBar) {
       }
       toast(msg, {
         type: toastType === undefined ? type : toastType,
-        position: toast.POSITION.BOTTOM_CENTER,
+        position: toastPosition === undefined ? toast.POSITION.BOTTOM_CENTER : toastPosition,
         hideProgressBar: _hideProgressBar === undefined ? true : _hideProgressBar,
         autoClose: autoClose === undefined ? 2500 : autoClose,
       });

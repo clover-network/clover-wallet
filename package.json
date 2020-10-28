@@ -151,6 +151,7 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.0.1",
     "scryptsy": "^2.0.0",
+    "styled-components": "^5.2.0",
     "zxcvbn": "^4.4.2"
   },
   "lint-staged": {

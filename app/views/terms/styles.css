@@ -40,7 +40,7 @@
 .tou-main {
   grid-area: main;
   padding: 0 20px;
-  height: 460px;
+  height: 462px;
   overflow: hidden;
   overflow-y: scroll;
   text-align: left;

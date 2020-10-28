@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import CloverValidator from '../../utils/clover-validator';
 import validator from '../../utils/clover-validator/validator';
 import CreateAccountForm from '../../components/account/create-account-form';
@@ -155,7 +156,11 @@ export default class CreateAccount extends Component {
   };
 
   onCopy = () => {
-    this.props.createToast({ message: copyDataMessage(), type: 'info' });
+    this.props.createToast({
+      message: copyDataMessage(),
+      type: 'info',
+      toastPosition: toast.POSITION.TOP_CENTER,
+    });
   };
 
   onKeypairTypeChange = e => {
