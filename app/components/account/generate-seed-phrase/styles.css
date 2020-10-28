@@ -1,12 +1,12 @@
 .seed-phrase-title {
-  font-family: "Roboto";
+  font-family: "Inter-Regular";
   font-size: 14px;
   color: rgba(0, 0, 0, 1);
   font-weight: 400;
 }
 
 .seed-phrase-description {
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   font-size: 12px;
   margin-top: 6px;
   color: rgba(0, 0, 0, 1);
@@ -17,7 +17,7 @@
 }
 
 .seed-phrase-copy {
-  font-family: "Roboto";
+  font-family: "Inter-Regular";
   font-size: 14px;
   cursor: pointer;
   display: inline-block;

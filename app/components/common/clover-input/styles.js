@@ -9,7 +9,7 @@ export const styles = () => ({
   helperText: {
     '&$helperTextError': {
       color: '#FA5050',
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter-Regular',
       fontSize: '11px',
     },
   },
@@ -34,20 +34,20 @@ export const styles = () => ({
   rootLabel: {
     color: 'rgba(0, 0, 0, 0.6)',
     fontSize: '13px',
-    fontFamily: 'Roboto',
+    fontFamily: 'Inter-Regular',
     '&$focusedLabel': {
       color: '#E11B7B',
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter-Regular',
       transform: 'translate(10px,12px) scale(0.73)',
     },
   },
   rootErrorLabel: {
     color: 'rgba(0, 0, 0, 0.6)',
     fontSize: '13px',
-    fontFamily: 'Roboto',
+    fontFamily: 'Inter-Regular',
     '&$errorLabel': {
       color: '#FA5050',
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter-Regular',
       transform: 'translate(10px,12px) scale(0.73)',
     },
   },
@@ -56,7 +56,7 @@ export const styles = () => ({
       color: '#000000',
       opacity: '0.6',
       fontSize: '16px',
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter-Regular',
     },
   },
   inputWithWhiteColor: {
@@ -65,7 +65,7 @@ export const styles = () => ({
       color: '#000000',
       opacity: '0.6',
       fontSize: '16px',
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter-Regular',
     },
   },
   focusedLabel: {},

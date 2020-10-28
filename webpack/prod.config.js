@@ -85,7 +85,7 @@ module.exports = {
         use: 'bundle-loader',
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf|eot|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(png|jpg|gif|svg|ttf|otf|eot|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
           {
             loader: 'file-loader',

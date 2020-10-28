@@ -22,7 +22,7 @@ export const styles = () => ({
     paddingLeft: '18px',
     paddingRight: '18px',
     color: 'rgba(0, 0, 0, 0.87)',
-    fontFamily: 'Inter',
+    fontFamily: 'Inter-Regular',
     fontSize: '16px',
   },
   input: {
@@ -30,7 +30,7 @@ export const styles = () => ({
       color: '#000000',
       opacity: '0.6',
       fontSize: '14px',
-      fontFamily: 'Inter',
+      fontFamily: 'Inter-Regular',
     },
   },
   inputError: {},

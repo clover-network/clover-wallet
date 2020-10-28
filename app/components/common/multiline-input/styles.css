@@ -1,8 +1,7 @@
 .wallet-multiline-input {
   width: 320px;
   color: #fb822a;
-  font-family: "Inter";
-  font-weight: bold;
+  font-family: "Inter-Bold";
   font-size: 14px;
   transition: border-color 200ms ease-in-out;
 }

@@ -73,6 +73,50 @@ p {
 }
 
 @font-face {
+  font-family: "Inter-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Roboto-Regular"),
+  url("../../browser/assets/Fonts/Inter/Inter-Regular.otf")
+  format("openType");
+}
+
+@font-face {
+  font-family: "Inter-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Inter-Bold"),
+  url("../../browser/assets/Fonts/Inter/Inter-Bold.otf")
+  format("openType");
+}
+
+@font-face {
+  font-family: "Inter-Black";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Inter-Black"),
+  url("../../browser/assets/Fonts/Inter/Inter-Black.otf")
+  format("openType");
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Roboto-Light"),
+  url("../../browser/assets/Fonts/Roboto/Roboto-Light.ttf") format("trueType");
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Roboto-Medium"),
+  url("../../browser/assets/Fonts/Roboto/Roboto-Medium.ttf")
+  format("trueType");
+}
+
+@font-face {
   font-family: "Roboto-Regular";
   font-style: normal;
   font-weight: normal;

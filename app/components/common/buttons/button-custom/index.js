@@ -17,9 +17,8 @@ class ButtonCustom extends Component {
     const { ...otherProps } = this.props;
     const ButtonCustom = styled(Button)`
       font-size: 14px;
-      font-family: 'Roboto';
+      font-family: 'Inter-Bold';
       font-style: normal;
-      font-weight: bold;
       height: 45px;
       border: ${this.props.border ? this.props.border : 'none'};
       width: ${this.props.width ? this.props.width : '320px'};

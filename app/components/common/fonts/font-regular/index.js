@@ -6,7 +6,7 @@ export default class FontRegular extends PureComponent {
     return (
       <div
         style={{
-          fontFamily: 'Roboto',
+          fontFamily: 'Inter-Regular',
           ...style,
         }}
         {...otherProps}

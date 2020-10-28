@@ -40,7 +40,7 @@ class CloverRadioButtonGroup extends Component {
               root: classes.desc,
             }}
           >
-            This seed phrase is used to generate your account.
+            This seed phrase is used to create your account.
           </DialogContentText>
           <DialogContentText
             classes={{

@@ -1491,16 +1491,15 @@ table th {
   text-decoration: none;
   vertical-align: baseline;
   font-size: 14px;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   font-style: normal;
 }
 .terms-text .c6 {
   color: #000000;
-  font-weight: bolder;
   text-decoration: none;
   vertical-align: baseline;
   font-size: 14px;
-  font-family: "Inter";
+  font-family: "Inter-Bold";
   font-style: normal;
 }
 .terms-text .c1 {
@@ -1551,7 +1550,7 @@ table th {
   color: #000000;
   font-size: 14px;
   padding-bottom: 3pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1563,7 +1562,7 @@ table th {
   color: #666666;
   font-size: 14px;
   padding-bottom: 16pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1573,20 +1572,20 @@ table th {
 .terms-text li {
   color: #000000;
   font-size: 14px;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
 }
 .terms-text p {
   margin: 0;
   color: #000000;
   font-size: 14px;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
 }
 .terms-text h1 {
   padding-top: 20pt;
   color: #000000;
   font-size: 14px;
   padding-bottom: 6pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1598,7 +1597,7 @@ table th {
   color: #000000;
   font-size: 14px;
   padding-bottom: 6pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1610,7 +1609,7 @@ table th {
   color: #434343;
   font-size: 14px;
   padding-bottom: 4pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1622,7 +1621,7 @@ table th {
   color: #666666;
   font-size: 14px;
   padding-bottom: 4pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1634,7 +1633,7 @@ table th {
   color: #666666;
   font-size: 14px;
   padding-bottom: 4pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   orphans: 2;
@@ -1646,7 +1645,7 @@ table th {
   color: #666666;
   font-size: 14px;
   padding-bottom: 4pt;
-  font-family: "Inter";
+  font-family: "Inter-Regular";
   line-height: 1.15;
   page-break-after: avoid;
   font-style: italic;
@@ -1655,9 +1654,8 @@ table th {
   text-align: left;
 }
 .terms-text .terms-header {
-  font-family: Roboto;
+  font-family: "Roboto-Medium";
   font-style: normal;
-  font-weight: bold;
   font-size: 18px;
   line-height: 37px;
 }

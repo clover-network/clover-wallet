@@ -6,7 +6,7 @@ export default class FontLight extends PureComponent {
     return (
       <div
         style={{
-          fontFamily: 'Inter',
+          fontFamily: 'Inter-Regular',
           ...style,
         }}
         {...otherProps}

@@ -13,8 +13,7 @@ export const styles = () => ({
     opacity: '1',
     textTransform: 'capitalise',
     fontSize: '16px',
-    fontWeight: 'bold',
-    fontFamily: 'Roboto',
+    fontFamily: 'Inter-Bold',
     '&:hover': {
       color: '#FB822A',
       opacity: 1,
