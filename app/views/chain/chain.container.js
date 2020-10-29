@@ -6,6 +6,8 @@ const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
   networks: state.networkReducer.networks,
   network: state.networkReducer.network,
+  accounts: state.accountReducer.accounts,
+  account: state.accountReducer.account,
 });
 
 const mapDispatchToProps = {

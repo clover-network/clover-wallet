@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { getChainLogo } from '../../utils/chain';
 import './styles.css';
+import ChainCard from '../../components/chain-card';
 
 export default class Chain extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       chain: props.network.unit,
+      networks: props.networks,
     };
   }
 
   chainClicked = name => {
     this.setState({
       chain: name,
+      networks:
+        name === 'ALL' ? this.props.networks : this.props.networks.filter(n => n.unit === name),
     });
   };
 
   render() {
-    const { networks } = this.props;
-    const { chain } = this.state;
+    const { accounts } = this.props;
+    const { chain, networks } = this.state;
+
     return (
       <div className="container">
         <div className="left-panel">
@@ -31,7 +36,7 @@ export default class Chain extends Component {
             className="can-click"
           />
           <span className={chain === 'ALL' ? 'split split-select' : 'split'} />
-          {networks.map(nt => (
+          {this.props.networks.map(nt => (
             <React.Fragment>
               <img
                 src={getChainLogo(nt.unit, chain === nt.unit)}
@@ -45,7 +50,9 @@ export default class Chain extends Component {
             </React.Fragment>
           ))}
         </div>
-        <div className="right-panel">11</div>
+        <div className="right-panel">
+          {networks.map(net => accounts.map(acc => <ChainCard account={acc} network={net} />))}
+        </div>
       </div>
     );
   }

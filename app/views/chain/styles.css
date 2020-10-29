@@ -1,16 +1,24 @@
 .container {
     margin: 20px;
     display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .left-panel {
     width: 50px;
     margin: 0 10px 0 0;
+    overflow-y: scroll;
+    max-height: 450px;
 }
 
 .right-panel {
     flex: 1;
+    overflow-y: scroll;
+    max-height: 450px;
 }
+
+.left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar { width: 0 !important }
+.left-panel, .right-panel { overflow: -moz-scrollbars-none; }
 
 .split {
     width: 30px;
@@ -26,4 +34,8 @@
 
 .can-click {
     cursor: pointer;
+}
+
+.card-logo {
+    margin-right: 10px;
 }
