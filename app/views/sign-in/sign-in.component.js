@@ -4,7 +4,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CloverPassword from '../../components/common/password/clover-password';
 import FooterButton from '../../components/common/footer-button';
-import Logo from '../../images/logo.svg';
+import Logo from '../../images/clover.svg';
 import Error from '../../images/error.svg';
 import './styles.css';
 

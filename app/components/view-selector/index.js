@@ -16,6 +16,7 @@ import AddressBook from '../../views/address-book';
 import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
+import Chain from '../../views/chain';
 import * as NavConstant from '../../constants/navigation';
 
 const getView = page => {
@@ -24,6 +25,8 @@ const getView = page => {
       return <Terms />;
     case NavConstant.DASHBOARD_PAGE:
       return <Dashboard />;
+    case NavConstant.CHAIN_PAGE:
+      return <Chain />;
     case NavConstant.LOADER_OVERLAY:
       return <LoaderOverlay />;
     case NavConstant.SIGN_IN_PAGE:
