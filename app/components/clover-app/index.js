@@ -19,6 +19,7 @@ export default class CloverApp extends Component {
       networks,
       network,
       onNetworkChange,
+      onNetworkClick,
       showLogo,
       showBanner,
       showNetwork,
@@ -80,6 +81,7 @@ export default class CloverApp extends Component {
               <Network
                 networks={networks}
                 network={network}
+                onNetworkClick={onNetworkClick}
                 onNetworkChange={onNetworkChange}
                 className={CloverNetworkClassNames}
                 page={page}

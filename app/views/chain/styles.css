@@ -1,0 +1,29 @@
+.container {
+    margin: 20px;
+    display: flex;
+}
+
+.left-panel {
+    width: 50px;
+    margin: 0 10px 0 0;
+}
+
+.right-panel {
+    flex: 1;
+}
+
+.split {
+    width: 30px;
+    height: 1px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 10px 0;
+}
+
+.split-select {
+    background-color: #FB822A;
+}
+
+.can-click {
+    cursor: pointer;
+}

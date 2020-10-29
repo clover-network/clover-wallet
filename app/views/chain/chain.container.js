@@ -5,6 +5,7 @@ import Chain from './chain.component';
 const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
   networks: state.networkReducer.networks,
+  network: state.networkReducer.network,
 });
 
 const mapDispatchToProps = {

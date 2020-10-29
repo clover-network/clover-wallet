@@ -5,6 +5,7 @@ import {
   CUSTOM_NETWORK_PAGE,
   LOADER_OVERLAY,
   SIGN_IN_PAGE,
+  CHAIN_PAGE,
   ONBOARDING_PAGES_GROUP,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
@@ -63,6 +64,10 @@ export default class App extends Component {
     }
   };
 
+  handleNetworkClick = () => {
+    this.props.changePage(CHAIN_PAGE);
+  };
+
   handleOptionsChange = option => {
     this.props.updateBackupPage(this.props.page);
     this.props.changePage(option.value);
@@ -97,6 +102,7 @@ export default class App extends Component {
         network={network}
         isConnected={isConnected}
         onNetworkChange={this.handleNetworkChange}
+        onNetworkClick={this.handleNetworkClick}
         showLogo={showLogo}
         showBanner={showBanner}
         showNetwork={showNetwork}

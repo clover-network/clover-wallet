@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../../../images/clover.svg';
+import Logo from '../../../images/logo.svg';
 
 export default class CloverLogo extends Component {
   render() {
