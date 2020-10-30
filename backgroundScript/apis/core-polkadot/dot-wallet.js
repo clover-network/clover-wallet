@@ -23,7 +23,7 @@ export const isValidAddress = value => {
 
 export const getAddress = (seedWords, keypairType) => {
   try {
-    setSS58Format(42);
+    setSS58Format(0);
     const keyring = new Keyring();
     const pairAlice = keyring.addFromUri(seedWords, {}, keypairType);
     const { address } = keyring.getPair(pairAlice.address);
@@ -41,8 +41,8 @@ export const getBalance = async address => {
     const {
       data: { free: balance },
     } = await api.query.system.account(address);
-    const balanceFormatted = formatBalance(balance, true, 15);
-    const dotBalance = formatBalance(balance, { forceUnit: 'dot', withSi: true }, 15);
+    const balanceFormatted = formatBalance(balance, true, 10);
+    const dotBalance = formatBalance(balance, { forceUnit: 'dot', withSi: true }, 10);
     const balanceObj = {
       address,
       balance: balance.toString(),
@@ -56,7 +56,7 @@ export const getBalance = async address => {
     const balanceObj = {
       address,
       balance: '0',
-      balanceFormatted: formatBalance('0', true, 15),
+      balanceFormatted: formatBalance('0', true, 10),
       status: FAILURE,
     };
     return balanceObj;
@@ -68,7 +68,7 @@ export const createSeedWords = () => mnemonicGenerate();
 export const valueFormatter = value => {
   try {
     formatBalance.setDefaults({ unit: 'DOT' });
-    const fBalance = formatBalance(value, true, 15);
+    const fBalance = formatBalance(value, true, 10);
     return fBalance;
   } catch (err) {
     throw new Error('Error in polkadot valueFormatter');

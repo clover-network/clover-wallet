@@ -28,6 +28,25 @@ export const getWallet = () => {
   }
 };
 
+export const getWallets = () => [
+  {
+    symbol: KUSAMA_NETWORK.unit,
+    wallet: KsmWallet,
+  },
+  {
+    symbol: CLOVER_NETWORK.unit,
+    wallet: ClvWallet,
+  },
+  {
+    symbol: ACALA_NETWORK.unit,
+    wallet: AcaWallet,
+  },
+  {
+    symbol: POLKADOT_NETWORK.unit,
+    wallet: DotWallet,
+  },
+];
+
 export const getWalletByChain = chain => {
   switch (chain) {
     case KUSAMA_NETWORK.text:

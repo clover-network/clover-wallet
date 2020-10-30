@@ -1,14 +1,17 @@
 import { decodeAddress } from '@polkadot/keyring';
-import { getWallet } from './wallet-service';
+import { getWallet, getWallets } from './wallet-service';
 import { getStore } from '../store/store-provider';
 import * as accountActions from '../actions/accounts';
 import * as StorageServices from '../../lib/services/extension/storage';
 import { ACCOUNTS } from '../../lib/constants/storage-keys';
-import { updatesAccountsState, updateCurrentAccountState } from './store-service';
+import {
+  updatesAccountsState,
+  updateCurrentAccountState,
+  updatesFullChainAccountsState,
+} from './store-service';
 import { KEYPAIR_EDWARDS, DUPLICATE_ALIAS, BAD_REQUEST } from '../../lib/constants/api';
 import { getAccountState } from './store/account-store';
 import { validateAddress } from '../../lib/services/validation-service';
-import * as DotWallet from '../apis/core-polkadot/dot-wallet';
 
 export const validateAlias = alias => {
   if (alias !== undefined && alias !== null && alias !== '') {
@@ -46,7 +49,8 @@ export const createSeedWords = () => {
 };
 
 export const createAccountWithSeed = (seedWords, keypairType, isOnBoarding, alias) => {
-  const address = DotWallet.getAddress(seedWords, keypairType);
+  const wallet = getWallet();
+  const address = wallet.getAddress(seedWords, keypairType);
   const accountAlias = alias === undefined ? constructAlias(1) : validateAlias(alias);
   return {
     seedWords,
@@ -58,7 +62,8 @@ export const createAccountWithSeed = (seedWords, keypairType, isOnBoarding, alia
 
 export const createNewAccount = keypairType => {
   const seedWords = createSeedWords();
-  const address = DotWallet.getAddress(seedWords, keypairType);
+  const wallet = getWallet();
+  const address = wallet.getAddress(seedWords, keypairType);
   return {
     seedWords,
     address,
@@ -110,6 +115,18 @@ export const updateAccountAlias = async (address, newAlias) => {
   throw new Error('Duplicate alias');
 };
 
+const getFullChainAccounts = accounts => {
+  const wallets = getWallets();
+  const fullChainAccounts = wallets.map(item => ({
+    symbol: item.symbol,
+    accounts: accounts.map(account => ({
+      ...account,
+      address: item.wallet.getAddress(account.seedWords, account.keypairType),
+    })),
+  }));
+  return fullChainAccounts;
+};
+
 // isOnboarding Require
 export const getAccounts = async () => {
   const localAccountObj = await StorageServices.getLocalStorage(ACCOUNTS);
@@ -130,7 +147,12 @@ export const createAccount = async (seedWords, keypairType, isOnBoarding, alias)
   // combine accounts
   const newAccounts = mergeAccounts(accounts, newAccount);
   // set current selected account by default last created account
-  await Promise.all([updatesAccountsState(newAccounts), updateCurrentAccountState(account)]);
+  const fullChainAccounts = getFullChainAccounts(newAccounts);
+  await Promise.all([
+    updatesAccountsState(newAccounts),
+    updateCurrentAccountState(account),
+    updatesFullChainAccountsState(fullChainAccounts),
+  ]);
   // return  created account address
   return account;
 };
@@ -203,7 +225,7 @@ export const accountForDapp = accountState => {
   if (accounts !== undefined) {
     const reformattedAccounts = accounts.map(obj => {
       const accountsWithoutSeedWords = {
-        address: DotWallet.getAddress(obj.seedWords, obj.keypairType),
+        address: getWallet().getAddress(obj.seedWords, obj.keypairType),
         name: obj.alias,
         meta: {
           name: obj.alias,

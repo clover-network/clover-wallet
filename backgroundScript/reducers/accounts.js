@@ -1,5 +1,6 @@
 import {
   UPDATE_ACCOUNT_LIST,
+  UPDATE_FULL_CHAIN_ACCOUNT_LIST,
   CHANGE_CURRENT_ACCOUNT,
   RESET_SEED_WORDS,
   SET_SEED_WORDS,
@@ -7,6 +8,7 @@ import {
 
 const initialState = {
   accounts: [], // all accounts
+  fullChainAccounts: [], // full chain accounts
   currentAccount: undefined,
   seedWords: undefined,
   hasAccount: false,
@@ -28,6 +30,11 @@ const accountState = (state = initialState, action) => {
         ...state,
         accounts: action.payload,
         hasAccount: action.payload ? action.payload.length > 0 : true,
+      };
+    case UPDATE_FULL_CHAIN_ACCOUNT_LIST:
+      return {
+        ...state,
+        fullChainAccounts: action.payload,
       };
     default:
       return state;
