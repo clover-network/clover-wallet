@@ -32,9 +32,10 @@ export default class Chain extends Component {
   };
 
   render() {
-    const { accounts } = this.props;
+    const { fullChainAccounts } = this.props;
     const { chain, networks } = this.state;
 
+    console.log(fullChainAccounts, networks);
     return (
       <div className="container">
         <div className="panel-container">
@@ -63,10 +64,10 @@ export default class Chain extends Component {
             ))}
           </div>
           <div className="right-panel">
-            {networks.map((net, netIdx) => accounts.map((acc, accIdx) => (
+            {fullChainAccounts.map((fullChainAccount, netIdx) => fullChainAccount.accounts.map((acc, accIdx) => (
               <ChainCard
                 account={acc}
-                network={net}
+                network={networks.find(net => net.unit === fullChainAccount.symbol)}
                 key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
                 accountClicked={this.accountClicked}
               />

@@ -3,7 +3,7 @@ import * as Store from './store-service';
 export const hydrateStore = async (latestData, hashKey) => {
   try {
     const {
-      accounts: { accounts, currentAccount },
+      accounts: { accounts, currentAccount, fullChainAccounts },
       transactions: { transactionArr },
       permissions: { whiteListedDApps },
       network: { currentNetwork, isDeveloperMode },
@@ -14,6 +14,7 @@ export const hydrateStore = async (latestData, hashKey) => {
       Store.updateCurrentAccountState(currentAccount),
       Store.updateWhiteListedDAppsState(whiteListedDApps),
       Store.updatesAccountsState(accounts),
+      Store.updatesFullChainAccountsState(fullChainAccounts),
       Store.updateTransactionsState(transactionArr),
       Store.updateCurrentNetworkState(currentNetwork),
       Store.updateDeveloperMode(isDeveloperMode || false),

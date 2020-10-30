@@ -120,7 +120,8 @@ const getFullChainAccounts = accounts => {
   const fullChainAccounts = wallets.map(item => ({
     symbol: item.symbol,
     accounts: accounts.map(account => ({
-      ...account,
+      alias: account.alias,
+      keypairType: account.keypairType,
       address: item.wallet.getAddress(account.seedWords, account.keypairType),
     })),
   }));
@@ -199,7 +200,7 @@ export const removeAccount = async address => {
 
 export const getAccountStateForUi = accountState => {
   // FE not require seedwords
-  const { accounts, currentAccount } = accountState;
+  const { accounts, currentAccount, fullChainAccounts } = accountState;
   const reformattedCurrentAccount = getAccountForUI(currentAccount);
   const reformattedAccounts = accounts.map(obj => {
     const account = getAccountForUI(obj);
@@ -207,6 +208,7 @@ export const getAccountStateForUi = accountState => {
   });
   const newAccountState = {
     accounts: reformattedAccounts,
+    fullChainAccounts,
     currentAccount: reformattedCurrentAccount,
     seedWords: accountState.seedWords,
     hasAccount: accountState.hasAccount,

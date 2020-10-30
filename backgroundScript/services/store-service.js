@@ -14,7 +14,7 @@ export const updateAppOnBoarded = async () => getStore().dispatch(appActions.app
 
 export const updatesAccountsState = async accounts => getStore().dispatch(accountActions.updateAccountList(accounts));
 
-export const updatesFullChainAccountsState = async accounts => getStore().dispatch(accountActions.updateFullChainAccountList(accounts));
+export const updatesFullChainAccountsState = async fullChainAccounts => getStore().dispatch(accountActions.updateFullChainAccountList(fullChainAccounts));
 
 export const updateCurrentAccountState = async account => getStore().dispatch(accountActions.changeCurrentAccount(account));
 

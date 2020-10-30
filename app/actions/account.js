@@ -8,6 +8,11 @@ export const updateAccountList = accounts => ({
   accounts,
 });
 
+export const updateFullChainAccountList = fullChainAccounts => ({
+  type: AccountActionTypes.ADD_FULL_CHAIN_ACCOUNT,
+  fullChainAccounts,
+});
+
 export const updateContactList = addressBook => ({
   type: AddressBookActionTypes.UPDATE_ADDRESS_BOOK_LIST,
   addressBook,
@@ -44,9 +49,10 @@ export const resetSeedWords = () => ({
 
 export const fetchAndSetAccounts = async dispatch => {
   const {
-    result: { accounts, currentAccount },
+    result: { accounts, currentAccount, fullChainAccounts },
   } = await Account.getAccounts();
   dispatch(updateAccountList(accounts));
+  dispatch(updateFullChainAccountList(fullChainAccounts));
   dispatch(changeSelectedAccount(currentAccount));
 };
 

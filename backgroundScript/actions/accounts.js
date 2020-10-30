@@ -25,10 +25,10 @@ export function updateAccountList(accounts) {
   };
 }
 
-export function updateFullChainAccountList(accounts) {
+export function updateFullChainAccountList(fullChainAccounts) {
   return {
     type: UPDATE_FULL_CHAIN_ACCOUNT_LIST,
-    payload: accounts,
+    payload: fullChainAccounts,
   };
 }
 

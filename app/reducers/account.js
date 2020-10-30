@@ -2,6 +2,7 @@ import * as Types from '../constants/account';
 
 const initialState = {
   accounts: [],
+  fullChainAccounts: [],
   account: undefined,
   balances: [],
   balance: '0',
@@ -20,6 +21,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...{
           accounts: action.accounts,
+        },
+      };
+    case Types.ADD_FULL_CHAIN_ACCOUNT:
+      return {
+        ...state,
+        ...{
+          fullChainAccounts: action.fullChainAccounts,
         },
       };
     case Types.SELECT_ACCOUNT:
