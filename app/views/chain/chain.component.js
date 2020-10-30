@@ -25,6 +25,12 @@ export default class Chain extends Component {
     this.props.changePage(this.props.backupPage);
   };
 
+  accountClicked = async (account, network) => {
+    this.handleClose();
+    this.props.switchNetwork(network);
+    this.props.changeAccount(account);
+  };
+
   render() {
     const { accounts } = this.props;
     const { chain, networks } = this.state;
@@ -42,8 +48,8 @@ export default class Chain extends Component {
               className="can-click"
             />
             <span className={chain === 'ALL' ? 'split split-select' : 'split'} />
-            {this.props.networks.map(nt => (
-              <React.Fragment>
+            {this.props.networks.map((nt, index) => (
+              <React.Fragment key={`chain_logo_${index.toString()}`}>
                 <img
                   src={getChainLogo(nt.unit, chain === nt.unit)}
                   alt="logo"
@@ -57,7 +63,14 @@ export default class Chain extends Component {
             ))}
           </div>
           <div className="right-panel">
-            {networks.map(net => accounts.map(acc => <ChainCard account={acc} network={net} />))}
+            {networks.map((net, netIdx) => accounts.map((acc, accIdx) => (
+              <ChainCard
+                account={acc}
+                network={net}
+                key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
+                accountClicked={this.accountClicked}
+              />
+            )),)}
           </div>
         </div>
         <div className="footer" onClick={this.handleClose}>

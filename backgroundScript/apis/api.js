@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { ApiPromise, WsProvider } from '@polkadot/api';
+import { typesBundleForPolkadot as acalaTypes } from '@acala-network/type-definitions';
 import { setChain } from './chain';
-import { EDGEWARE_NETWORK, BERESHEET_NETWORK, CLOVER_NETWORK } from '../../lib/constants/networks';
-import { edgeWareTypes, typesAlias } from './core-edgeware/edgeware-types';
+import { ACALA_NETWORK, CLOVER_NETWORK } from '../../lib/constants/networks';
 import { cloverTypes } from './core-clover/clover-types';
 
 const connection = {
@@ -37,16 +37,16 @@ const connect = async network => {
     disconnect();
     try {
       const provider = new WsProvider(networkFullUrl);
-      if (value === EDGEWARE_NETWORK.value || value === BERESHEET_NETWORK.value) {
+      if (value === ACALA_NETWORK.value) {
+        const acaTypes = acalaTypes.spec.acala.types.find(t => t.minmax[0] >= 1500);
         api = await ApiPromise.create({
           provider,
-          types: edgeWareTypes,
-          typesAlias,
+          types: acaTypes.types,
         });
       } else if (value === CLOVER_NETWORK.value) {
         api = await ApiPromise.create({
           provider,
-          types: cloverTypes
+          types: cloverTypes,
         });
       } else {
         api = await ApiPromise.create({ provider });

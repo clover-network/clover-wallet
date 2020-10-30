@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { changePage } from '../../containers/actions';
 import Chain from './chain.component';
+import { switchNetwork } from '../../actions/network';
+import { changeAccount } from '../manage-account/actions';
 
 const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
@@ -13,6 +15,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   changePage,
+  switchNetwork,
+  changeAccount,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chain);

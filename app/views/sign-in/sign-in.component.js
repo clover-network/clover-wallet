@@ -77,7 +77,6 @@ export default class SignIn extends Component {
             isError={isError}
             password={password}
             placeholder="Password"
-            errorMessage={isError ? errorText : null}
             label={label}
           />
           <div className="msg-container">

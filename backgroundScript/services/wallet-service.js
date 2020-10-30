@@ -1,15 +1,15 @@
-import * as WndWallet from '../apis/core-westend/wnd-wallet';
+import * as ClvWallet from '../apis/core-clover/clover-wallet';
 import * as KsmWallet from '../apis/core-kusama/ksm-wallet';
-import * as EdgWallet from '../apis/core-edgeware/edgeware-wallet';
-import * as TEDGWallet from '../apis/core-beresheet/beresheet-wallet';
+import * as AcaWallet from '../apis/core-acala/acala-wallet';
+import * as DotWallet from '../apis/core-polkadot/dot-wallet';
 import * as CustomWallet from '../apis/core-custom/custom-wallet';
 
 import { getCurrentNetwork } from './network-service';
 import {
   KUSAMA_NETWORK,
-  WESTEND_NETWORK,
-  EDGEWARE_NETWORK,
-  BERESHEET_NETWORK,
+  CLOVER_NETWORK,
+  ACALA_NETWORK,
+  POLKADOT_NETWORK,
 } from '../../lib/constants/networks';
 
 export const getWallet = () => {
@@ -17,12 +17,12 @@ export const getWallet = () => {
   switch (currentNetwork.value) {
     case KUSAMA_NETWORK.value:
       return KsmWallet;
-    case WESTEND_NETWORK.value:
-      return WndWallet;
-    case EDGEWARE_NETWORK.value:
-      return EdgWallet;
-    case BERESHEET_NETWORK.value:
-      return TEDGWallet;
+    case CLOVER_NETWORK.value:
+      return ClvWallet;
+    case ACALA_NETWORK.value:
+      return AcaWallet;
+    case POLKADOT_NETWORK.value:
+      return DotWallet;
     default:
       return CustomWallet;
   }
@@ -32,12 +32,12 @@ export const getWalletByChain = chain => {
   switch (chain) {
     case KUSAMA_NETWORK.text:
       return KsmWallet;
-    case WESTEND_NETWORK.text:
-      return WndWallet;
-    case EDGEWARE_NETWORK.text:
-      return EdgWallet;
-    case BERESHEET_NETWORK.text:
-      return TEDGWallet;
+    case CLOVER_NETWORK.text:
+      return ClvWallet;
+    case ACALA_NETWORK.text:
+      return AcaWallet;
+    case POLKADOT_NETWORK.text:
+      return DotWallet;
     default:
       return CustomWallet;
   }
