@@ -14,3 +14,4 @@ update.xml
 yarn.lock
 package-lock.json
 .nyc_output
+.idea

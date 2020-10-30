@@ -47,8 +47,8 @@ export default class App extends Component {
         showHeader: true,
         showLogo: false,
         showBanner: true,
-        showNetwork: true,
-        showSettings: true,
+        showNetwork: prevProps.page !== CHAIN_PAGE,
+        showSettings: prevProps.page !== CHAIN_PAGE,
       };
     }
 
@@ -65,6 +65,7 @@ export default class App extends Component {
   };
 
   handleNetworkClick = () => {
+    this.props.updateBackupPage(this.props.page);
     this.props.changePage(CHAIN_PAGE);
   };
 

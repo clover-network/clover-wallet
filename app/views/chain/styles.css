@@ -1,20 +1,26 @@
 .container {
-    margin: 20px;
     display: flex;
+    flex-direction: column;
+}
+
+.panel-container {
+    display: flex;
+    padding: 20px;
+    width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .left-panel {
     width: 50px;
     margin: 0 10px 0 0;
+    height: 430px;
     overflow-y: scroll;
-    max-height: 450px;
 }
 
 .right-panel {
     flex: 1;
+    height: 430px;
     overflow-y: scroll;
-    max-height: 450px;
 }
 
 .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar { width: 0 !important }
@@ -38,4 +44,18 @@
 
 .card-logo {
     margin-right: 10px;
+}
+
+.footer {
+    align-self: center;
+    margin-top: 22px;
+    display: flex;
+    cursor: pointer;
+}
+
+.close {
+    color: #000000;
+    margin-left: 15px;
+    font-family: "Roboto-Regular";
+    font-size: 16px;
 }

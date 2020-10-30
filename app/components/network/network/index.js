@@ -32,7 +32,7 @@ export default class Network extends Component {
         <img src={getChainLogo(network.unit)} alt="img" width="25" />
         <FontRegular
           className="network-text"
-          text={shortenName(network.text)}
+          text={`${shortenName(network.text)} chain`}
           onClick={onNetworkClick}
         />
         <CloverMenu
