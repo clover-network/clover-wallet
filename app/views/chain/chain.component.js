@@ -34,8 +34,6 @@ export default class Chain extends Component {
   render() {
     const { fullChainAccounts } = this.props;
     const { chain, networks } = this.state;
-
-    console.log(fullChainAccounts, networks);
     return (
       <div className="container">
         <div className="panel-container">
