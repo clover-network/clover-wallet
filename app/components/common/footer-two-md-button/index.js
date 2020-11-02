@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ButtonMD from '../buttons/button-md';
 import './styles.css';
+import ButtonCustom from '../buttons/button-custom';
 
 export default class FooterTwoMDButton extends Component {
   render() {
@@ -14,12 +14,18 @@ export default class FooterTwoMDButton extends Component {
     } = this.props;
     return (
       <div className="footer-two-button-container" style={style} {...otherProps}>
-        <ButtonMD color="primary" onClick={onClickPrimary}>
+        <ButtonCustom onClick={onClickPrimary} width="155px" color="#41485D" background="white">
           {namePrimary}
-        </ButtonMD>
-        <ButtonMD color="secondary" onClick={onClickSecondary}>
+        </ButtonCustom>
+        <ButtonCustom onClick={onClickSecondary} width="155px">
           {nameSecondary}
-        </ButtonMD>
+        </ButtonCustom>
+        {/*<ButtonMD color="#000000" onClick={onClickPrimary}>*/}
+        {/*  {namePrimary}*/}
+        {/*</ButtonMD>*/}
+        {/*<ButtonMD color="#FB822A" onClick={onClickSecondary}>*/}
+        {/*  {nameSecondary}*/}
+        {/*</ButtonMD>*/}
       </div>
     );
   }
