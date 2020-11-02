@@ -1,5 +1,6 @@
 .account-alias {
-  font-size: 28px;
+  font-size: 16px;
+  font-family: Inter-Regular;
   line-height: 27px;
 }
 
@@ -15,4 +16,37 @@
 .address {
   color: rgba(255, 255, 255, 1);
   font-size: 12px;
+}
+
+.copy-card-container {
+  margin-top: 5px;
+  display: flex;
+  cursor: pointer;
+}
+
+.card-address {
+  font-size: 10px;
+  margin-right: 15px;
+  color: #ffffff;
+  font-family: Inter-Regular;
+}
+
+.card-balance {
+  font-family: Inter-Regular;
+  font-size: 24px;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.card-input-root {
+  color: white !important;
+  border-radius: 5px;
+}
+
+.card-input {
+  padding: 5px 5px 5px 10px !important;
+}
+
+.card-input-focused, .card-input:focus {
+  border: 1px solid rgba(236, 237, 239, 0.5) !important;
 }

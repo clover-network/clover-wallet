@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FontRegular from '../../common/fonts/font-regular';
-import ClickToCopyAddress from '../../common/click-to-copy-address';
-import CloverInput from '../../common/clover-input';
 import './styles.css';
+import { shortenAddress } from '../../../services/wallet-service';
+import CopyIcon from '../../../images/copy_hover.svg';
 
 export default class AccountDetails extends Component {
   render() {
@@ -19,30 +21,36 @@ export default class AccountDetails extends Component {
       inputRef,
       ...otherProps
     } = this.props;
+    const shortAddress = shortenAddress(address);
     return (
       <div {...otherProps}>
         {!editMode && (
           <FontRegular className="account-alias" text={alias} style={fontSize && { fontSize }} />
         )}
         {editMode && (
-          <CloverInput
+          <OutlinedInput
+            labelWidth={0}
             inputRef={inputRef}
             value={aliasValue}
-            className="account-input"
-            inputStyles={{ style: { padding: '1px 1px 1px 2px' } }}
             onBlur={onAliasInputBlur}
             onChange={onAliasChange}
+            classes={{
+              root: 'card-input-root',
+              input: 'card-input',
+              focused: 'card-input-focused',
+              notchedOutline: 'card-input-focused',
+            }}
             onKeyPress={onAliasInputKeyPress}
             withWhiteColor
           />
         )}
-        {!editMode && (
-          <ClickToCopyAddress
-            className="account-address clickable-icon"
-            onCopyAddress={onCopyAddress}
-            address={address}
-          />
-        )}
+        <CopyToClipboard text={shortAddress} onCopy={onCopyAddress}>
+          <div className="copy-card-container">
+            <span className="card-address">{shortAddress}</span>
+            <img src={CopyIcon} alt="copy" width="12" />
+          </div>
+        </CopyToClipboard>
+        <div className="card-balance">$ 12,334</div>
       </div>
     );
   }

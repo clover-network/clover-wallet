@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TokenDetails from '../../components/token/token-details';
+// import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
 import { TRANSFER_PAGE, QR_CODE_PAGE } from '../../constants/navigation';
-import Transaction from '../../components/transaction/transaction';
+// import Transaction from '../../components/transaction/transaction';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
 import { RENAME } from '../../constants/options';
@@ -63,17 +63,17 @@ export default class Dashboard extends Component {
       accounts,
       account,
       balances,
-      transactions,
-      balance: { balanceFormatted, marketData, amount },
-      isLinkToFaucet,
+      // transactions,
+      balance: { balanceFormatted /**marketData, amount**/ },
+      // isLinkToFaucet,
       network,
-      unit,
+      // unit,
       accountMenu,
     } = this.props;
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
     return (
-      <div>
+      <div className="asset-container">
         <Wallet
           className="wallet-container"
           inputRef={this.textInput}
@@ -89,7 +89,7 @@ export default class Dashboard extends Component {
           accountMenu={accountMenu}
           onAccountMenuOptionsChange={this.handleAccountMenuOptionsChange}
         />
-        <TokenDetails
+        {/** <TokenDetails
           unit={network.unit !== undefined ? network.unit : unit !== undefined ? unit.text : ''}
           className="token-container"
           balance={balanceFormatted}
@@ -103,7 +103,7 @@ export default class Dashboard extends Component {
           network={network}
           isLinkToFaucet={isLinkToFaucet}
           transactions={transactions}
-        />
+        />**/}
       </div>
     );
   }

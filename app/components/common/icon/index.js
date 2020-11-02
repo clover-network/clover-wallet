@@ -11,6 +11,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExcla
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 import { faAddressBook } from '@fortawesome/free-solid-svg-icons/faAddressBook';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons/faEllipsisH';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Settings from '@material-ui/icons/Settings';
@@ -71,6 +72,20 @@ const WalletDropDownIcon = props => (
     <MoreVert
       style={{
         fontSize: '1.5em',
+        color: 'rgba(255, 255, 255, 1)',
+      }}
+    />
+  </div>
+);
+
+const WalletDropHorizonIcon = props => (
+  <div {...props}>
+    <FontAwesomeIcon
+      icon={faEllipsisH}
+      style={{
+        width: 25,
+        height: 25,
+        cursor: 'pointer',
         color: 'rgba(255, 255, 255, 1)',
       }}
     />
@@ -208,4 +223,5 @@ export {
   MoreVertIcon,
   AddressBook,
   File,
+  WalletDropHorizonIcon,
 };
