@@ -9,7 +9,7 @@
   flex-direction: row;
   color: rgba(255, 255, 255, 1);
   width: 100%;
-  padding: 12px 15px 15px 20px;
+  padding: 12px 15px 15px 15px;
 }
 
 .token-container {
@@ -25,4 +25,8 @@
 .transaction-container {
   display: flex;
   flex-direction: column;
+}
+
+.staking-gov-btn-container {
+  margin-top: 15px;
 }

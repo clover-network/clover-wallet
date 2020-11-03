@@ -104,6 +104,7 @@ export default class Dashboard extends Component {
           isLinkToFaucet={isLinkToFaucet}
           transactions={transactions}
         />**/}
+        <div className="staking-gov-btn-container">TODO</div>
       </div>
     );
   }

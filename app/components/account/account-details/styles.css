@@ -1,7 +1,8 @@
 .account-alias {
   font-size: 16px;
   font-family: Inter-Regular;
-  line-height: 27px;
+  line-height: 30px;
+  margin-left: 10px;
 }
 
 .account-address {
@@ -21,6 +22,7 @@
 .copy-card-container {
   margin-top: 5px;
   display: flex;
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -36,17 +38,24 @@
   font-size: 24px;
   color: #ffffff;
   margin-top: 20px;
+  margin-left: 10px;
 }
 
 .card-input-root {
-  color: white !important;
-  border-radius: 5px;
+  font-size: 16px !important;
+  border-radius: 8px !important;
+  border: none !important;
 }
 
 .card-input {
   padding: 5px 5px 5px 10px !important;
+
 }
 
-.card-input-focused, .card-input:focus {
+.card-input-focused {
+  color: white !important;
   border: 1px solid rgba(236, 237, 239, 0.5) !important;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
