@@ -33,9 +33,9 @@ class CloverMenu extends Component {
         onClose={this.handleClose()}
         PaperProps={{
           style: {
-            marginTop: 33,
+            marginTop: 5,
             maxHeight: 144,
-            width: width !== undefined ? width : 128,
+            width: width !== undefined ? width : 120,
             fontFamily: 'Roboto-Regular',
             fontSize: 14,
             backgroundColor: 'rgba(38, 38, 38, 1)',

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Avatar from '../common/identicon';
 import AccountPanel from '../account/account-panel';
 import './styles.css';
 
@@ -20,12 +19,6 @@ export default class Wallet extends Component {
 
     return (
       <div {...otherProps}>
-        <Avatar
-          className="account-avatar"
-          onCopyAddress={onCopyAddress}
-          value={selectedAccount.address}
-          theme={theme}
-        />
         <AccountPanel
           inputRef={inputRef}
           onAliasChange={onAliasChange}

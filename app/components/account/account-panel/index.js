@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AccountDetails from '../account-details';
-import { WalletDropDownIcon } from '../../common/icon';
+import { WalletDropHorizonIcon } from '../../common/icon';
 import CloverMenu from '../../common/clover-menu';
 
 export default class AccountPanel extends Component {
@@ -53,7 +53,7 @@ export default class AccountPanel extends Component {
             onAliasInputBlur(selectedAccount);
           }}
         />
-        <WalletDropDownIcon onClick={this.handleClick} className="account-list-icon" />
+        <WalletDropHorizonIcon onClick={this.handleClick} />
         <CloverMenu
           options={accountMenu}
           onChange={option => {
