@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import SubHeader from '../../components/common/sub-header';
 import FavIcon from '../../components/common/fav-icon';
 import FontRegular from '../../components/common/fonts/font-regular';
 import { trimUrl } from '../../services/wallet-service';
-import FooterTwoMDButton from '../../components/common/footer-two-md-button';
-import { SolidWallet, SolidPlug, File } from '../../components/common/icon';
+import { SolidPlug, SolidWallet, File } from '../../components/common/icon';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
+import ButtonCustom from '../../components/common/buttons/button-custom';
+import Connect from '../../images/connect.svg';
 
 const DAppURL = ({ favIconUrl, url, ...otherProps }) => (
   <div {...otherProps}>
@@ -58,14 +58,31 @@ export default class ConnectRequest extends Component {
   }
 
   render() {
-    const { request, title } = this.props;
+    const { request } = this.props;
     return (
       <div>
-        <SubHeader title={title} />
-        {this.renderHeader()}
+        <div style={{ marginTop: '60px' }}>
+          <div className="connect-request-img">
+            <img
+              width="44"
+              height="44"
+              src={Connect}
+              aria-hidden="true"
+              onClick={this.handleClick}
+              alt="settings"
+            />
+          </div>
+          <div className="connect-request-title">Connect Request</div>
+        </div>
         <FontRegular
           text={(
-            <div>
+            <div
+              style={{
+                fontSize: '14px',
+                color: '#000000',
+                textAlign: 'center',
+              }}
+            >
               {`${request.request.metadata.url} is requesting access to a/an `}
               account. Click allow to grant access any account or click DENY to prevent access to
               any account.
@@ -73,12 +90,14 @@ export default class ConnectRequest extends Component {
           )}
           className="connect-request-center connect-request-account-selection-header"
         />
-        <FooterTwoMDButton
-          namePrimary="deny"
-          nameSecondary="allow"
-          onClickPrimary={this.onDeny}
-          onClickSecondary={this.onAllow}
-        />
+        <div className="connect-request-button-wrap">
+          <ButtonCustom onClick={this.onDeny} width="155px" color="#000000" background="white">
+            deny
+          </ButtonCustom>
+          <ButtonCustom onClick={this.onAllow} width="155px" color="#FB822A" background="white">
+            allow
+          </ButtonCustom>
+        </div>
       </div>
     );
   }

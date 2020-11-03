@@ -6,6 +6,7 @@ import {
   LOADER_OVERLAY,
   SIGN_IN_PAGE,
   CHAIN_PAGE,
+  CONNECT_REQUEST_PAGE,
   ONBOARDING_PAGES_GROUP,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
@@ -47,8 +48,8 @@ export default class App extends Component {
         showHeader: true,
         showLogo: false,
         showBanner: true,
-        showNetwork: prevProps.page !== CHAIN_PAGE,
-        showSettings: prevProps.page !== CHAIN_PAGE,
+        showNetwork: prevProps.page !== CHAIN_PAGE && prevProps.page !== CONNECT_REQUEST_PAGE,
+        showSettings: prevProps.page !== CHAIN_PAGE && prevProps.page !== CONNECT_REQUEST_PAGE,
       };
     }
 
