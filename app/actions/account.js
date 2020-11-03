@@ -3,6 +3,11 @@ import * as AddressBookActionTypes from '../constants/address-book';
 import { Account } from '../api';
 import { getDummyBalanceObject } from '../utils/helper';
 
+export const selectToken = selectedToken => ({
+  type: AccountActionTypes.SELECT_TOKEN,
+  selectedToken,
+});
+
 export const updateAccountList = accounts => ({
   type: AccountActionTypes.ADD_ACCOUNT,
   accounts,

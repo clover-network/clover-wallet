@@ -8,6 +8,7 @@ const initialState = {
   balance: '0',
   isLinkToFaucet: false,
   seedWords: undefined,
+  selectedToken: undefined,
 };
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...{
           accounts: action.accounts,
+        },
+      };
+    case Types.SELECT_TOKEN:
+      return {
+        ...state,
+        ...{
+          selectedToken: action.selectedToken,
         },
       };
     case Types.ADD_FULL_CHAIN_ACCOUNT:

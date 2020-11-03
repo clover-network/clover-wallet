@@ -7,6 +7,7 @@ import { changePage } from '../../containers/actions';
 import { createToast } from '../../constants/toast';
 import { resetToAddress } from '../../actions/address-book';
 import { getUnits } from '../../actions/network';
+import { selectToken } from '../../actions/account';
 
 const mapStateToProps = state => ({
   accounts: state.accountReducer.accounts,
@@ -30,6 +31,7 @@ const mapDispatchToProps = {
   resetToAddress,
   getUnits,
   connectionError,
+  selectToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
