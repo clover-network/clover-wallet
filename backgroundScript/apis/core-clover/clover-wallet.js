@@ -5,10 +5,10 @@ import {
 import {
   formatBalance, isHex, hexToU8a, u8aToHex, u8aToString
 } from '@polkadot/util';
+import _ from 'lodash';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
 import { getApi } from '../api';
 import { SUCCESS, FAILURE } from '../../../lib/constants/api';
-import { getUSDValue } from '../market-data';
 
 export const getAddress = (seedWords, keypairType) => {
   try {
@@ -44,29 +44,41 @@ export const isValidAddress = value => {
 };
 
 export const getBalance = async address => {
-  formatBalance.setDefaults({ unit: 'CLV' });
   try {
     const api = getApi();
-    const {
-      data: { free: balance },
-    } = await api.query.system.account(address);
-    const marketData = await getUSDValue('clover');
-    const balanceFormatted = formatBalance(balance, true, 12);
-    const ksmBalance = formatBalance(balance, { forceUnit: 'clv', withSi: true }, 12);
+    const data = await api.rpc.clover.getBalance(address);
+    const tokens = _.map(data, info => {
+      const token = info[0].type;
+      const balance = info[1].toString();
+      formatBalance.setDefaults({ unit: token });
+      const balanceFormatted = formatBalance(balance, true, 12);
+      const clvBalance = formatBalance(balance, { forceUnit: token, withSi: true }, 12);
+      return {
+        token,
+        balance: balance.toString(),
+        amount: clvBalance.replace(` ${token}`, ''),
+        marketData: '0',
+        balanceFormatted,
+      };
+    });
     const balanceObj = {
       address,
-      balance: balance.toString(),
-      amount: ksmBalance.replace(' CLV', ''),
-      marketData,
-      balanceFormatted,
+      tokens,
       status: SUCCESS,
     };
     return balanceObj;
   } catch (err) {
     const balanceObj = {
       address,
-      balance: '0',
-      balanceFormatted: formatBalance('0', true, 12),
+      tokens: [
+        {
+          token: 'CLV',
+          balance: '0',
+          amount: '0',
+          marketData: '0',
+          balanceFormatted: formatBalance('0', true, 12),
+        },
+      ],
       status: FAILURE,
     };
     return balanceObj;

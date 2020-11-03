@@ -7832,6 +7832,11 @@ lodash@^4.16.3, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1597336001963&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+
 log-symbols@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-1.0.2.tgz#376ff7b58ea3086a0f09facc74617eca501e1a18"
@@ -10064,6 +10069,13 @@ react-loaders@^3.0.1:
   integrity sha512-4igMNqs9Fb3d4Z+0UHIGQNJsw/37gX0nUO8QxupnEKRn1dtyYC1LGwk5GuaoDciMQCQc/MmPwb4Fn6ZfdoX1FQ==
   dependencies:
     classnames "^2.2.3"
+
+react-lodash@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npm.taobao.org/react-lodash/download/react-lodash-0.1.2.tgz#be2b00574093eae0f3e942dff1f48d48e8211d59"
+  integrity sha1-visAV0CT6uDz6ULf8fSNSOghHVk=
+  dependencies:
+    lodash "^4.17.11"
 
 react-redux@^4.3.0:
   version "4.4.10"

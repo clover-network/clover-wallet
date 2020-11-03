@@ -4,6 +4,7 @@ import { typesBundleForPolkadot as acalaTypes } from '@acala-network/type-defini
 import { setChain } from './chain';
 import { ACALA_NETWORK, CLOVER_NETWORK } from '../../lib/constants/networks';
 import { cloverTypes } from './core-clover/clover-types';
+import { cloverRpc } from './core-clover/clover-rpc';
 
 const connection = {
   isConnected: false,
@@ -47,6 +48,7 @@ const connect = async network => {
         api = await ApiPromise.create({
           provider,
           types: cloverTypes,
+          rpc: cloverRpc,
         });
       } else {
         api = await ApiPromise.create({ provider });
