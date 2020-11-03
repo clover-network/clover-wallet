@@ -68,11 +68,41 @@
   border-top: 1px solid rgba(227, 227, 227, 1);
 }
 
-.connect-request-account-item-container{
+.connect-request-account-item-container {
   height: 72px;
   padding: 0px 21.8px 14px 16px;
   display: flex;
   flex-direction: row;
   align-content: space-between;
   justify-content: space-between;
+}
+
+.connect-request-button-wrap {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: 530px;
+  height: 70px;
+  line-height: 70px;
+  padding: 0 25px;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+}
+
+.connect-request-title {
+  font-family: "Inter-Bold";
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.connect-request-img {
+  display: flex;
+  justify-content: center;
+}
+
+.connect-request-content-wrap {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
