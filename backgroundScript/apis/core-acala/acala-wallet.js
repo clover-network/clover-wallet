@@ -42,21 +42,31 @@ export const getBalance = async address => {
       data: { free: balance },
     } = await api.query.system.account(address);
     const balanceFormatted = formatBalance(balance, true, 15);
-    const dotBalance = formatBalance(balance, { forceUnit: 'dot', withSi: true }, 15);
+    const dotBalance = formatBalance(balance, { forceUnit: 'aca', withSi: true }, 15);
     const balanceObj = {
       address,
-      balance: balance.toString(),
-      amount: dotBalance.replace(' ACA', ''),
-      marketData,
-      balanceFormatted,
+      tokens: [
+        {
+          token: 'ACA',
+          balance: balance.toString(),
+          amount: dotBalance.replace(' ACA', ''),
+          marketData,
+          balanceFormatted,
+        },
+      ],
       status: SUCCESS,
     };
     return balanceObj;
   } catch (err) {
     const balanceObj = {
       address,
-      balance: '0',
-      balanceFormatted: formatBalance('0', true, 15),
+      tokens: [
+        {
+          token: 'ACA',
+          balance: '0',
+          balanceFormatted: formatBalance('0', true, 15),
+        },
+      ],
       status: FAILURE,
     };
     return balanceObj;

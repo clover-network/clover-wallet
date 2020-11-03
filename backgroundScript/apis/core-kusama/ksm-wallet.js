@@ -55,18 +55,28 @@ export const getBalance = async address => {
     const ksmBalance = formatBalance(balance, { forceUnit: 'ksm', withSi: true }, 12);
     const balanceObj = {
       address,
-      balance: balance.toString(),
-      amount: ksmBalance.replace(' KSM', ''),
-      marketData,
-      balanceFormatted,
+      tokens: [
+        {
+          token: 'KSM',
+          balance: balance.toString(),
+          amount: ksmBalance.replace(' KSM', ''),
+          marketData,
+          balanceFormatted,
+        },
+      ],
       status: SUCCESS,
     };
     return balanceObj;
   } catch (err) {
     const balanceObj = {
       address,
-      balance: '0',
-      balanceFormatted: formatBalance('0', true, 12),
+      tokens: [
+        {
+          token: 'KSM',
+          balance: '0',
+          balanceFormatted: formatBalance('0', true, 12),
+        },
+      ],
       status: FAILURE,
     };
     return balanceObj;

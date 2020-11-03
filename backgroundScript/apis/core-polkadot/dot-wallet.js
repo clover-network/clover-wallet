@@ -45,18 +45,28 @@ export const getBalance = async address => {
     const dotBalance = formatBalance(balance, { forceUnit: 'dot', withSi: true }, 10);
     const balanceObj = {
       address,
-      balance: balance.toString(),
-      amount: dotBalance.replace(' DOT', ''),
-      marketData,
-      balanceFormatted,
+      tokens: [
+        {
+          token: 'DOT',
+          balance: balance.toString(),
+          amount: dotBalance.replace(' DOT', ''),
+          marketData,
+          balanceFormatted,
+        },
+      ],
       status: SUCCESS,
     };
     return balanceObj;
   } catch (err) {
     const balanceObj = {
       address,
-      balance: '0',
-      balanceFormatted: formatBalance('0', true, 10),
+      tokens: [
+        {
+          token: 'DOT',
+          balance: '0',
+          balanceFormatted: formatBalance('0', true, 10),
+        },
+      ],
       status: FAILURE,
     };
     return balanceObj;
