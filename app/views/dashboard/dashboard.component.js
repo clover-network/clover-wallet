@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
 // import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
 import { TRANSFER_PAGE, QR_CODE_PAGE } from '../../constants/navigation';
@@ -7,6 +8,10 @@ import { copyAccountMessage } from '../../../lib/services/static-message-factory
 import './styles.css';
 import { RENAME } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
+import Governance from '../../images/governance_icon.svg';
+import Staking from '../../images/staking_icon.svg';
+import Clover from '../../images/clover.svg';
+import ArrowRight from '../../images/arrow_right.svg';
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -70,10 +75,27 @@ export default class Dashboard extends Component {
       // unit,
       accountMenu,
     } = this.props;
+    const assetsList = [
+      {
+        iconImg: Clover,
+        assetName: 'CLV',
+        assetsNum: '123456789',
+      },
+      {
+        iconImg: Clover,
+        assetName: 'cETH',
+        assetsNum: '123456789',
+      },
+      {
+        iconImg: Clover,
+        assetName: 'cUSDT',
+        assetsNum: '123456789',
+      },
+    ];
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
     return (
-      <div className="asset-container">
+      <div>
         <Wallet
           className="wallet-container"
           inputRef={this.textInput}
@@ -89,22 +111,64 @@ export default class Dashboard extends Component {
           accountMenu={accountMenu}
           onAccountMenuOptionsChange={this.handleAccountMenuOptionsChange}
         />
-        {/** <TokenDetails
-          unit={network.unit !== undefined ? network.unit : unit !== undefined ? unit.text : ''}
-          className="token-container"
-          balance={balanceFormatted}
-          marketData={marketData && marketData}
-          amount={amount}
-          handleSend={this.handleSend}
-          handleDeposit={this.handleDeposit}
-        />
-        <Transaction
-          className="transaction-container"
-          network={network}
-          isLinkToFaucet={isLinkToFaucet}
-          transactions={transactions}
-        />**/}
-        <div className="staking-gov-btn-container">TODO</div>
+        <div className="staking-gov-btn-container">
+          <Button variant="contained" className="staking-btn">
+            <img
+              width="22"
+              height="22"
+              src={Staking}
+              aria-hidden="true"
+              alt="staking"
+              style={{ marginRight: '10px' }}
+            />
+            STAKING
+          </Button>
+          <Button variant="contained" className="governance-btn">
+            <img
+              width="22"
+              height="22"
+              src={Governance}
+              aria-hidden="true"
+              alt="governance"
+              style={{ marginRight: '10px' }}
+            />
+            COVERNANCE
+          </Button>
+        </div>
+        <div className="assets-list-wrap">
+          <h3 className="assets-list-title">Assets</h3>
+          {assetsList.map(asset => (
+            <AssetsList assetInfo={asset} />
+          ))}
+        </div>
+        <div className="dashboard-button-wrap">
+          <Button className="assets-btn" style={{ marginRight: '10px' }}>
+            DAPPS
+          </Button>
+          <Button className="assets-btn">ASSETS</Button>
+        </div>
+      </div>
+    );
+  }
+}
+
+class AssetsList extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="assets-list-item">
+        <div className="asset-list-left">
+          <img src={this.props.assetInfo.iconImg} alt="" />
+          <span>{this.props.assetInfo.assetName}</span>
+        </div>
+        <div className="asset-list-right">
+          <span>{this.props.assetInfo.assetsNum}</span>
+          <img src={ArrowRight} alt="" />
+        </div>
       </div>
     );
   }

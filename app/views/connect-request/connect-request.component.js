@@ -69,7 +69,7 @@ export default class ConnectRequest extends Component {
               src={Connect}
               aria-hidden="true"
               onClick={this.handleClick}
-              alt="settings"
+              alt="connect"
             />
           </div>
           <div className="connect-request-title">Connect Request</div>
