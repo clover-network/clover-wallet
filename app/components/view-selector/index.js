@@ -17,6 +17,7 @@ import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
 import Chain from '../../views/chain';
+import Trade from '../../views/trade';
 import * as NavConstant from '../../constants/navigation';
 
 const getView = page => {
@@ -27,6 +28,8 @@ const getView = page => {
       return <Dashboard />;
     case NavConstant.CHAIN_PAGE:
       return <Chain />;
+    case NavConstant.TRADE_PAGE:
+      return <Trade />;
     case NavConstant.LOADER_OVERLAY:
       return <LoaderOverlay />;
     case NavConstant.SIGN_IN_PAGE:

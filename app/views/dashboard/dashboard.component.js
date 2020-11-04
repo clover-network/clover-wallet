@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 // import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
-import { TRANSFER_PAGE, QR_CODE_PAGE } from '../../constants/navigation';
+import { TRANSFER_PAGE, QR_CODE_PAGE, TRADE_PAGE } from '../../constants/navigation';
 // import Transaction from '../../components/transaction/transaction';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
@@ -17,6 +17,12 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
+  }
+
+  componentDidMount() {
+    // TODO: we simulate the click of CLV in clover, should be removed later
+    this.props.selectToken('CLV');
+    this.props.changePage(TRADE_PAGE);
   }
 
   handleSend = () => {

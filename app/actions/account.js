@@ -3,6 +3,11 @@ import * as AddressBookActionTypes from '../constants/address-book';
 import { Account } from '../api';
 import { getDummyBalanceObject } from '../utils/helper';
 
+export const selectTokenAction = selectedToken => ({
+  type: AccountActionTypes.SELECT_TOKEN,
+  selectedToken,
+});
+
 export const updateAccountList = accounts => ({
   type: AccountActionTypes.ADD_ACCOUNT,
   accounts,
@@ -88,4 +93,8 @@ export const fetchAndSetContacts = async dispatch => {
     result: { addressBook },
   } = await Account.getContacts();
   dispatch(updateContactList(addressBook));
+};
+
+export const selectToken = selectedToken => async dispatch => {
+  dispatch(selectTokenAction(selectedToken));
 };
