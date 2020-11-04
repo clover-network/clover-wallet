@@ -16,9 +16,7 @@ export default class Dashboard extends Component {
 
   componentDidMount() {
     // TODO: we simulate the click of CLV in clover, should be removed later
-    this.props.selectToken({
-      selectedToken: 'CLV',
-    });
+    this.props.selectToken('CLV');
     this.props.changePage(TRADE_PAGE);
   }
 

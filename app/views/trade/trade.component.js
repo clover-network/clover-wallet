@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
+import { Find, IsEmpty } from 'react-lodash';
 import './styles.css';
 
 export default class Trade extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {};
-  }
-
   handleBack = () => {
     this.props.changePage(this.props.backupPage);
   };
 
   render() {
-    // const { selectedToken } = this.state;
-    // const { balance } = this.props;
-    // console.log(selectedToken, balance);
-    return <div>asdf</div>;
+    const { selectedToken, balance } = this.props;
+    return (
+      <React.Fragment>
+        <div>{selectedToken}</div>
+        <IsEmpty
+          value={balance.tokens}
+          yes={() => <React.Fragment />}
+          no={() => (
+            <Find collection={balance.tokens} predicate={token => token.token === selectedToken}>
+              {token => token.balanceFormatted}
+            </Find>
+          )}
+        />
+      </React.Fragment>
+    );
   }
 }
