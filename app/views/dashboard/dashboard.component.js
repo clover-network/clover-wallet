@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { IsEmpty } from 'react-lodash';
 import Button from '@material-ui/core/Button';
 // import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
@@ -9,19 +10,13 @@ import { RENAME } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
 import Governance from '../../images/governance_icon.svg';
 import Staking from '../../images/staking_icon.svg';
-import Clover from '../../images/clover.svg';
 import ArrowRight from '../../images/arrow_right.svg';
+import { getCurrencyIcon } from '../../utils/dashboard';
 
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
-  }
-
-  componentDidMount() {
-    // TODO: we simulate the click of CLV in clover, should be removed later
-    this.props.selectToken('CLV');
-    this.props.changePage(TRADE_PAGE);
   }
 
   // eslint-disable-next-line no-unused-vars
@@ -54,6 +49,11 @@ export default class Dashboard extends Component {
     });
   };
 
+  goToTrade = currency => {
+    this.props.selectToken(currency);
+    this.props.changePage(TRADE_PAGE);
+  };
+
   render() {
     const {
       accounts,
@@ -66,23 +66,7 @@ export default class Dashboard extends Component {
       // unit,
       accountMenu,
     } = this.props;
-    const assetsList = [
-      {
-        iconImg: Clover,
-        assetName: 'CLV',
-        assetsNum: '123456789',
-      },
-      {
-        iconImg: Clover,
-        assetName: 'cETH',
-        assetsNum: '123456789',
-      },
-      {
-        iconImg: Clover,
-        assetName: 'cUSDT',
-        assetsNum: '123456789',
-      },
-    ];
+    const assetsList = this.props.balance.tokens ? this.props.balance.tokens : null;
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
     return (
@@ -123,13 +107,24 @@ export default class Dashboard extends Component {
               alt="governance"
               style={{ marginRight: '10px' }}
             />
-            COVERNANCE
+            GOVERNANCE
           </Button>
         </div>
+        {/*<IsEmpty*/}
+        {/*  value={assetsList}*/}
+        {/*  no={() => (*/}
+        {/*    <div className="assets-list-wrap">*/}
+        {/*      <h3 className="assets-list-title">Assets</h3>*/}
+        {/*      {assetsList.map(asset => (*/}
+        {/*        <AssetsList assetInfo={asset} goToTrade={this.goToTrade} />*/}
+        {/*      ))}*/}
+        {/*    </div>*/}
+        {/*  )}*/}
+        {/*/>*/}
         <div className="assets-list-wrap">
           <h3 className="assets-list-title">Assets</h3>
           {assetsList.map(asset => (
-            <AssetsList assetInfo={asset} />
+            <AssetsList assetInfo={asset} goToTrade={this.goToTrade} />
           ))}
         </div>
         <div className="dashboard-button-wrap">
@@ -151,13 +146,18 @@ class AssetsList extends React.Component {
 
   render() {
     return (
-      <div className="assets-list-item">
+      <div
+        className="assets-list-item"
+        onClick={() => {
+          this.props.goToTrade(this.props.assetInfo.token);
+        }}
+      >
         <div className="asset-list-left">
-          <img src={this.props.assetInfo.iconImg} alt="" />
-          <span>{this.props.assetInfo.assetName}</span>
+          <img src={getCurrencyIcon(this.props.assetInfo.token)} alt="" />
+          <span>{this.props.assetInfo.token}</span>
         </div>
         <div className="asset-list-right">
-          <span>{this.props.assetInfo.assetsNum}</span>
+          <span>{this.props.assetInfo.balanceFormatted}</span>
           <img src={ArrowRight} alt="" />
         </div>
       </div>

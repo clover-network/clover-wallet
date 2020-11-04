@@ -5,8 +5,8 @@ import {
 import {
   formatBalance, isHex, hexToU8a, u8aToHex, u8aToString
 } from '@polkadot/util';
-import _ from 'lodash';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
+import _ from 'lodash';
 import { getApi } from '../api';
 import { SUCCESS, FAILURE } from '../../../lib/constants/api';
 
@@ -49,6 +49,9 @@ export const getBalance = async address => {
     const data = await api.rpc.clover.getBalance(address);
     const tokens = _.map(data, info => {
       const token = info[0].type;
+      if (token === 'DOT') {
+        return null;
+      }
       const balance = info[1].toString();
       formatBalance.setDefaults({ unit: token });
       const balanceFormatted = formatBalance(balance, true, 12);
@@ -63,7 +66,7 @@ export const getBalance = async address => {
     });
     const balanceObj = {
       address,
-      tokens,
+      tokens: _.filter(tokens, t => t),
       status: SUCCESS,
     };
     return balanceObj;
