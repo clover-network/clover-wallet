@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 // import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
-import { TRANSFER_PAGE, QR_CODE_PAGE, TRADE_PAGE } from '../../constants/navigation';
-// import Transaction from '../../components/transaction/transaction';
+import { TRADE_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
 import { RENAME } from '../../constants/options';
@@ -24,20 +23,6 @@ export default class Dashboard extends Component {
     this.props.selectToken('CLV');
     this.props.changePage(TRADE_PAGE);
   }
-
-  handleSend = () => {
-    if (!this.props.isConnected) {
-      this.props.connectionError();
-    } else {
-      this.props.getUnits();
-      this.props.resetToAddress();
-      this.props.changePage(TRANSFER_PAGE);
-    }
-  };
-
-  handleDeposit = () => {
-    this.props.changePage(QR_CODE_PAGE);
-  };
 
   // eslint-disable-next-line no-unused-vars
   handleAccountMenuOptionsChange = async (option, account, transactionsUrl) => {

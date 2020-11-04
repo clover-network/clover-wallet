@@ -39,7 +39,6 @@ export default class TransferTo extends Component {
           error={isError}
           label={label}
           name={propName}
-          helperText={errorMessage}
           onChange={onChange(propName)}
           onBlur={onBlur}
           inputRef={inputRef}

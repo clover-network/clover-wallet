@@ -8,6 +8,7 @@ import {
   CHAIN_PAGE,
   CONNECT_REQUEST_PAGE,
   ONBOARDING_PAGES_GROUP,
+  SETTINGS_PAGE,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
 import './styles.css';
@@ -70,6 +71,11 @@ export default class App extends Component {
     this.props.changePage(CHAIN_PAGE);
   };
 
+  handSettingsClick = () => {
+    this.props.updateBackupPage(this.props.page);
+    this.props.changePage(SETTINGS_PAGE);
+  };
+
   handleOptionsChange = option => {
     this.props.updateBackupPage(this.props.page);
     this.props.changePage(option.value);
@@ -105,6 +111,7 @@ export default class App extends Component {
         isConnected={isConnected}
         onNetworkChange={this.handleNetworkChange}
         onNetworkClick={this.handleNetworkClick}
+        onSettingsClick={this.handSettingsClick}
         showLogo={showLogo}
         showBanner={showBanner}
         showNetwork={showNetwork}

@@ -23,7 +23,6 @@ export default class CustomNetworkForm extends Component {
           label="Custom URL"
           className="url-field"
           name={name}
-          helperText={urlInvalidMessage}
           error={!isURLValid}
           inputRef={urlRef}
         />

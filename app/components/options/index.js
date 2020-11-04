@@ -26,6 +26,7 @@ export default class Options extends Component {
       onToggleDeveloperMode,
       options,
       onOptionsChange,
+      onSettingsClick,
       ...otherProps
     } = this.props;
     return (
@@ -33,7 +34,7 @@ export default class Options extends Component {
         <img
           src={Settings}
           aria-hidden="true"
-          onClick={this.handleClick}
+          onClick={onSettingsClick}
           alt="settings"
           width="26"
         />

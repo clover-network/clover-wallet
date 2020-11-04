@@ -32,7 +32,6 @@ export default class TransferFormAmount extends Component {
           label={label}
           value={value}
           name={propName}
-          helperText={helperText}
           onChange={onChange(propName)}
           inputRef={inputRef}
         />

@@ -19,6 +19,7 @@ import DAppRequests from '../../views/dapp-requests';
 import Chain from '../../views/chain';
 import Trade from '../../views/trade';
 import * as NavConstant from '../../constants/navigation';
+import Settings from '../../views/settings';
 
 const getView = page => {
   switch (page) {
@@ -28,6 +29,8 @@ const getView = page => {
       return <Dashboard />;
     case NavConstant.CHAIN_PAGE:
       return <Chain />;
+    case NavConstant.SETTINGS_PAGE:
+      return <Settings />;
     case NavConstant.TRADE_PAGE:
       return <Trade />;
     case NavConstant.LOADER_OVERLAY:

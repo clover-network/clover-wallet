@@ -18,7 +18,6 @@ export default class CreateContactForm extends Component {
       fname,
       fnameLabel,
       isFnameError,
-      fnameErrorMessage,
       fnamePropName,
       handleFnameChange,
       handleFnameOnBlur,
@@ -28,7 +27,6 @@ export default class CreateContactForm extends Component {
       lnamePropName,
       lnameInputRef,
       isLnameError,
-      lnameErrorMessage,
       handleLnameChange,
       handleLnameOnBlur,
       onSubmit,
@@ -57,7 +55,6 @@ export default class CreateContactForm extends Component {
           onChange={handleFnameChange(fnamePropName)}
           label={fnameLabel}
           error={isFnameError}
-          helperText={fnameErrorMessage}
           name={fnamePropName}
           inputRef={fnameInputRef}
           onBlur={handleFnameOnBlur}
@@ -68,7 +65,6 @@ export default class CreateContactForm extends Component {
           onChange={handleLnameChange(lnamePropName)}
           label={lnameLabel}
           error={isLnameError}
-          helperText={lnameErrorMessage}
           name={lnamePropName}
           inputRef={lnameInputRef}
           onBlur={handleLnameOnBlur}
