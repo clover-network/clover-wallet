@@ -12,16 +12,6 @@
   padding: 12px 15px 15px 15px;
 }
 
-.token-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-image: linear-gradient(to bottom, #a32c71, #d75fa0);
-  height: 142px;
-  width: 100%;
-  padding: 4px 18px 16px 18px;
-}
-
 .transaction-container {
   display: flex;
   flex-direction: column;
@@ -117,11 +107,11 @@
 
 .dashboard-button-wrap {
   position: absolute;
-  top: 530px;
+  top: 535px;
   left: 0;
-  height: 70px;
-  line-height: 70px;
-  padding: 0 25px;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
   align-self: center;
   justify-content: center;
   display: flex;
@@ -130,9 +120,9 @@
 .assets-btn {
   font-size: 14px;
   height: 45px;
-  border: 1px solid #FB822A!important;
-  border-radius: 26px!important;
-  width: 150px;
+  border: 1px solid #FB822A !important;
+  border-radius: 26px !important;
+  width: 152px;
   color: #FB822A!important;
-  font-family: Inter-Bold!important;
+  font-family: Inter-Bold !important;
 }

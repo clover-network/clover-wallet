@@ -151,13 +151,7 @@ p {
 }
 
 .block-ui-message-container {
-  position: absolute;
-  top: 46% !important;
-  left: 43% !important;
-  right: 0;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  left: 180px;
   z-index: 10001;
 }
 

@@ -50,7 +50,7 @@ export default class AccountDetails extends Component {
             <img src={CopyIcon} alt="copy" width="12" />
           </div>
         </CopyToClipboard>
-        <div className="card-balance">$ 12,334</div>
+        <div className="card-balance">$ --.--</div>
       </div>
     );
   }

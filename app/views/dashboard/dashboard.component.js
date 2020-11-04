@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import { IsEmpty } from 'react-lodash';
 import Button from '@material-ui/core/Button';
-// import TokenDetails from '../../components/token/token-details';
 import Wallet from '../../components/wallet';
 import { TRADE_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
@@ -59,14 +57,11 @@ export default class Dashboard extends Component {
       accounts,
       account,
       balances,
-      // transactions,
-      balance: { balanceFormatted /**marketData, amount**/ },
-      // isLinkToFaucet,
+      balance: { balanceFormatted },
       network,
-      // unit,
       accountMenu,
     } = this.props;
-    const assetsList = this.props.balance.tokens ? this.props.balance.tokens : null;
+    const assetsList = this.props.balance.tokens ? this.props.balance.tokens : [];
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
     return (
@@ -110,21 +105,14 @@ export default class Dashboard extends Component {
             GOVERNANCE
           </Button>
         </div>
-        {/*<IsEmpty*/}
-        {/*  value={assetsList}*/}
-        {/*  no={() => (*/}
-        {/*    <div className="assets-list-wrap">*/}
-        {/*      <h3 className="assets-list-title">Assets</h3>*/}
-        {/*      {assetsList.map(asset => (*/}
-        {/*        <AssetsList assetInfo={asset} goToTrade={this.goToTrade} />*/}
-        {/*      ))}*/}
-        {/*    </div>*/}
-        {/*  )}*/}
-        {/*/>*/}
         <div className="assets-list-wrap">
           <h3 className="assets-list-title">Assets</h3>
-          {assetsList.map(asset => (
-            <AssetsList assetInfo={asset} goToTrade={this.goToTrade} />
+          {assetsList.map((asset, idx) => (
+            <AssetsList
+              assetInfo={asset}
+              goToTrade={this.goToTrade}
+              key={`chain_assets_${idx.toString()}}`}
+            />
           ))}
         </div>
         <div className="dashboard-button-wrap">
@@ -157,7 +145,7 @@ class AssetsList extends React.Component {
           <span>{this.props.assetInfo.token}</span>
         </div>
         <div className="asset-list-right">
-          <span>{this.props.assetInfo.balanceFormatted}</span>
+          <span>{this.props.assetInfo.amount}</span>
           <img src={ArrowRight} alt="" />
         </div>
       </div>
