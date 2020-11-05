@@ -57,7 +57,7 @@ export default class QRCode extends Component {
             </Button>
           </div>
         </div>
-        <div className="footer" onClick={this.handleSubheaderBackBtn}>
+        <div style={{ color: '#ffffff' }} className="footer" onClick={this.handleSubheaderBackBtn}>
           <img src={CloseWhite} alt="close" aria-hidden="true" width="20" />
           <span className="close">CLOSE</span>
         </div>

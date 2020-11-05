@@ -65,11 +65,10 @@
     margin-top: 22px;
     display: flex;
     cursor: pointer;
-    color: #ffffff;
 }
 
 .close {
-    color: #ffffff!important;
+    color: #000000;
     margin-left: 15px;
     font-family: "Roboto-Regular";
     font-size: 16px;
