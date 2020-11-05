@@ -6,12 +6,13 @@ import './styles.css';
 export default class QR extends Component {
   render() {
     const {
-      value, theme, onCopyAddress, size, ...otherProps
+      value, theme, onCopyAddress, size, hideAvatar, ...otherProps
     } = this.props;
     return (
       <div {...otherProps}>
-        <QRCode size={200} value={value} />
+        <QRCode size={size} value={value} />
         <Avatar
+          hideAvatar={hideAvatar}
           value={value}
           theme={theme}
           onCopyAddress={onCopyAddress}

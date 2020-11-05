@@ -4,13 +4,18 @@ import './styles.css';
 
 export default class HeaderBack extends Component {
   render() {
-    const { handleBack, title, ...otherProps } = this.props;
+    const {
+      handleBack, title, fontColor, icon, ...otherProps
+    } = this.props;
+    const fontStyle = { color: this.props.fontColor ? this.props.fontColor : '#000000' };
     return (
       <div {...otherProps} className="header-wrapper">
         <div className="header-back-btn" onClick={handleBack}>
-          <img width="12" height="12" src={ArrowLeft} alt="" />
+          <img width="12" height="12" src={icon || ArrowLeft} alt="" />
         </div>
-        <div className="header-title">{title}</div>
+        <div className="header-title" style={fontStyle}>
+          {title}
+        </div>
       </div>
     );
   }

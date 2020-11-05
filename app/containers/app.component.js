@@ -9,6 +9,7 @@ import {
   CONNECT_REQUEST_PAGE,
   ONBOARDING_PAGES_GROUP,
   SETTINGS_PAGE,
+  QR_CODE_PAGE,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
 import './styles.css';
@@ -46,7 +47,7 @@ export default class App extends Component {
         };
       }
       return {
-        showHeader: true,
+        showHeader: prevProps.page !== QR_CODE_PAGE,
         showLogo: false,
         showBanner: true,
         showNetwork: prevProps.page !== CHAIN_PAGE && prevProps.page !== CONNECT_REQUEST_PAGE,

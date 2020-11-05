@@ -5,10 +5,14 @@ import Identicon from '@polkadot/react-identicon';
 export default class Avatar extends Component {
   render() {
     const {
-      size, style, value, theme, onCopyAddress, ...otherProps
+      size, style, value, theme, onCopyAddress, hideAvatar, ...otherProps
     } = this.props;
     return (
-      <div style={{ style }} {...otherProps} onClick={onCopyAddress}>
+      <div
+        style={{ style, display: hideAvatar ? 'none' : 'block' }}
+        {...otherProps}
+        onClick={onCopyAddress}
+      >
         <Identicon value={value} size={size} theme={theme} />
       </div>
     );
