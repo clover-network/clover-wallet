@@ -59,3 +59,46 @@
     font-family: "Roboto-Regular";
     font-size: 16px;
 }
+
+.manage-account-btn {
+    background-color: #ffffff!important;
+    width: 324px;
+    height: 40px;
+    margin: 0 18px!important;
+}
+
+.setting-list-wrap {
+    margin-top: 20px;
+}
+
+.setting-list-item {
+    cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    height: 63px;
+    line-height: 63px;
+    padding: 0 18px;
+}
+
+.setting-list-item:hover {
+    background: #f2f2f2;
+}
+
+.setting-list-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.setting-list-left {
+    float: left;
+    font-size: 14px;
+}
+
+.setting-list-right {
+    float: right;
+}
+
+.setting-list-right img {
+    width: 12px;
+    height: 12px;
+    margin-left: 15px;
+}

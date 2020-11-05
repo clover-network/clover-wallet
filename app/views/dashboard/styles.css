@@ -45,14 +45,6 @@
   font-family: Inter-Bold;
 }
 
-.asset-list-left {
-  float: left;
-}
-
-.asset-list-right {
-  float: right;
-}
-
 .assets-list-item {
   cursor: pointer;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
