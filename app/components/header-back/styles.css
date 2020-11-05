@@ -1,0 +1,16 @@
+.header-wrapper {
+    height: 120px;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+}
+
+.header-back-btn {
+    float: left;
+}
+
+.header-title {
+    font-size: 16px;
+    font-family: Inter-Bold;
+    text-align: center;
+}

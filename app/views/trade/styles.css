@@ -1,0 +1,35 @@
+.trade-amount-wrapper {
+    padding-top: 60px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.trade-amount {
+    font-family: Inter-Bold;
+    font-size: 32px;
+    color: #FB822A;
+}
+
+.trade-conversion-value {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.locked-available-retain-wrapper {
+    list-style: none;
+    padding: 0 0 20px 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.locked-available-retain-wrapper li{
+    flex-grow: 1;
+}
+
+.locked-available-retain-wrapper li p {
+    color: rgba(0, 0, 0, 0.5);
+}
