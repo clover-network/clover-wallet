@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Find, IsEmpty } from 'react-lodash';
 import './styles.css';
 import Transaction from '../../components/transaction/transaction';
-import { QR_CODE_PAGE, TRANSFER_PAGE } from '../../constants/navigation';
+import { DASHBOARD_PAGE, QR_CODE_PAGE, TRANSFER_PAGE } from '../../constants/navigation';
 import HeaderBack from '../../components/header-back';
 import ButtonCustom from '../../components/common/buttons/button-custom';
 
 export default class Trade extends Component {
   handleBack = () => {
-    this.props.changePage(this.props.backupPage);
+    this.props.changePage(DASHBOARD_PAGE);
   };
 
   handleSend = () => {
