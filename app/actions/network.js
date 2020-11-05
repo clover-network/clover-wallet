@@ -55,12 +55,14 @@ const fetchUnit = unit => ({
   type: NetworkActionTypes.FETCH_UNIT,
   unit,
 });
+
 export const getUnits = () => async dispatch => {
   const { result } = await Network.getUnits();
   const unit = result.find(x => x.value === '-');
   dispatch(fetchUnit(unit));
   dispatch(fetchUnits(result));
 };
+
 export const setNetwork = async (dispatch, getState) => {
   const { isDeveloperMode } = getState().networkReducer;
   if (isDeveloperMode) {
