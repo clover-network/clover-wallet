@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Find, IsEmpty } from 'react-lodash';
 import './styles.css';
-// import Transaction from '../../components/transaction/transaction';
+import Transaction from '../../components/transaction/transaction';
 import { QR_CODE_PAGE, TRANSFER_PAGE } from '../../constants/navigation';
 import HeaderBack from '../../components/header-back';
 import ButtonCustom from '../../components/common/buttons/button-custom';
@@ -26,8 +26,7 @@ export default class Trade extends Component {
   };
 
   render() {
-    const { selectedToken, balance } = this.props;
-    // const { selectedToken, balance, transactions } = this.props;
+    const { selectedToken, balance, transactions } = this.props;
     return (
       <React.Fragment>
         <HeaderBack handleBack={this.handleBack} title={selectedToken} />
@@ -68,7 +67,7 @@ export default class Trade extends Component {
                   <span>0</span>
                 </li>
               </ul>
-              {/*<Transaction className="transaction-container" transactions={transactions} />*/}
+              <Transaction className="transaction-container" transactions={transactions} />
               <div
                 style={{
                   position: 'absolute',
