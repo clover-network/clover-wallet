@@ -27,7 +27,7 @@ const setTransferValidationError = error => ({
   error,
 });
 
-export const confirmTransaction = (to, account, amount, unit) => async dispatch => {
+export const confirmTransaction = (to, account, amount, unit, token) => async dispatch => {
   try {
     dispatch(updateAppLoading(true));
     const { result: transaction } = await Transaction.confirmTransaction({
@@ -36,6 +36,7 @@ export const confirmTransaction = (to, account, amount, unit) => async dispatch 
       account,
       amount,
       unit,
+      token,
     });
     if (transaction.isError) {
       dispatch(updateAppLoading(false));

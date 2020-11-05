@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import moment from 'moment';
 import BN from 'bn.js';
+import _ from 'lodash';
 import * as Transaction from '../../lib/constants/transaction';
 import * as FeeService from './fee-service';
 import { getStore } from '../store/store-provider';
@@ -16,7 +17,6 @@ import {
   ACALA_NETWORK,
   POLKADOT_NETWORK,
 } from '../../lib/constants/networks';
-import { getTxnEncodedLength } from '../apis/tx';
 import { getBalance, valueFormatter } from './balance-service';
 import { isValidAddress } from './account-service';
 import { validateTxnObject } from '../../lib/services/validation-service';
@@ -145,7 +145,11 @@ const validateAmount = async (senderAddress, network, transaction, seedWords, ke
   // const transactionLength = await getTxnEncodedLength(to, fAmount, seedWords, keypairType);
   const transactionLength = Transaction.SIGNATURE_SIZE;
   const fees = await getTransactionFees(txnType, senderAddress, to, transactionLength); // in femto
-  const balance = await getBalance(senderAddress); // in femto
+  const balanceObj = await getBalance(senderAddress); // in femto
+  const balance = _.chain(balanceObj.tokens)
+    .find(t => t.token === transaction.token)
+    .get('balance')
+    .value();
   const { totalFee } = fees;
   const totalAmount = new BN(fAmount).add(new BN(totalFee));
   const balanceInBN = new BN(balance);

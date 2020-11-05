@@ -11,8 +11,9 @@ import {
 
 const mapStateToProps = state => ({
   account: state.accountReducer.account,
-  confirmDetails: state.transferReducer.confirmDetails,
   balance: state.accountReducer.balance,
+  selectedToken: state.accountReducer.selectedToken,
+  confirmDetails: state.transferReducer.confirmDetails,
   unit: state.networkReducer.unit,
   units: state.networkReducer.units,
   success: state.transferReducer.success,
