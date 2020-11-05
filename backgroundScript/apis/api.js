@@ -37,15 +37,13 @@ const connect = network => {
     disconnect();
   }
   if (networkFullUrl !== undefined && networkFullUrl !== null && networkFullUrl !== '') {
-    disconnect();
-
     return new Promise((resolve, reject) => {
       const provider = new WsProvider(networkFullUrl, false);
       provider
         .connect()
         .then(() => {
           provider.on('error', () => {
-            disconnect();
+            provider.disconnect();
             reject(error);
           });
           provider.on('connected', () => {
@@ -66,6 +64,7 @@ const connect = network => {
             }
             apiPromise
               .then(api => {
+                disconnect();
                 connection.provider = provider;
                 connection.isConnected = api.isConnected;
                 connection.api = api;

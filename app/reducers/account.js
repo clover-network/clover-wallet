@@ -5,7 +5,7 @@ const initialState = {
   fullChainAccounts: [],
   account: undefined,
   balances: [],
-  balance: '0',
+  balance: undefined,
   isLinkToFaucet: false,
   seedWords: undefined,
   selectedToken: undefined,

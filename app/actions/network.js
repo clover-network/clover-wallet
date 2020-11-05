@@ -80,19 +80,22 @@ export function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 export const propagateUpdates = async dispatch => {
-  dispatch(updateAppLoading(true));
   dispatch(updateNetworkStatus(false));
   dispatch(AccountActions.fetchAndSetAccounts);
   dispatch(AccountActions.setInitialBalance);
   dispatch(getTransactions);
   dispatch(getUnits());
-  dispatch(updateAppLoading(false));
 };
 
 export const switchNetwork = network => async dispatch => {
-  await Network.updateCurrentNetwork(network);
-  dispatch(changeNetwork(network));
-  dispatch(propagateUpdates);
+  dispatch(updateAppLoading(true));
+  try {
+    await Network.updateCurrentNetwork(network);
+    dispatch(changeNetwork(network));
+    dispatch(propagateUpdates);
+  } finally {
+    dispatch(updateAppLoading(false));
+  }
 };
 
 export const validateAndSaveURL = url => async (dispatch, getState) => {
