@@ -24,7 +24,7 @@ export default class QRCode extends Component {
     const theme = chain.icon || 'polkadot';
     const hideAvatar = true;
     return (
-      <div className="container">
+      <div className="container qr-code-wrapper">
         <HeaderBack
           fontColor="#ffffff"
           icon={ArrowLeftWhite}
