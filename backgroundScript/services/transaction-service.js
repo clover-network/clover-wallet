@@ -12,9 +12,9 @@ import { convertUnit } from './unit-converter';
 import { getBaseUnit } from '../apis/chain';
 import {
   KUSAMA_NETWORK,
-  WESTEND_NETWORK,
-  EDGEWARE_NETWORK,
-  BERESHEET_NETWORK,
+  CLOVER_NETWORK,
+  ACALA_NETWORK,
+  POLKADOT_NETWORK,
 } from '../../lib/constants/networks';
 import { getTxnEncodedLength } from '../apis/tx';
 import { getBalance, valueFormatter } from './balance-service';
@@ -46,12 +46,12 @@ export const getTxnError = () => ({
 export const isValidTxnAmount = (balance, totalAmount, network) => {
   if (
     network.value === KUSAMA_NETWORK.value
-    || network.value === EDGEWARE_NETWORK.value
-    || network.value === BERESHEET_NETWORK.value
+    || network.value === ACALA_NETWORK.value
+    || network.value === CLOVER_NETWORK.value
   ) {
     return balance.gt(new BN(Transaction.KUSAMA_MINIMUM_BALANCE)) && balance.gte(totalAmount);
   }
-  if (network.value === WESTEND_NETWORK.value) {
+  if (network.value === POLKADOT_NETWORK.value) {
     return balance.gt(new BN(Transaction.MINIMUM_BALANCE)) && balance.gt(totalAmount);
   }
   return balance.gt(totalAmount);
@@ -145,7 +145,7 @@ const validateAmount = async (senderAddress, network, transaction, seedWords, ke
   // const transactionLength = await getTxnEncodedLength(to, fAmount, seedWords, keypairType);
   const transactionLength = Transaction.SIGNATURE_SIZE;
   const fees = await getTransactionFees(txnType, senderAddress, to, transactionLength); // in femto
-  const { balance } = await getBalance(senderAddress); // in femto
+  const balance = await getBalance(senderAddress); // in femto
   const { totalFee } = fees;
   const totalAmount = new BN(fAmount).add(new BN(totalFee));
   const balanceInBN = new BN(balance);
@@ -165,6 +165,7 @@ const validateAmount = async (senderAddress, network, transaction, seedWords, ke
   }
   return { isValidAmount };
 };
+
 export const confirmTransaction = async (
   senderAddress,
   network,

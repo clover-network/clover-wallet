@@ -17,7 +17,7 @@ export const convertUnit = (value, fromUnit, toUnit) => {
   validate(toUnit, 'toUnit');
   const bnValue = new BigNumber(value);
   const units = getUnits();
-  const foundFromUnit = units.find(x => x.text === fromUnit);
+  const foundFromUnit = units.find(x => x.value === '-');
   if (foundFromUnit === undefined) {
     throw new Error('From Unit is not supported');
   }
