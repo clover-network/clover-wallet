@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { changePage } from '../../containers/actions';
+import { changePage, updateAppLoading } from '../../containers/actions';
 import Chain from './chain.component';
 import { switchNetwork } from '../../actions/network';
 import { changeAccount } from '../manage-account/actions';
+import { createToast } from '../../constants/toast';
 
 const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
@@ -18,6 +19,8 @@ const mapDispatchToProps = {
   changePage,
   switchNetwork,
   changeAccount,
+  createToast,
+  updateAppLoading,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chain);

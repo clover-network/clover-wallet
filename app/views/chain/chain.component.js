@@ -27,8 +27,16 @@ export default class Chain extends Component {
 
   accountClicked = async (account, network) => {
     this.handleClose();
-    this.props.switchNetwork(network);
-    this.props.changeAccount(account);
+    try {
+      await this.props.switchNetwork(network);
+      this.props.changeAccount(account);
+    } catch (e) {
+      this.props.updateAppLoading(false);
+      this.props.createToast({
+        message: `Failed to connect ${network.unit} chain...`,
+        type: 'error',
+      });
+    }
   };
 
   render() {

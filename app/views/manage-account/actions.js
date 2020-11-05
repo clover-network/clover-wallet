@@ -2,10 +2,7 @@ import { Account } from '../../api';
 import * as AccountActions from '../../actions/account';
 import * as AppActions from '../../containers/actions';
 import { createToast } from '../../constants/toast';
-import {
-  onRemoveAccount,
-  onUpdateCurrentAccount,
-} from '../../../lib/services/static-message-factory-service';
+import { onRemoveAccount } from '../../../lib/services/static-message-factory-service';
 
 export const addAccount = () => async dispatch => {
   dispatch(AppActions.updateAppLoading(true));
@@ -16,13 +13,13 @@ export const addAccount = () => async dispatch => {
 export const changeAccount = account => async dispatch => {
   try {
     dispatch(AppActions.updateAppLoading(true));
-    const { address, alias } = account;
+    const { address } = account;
     await Account.updateCurrentAccount(address);
     AccountActions.fetchAndSetAccounts(dispatch);
     dispatch(AppActions.updateAppLoading(false));
-    dispatch(createToast({ message: onUpdateCurrentAccount(alias), type: 'success' }));
+    // dispatch(createToast({ message: onUpdateCurrentAccount(alias), type: 'success' }));
   } catch (e) {
-    dispatch(createToast({ message: 'Error selecting current account', type: 'error' }));
+    // dispatch(createToast({ message: 'Error selecting current account', type: 'error' }));
   }
 };
 

@@ -7,6 +7,7 @@ import { cloverTypes } from './core-clover/clover-types';
 import { cloverRpc } from './core-clover/clover-rpc';
 
 const connection = {
+  isError: false,
   isConnected: false,
   api: null,
   provider: null,
@@ -28,46 +29,65 @@ const disconnect = () => {
   }
 };
 
-const connect = async network => {
-  let api;
+const connect = network => {
+  let apiPromise;
   const { networkFullUrl, value } = network;
+  const error = new Error(`Error connecting to ${value} chain`);
   if (value === 'dotcustom') {
     disconnect();
   }
   if (networkFullUrl !== undefined && networkFullUrl !== null && networkFullUrl !== '') {
     disconnect();
-    try {
-      const provider = new WsProvider(networkFullUrl);
-      if (value === ACALA_NETWORK.value) {
-        const acaTypes = acalaTypes.spec.acala.types.find(t => t.minmax[0] >= 1500);
-        api = await ApiPromise.create({
-          provider,
-          types: acaTypes.types,
-        });
-      } else if (value === CLOVER_NETWORK.value) {
-        api = await ApiPromise.create({
-          provider,
-          types: cloverTypes,
-          rpc: cloverRpc,
-        });
-      } else {
-        api = await ApiPromise.create({ provider });
-      }
-      api.on('disconnected', () => {
-        disconnect();
-      });
 
-      // set connection
-      connection.provider = provider;
-      connection.isConnected = provider.isConnected;
-      connection.api = api;
-      connection.currentNetwork = network;
-      await setChain(api);
-      return connection;
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log('Error in polkadot connection', err);
-    }
+    return new Promise((resolve, reject) => {
+      const provider = new WsProvider(networkFullUrl, false);
+      provider
+        .connect()
+        .then(() => {
+          provider.on('error', () => {
+            disconnect();
+            reject(error);
+          });
+          provider.on('connected', () => {
+            if (value === ACALA_NETWORK.value) {
+              const acaTypes = acalaTypes.spec.acala.types.find(t => t.minmax[0] >= 1500);
+              apiPromise = ApiPromise.create({
+                provider,
+                types: acaTypes.types,
+              });
+            } else if (value === CLOVER_NETWORK.value) {
+              apiPromise = ApiPromise.create({
+                provider,
+                types: cloverTypes,
+                rpc: cloverRpc,
+              });
+            } else {
+              apiPromise = ApiPromise.create({ provider });
+            }
+            apiPromise
+              .then(api => {
+                connection.provider = provider;
+                connection.isConnected = api.isConnected;
+                connection.api = api;
+                connection.currentNetwork = network;
+                setChain(api)
+                  .then(() => resolve(connection))
+                  .catch(() => {
+                    disconnect();
+                    reject(error);
+                  });
+              })
+              .catch(() => {
+                disconnect();
+                reject(error);
+              });
+          });
+        })
+        .catch(() => {
+          disconnect();
+          reject(error);
+        });
+    });
   }
 };
 
