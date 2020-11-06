@@ -14,7 +14,7 @@ export default class Address extends Component {
         }}
         {...otherProps}
       >
-        {`${shortenAddress(hash)} ${text || ''}`}
+        {`To ${shortenAddress(hash)} ${text || ''}`}
       </div>
     );
   }

@@ -1,5 +1,5 @@
 .transaction-list-container {
-  height: 277px;
+  height: 198px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -8,9 +8,9 @@
 }
 
 .transactions-header {
-  font-size: 18px;
+  font-size: 16px;
   color: rgba(0, 0, 0, 1);
   padding: 18px;
   height:54px;
-  border-bottom: 1px solid rgb(227, 227, 227); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
 }

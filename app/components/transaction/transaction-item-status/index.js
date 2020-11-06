@@ -14,7 +14,7 @@ export default class TransactionItemStatus extends Component {
           <Address
             className="transaction-item-details-status-address"
             hash={address}
-            text={`• ${moment}`}
+            text={` ${moment}`}
           />
         )}
 

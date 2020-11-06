@@ -9,7 +9,7 @@ export default class DarkDivider extends Component {
         style={{
           width: '100vw',
           height: '1px',
-          backgroundColor: 'rgba(227, 227, 227, 1)',
+          backgroundColor: 'rgba(0, 0, 0, 0.05)',
           ...style,
         }}
         {...otherProps}

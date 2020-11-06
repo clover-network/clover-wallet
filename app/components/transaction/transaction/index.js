@@ -11,7 +11,7 @@ export default class Transaction extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <FontMedium className="transactions-header" text="Transactions" />
+        <FontMedium className="transactions-header" text="Record" />
         {transactions.length > 0 ? (
           <TransactionItems className="transaction-list-container" transactions={transactions} />
         ) : (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IconTransfer } from '../../common/icon';
+import SendIcon from '../../../images/send.svg';
 import TransactionItemDetails from '../transaction-item-details';
 import { DAPP } from '../../../../lib/constants/transaction';
 import './styles.css';
@@ -22,7 +22,7 @@ export default class TransactionItem extends Component {
             style={{ textDecoration: 'none' }}
           >
             <div {...otherProps}>
-              <IconTransfer className="transfer-item-icon" />
+              <img src={SendIcon} className="transfer-item-icon" alt="send" width="35" />
               <TransactionItemDetails
                 amount={transaction.transferAmount}
                 address={transaction.metadata.to}
@@ -34,7 +34,7 @@ export default class TransactionItem extends Component {
           </a>
         ) : (
           <div {...otherProps}>
-            <IconTransfer className="transfer-item-icon" />
+            <img src={SendIcon} className="transfer-item-icon" alt="send" width="35" />
             <TransactionItemDetails
               amount={transaction.transferAmount}
               address={transaction.metadata.to}
