@@ -10,7 +10,8 @@
 .transactions-header {
   font-size: 16px;
   color: rgba(0, 0, 0, 1);
-  padding: 18px;
-  height:54px;
+  padding: 18px 18px 18px 0;
+  margin-left: 18px;
+  height: 54px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);;
 }

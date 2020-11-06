@@ -6,7 +6,7 @@ export default class FontMedium extends PureComponent {
     return (
       <div
         style={{
-          fontFamily: 'Roboto-Medium',
+          fontFamily: 'Inter-Bold',
           ...style,
         }}
         {...otherProps}
