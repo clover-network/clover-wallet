@@ -116,7 +116,7 @@ export const updateTransactionState = async (transaction, txnHash, txnStatus) =>
 
 const createTransactionObj = transaction => {
   const {
-    to, account, amount, unit, fAmount, fees, totalAmount, network
+    to, account, amount, unit, fAmount, fees, totalAmount, network, token
   } = transaction;
   const newTransactionObject = {
     txnType: Transaction.TRANSFER_COINS,
@@ -130,6 +130,7 @@ const createTransactionObj = transaction => {
       transferFee: valueFormatter(fees.totalFee),
       transferAmount: valueFormatter(fAmount),
       totalTransferAmount: valueFormatter(totalAmount),
+      token,
     },
     internal: { address: account.address, network },
   };
@@ -138,7 +139,7 @@ const createTransactionObj = transaction => {
 
 const validateAmount = async (senderAddress, network, transaction, seedWords, keypairType) => {
   const {
-    to, account, amount, unit, txnType
+    to, account, amount, unit, txnType, token
   } = transaction;
   const fAmount = convertUnit(amount.toString(), unit.text, getBaseUnit().text); // converting in femto
   // TODO MM: Take 0 Signature size to show 10 milli fees like polkadot
@@ -147,7 +148,7 @@ const validateAmount = async (senderAddress, network, transaction, seedWords, ke
   const fees = await getTransactionFees(txnType, senderAddress, to, transactionLength); // in femto
   const balanceObj = await getBalance(senderAddress); // in femto
   const balance = _.chain(balanceObj.tokens)
-    .find(t => t.token === transaction.token)
+    .find(t => t.token === token)
     .get('balance')
     .value();
   const { totalFee } = fees;
@@ -165,6 +166,7 @@ const validateAmount = async (senderAddress, network, transaction, seedWords, ke
       totalAmount,
       network,
       isValidAmount,
+      token,
     };
   }
   return { isValidAmount };

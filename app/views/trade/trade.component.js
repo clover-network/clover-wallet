@@ -67,7 +67,10 @@ export default class Trade extends Component {
                   <span>0</span>
                 </li>
               </ul>
-              <Transaction className="transaction-container" transactions={transactions} />
+              <Transaction
+                className="transaction-container"
+                transactions={transactions.filter(t => t.metadata.token === selectedToken)}
+              />
               <div
                 style={{
                   position: 'absolute',
