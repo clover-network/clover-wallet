@@ -41,8 +41,8 @@ export const getBalance = async address => {
     const {
       data: { free: balance },
     } = await api.query.system.account(address);
-    const balanceFormatted = formatBalance(balance, true, 15);
-    const dotBalance = formatBalance(balance, { forceUnit: 'aca', withSi: true }, 15);
+    const balanceFormatted = formatBalance(balance, true, 18);
+    const dotBalance = formatBalance(balance, { forceUnit: 'aca', withSi: true }, 18);
     const balanceObj = {
       address,
       tokens: [
@@ -64,7 +64,7 @@ export const getBalance = async address => {
         {
           token: 'ACA',
           balance: '0',
-          balanceFormatted: formatBalance('0', true, 15),
+          balanceFormatted: formatBalance('0', true, 18),
         },
       ],
       status: FAILURE,
@@ -78,7 +78,7 @@ export const createSeedWords = () => mnemonicGenerate();
 export const valueFormatter = (value, token = 'ACA') => {
   try {
     formatBalance.setDefaults({ unit: token });
-    const fBalance = formatBalance(value, true, 15);
+    const fBalance = formatBalance(value, true, 18);
     return fBalance;
   } catch (err) {
     throw new Error('Error in polkadot valueFormatter');
