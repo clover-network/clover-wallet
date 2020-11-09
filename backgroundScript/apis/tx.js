@@ -43,10 +43,16 @@ export const signTransaction = async (seedWords, keypairType, transaction) => {
   const nonce = await api.rpc.system.accountNextIndex(address);
   const keyring = new Keyring({ type: keypairType });
   const accountPair = keyring.addFromUri(seedWords);
-
-  const signTransaction = await api.tx.balances
-    .transfer(to, new BN(fAmount))
-    .sign(accountPair, { nonce });
+  let signTransaction;
+  if (api.tx.currencies) {
+    signTransaction = await api.tx.currencies
+      .transfer(to, transaction.metadata.token, new BN(fAmount))
+      .sign(accountPair, { nonce });
+  } else {
+    signTransaction = await api.tx.balances
+      .transfer(to, new BN(fAmount))
+      .sign(accountPair, { nonce });
+  }
   return signTransaction;
 };
 
