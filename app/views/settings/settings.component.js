@@ -5,10 +5,11 @@ import Close from '../../images/close.svg';
 import SettingAccountDetails from '../../components/account/setting-account-info';
 import ManageAccount from '../../images/manage_account.svg';
 import ArrowRight from '../../images/arrow_right.svg';
+import { DASHBOARD_PAGE } from '../../constants/navigation';
 
 export default class Settings extends Component {
   handleClose = () => {
-    this.props.changePage(this.props.backupPage);
+    this.props.changePage(DASHBOARD_PAGE);
   };
 
   render() {
