@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
-import Clear from '@material-ui/icons/Clear';
-import SubHeader from '../../components/common/sub-header';
-import TransferForm from '../../components/transfer/transfer-form';
+import _ from 'lodash';
+import InputBase from '@material-ui/core/InputBase';
+import { getCurrencyIcon } from '../../utils/dashboard';
 import * as NavConstants from '../../constants/navigation';
-import { INPUT_NUMBER_REGEX } from '../../../lib/constants/regex';
-import { findChainByName } from '../../../lib/constants/chain';
+import ArrowLeft from '../../images/arrow_left.svg';
+import HeaderBack from '../../components/header-back';
+import './styles.css';
+import MailList from '../../images/mail_list.svg';
+import FooterButton from '../../components/common/footer-button';
 
 export default class Transfer extends Component {
   constructor(props) {
     super(props);
     const {
       confirmDetails: { metadata },
-      account,
+      balance,
+      selectedToken,
     } = props;
     //TODO DP: Can be improved by using optional chaining operator
     this.state = {
       to: metadata ? metadata.to : '',
       amount: metadata ? metadata.amount : '',
       unit: metadata ? metadata.unit : '',
-      alias: metadata ? metadata.account.alias : account.alias,
-      from: metadata ? metadata.account.address : account.address,
       buttonText: 'next',
+      isAmountError: false,
+      currentToken: balance.tokens ? _.find(balance.tokens, t => t.token === selectedToken) : '',
     };
     this.toInput = React.createRef();
     this.amountInput = React.createRef();
@@ -81,20 +88,37 @@ export default class Transfer extends Component {
   };
 
   handleAmountChange = prop => e => {
-    if (e.target.value === '' || INPUT_NUMBER_REGEX.test(e.target.value)) {
-      this.props.dispatchSetTransferDetails({
-        metadata: {
-          ...this.props.confirmDetails.metadata,
-          amount: e.target.value,
-        },
-      });
-      this.setState({ [prop]: e.target.value });
+    const totalAmount = _.find(this.props.balance.tokens, t => t.token === this.props.selectedToken)
+      .amount;
+    this.props.dispatchSetTransferDetails({
+      metadata: {
+        ...this.props.confirmDetails.metadata,
+        amount: e.target.value,
+      },
+    });
+    this.setState({ [prop]: e.target.value, isAmountError: false });
+    if (_.toNumber(e.target.value) > _.toNumber(totalAmount)) {
+      this.setState({ isAmountError: true });
     }
   };
 
   onAddressBookClick = () => {
     this.props.updateBackupPage(this.props.page);
     this.props.changePage(NavConstants.ADDRESS_BOOK_PAGE);
+  };
+
+  getMaxAmount = () => {
+    const totalAmount = _.find(this.props.balance.tokens, t => t.token === this.props.selectedToken)
+      .amount;
+    if (totalAmount !== '') {
+      this.props.dispatchSetTransferDetails({
+        metadata: {
+          ...this.props.confirmDetails.metadata,
+          amount: totalAmount,
+        },
+      });
+      this.setState({ amount: totalAmount });
+    }
   };
 
   handleSendButton = () => {
@@ -120,55 +144,102 @@ export default class Transfer extends Component {
     this.setState({ unit });
   };
 
+  handleCurrencyChange = e => {
+    const token = _.find(this.props.balance.tokens, t => t.amount === e.target.value);
+    this.props.selectToken(token.token);
+    this.setState({ currentToken: token });
+  };
+
   render() {
+    const { isToAddressError, toAddress, balance } = this.props;
     const {
-      units,
-      isToAddressError,
-      toAddressErrorMessage,
-      isAmountError,
-      toAmountErrorMessage,
-      toAddress,
-      network,
-    } = this.props;
-    const {
-      to, amount, unit, alias, from, buttonText
+      to, amount, buttonText, currentToken
     } = this.state;
-    const chain = findChainByName(network.value);
-    const theme = chain.icon || 'polkadot';
+    const BootstrapInput = withStyles(() => ({}))(InputBase);
     return (
       <div>
-        <SubHeader
-          icon={<Clear style={{ color: 'rgba(255, 255, 255, 1)' }} />}
-          title="Send"
-          backBtnOnClick={this.handleSubheaderBackBtn}
-        />
-        <TransferForm
-          theme={theme}
-          address={from}
-          alias={alias}
-          unit={unit}
-          amountPropName="amount"
-          toPropName="to"
-          units={units}
-          to={toAddress || to}
-          toRef={input => {
-            this.toInput = input;
-          }}
-          amountRef={input => {
-            this.amountInput = input;
-          }}
-          amount={amount}
-          buttonText={buttonText}
-          isToError={isToAddressError}
-          toErrorText={toAddressErrorMessage}
-          isAmountError={isAmountError}
-          amountErrorText={toAmountErrorMessage}
-          handleAmountChange={this.handleAmountChange}
-          handleToChange={this.handleToChange}
-          handleSendButton={this.handleSendButton}
-          handleUnitOnChange={this.handleUnitChange}
-          onAddressBookClick={this.onAddressBookClick}
-        />
+        <HeaderBack icon={ArrowLeft} handleBack={this.handleSubheaderBackBtn} title="SEND" />
+        <div className="transfer-form-card">
+          <div className="transfer-border-bottom transfer-padding">
+            <span className="transfer-card-span">To</span>
+            <InputBase
+              style={{ fontSize: '12px' }}
+              fullWidth
+              error={isToAddressError}
+              placeholder="Input or paste address here"
+              value={toAddress || to}
+              name="to"
+              onChange={this.handleToChange('to')}
+              inputRef={input => {
+                this.toInput = input;
+              }}
+              endAdornment={(
+                <div className="address-book-icon" onClick={this.onAddressBookClick}>
+                  <img width="20" height="20" src={MailList} alt="" />
+                </div>
+              )}
+            />
+          </div>
+          <div className="transfer-border-bottom transfer-padding-top">
+            <span className="transfer-card-span">Asset</span>
+            <div className="transfer-asset">
+              <Select
+                value={currentToken.amount}
+                onChange={this.handleCurrencyChange}
+                input={<BootstrapInput />}
+              >
+                {balance.tokens.map(token => (
+                  <MenuItem key={token.amount} value={token.amount}>
+                    <div className="transfer-select-item-left">
+                      <img
+                        className="transfer-select-item-icon"
+                        width="26"
+                        height="26"
+                        src={getCurrencyIcon(token.token)}
+                        alt=""
+                      />
+                      <span className="transfer-select-item-currency-type">{token.token}</span>
+                    </div>
+                    <span className="transfer-select-item-amount">{`${token.amount} ${token.token}`}</span>
+                  </MenuItem>
+                ))}
+              </Select>
+            </div>
+          </div>
+          <div className="transfer-padding">
+            <span className="transfer-card-span">Amount</span>
+            <InputBase
+              style={{ fontSize: '12px' }}
+              fullWidth
+              error={this.state.isAmountError}
+              placeholder="Input amount here"
+              value={amount}
+              name="amount"
+              onChange={this.handleAmountChange('amount')}
+              inputRef={input => {
+                this.amountInput = input;
+              }}
+              endAdornment={(
+                <div className="transfer-amount-max" onClick={this.getMaxAmount}>
+                  MAX
+                </div>
+              )}
+            />
+            <span
+              className={`insufficient-balance ${
+                this.state.isAmountError ? 'show-insufficient-balance' : ''
+              }`}
+            >
+              Insufficient balance
+            </span>
+          </div>
+          <FooterButton
+            disabled={this.state.isAmountError || !this.state.amount || !this.state.to}
+            style={{ left: 0 }}
+            onClick={this.handleSendButton}
+            name={buttonText}
+          />
+        </div>
       </div>
     );
   }

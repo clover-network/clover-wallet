@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import ArrowBack from '@material-ui/icons/ArrowBack';
 import ConfirmForm from '../../components/confirm/confirm-form';
-import SubHeader from '../../components/common/sub-header';
 import { TRANSFER_PAGE, CREATE_ADDRESS_BOOK_PAGE } from '../../constants/navigation';
 import { shortenAddress } from '../../services/wallet-service';
 import { findChainByName } from '../../../lib/constants/chain';
+import ArrowLeft from '../../images/arrow_left.svg';
+import HeaderBack from '../../components/header-back';
 
 export default class Confirm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonText: 'send',
+      buttonText: 'SUBMIT',
     };
   }
 
@@ -54,11 +54,7 @@ export default class Confirm extends Component {
     const theme = chain.icon || 'polkadot';
     return (
       <div>
-        <SubHeader
-          icon={<ArrowBack style={{ color: 'rgba(255, 255, 255, 1)' }} />}
-          title="Send"
-          backBtnOnClick={this.handleSubheaderBackBtn}
-        />
+        <HeaderBack icon={ArrowLeft} handleBack={this.handleSubheaderBackBtn} title="SEND SUBMIT" />
         <ConfirmForm
           confirmDetails={confirmDetails}
           handleSend={this.handleSend}

@@ -1,9 +1,17 @@
+.confirm-quote-wrapper {
+  display: flex;
+  padding-left: 18px;
+  margin-top: 15px;
+}
+
 .confirm-quote-description {
   font-size: 11px;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.5);
+  width: 70px;
+  font-size: 14px;
 }
 
 .confirm-quote-price {
-  font-size: 15px;
-  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  color: #000000;
 }

@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Transfer from './transfer.component';
 import { changePage, updateAppLoading, updateBackupPage } from '../../containers/actions';
 import { updateToAddress } from '../../actions/address-book';
+import { selectToken } from '../../actions/account';
 import {
   clearTransferDetails,
   confirmTransaction,
@@ -36,6 +37,7 @@ const mapDispatchToProps = {
   resetConfirmOnBoarding,
   dispatchSetTransferDetails,
   updateToAddress,
+  selectToken,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Transfer);

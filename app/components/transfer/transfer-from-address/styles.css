@@ -1,6 +1,7 @@
 .transfer-form-address-alias {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 18px;
+  font-size: 14px;
+  font-family: Inter-Bold!important;
 }
 
 .transfer-form-address-text {

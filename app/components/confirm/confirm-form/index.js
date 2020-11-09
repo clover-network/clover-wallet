@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DarkDivider from '../../common/divider/dark-divider';
 import FooterButton from '../../common/footer-button';
 import ConfirmParticular from '../confirm-particular';
 import ConfirmFromTo from '../confirm-from-to';
@@ -24,21 +23,20 @@ export default class ConfirmForm extends Component {
     return (
       <div className="confirm-form-container">
         <ConfirmFromTo to={to} theme={theme} from={address} alias={alias} />
-        <DarkDivider className="confirm-form-amount-divider" />
+        <div className="confirm-form-amount-border" />
         <ConfirmParticular
           className="confirm-form-amount-container"
-          description="AMOUNT"
+          description="Amount"
           price={`${transferAmount}`}
         />
         <ConfirmParticular
           className="confirm-form-fee-container"
-          description="FEE"
+          description="Fee"
           price={`${transferFee}`}
         />
-        <DarkDivider className="confirm-form-total-amount-divider" />
         <ConfirmParticular
           className="confirm-form-total-container"
-          description="TOTAL"
+          description="Total"
           price={`${totalTransferAmount}`}
         />
         <FooterButton onClick={handleSend} name={buttonText} />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TransferFrom from '../../transfer/transfer-from';
-import { IconTransferFromTo } from '../../common/icon';
 import ConfirmTo from '../confirm-to';
+import TranferFromTo from '../../../images/tranfer_from_to.svg';
 
 export default class ConfirmFromTo extends Component {
   render() {
@@ -11,10 +11,18 @@ export default class ConfirmFromTo extends Component {
     return (
       <div {...otherProps}>
         <TransferFrom address={from} alias={alias} theme={theme} />
-        <IconTransferFromTo />
+        <img
+          style={{
+            marginLeft: '43px',
+            marginTop: '5px',
+          }}
+          width="10"
+          height="14"
+          src={TranferFromTo}
+          alt=""
+        />
         <ConfirmTo
           style={{
-            marginTop: '10.8px',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
