@@ -32,8 +32,8 @@ export const getBalance = async address => {
   return balance;
 };
 
-export const valueFormatter = value => {
+export const valueFormatter = (value, token) => {
   const wallet = getWallet();
-  const fBalance = wallet.valueFormatter(value);
+  const fBalance = wallet.valueFormatter(value, token);
   return fBalance;
 };

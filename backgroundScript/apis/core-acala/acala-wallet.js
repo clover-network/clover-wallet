@@ -75,9 +75,9 @@ export const getBalance = async address => {
 
 export const createSeedWords = () => mnemonicGenerate();
 
-export const valueFormatter = value => {
+export const valueFormatter = (value, token = 'ACA') => {
   try {
-    formatBalance.setDefaults({ unit: 'ACA' });
+    formatBalance.setDefaults({ unit: token });
     const fBalance = formatBalance(value, true, 15);
     return fBalance;
   } catch (err) {

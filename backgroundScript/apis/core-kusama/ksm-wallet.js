@@ -24,9 +24,9 @@ export const getAddress = (seedWords, keypairType) => {
 
 export const createSeedWords = () => mnemonicGenerate();
 
-export const valueFormatter = value => {
+export const valueFormatter = (value, token = 'KSM') => {
   try {
-    formatBalance.setDefaults({ unit: 'KSM' });
+    formatBalance.setDefaults({ unit: token });
     const fBalance = formatBalance(value, true, 12);
     return fBalance;
   } catch (err) {

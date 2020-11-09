@@ -15,23 +15,16 @@ export default class TransactionItem extends Component {
     return (
       <div>
         {transactionUrl && transaction.status !== DAPP ? (
-          <a
-            href={`${transactionUrl}/${transaction.txnHash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
-          >
-            <div {...otherProps}>
-              <img src={SendIcon} className="transfer-item-icon" alt="send" width="35" />
-              <TransactionItemDetails
-                amount={transaction.transferAmount}
-                address={transaction.metadata.to}
-                moment={transaction.modifiedDate}
-                status={transaction.status}
-                color={transaction.color}
-              />
-            </div>
-          </a>
+          <div {...otherProps}>
+            <img src={SendIcon} className="transfer-item-icon" alt="send" width="35" />
+            <TransactionItemDetails
+              amount={transaction.transferAmount}
+              address={transaction.metadata.to}
+              moment={transaction.modifiedDate}
+              status={transaction.status}
+              color={transaction.color}
+            />
+          </div>
         ) : (
           <div {...otherProps}>
             <img src={SendIcon} className="transfer-item-icon" alt="send" width="35" />

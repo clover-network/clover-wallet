@@ -3,6 +3,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.transaction-list-container::-webkit-scrollbar { width: 0 !important }
+
 .transaction-message {
   padding: 10px 18px;
 }
