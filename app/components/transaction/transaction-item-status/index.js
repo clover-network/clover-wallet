@@ -20,7 +20,7 @@ export default class TransactionItemStatus extends Component {
         )}
 
         <StatusPill text={status} backgroundColor={color} color="rgba(255, 255, 255, 1)" />
-        <img width="8" height="12" style={{ margin: '-20px 0 0 5px' }} src={ArrowRight} alt="" />
+        <img width="8" height="12" style={{ margin: '-20px -5px 0 0' }} src={ArrowRight} alt="" />
       </div>
     );
   }

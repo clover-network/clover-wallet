@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FontMedium from '../../common/fonts/font-medium';
 import TransactionItemStatus from '../transaction-item-status';
-import DarkDivider from '../../common/divider/dark-divider';
 import './styles.css';
 
 export default class TransactionItemDetails extends Component {
@@ -19,7 +18,6 @@ export default class TransactionItemDetails extends Component {
           color={color}
           className="transaction-item-status-container"
         />
-        <DarkDivider />
       </div>
     );
   }

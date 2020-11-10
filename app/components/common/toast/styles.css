@@ -27,6 +27,34 @@
   padding-left: 4px;
 }
 
-.toast-message-add-to-address-button {
-  text-align: center;
+.toast-message-transfer-success-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
 }
+
+.toast-message-add-to-address-status {
+  margin: 20px 18px;
+  float: left;
+}
+
+.toast-message-add-to-address-button {
+  margin: 20px 18px;
+  float: right;
+}
+
+.toast-message-transfer-success-container span {
+  font-size: 14px;
+  font-family: Inter-Bold;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+.toast-message-transfer-success-container img {
+  vertical-align: middle;
+}
+
