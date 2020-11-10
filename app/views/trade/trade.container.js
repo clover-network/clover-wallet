@@ -3,7 +3,7 @@ import { changePage } from '../../containers/actions';
 import Trade from './trade.component';
 import { resetToAddress } from '../../actions/address-book';
 import { getUnits } from '../../actions/network';
-import { connectionError } from '../dashboard/actions';
+import { connectionError, updateSelectedTransaction } from '../dashboard/actions';
 
 const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
@@ -23,6 +23,7 @@ const mapDispatchToProps = {
   resetToAddress,
   getUnits,
   connectionError,
+  updateSelectedTransaction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Trade);

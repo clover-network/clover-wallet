@@ -5,6 +5,7 @@ const initialState = {
   accountMenu: ACCOUNT_MENU_OPTIONS,
   transactions: [],
   pendingTransfers: [],
+  selectedTransaction: undefined,
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...{
           transactions: action.transactions,
+        },
+      };
+    case Types.SELECT_TRANSACTION:
+      return {
+        ...state,
+        ...{
+          selectedTransaction: action.selectedTransaction,
         },
       };
     case Types.UPDATE_PENDING_TRANSACTION_LIST:

@@ -19,6 +19,11 @@ const updatePendingTransfers = pendingTransfers => ({
   pendingTransfers,
 });
 
+export const updateSelectedTransaction = selectedTransaction => ({
+  type: DashboardActionTypes.SELECT_TRANSACTION,
+  selectedTransaction,
+});
+
 export const configEditAccount = (option, account) => async dispatch => {
   if (option.value === RENAME.value) {
     const modifiedAccount = {
