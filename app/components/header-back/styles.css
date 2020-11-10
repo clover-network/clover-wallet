@@ -8,8 +8,13 @@
     cursor: pointer;
 }
 
+.header-back-btn img {
+    vertical-align: middle;
+}
+
 .header-title {
     font-size: 16px;
     font-family: Inter-Bold;
     text-align: center;
+    vertical-align: middle;
 }

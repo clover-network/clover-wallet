@@ -7,3 +7,11 @@
   height: 65px;
   width: 360px;
 }
+
+.transaction-item-wrapper {
+  cursor: pointer;
+}
+
+.transaction-item-wrapper:hover {
+  background-color: #f2f2f2;
+}

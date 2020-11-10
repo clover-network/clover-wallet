@@ -26,7 +26,7 @@ export default class QRCode extends Component {
     return (
       <div className="container qr-code-wrapper">
         <HeaderBack
-          fontColor="#ffffff"
+          style={{ color: '#ffffff' }}
           icon={ArrowLeftWhite}
           handleBack={this.handleSubheaderBackBtn}
           title="RECEIVE"

@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Find, IsEmpty } from 'react-lodash';
 import './styles.css';
 import Transaction from '../../components/transaction/transaction';
-import { DASHBOARD_PAGE, QR_CODE_PAGE, TRANSFER_PAGE } from '../../constants/navigation';
+import {
+  DASHBOARD_PAGE,
+  QR_CODE_PAGE,
+  TRANSFER_PAGE,
+  TRANSFER_STATUS_PAGE,
+} from '../../constants/navigation';
 import HeaderBack from '../../components/header-back';
 import ButtonCustom from '../../components/common/buttons/button-custom';
 
@@ -23,6 +28,11 @@ export default class Trade extends Component {
 
   handleDeposit = () => {
     this.props.changePage(QR_CODE_PAGE);
+  };
+
+  checkTransactionDetail = selectTransaction => {
+    this.props.updateSelectedTransaction(selectTransaction);
+    this.props.changePage(TRANSFER_STATUS_PAGE);
   };
 
   render() {
@@ -69,6 +79,7 @@ export default class Trade extends Component {
               </ul>
               <Transaction
                 className="transaction-container"
+                checkTransactionDetail={this.checkTransactionDetail}
                 transactions={transactions.filter(t => t.metadata.token === selectedToken)}
               />
               <div

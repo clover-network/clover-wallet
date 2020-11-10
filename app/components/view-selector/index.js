@@ -7,6 +7,7 @@ import Terms from '../../views/terms';
 import Dashboard from '../../views/dashboard';
 import Transfer from '../../views/transfer';
 import Confirm from '../../views/confirm';
+import TransferStatusPage from '../../views/transfer-status';
 import LoaderOverlay from '../loader-overlay';
 import Error from '../../views/error';
 import CustomNetwork from '../../views/custom-network';
@@ -47,6 +48,8 @@ const getView = page => {
       return <Transfer />;
     case NavConstant.CONFIRM_PAGE:
       return <Confirm />;
+    case NavConstant.TRANSFER_STATUS_PAGE:
+      return <TransferStatusPage />;
     case NavConstant.ERROR_PAGE:
       return <Error />;
     case NavConstant.CUSTOM_NETWORK_PAGE:

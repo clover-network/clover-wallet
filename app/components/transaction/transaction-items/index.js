@@ -4,11 +4,18 @@ import './styles.css';
 
 export default class TransactionItems extends Component {
   render() {
-    const { transactions, ...otherProps } = this.props;
+    const { transactions, checkTransactionDetail, ...otherProps } = this.props;
     return (
       <div {...otherProps}>
         {transactions.map(transaction => (
-          <div key={transaction.date}>
+          <div
+            key={transaction.date}
+            onClick={() => {
+              checkTransactionDetail(transaction);
+            }}
+            style={{ cursor: 'pointer' }}
+            className="transaction-item-wrapper"
+          >
             <TransactionItem className="transaction-item" transaction={transaction} />
           </div>
         ))}

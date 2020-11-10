@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Address from '../../common/address';
 import StatusPill from '../../common/status-pill';
 import './styles.css';
+import ArrowRight from '../../../images/arrow_right.svg';
 
 export default class TransactionItemStatus extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class TransactionItemStatus extends Component {
         )}
 
         <StatusPill text={status} backgroundColor={color} color="rgba(255, 255, 255, 1)" />
+        <img width="8" height="12" style={{ margin: '-20px 0 0 5px' }} src={ArrowRight} alt="" />
       </div>
     );
   }

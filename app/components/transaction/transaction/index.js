@@ -7,13 +7,21 @@ import './styles.css';
 export default class Transaction extends Component {
   render() {
     const {
-      transactions, isLinkToFaucet, network, ...otherProps
+      transactions,
+      checkTransactionDetail,
+      isLinkToFaucet,
+      network,
+      ...otherProps
     } = this.props;
     return (
       <div {...otherProps}>
         <FontMedium className="transactions-header" text="Record" />
         {transactions.length > 0 ? (
-          <TransactionItems className="transaction-list-container" transactions={transactions} />
+          <TransactionItems
+            className="transaction-list-container"
+            checkTransactionDetail={checkTransactionDetail}
+            transactions={transactions}
+          />
         ) : (
           <TransactionMessage
             className="transaction-message"

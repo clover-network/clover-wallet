@@ -2,6 +2,7 @@ export const TERMS_PAGE = 'TERMS_PAGE';
 export const DASHBOARD_PAGE = 'DASHBOARD_PAGE';
 export const TRANSFER_PAGE = 'TRANSFER_PAGE';
 export const CONFIRM_PAGE = 'CONFIRM_PAGE';
+export const TRANSFER_STATUS_PAGE = 'TRANSFER_STATUS_PAGE';
 export const SIGN_UP_PAGE = 'SIGN_UP_PAGE';
 export const SIGN_IN_PAGE = 'SIGN_IN_PAGE';
 export const LOADER_OVERLAY = 'LOADER_OVERLAY';

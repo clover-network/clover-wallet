@@ -10,6 +10,8 @@ const mapStateToProps = state => ({
   fullChainAccounts: state.accountReducer.fullChainAccounts,
   account: state.accountReducer.account,
   backupPage: state.appStateReducer.backupPage,
+  selectedToken: state.accountReducer.selectedToken,
+  selectedTransaction: state.dashboardReducer.selectedTransaction,
 });
 
 const mapDispatchToProps = {
