@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import Clear from '@material-ui/icons/Clear';
-import SubHeader from '../../components/common/sub-header';
 import * as NavConstants from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import AddressList from '../../components/address-book/address-list';
 import EmptyDashboard from '../../components/empty-dashboard';
 import ButtonMD from '../../components/common/buttons/button-md';
 import DraggableDialog from '../../components/common/confirm-dialog';
-import {
-  ADDRESS_BOOK_MENU_OPTIONS,
-  ACCOUNT_MANAGEMENT_OPTIONS,
-  ADD_ADDRESS,
-  REMOVE,
-} from '../../constants/options';
+import { ACCOUNT_MANAGEMENT_OPTIONS, ADD_ADDRESS, REMOVE } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
 import './styles.css';
+import HeaderBack from '../../components/header-back';
+import { CREATE_ADDRESS_BOOK_PAGE } from '../../constants/navigation';
 
 export default class AddressBook extends Component {
   constructor(props) {
@@ -23,7 +18,6 @@ export default class AddressBook extends Component {
     this.state = {
       isOpen: false,
       isMoreVertIconVisible: true,
-      showSettings: true,
       headerText: 'Address Book',
     };
   }
@@ -31,9 +25,8 @@ export default class AddressBook extends Component {
   static getDerivedStateFromProps(props, state) {
     if (props.backupPage === NavConstants.TRANSFER_PAGE) {
       return {
-        headerText: 'Select To Address',
-        showSettings: false,
-        isMoreVertIconVisible: false,
+        headerText: 'SETTING',
+        isMoreVertIconVisible: true,
       };
     }
     return state;
@@ -96,22 +89,26 @@ export default class AddressBook extends Component {
     this.setState({ isOpen: false });
   };
 
+  openAddressBook = () => {
+    this.props.changePage(CREATE_ADDRESS_BOOK_PAGE);
+  };
+
   render() {
     const { addressBook, network } = this.props;
-    const {
-      isOpen, showSettings, headerText, isMoreVertIconVisible
-    } = this.state;
+    const { isOpen, headerText, isMoreVertIconVisible } = this.state;
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
     return (
       <div>
-        <SubHeader
-          icon={<Clear style={{ color: 'rgba(255, 255, 255, 1)' }} />}
+        <HeaderBack
+          handleBack={this.handleSubheaderBackBtn}
           title={headerText}
-          backBtnOnClick={this.handleSubheaderBackBtn}
-          subMenu={showSettings ? ADDRESS_BOOK_MENU_OPTIONS : null}
-          showSettings={showSettings}
-          onSubMenuOptionsChange={this.handleOnSubMenuOptionsChange}
+          style={{ textAlign: 'left', marginLeft: '25px' }}
+          rightButton={(
+            <div className="add-address-btn" onClick={this.openAddressBook}>
+              Add
+            </div>
+          )}
         />
         <div className="manage-address-book">
           <div className="manage-address-book-container">
@@ -123,7 +120,6 @@ export default class AddressBook extends Component {
                 onMoreMenuOptionsChange={this.handleAddressBookOptionsChange}
                 theme={theme}
                 isMoreVertIconVisible={isMoreVertIconVisible}
-                onCopyAddress={this.onCopyAddress}
                 handelChangeToAddress={this.handelChangeToAddress}
               />
             ) : (

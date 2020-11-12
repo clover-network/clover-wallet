@@ -5,4 +5,10 @@
   width: 100%;
   height: 65px;
   cursor: pointer;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.address-card-container:hover {
+  background-color: #FAFAFA;
 }

@@ -5,7 +5,7 @@ import './styles.css';
 export default class HeaderBack extends Component {
   render() {
     const {
-      handleBack, title, icon, style, ...otherProps
+      handleBack, title, icon, style, rightButton, ...otherProps
     } = this.props;
     return (
       <div {...otherProps} className="header-wrapper">
@@ -15,6 +15,7 @@ export default class HeaderBack extends Component {
         <div className="header-title" style={{ ...style }}>
           {title}
         </div>
+        {rightButton}
       </div>
     );
   }

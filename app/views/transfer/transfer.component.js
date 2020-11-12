@@ -15,7 +15,6 @@ import { getCurrencyIcon } from '../../utils/dashboard';
 import SelectDown from '../../images/select_down_icon.svg';
 import ButtonMD from '../../components/common/buttons/button-md';
 import AddressList from '../../components/address-book/address-list';
-import { ACCOUNT_MANAGEMENT_OPTIONS } from '../../constants/options';
 import EmptyDashboard from '../../components/empty-dashboard';
 
 export default class Transfer extends Component {
@@ -195,6 +194,7 @@ export default class Transfer extends Component {
               }}
               endAdornment={(
                 <div className="address-book-icon">
+                  {/*<div onClick={addressBook.length === 0 ? '' : this.toggleAddress(true)}>*/}
                   <div onClick={this.onAddressBookClick}>
                     <img width="20" height="20" src={MailList} alt="" />
                   </div>
@@ -215,10 +215,6 @@ export default class Transfer extends Component {
                             <AddressList
                               className="address-book-container"
                               addressBook={addressBook}
-                              moreMenu={ACCOUNT_MANAGEMENT_OPTIONS}
-                              onMoreMenuOptionsChange={this.handleAddressBookOptionsChange}
-                              onCopyAddress={this.onCopyAddress}
-                              handelChangeToAddress={this.handelChangeToAddress}
                             />
                           ) : (
                             <EmptyDashboard

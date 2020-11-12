@@ -32,6 +32,11 @@ wallet-card-item-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: "380px";
+  width: 380px;
   align-items: center;
+}
+
+.address-account-info-wrapper div {
+  font-family: Inter-Bold;
+  margin-bottom: 10px;
 }

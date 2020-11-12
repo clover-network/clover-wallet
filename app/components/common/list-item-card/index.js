@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Avatar from '../identicon';
-import { MoreVertIcon } from '../icon';
 import CloverMenu from '../clover-menu';
-import ClickToCopyAddress from '../click-to-copy-address';
 import DarkDivider from '../divider/dark-divider';
 import './styles.css';
+import { shortenAddress } from '../../../services/wallet-service';
+import MoreVertIcon from '../../../images/more_vert_icon.svg';
 
 class ListItemCard extends Component {
   state = {
@@ -61,24 +60,14 @@ class ListItemCard extends Component {
               style={{ cursor: 'pointer !important' }}
             />
           </ListItemAvatar>
-          <ListItemText
-            onClick={event => handleListItemClick(event, listItem)}
-            primary={primaryText}
-            className={classes.primaryWidth}
-            secondary={(
-              <ClickToCopyAddress
-                className="account-address clickable-icon"
-                onCopyAddress={onCopyAddress}
-                address={address}
-              />
-            )}
-          />
+          <div className="address-account-info-wrapper">
+            <div>{primaryText}</div>
+            <span>{shortenAddress(address)}</span>
+          </div>
           {isMoreVertIconVisible && (
-            <MoreVertIcon
-              color="rgba(0, 0, 0, 1)"
-              onClick={this.handleClick}
-              className="more-list-icon"
-            />
+            <div className="more-list-icon" onClick={this.handleClick}>
+              <img width="20" height="20" src={MoreVertIcon} alt="" />
+            </div>
           )}
           <CloverMenu
             options={moreMenu}

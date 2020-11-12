@@ -1,6 +1,7 @@
 .manage-address-book {
   height: 480px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 .manage-address-book-container {
@@ -12,7 +13,7 @@
   overflow-y: scroll;
 }
 .address-book-container {
-  background-color: #f5f5f6;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   color: #000000;
@@ -31,4 +32,15 @@
   padding-bottom: 30px;
   text-align: center;
   vertical-align: bottom;
+}
+
+.add-address-btn {
+  float: right;
+  cursor: pointer;
+  font-family: Inter-Bold;
+  color: #FB822A;
+  background: rgba(251, 130, 42, 0.1);
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin-top: -25px;
 }

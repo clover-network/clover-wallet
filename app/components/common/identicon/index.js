@@ -20,7 +20,7 @@ export default class Avatar extends Component {
 }
 
 Avatar.defaultProps = {
-  size: 44,
+  size: 40,
   value: undefined,
   theme: 'polkadot',
 };
