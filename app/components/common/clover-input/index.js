@@ -5,9 +5,12 @@ import { styles } from './styles';
 
 class CloverInput extends Component {
   render() {
-    const { classes, InputProps, ...otherProps } = this.props;
+    const {
+      classes, InputProps, placeholderText, ...otherProps
+    } = this.props;
     return (
       <OutlinedInput
+        placeholder={placeholderText}
         labelWidth={0}
         inputProps={{
           className: classes.cloverInput,

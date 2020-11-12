@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import {
   DASHBOARD_PAGE,
@@ -10,6 +11,8 @@ import {
   ONBOARDING_PAGES_GROUP,
   SETTINGS_PAGE,
   QR_CODE_PAGE,
+  TRANSFER_STATUS_PAGE,
+  CREATE_ADDRESS_BOOK_PAGE,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
 import './styles.css';
@@ -36,6 +39,18 @@ export default class App extends Component {
   static getDerivedStateFromProps(prevProps, nextState) {
     // below vars are from 'nextState' and we are overwriting to hide/show as per page
 
+    const hideNetworkPages = [
+      CHAIN_PAGE,
+      CONNECT_REQUEST_PAGE,
+      TRANSFER_STATUS_PAGE,
+      CREATE_ADDRESS_BOOK_PAGE,
+    ];
+    const hideSettingPages = [
+      CHAIN_PAGE,
+      CONNECT_REQUEST_PAGE,
+      TRANSFER_STATUS_PAGE,
+      CREATE_ADDRESS_BOOK_PAGE,
+    ];
     if (prevProps.page !== LOADER_OVERLAY) {
       if (ONBOARDING_PAGES_GROUP.indexOf(prevProps.page) !== -1) {
         return {
@@ -50,8 +65,8 @@ export default class App extends Component {
         showHeader: prevProps.page !== QR_CODE_PAGE,
         showLogo: false,
         showBanner: true,
-        showNetwork: prevProps.page !== CHAIN_PAGE && prevProps.page !== CONNECT_REQUEST_PAGE,
-        showSettings: prevProps.page !== CHAIN_PAGE && prevProps.page !== CONNECT_REQUEST_PAGE,
+        showNetwork: !_.includes(hideNetworkPages, prevProps.page),
+        showSettings: !_.includes(hideSettingPages, prevProps.page),
       };
     }
 

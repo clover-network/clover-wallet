@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import Clear from '@material-ui/icons/Clear';
-import SubHeader from '../../components/common/sub-header';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import DarkDivider from '../../components/common/divider/dark-divider';
 import CreateContactForm from '../../components/address-book/create-contact-form';
 import CloverValidator from '../../utils/clover-validator';
 import { DASHBOARD_PAGE } from '../../constants/navigation';
 import validator from '../../utils/clover-validator/validator';
 import './styles.css';
 import { findChainByName } from '../../../lib/constants/chain';
+import HeaderBack from '../../components/header-back';
+import SelectDown from '../../images/select_down_icon.svg';
+import ArrowRight from '../../images/arrow_right.svg';
+import { getChainLogo } from '../../utils/chain';
 
 const FnameRequiredErrorMessage = 'Firstname required';
 const AddressRequiredErrorMessage = 'Address required';
@@ -29,6 +35,7 @@ export default class CreateAddressBook extends Component {
       lnameLabel: 'Lastname',
       buttonText: 'Submit',
       network: '',
+      showCurrencySelect: false,
     };
     this.lnameValidator = new CloverValidator(validator.lnameValidation);
     this.fnameValidator = new CloverValidator(validator.fnameValidation);
@@ -110,9 +117,12 @@ export default class CreateAddressBook extends Component {
     });
   };
 
-  handelNetworkChnage = e => {
-    const network = e.target.value;
-    this.setState({ network });
+  handleNetworkChange = nt => () => {
+    this.setState({ network: nt });
+  };
+
+  toggleDrawer = status => () => {
+    this.setState({ showCurrencySelect: status });
   };
 
   validateAddress(address) {
@@ -195,17 +205,80 @@ export default class CreateAddressBook extends Component {
       lnameErrorMessage,
       buttonText,
       network,
+      showCurrencySelect,
     } = this.state;
     const { networks } = this.props;
     const chain = findChainByName(this.props.network.value);
     const theme = chain.icon || 'polkadot';
     return (
       <div>
-        <SubHeader
-          icon={<Clear style={{ color: 'rgba(255, 255, 255, 1)' }} />}
-          title="Address Book"
-          backBtnOnClick={this.handleSubheaderBackBtn}
+        <HeaderBack
+          handleBack={this.handleSubheaderBackBtn}
+          title="CONTACT"
+          style={{ textAlign: 'left', marginLeft: '25px' }}
         />
+        <div className="create-address-book-form">
+          <div className="create-address-select-item-wrapper" onClick={this.toggleDrawer(true)}>
+            <div className="create-address-select-item-left">
+              <img
+                className="create-address-select-item-icon"
+                width="26"
+                height="26"
+                src={getChainLogo(network.unit, true)}
+                alt=""
+              />
+              <span className="create-address-select-item-currency-type">{network.text}</span>
+            </div>
+            <img
+              className="create-address-select-down-icon"
+              width="9"
+              height="6"
+              src={SelectDown}
+              alt=""
+            />
+          </div>
+          <React.Fragment>
+            <Drawer anchor="bottom" open={showCurrencySelect} onClose={this.toggleDrawer(false)}>
+              <div
+                className="select-asset-wrapper"
+                onClick={this.toggleDrawer(false)}
+                onKeyDown={this.toggleDrawer(false)}
+              >
+                <div className="select-asset-title">select Chains</div>
+                <List>
+                  {networks.map((nt, index) => (
+                    <div>
+                      <DarkDivider />
+                      <ListItem
+                        button
+                        key={`create-address_${index.toString()}`}
+                        onClick={this.handleNetworkChange(nt)}
+                      >
+                        <div className="select-asset-item-left">
+                          <img
+                            className="select-asset-item-icon"
+                            width="28"
+                            height="28"
+                            src={getChainLogo(nt.unit, true)}
+                            alt=""
+                          />
+                          <span className="select-asset-item-currency-type">{nt.text}</span>
+                        </div>
+                        <img
+                          className="create-address-arrow-right-icon"
+                          width="9"
+                          height="6"
+                          src={ArrowRight}
+                          alt=""
+                        />
+                      </ListItem>
+                    </div>
+                  ))}
+                </List>
+              </div>
+            </Drawer>
+          </React.Fragment>
+        </div>
         <CreateContactForm
           className="create-address-book-form"
           address={address}

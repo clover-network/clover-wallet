@@ -26,6 +26,7 @@ const mapStateToProps = state => ({
   page: state.appStateReducer.page,
   toAddress: state.addressBookReducer.toAddress,
   network: state.networkReducer.network,
+  addressBook: state.addressBookReducer.addressBook,
 });
 
 const mapDispatchToProps = {

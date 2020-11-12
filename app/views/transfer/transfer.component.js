@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import InputBase from '@material-ui/core/InputBase';
-import { getCurrencyIcon } from '../../utils/dashboard';
 import * as NavConstants from '../../constants/navigation';
 import ArrowLeft from '../../images/arrow_left.svg';
 import HeaderBack from '../../components/header-back';
 import './styles.css';
 import MailList from '../../images/mail_list.svg';
 import FooterButton from '../../components/common/footer-button';
+import SelectAssets from '../../components/select-assets';
+import { getCurrencyIcon } from '../../utils/dashboard';
+import SelectDown from '../../images/select_down_icon.svg';
+import ButtonMD from '../../components/common/buttons/button-md';
+import AddressList from '../../components/address-book/address-list';
+import { ACCOUNT_MANAGEMENT_OPTIONS } from '../../constants/options';
+import EmptyDashboard from '../../components/empty-dashboard';
 
 export default class Transfer extends Component {
   constructor(props) {
@@ -29,6 +34,8 @@ export default class Transfer extends Component {
       buttonText: 'next',
       isAmountError: false,
       currentToken: balance.tokens ? _.find(balance.tokens, t => t.token === selectedToken) : '',
+      showCurrencySelect: false,
+      showAddressSelect: false,
     };
     this.toInput = React.createRef();
     this.amountInput = React.createRef();
@@ -144,18 +151,31 @@ export default class Transfer extends Component {
     this.setState({ unit });
   };
 
-  handleCurrencyChange = e => {
-    const token = _.find(this.props.balance.tokens, t => t.amount === e.target.value);
+  handleCurrencyChange = token => () => {
     this.props.selectToken(token.token);
     this.setState({ currentToken: token });
   };
 
+  toggleAddress = status => () => {
+    this.setState({ showAddressSelect: status });
+  };
+
+  toggleDrawer = status => () => {
+    this.setState({ showCurrencySelect: status });
+  };
+
   render() {
-    const { isToAddressError, toAddress, balance } = this.props;
     const {
-      to, amount, buttonText, currentToken
+      isToAddressError, toAddress, balance, addressBook
+    } = this.props;
+    const {
+      to,
+      amount,
+      buttonText,
+      currentToken,
+      showCurrencySelect,
+      showAddressSelect,
     } = this.state;
-    const BootstrapInput = withStyles(() => ({}))(InputBase);
     return (
       <div>
         <HeaderBack icon={ArrowLeft} handleBack={this.handleSubheaderBackBtn} title="SEND" />
@@ -174,8 +194,49 @@ export default class Transfer extends Component {
                 this.toInput = input;
               }}
               endAdornment={(
-                <div className="address-book-icon" onClick={this.onAddressBookClick}>
-                  <img width="20" height="20" src={MailList} alt="" />
+                <div className="address-book-icon">
+                  <div onClick={this.onAddressBookClick}>
+                    <img width="20" height="20" src={MailList} alt="" />
+                  </div>
+                  <React.Fragment>
+                    <Drawer
+                      anchor="bottom"
+                      open={showAddressSelect}
+                      onClose={this.toggleAddress(false)}
+                    >
+                      <div
+                        className="select-asset-wrapper"
+                        onClick={this.toggleAddress(false)}
+                        onKeyDown={this.toggleAddress(false)}
+                      >
+                        <div className="select-asset-title">Send to Address</div>
+                        <List>
+                          {addressBook.length > 0 ? (
+                            <AddressList
+                              className="address-book-container"
+                              addressBook={addressBook}
+                              moreMenu={ACCOUNT_MANAGEMENT_OPTIONS}
+                              onMoreMenuOptionsChange={this.handleAddressBookOptionsChange}
+                              onCopyAddress={this.onCopyAddress}
+                              handelChangeToAddress={this.handelChangeToAddress}
+                            />
+                          ) : (
+                            <EmptyDashboard
+                              className="empty-list-text"
+                              text="Click here to add an address!"
+                            />
+                          )}
+                          {addressBook.length === 0 ? (
+                            <div className="address-book-add-button">
+                              <ButtonMD color="dashboard" onClick={this.handleAddAddressClick}>
+                                Add Address
+                              </ButtonMD>
+                            </div>
+                          ) : null}
+                        </List>
+                      </div>
+                    </Drawer>
+                  </React.Fragment>
                 </div>
               )}
             />
@@ -183,27 +244,34 @@ export default class Transfer extends Component {
           <div className="transfer-border-bottom transfer-padding-top">
             <span className="transfer-card-span">Asset</span>
             <div className="transfer-asset">
-              <Select
-                value={currentToken.amount}
-                onChange={this.handleCurrencyChange}
-                input={<BootstrapInput />}
-              >
-                {balance.tokens.map(token => (
-                  <MenuItem key={token.amount} value={token.amount}>
-                    <div className="transfer-select-item-left">
-                      <img
-                        className="transfer-select-item-icon"
-                        width="26"
-                        height="26"
-                        src={getCurrencyIcon(token.token)}
-                        alt=""
-                      />
-                      <span className="transfer-select-item-currency-type">{token.token}</span>
-                    </div>
-                    <span className="transfer-select-item-amount">{`${token.amount} ${token.token}`}</span>
-                  </MenuItem>
-                ))}
-              </Select>
+              <div className="transfer-select-asset-item-wrapper" onClick={this.toggleDrawer(true)}>
+                <div className="transfer-select-asset-item-left">
+                  <img
+                    className="transfer-select-asset-item-icon"
+                    width="26"
+                    height="26"
+                    src={getCurrencyIcon(currentToken.token)}
+                    alt=""
+                  />
+                  <span className="transfer-select-asset-item-currency-type">
+                    {currentToken.token}
+                  </span>
+                </div>
+                <span className="transfer-select-asset-item-amount">{`${currentToken.amount} ${currentToken.token}`}</span>
+                <img
+                  className="transfer-select-down-icon"
+                  width="9"
+                  height="6"
+                  src={SelectDown}
+                  alt=""
+                />
+              </div>
+              <SelectAssets
+                assetsList={balance.tokens}
+                handleCurrencyChange={this.handleCurrencyChange}
+                toggleDrawer={this.toggleDrawer}
+                showCurrencySelect={showCurrencySelect}
+              />
             </div>
           </div>
           <div className="transfer-padding">

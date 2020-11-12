@@ -1,0 +1,28 @@
+.select-asset-wrapper {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.select-asset-title {
+    padding: 15px 18px 10px 18px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.select-asset-item-currency-type {
+    font-family: Inter-Bold;
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.select-asset-item-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.select-asset-item-amount {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+}

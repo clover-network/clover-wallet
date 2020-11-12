@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import TransferTo from '../../transfer/transfer-to';
 import CloverInput from '../../common/clover-input';
 import FooterButton from '../../common/footer-button';
-import DropDown from '../../common/drop-down';
 import './styles.css';
 
 export default class CreateContactForm extends Component {
   render() {
     const {
       address,
-      theme,
       isAddressError,
       addressPropName,
-      addressErrorMessage,
       addressInputRef,
       handleToChange,
       fname,
@@ -31,25 +27,23 @@ export default class CreateContactForm extends Component {
       handleLnameOnBlur,
       onSubmit,
       buttonName,
-      networks,
-      network,
-      onNetworkChange,
     } = this.props;
     return (
       <div className="create-address-book-form">
-        <TransferTo
-          className="contact-to-container"
-          addressValue={address}
-          theme={theme}
-          isError={isAddressError}
+        <CloverInput
+          placeholderText="Input or paste address here"
+          style={{ background: 'rgba(65, 72, 93, 0.1)', border: 'none' }}
+          value={address}
+          error={isAddressError}
           label="Address"
-          propName={addressPropName}
-          toValue={address}
-          errorMessage={addressErrorMessage}
-          onChange={handleToChange}
+          name={addressPropName}
+          onChange={handleToChange(addressPropName)}
           inputRef={addressInputRef}
+          spellCheck={false}
         />
         <CloverInput
+          placeholderText="Firstname"
+          style={{ background: 'rgba(65, 72, 93, 0.1)', border: 'none' }}
           className="contact-fname-input"
           value={fname}
           onChange={handleFnameChange(fnamePropName)}
@@ -69,14 +63,6 @@ export default class CreateContactForm extends Component {
           inputRef={lnameInputRef}
           onBlur={handleLnameOnBlur}
         />
-        <DropDown
-          className="contact-network-dropdown"
-          options={networks}
-          disabled
-          value={network}
-          onChange={onNetworkChange}
-        />
-
         <FooterButton onClick={onSubmit} name={buttonName} />
       </div>
     );

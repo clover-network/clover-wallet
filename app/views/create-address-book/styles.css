@@ -2,7 +2,46 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding-top: 17px;
+  padding-top: 10px;
   padding-left: 18px;
   padding-right: 18px;
+}
+
+.create-address-select-item-wrapper {
+  cursor: pointer;
+  width: 323px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  background: rgba(65, 72, 93, 0.1);
+  border-radius: 4px;
+}
+
+.create-address-select-item-left {
+  display: inline-block;
+}
+
+.create-address-select-item-currency-type {
+  font-family: Roboto-Medium;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.create-address-select-item-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.create-address-select-down-icon {
+  float: right;
+  margin-top: 22px;
+}
+
+.create-address-arrow-right-icon {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
 }

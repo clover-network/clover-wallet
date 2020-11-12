@@ -37,30 +37,6 @@
     margin-right: 5px;
 }
 
-.transfer-select-item-left {
-    width: 100px;
-    display: inline-block;
-}
-
-.transfer-select-item-currency-type {
-    font-family: Inter-Bold;
-    font-size: 16px;
-    display: inline-block;
-    margin-right: 15px;
-    vertical-align: middle;
-}
-
-.transfer-select-item-icon {
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-.transfer-select-item-amount {
-    display: inline-block;
-    width: 170px;
-    font-size: 12px;
-}
-
 .insufficient-balance {
     display: none;
     color: #FA5050;
@@ -68,4 +44,37 @@
 
 .show-insufficient-balance {
     display: block;
+}
+
+.transfer-select-asset-item-wrapper {
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.transfer-select-asset-item-left {
+    display: inline-block;
+}
+
+.transfer-select-asset-item-currency-type {
+    font-family: Inter-Bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.transfer-select-asset-item-icon {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.transfer-select-asset-item-amount {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.transfer-select-down-icon {
+    float: right;
+    margin: 10px;
 }
