@@ -3,6 +3,8 @@ import Transfer from './transfer.component';
 import { changePage, updateAppLoading, updateBackupPage } from '../../containers/actions';
 import { updateToAddress } from '../../actions/address-book';
 import { selectToken } from '../../actions/account';
+import { getContacts } from '../address-book/actions';
+
 import {
   clearTransferDetails,
   confirmTransaction,
@@ -39,6 +41,7 @@ const mapDispatchToProps = {
   dispatchSetTransferDetails,
   updateToAddress,
   selectToken,
+  getContacts,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Transfer);

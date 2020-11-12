@@ -1,9 +1,9 @@
-.select-asset-wrapper {
+.select-asset-wrapper, .select-address-wrapper {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 
-.select-asset-title {
+.select-asset-title, .select-address-title {
     padding: 15px 18px 10px 18px;
     color: rgba(0, 0, 0, 0.5);
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import InputBase from '@material-ui/core/InputBase';
@@ -13,9 +12,9 @@ import FooterButton from '../../components/common/footer-button';
 import SelectAssets from '../../components/select-assets';
 import { getCurrencyIcon } from '../../utils/dashboard';
 import SelectDown from '../../images/select_down_icon.svg';
-import ButtonMD from '../../components/common/buttons/button-md';
-import AddressList from '../../components/address-book/address-list';
-import EmptyDashboard from '../../components/empty-dashboard';
+import Avatar from '../../components/common/identicon';
+import { shortenAddress } from '../../services/wallet-service';
+import { findChainByName } from '../../../lib/constants/chain';
 
 export default class Transfer extends Component {
   constructor(props) {
@@ -47,7 +46,8 @@ export default class Transfer extends Component {
     return state;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await this.props.getContacts();
     this.props.dispatchSetTransferDetails({
       metadata: {
         ...this.props.confirmDetails.metadata,
@@ -150,6 +150,19 @@ export default class Transfer extends Component {
     this.setState({ unit });
   };
 
+  handleAddressChange = address => () => {
+    this.props.dispatchSetTransferDetails({
+      metadata: {
+        ...this.props.confirmDetails.metadata,
+        to: address,
+      },
+    });
+    this.setState({
+      to: address,
+    });
+    this.props.updateToAddress(address);
+  };
+
   handleCurrencyChange = token => () => {
     this.props.selectToken(token.token);
     this.setState({ currentToken: token });
@@ -165,7 +178,7 @@ export default class Transfer extends Component {
 
   render() {
     const {
-      isToAddressError, toAddress, balance, addressBook
+      network, isToAddressError, toAddress, balance, addressBook
     } = this.props;
     const {
       to,
@@ -175,6 +188,8 @@ export default class Transfer extends Component {
       showCurrencySelect,
       showAddressSelect,
     } = this.state;
+    const chain = findChainByName(network.value);
+    const theme = chain.icon || 'polkadot';
     return (
       <div>
         <HeaderBack icon={ArrowLeft} handleBack={this.handleSubheaderBackBtn} title="SEND" />
@@ -194,8 +209,7 @@ export default class Transfer extends Component {
               }}
               endAdornment={(
                 <div className="address-book-icon">
-                  {/*<div onClick={addressBook.length === 0 ? '' : this.toggleAddress(true)}>*/}
-                  <div onClick={this.onAddressBookClick}>
+                  <div onClick={addressBook.length === 0 ? '' : this.toggleAddress(true)}>
                     <img width="20" height="20" src={MailList} alt="" />
                   </div>
                   <React.Fragment>
@@ -205,31 +219,29 @@ export default class Transfer extends Component {
                       onClose={this.toggleAddress(false)}
                     >
                       <div
-                        className="select-asset-wrapper"
+                        className="select-address-wrapper"
                         onClick={this.toggleAddress(false)}
                         onKeyDown={this.toggleAddress(false)}
                       >
-                        <div className="select-asset-title">Send to Address</div>
-                        <List>
-                          {addressBook.length > 0 ? (
-                            <AddressList
-                              className="address-book-container"
-                              addressBook={addressBook}
+                        <div className="select-address-title">Send to Address</div>
+                        {addressBook.map((address, index) => (
+                          <div
+                            className="select-address-list-wrapper"
+                            key={`address_${index.toString()}`}
+                            onClick={this.handleAddressChange(address.address)}
+                          >
+                            <Avatar
+                              className="account-avatar select-address-account-avatar"
+                              value={address.address}
+                              theme={theme}
+                              style={{ cursor: 'pointer !important' }}
                             />
-                          ) : (
-                            <EmptyDashboard
-                              className="empty-list-text"
-                              text="Click here to add an address!"
-                            />
-                          )}
-                          {addressBook.length === 0 ? (
-                            <div className="address-book-add-button">
-                              <ButtonMD color="dashboard" onClick={this.handleAddAddressClick}>
-                                Add Address
-                              </ButtonMD>
+                            <div className="select-address-info-wrapper">
+                              <div>{`${address.fname}  ${address.lname}`}</div>
+                              <span>{shortenAddress(address.address)}</span>
                             </div>
-                          ) : null}
-                        </List>
+                          </div>
+                        ))}
                       </div>
                     </Drawer>
                   </React.Fragment>
