@@ -9,6 +9,9 @@ const mapStateToProps = state => ({
   accountMenu: state.dashboardReducer.accountMenu,
   accounts: state.accountReducer.accounts,
   network: state.networkReducer.network,
+  networks: state.networkReducer.networks,
+  fullChainAccounts: state.accountReducer.fullChainAccounts,
+  backupPage: state.appStateReducer.backupPage,
 });
 
 const mapDispatchToProps = {

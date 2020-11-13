@@ -5,11 +5,24 @@ import Close from '../../images/close.svg';
 import SettingAccountDetails from '../../components/account/setting-account-info';
 import ManageAccount from '../../images/manage_account.svg';
 import ArrowRight from '../../images/arrow_right.svg';
-import { DASHBOARD_PAGE } from '../../constants/navigation';
+import { DASHBOARD_PAGE, MANAGE_ACCOUNT_PAGE } from '../../constants/navigation';
+import * as NavConstants from '../../constants/navigation';
 
 export default class Settings extends Component {
   handleClose = () => {
     this.props.changePage(DASHBOARD_PAGE);
+  };
+
+  goPageByListName = name => () => {
+    if (name === 'Address Book') {
+      this.props.updateBackupPage(this.props.page);
+      this.props.changePage(NavConstants.ADDRESS_BOOK_PAGE);
+    }
+  };
+
+  handleManageAccounts = () => {
+    this.props.updateBackupPage(this.props.page);
+    this.props.changePage(MANAGE_ACCOUNT_PAGE);
   };
 
   render() {
@@ -29,7 +42,11 @@ export default class Settings extends Component {
       <div className="container">
         <div style={{ height: '470px', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
           <SettingAccountDetails alias={account.alias} address={account.address} />
-          <Button variant="contained" className="manage-account-btn">
+          <Button
+            variant="contained"
+            className="manage-account-btn"
+            onClick={this.handleManageAccounts}
+          >
             <img
               width="22"
               height="22"
@@ -42,7 +59,11 @@ export default class Settings extends Component {
           </Button>
           <div className="setting-list-wrap">
             {settingLists.map((setting, idx) => (
-              <SettingList settingName={setting.name} key={`setting_${idx.toString()}}`} />
+              <SettingList
+                settingName={setting.name}
+                key={`setting_${idx.toString()}}`}
+                goPageByListName={this.goPageByListName}
+              />
             ))}
           </div>
         </div>
@@ -63,7 +84,10 @@ class SettingList extends React.Component {
 
   render() {
     return (
-      <div className="setting-list-item">
+      <div
+        className="setting-list-item"
+        onClick={this.props.goPageByListName(this.props.settingName)}
+      >
         <div className="setting-list-left">
           <span>{this.props.settingName}</span>
         </div>

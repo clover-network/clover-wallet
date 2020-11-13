@@ -13,6 +13,15 @@ export default class Chain extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      networks:
+        this.state.chain === 'ALL'
+          ? this.props.networks
+          : this.props.networks.filter(n => n.unit === this.state.chain),
+    });
+  }
+
   chainClicked = name => {
     this.setState({
       chain: name,

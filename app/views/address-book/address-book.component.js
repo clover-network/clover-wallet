@@ -18,7 +18,7 @@ export default class AddressBook extends Component {
     this.state = {
       isOpen: false,
       isMoreVertIconVisible: true,
-      headerText: 'Address Book',
+      headerText: 'SETTING',
     };
   }
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changePage } from '../../containers/actions';
+import { changePage, updateBackupPage } from '../../containers/actions';
 import Settings from './settings.component';
 import { switchNetwork } from '../../actions/network';
 import { changeAccount } from '../manage-account/actions';
@@ -12,10 +12,12 @@ const mapStateToProps = state => ({
   fullChainAccounts: state.accountReducer.fullChainAccounts,
   account: state.accountReducer.account,
   backupPage: state.appStateReducer.backupPage,
+  page: state.appStateReducer.page,
 });
 
 const mapDispatchToProps = {
   changePage,
+  updateBackupPage,
   switchNetwork,
   changeAccount,
 };

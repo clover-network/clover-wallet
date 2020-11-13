@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
-import Clear from '@material-ui/icons/Clear';
-import SubHeader from '../../components/common/sub-header';
-import { DASHBOARD_PAGE, CREATE_ACCOUNT_PAGE } from '../../constants/navigation';
-import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
-import AccountList from '../../components/account-list';
-import DraggableDialog from '../../components/common/confirm-dialog';
-import {
-  ACCOUNT_MANAGEMENT_MENU_OPTIONS,
-  ACCOUNT_MANAGEMENT_OPTIONS,
-  ADD_ACCOUNT,
-  REMOVE,
-} from '../../constants/options';
-import { findChainByName } from '../../../lib/constants/chain';
+import { CREATE_ACCOUNT_PAGE } from '../../constants/navigation';
 import './styles.css';
+import HeaderBack from '../../components/header-back';
+import { getChainLogo } from '../../utils/chain';
+import ChainCard from '../../components/chain-card';
+import AddAccountIcon from '../../images/add_account_icon.svg';
 
 export default class ManageAccount extends Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
     this.state = {
-      isOpen: false,
+      chain: props.network.unit,
+      networks: props.networks,
     };
   }
 
-  handleSubheaderBackBtn = () => {
-    this.props.changePage(DASHBOARD_PAGE);
-  };
+  componentDidMount() {
+    this.setState({
+      networks:
+        this.state.chain === 'ALL'
+          ? this.props.networks
+          : this.props.networks.filter(n => n.unit === this.state.chain),
+    });
+  }
 
-  onCopy = () => {
-    this.props.createToast({ message: copyAccountMessage(), type: 'info' });
+  handleSubheaderBackBtn = () => {
+    this.props.changePage(this.props.backupPage);
   };
 
   handleAddAccount = async () => {
@@ -36,82 +34,64 @@ export default class ManageAccount extends Component {
     this.props.changePage(CREATE_ACCOUNT_PAGE);
   };
 
-  handleChangeAccount = async (e, account) => {
-    if (e.target.tagName === 'DIV') {
-      this.props.createToast({ message: copyAccountMessage(), type: 'info' });
-    } else {
-      await this.props.changeAccount(account);
-      this.props.changePage(DASHBOARD_PAGE);
-    }
-  };
-
-  handleOnSubMenuOptionsChange = async option => {
-    if (option.value === ADD_ACCOUNT.value) {
-      await this.props.addAccount();
-      this.props.changePage(CREATE_ACCOUNT_PAGE);
-    }
-  };
-
-  handleAccountMenuOptionsChange = async (option, account) => {
-    if (option.value === REMOVE.value) {
-      this.setState({ isOpen: true, account });
-    }
-  };
-
-  handleCloseDialog = () => {
-    const { isOpen } = this.state;
-    this.setState({ isOpen: !isOpen });
-  };
-
-  handleYes = () => {
-    const { account } = this.state;
-    const { removeAccount } = this.props;
-    removeAccount(account);
-    this.setState({ isOpen: false });
+  chainClicked = name => {
+    this.setState({
+      chain: name,
+      networks:
+        name === 'ALL' ? this.props.networks : this.props.networks.filter(n => n.unit === name),
+    });
   };
 
   render() {
-    const { accounts, account, network } = this.props;
-    const { isOpen } = this.state;
-    const chain = findChainByName(network.value);
-    const theme = chain.icon || 'polkadot';
+    const { fullChainAccounts } = this.props;
+    const { chain, networks } = this.state;
     return (
-      <div>
-        <SubHeader
-          icon={<Clear style={{ color: 'rgba(255, 255, 255, 1)' }} />}
-          title="Account Management"
-          backBtnOnClick={this.handleSubheaderBackBtn}
-          subMenu={ACCOUNT_MANAGEMENT_MENU_OPTIONS}
-          showSettings
-          onSubMenuOptionsChange={this.handleOnSubMenuOptionsChange}
+      <div className="container">
+        <HeaderBack
+          handleBack={this.handleSubheaderBackBtn}
+          title="SETTING"
+          style={{ textAlign: 'left', marginLeft: '25px' }}
         />
-        <div className="manage-accounts">
-          <div className="manage-accounts-container">
-            {accounts.length > 0 ? (
-              <AccountList
-                className="accounts-container"
-                accounts={accounts}
-                currentAccount={account}
-                isMoreVertIconVisible={accounts.length > 1}
-                moreMenu={ACCOUNT_MANAGEMENT_OPTIONS}
-                onAccountMenuOptionsChange={this.handleAccountMenuOptionsChange}
-                theme={theme}
-                onCopyAddress={this.onCopyAddress}
-                handleChangeAccount={this.handleChangeAccount}
-              />
-            ) : null}
-            <div>
-              <DraggableDialog
-                isOpen={isOpen}
-                handleClose={this.handleCloseDialog}
-                handleYes={this.handleYes}
-                noText="No"
-                yesText="Yes"
-                title="Remove account"
-                msg="Please make sure you have saved the seed phrase or private key for this account before continuing."
-              />
-            </div>
+        <div className="panel-container manage-account-list">
+          <div className="left-panel" style={{ height: '415px' }}>
+            <img
+              src={getChainLogo('ALL', chain === 'ALL')}
+              alt="logo"
+              width="35"
+              onClick={() => this.chainClicked('ALL')}
+              aria-hidden="true"
+              className="can-click"
+            />
+            <span className={chain === 'ALL' ? 'split split-select' : 'split'} />
+            {this.props.networks.map((nt, index) => (
+              <React.Fragment key={`chain_logo_${index.toString()}`}>
+                <img
+                  src={getChainLogo(nt.unit, chain === nt.unit)}
+                  alt="logo"
+                  width="35"
+                  onClick={() => this.chainClicked(nt.unit)}
+                  aria-hidden="true"
+                  className="can-click"
+                />
+                <span className={chain === nt.unit ? 'split split-select' : 'split'} />
+              </React.Fragment>
+            ))}
           </div>
+          <div className="right-panel" style={{ height: '415px' }}>
+            {fullChainAccounts.map((fullChainAccount, netIdx) => fullChainAccount.accounts.map((acc, accIdx) => (
+              <ChainCard
+                account={acc}
+                network={networks.find(net => net.unit === fullChainAccount.symbol)}
+                key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
+              />
+            )),)}
+          </div>
+        </div>
+        <div className="footer" onClick={this.handleAddAccount}>
+          <img src={AddAccountIcon} alt="close" aria-hidden="true" width="14" />
+          <span className="close" style={{ fontFamily: 'Inter-Bold' }}>
+            ADD ACCOUNT
+          </span>
         </div>
       </div>
     );
