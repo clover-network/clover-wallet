@@ -3,6 +3,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .manage-accounts-container {
   position: absolute;
   top: 0;
@@ -11,6 +12,7 @@
   right: -10px; /* Increase/Decrease this value for cross-browser compatibility */
   overflow-y: scroll;
 }
+
 .accounts-container {
   background-color: #f5f5f6;
   display: flex;

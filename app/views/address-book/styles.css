@@ -1,9 +1,10 @@
 .manage-address-book {
-  height: 480px;
+  height: 460px;
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
 }
+
 .manage-address-book-container {
   position: absolute;
   top: 0;
@@ -12,6 +13,7 @@
   right: -10px; /* Increase/Decrease this value for cross-browser compatibility */
   overflow-y: scroll;
 }
+
 .address-book-container {
   background-color: #ffffff;
   display: flex;

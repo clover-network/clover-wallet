@@ -89,7 +89,7 @@ export default class ManageAccount extends Component {
         </div>
         <div className="footer" onClick={this.handleAddAccount}>
           <img src={AddAccountIcon} alt="close" aria-hidden="true" width="14" />
-          <span className="close" style={{ fontFamily: 'Inter-Bold' }}>
+          <span className="close" style={{ fontFamily: 'Inter-Bold', fontSize: '15px' }}>
             ADD ACCOUNT
           </span>
         </div>

@@ -20,10 +20,7 @@ export default class SignIn extends Component {
     };
   }
 
-  componentDidMount() {
-    const { unlockClover } = this.props;
-    unlockClover('11111111');
-  }
+  componentDidMount() {}
 
   static getDerivedStateFromProps(props, state) {
     if (props.error) {
