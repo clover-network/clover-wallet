@@ -143,9 +143,10 @@ export default class CreateAccount extends Component {
 
   handleImportSeedWordClick = () => {
     const { importedSeedPhrase } = this.state;
+    const { alias } = this.props;
     const { isError, errorMessage } = this.validateSeedPhrase(importedSeedPhrase);
     if (!isError) {
-      this.props.createFirstAccountWithSeedPhrase(this.state.importedSeedPhrase, this.state.alias);
+      this.props.createFirstAccountWithSeedPhrase(this.state.importedSeedPhrase, alias);
     } else if (isError) {
       this.seedInput.focus();
     }
