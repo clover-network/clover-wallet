@@ -15,10 +15,7 @@ export default class Chain extends Component {
 
   componentDidMount() {
     this.setState({
-      networks:
-        this.state.chain === 'ALL'
-          ? this.props.networks
-          : this.props.networks.filter(n => n.unit === this.state.chain),
+      chain: 'ALL',
     });
   }
 

@@ -18,10 +18,7 @@ export default class ManageAccount extends Component {
 
   componentDidMount() {
     this.setState({
-      networks:
-        this.state.chain === 'ALL'
-          ? this.props.networks
-          : this.props.networks.filter(n => n.unit === this.state.chain),
+      chain: 'ALL',
     });
   }
 
