@@ -15,6 +15,7 @@ import {
   CREATE_ADDRESS_BOOK_PAGE,
   ADDRESS_BOOK_PAGE,
   MANAGE_ACCOUNT_PAGE,
+  DAPP_REQUESTS_PAGE,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
 import './styles.css';
@@ -48,6 +49,7 @@ export default class App extends Component {
       CREATE_ADDRESS_BOOK_PAGE,
       ADDRESS_BOOK_PAGE,
       MANAGE_ACCOUNT_PAGE,
+      DAPP_REQUESTS_PAGE,
     ];
     const hideSettingPages = [
       CHAIN_PAGE,
@@ -56,6 +58,7 @@ export default class App extends Component {
       CREATE_ADDRESS_BOOK_PAGE,
       ADDRESS_BOOK_PAGE,
       MANAGE_ACCOUNT_PAGE,
+      DAPP_REQUESTS_PAGE,
     ];
     if (prevProps.page !== LOADER_OVERLAY) {
       if (ONBOARDING_PAGES_GROUP.indexOf(prevProps.page) !== -1) {

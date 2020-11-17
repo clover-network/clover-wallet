@@ -1,25 +1,11 @@
 import React, { Component } from 'react';
-import RequestType from '../request-type';
-import SendToFrom from '../send-to-from';
 import WalletExpansionPanel from '../../common/wallet-expansion-panel';
 import FontRegular from '../../common/fonts/font-regular';
-import FooterTwoSMButton from '../../common/footer-two-sm-button';
 import TransactionUI from '../transaction-ui';
 import './styles.css';
 import DarkDivider from '../../common/divider/dark-divider';
 import ClickToCopy from '../../common/click-to-copy';
-
-const Summary = props => (
-  <div className={props.className}>
-    <RequestType type="Send" className="send-summary-request-type" />
-    <SendToFrom
-      toAccount={props.toAccount}
-      fromAccount={props.fromAccount}
-      onCopyAddress={props.onCopyAddress}
-      className="send-summary-send-to-from"
-    />
-  </div>
-);
+import ButtonCustom from '../../common/buttons/button-custom';
 
 const SignedMessage = props => (
   <div className={props.className}>
@@ -65,14 +51,6 @@ export default class Send extends Component {
           isBelowExpandIcon
           expanded={isSendExpanded}
           handleChange={handleSendExpansion}
-          summary={(
-            <Summary
-              className="send-summary-container"
-              onCopyAddress={onCopyAddress}
-              fromAccount={fromAccount}
-              toAccount={toAccount}
-            />
-          )}
         >
           {data && (
             <SignedMessage className="sign-message-body" data={data} onCopyData={onCopyData} />
@@ -87,14 +65,20 @@ export default class Send extends Component {
             />
           )}
 
-          <FooterTwoSMButton
-            className="send-footer-container"
-            namePrimary="cancel"
-            nameSecondary="allow"
-            onClickPrimary={onCancel}
-            onClickSecondary={onAllow}
-            isSecondaryDisabled={!!errorMessage}
-          />
+          <div className="connect-request-button-wrap">
+            <ButtonCustom onClick={onCancel} width="155px" color="#000000" background="white">
+              CANCEL
+            </ButtonCustom>
+            <ButtonCustom
+              onClick={onAllow}
+              width="155px"
+              color="#FB822A"
+              background="white"
+              disabled={!!errorMessage}
+            >
+              SIGN
+            </ButtonCustom>
+          </div>
           {errorMessage && <FontRegular text={errorMessage} className="send-error" />}
         </WalletExpansionPanel>
       </div>

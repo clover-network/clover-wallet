@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SubHeader from '../../components/common/sub-header';
 import * as RequestType from '../../../lib/constants/request-types';
 import Send from '../../components/dapp/send';
 import SignMessage from '../../components/dapp/sign-message';
@@ -9,6 +8,7 @@ import {
 } from '../../../lib/services/static-message-factory-service';
 import { createAccountObject, createTxnUI } from '../../services/wallet-service';
 import './styles.css';
+import SettingAccountDetails from '../../components/account/setting-account-info';
 
 export default class DAppRequests extends Component {
   constructor(props) {
@@ -58,11 +58,14 @@ export default class DAppRequests extends Component {
   };
 
   renderRequests() {
-    const { requests, accounts, balances } = this.props;
+    const {
+      requests, accounts, account, balances
+    } = this.props;
     // Use for toggle
     const { isInfoExpanded } = this.state;
     return (
       <div className="dapp-requests-container">
+        <SettingAccountDetails alias={account.alias} address={account.address} />
         {requests.map(request => {
           switch (request.request.requestType) {
             case RequestType.SEND:
@@ -80,7 +83,10 @@ export default class DAppRequests extends Component {
                   handleSendExpansion={this.handleExpansion(request.id)}
                   handleInfoExpansion={this.handleInfoExpansion}
                   isInfoExpanded={isInfoExpanded}
-                  txnUi={createTxnUI(request.result.txnForUI)}
+                  txnUi={createTxnUI(
+                    request.result.txnForUI,
+                    request.result.txnPayload.genesisHash,
+                  )}
                   errorMessage={
                     request.result.isError && request.result.isAmountError
                       ? request.result.toAmountErrorMessage
@@ -123,11 +129,6 @@ export default class DAppRequests extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <SubHeader title="Pending Requests" />
-        {this.props.requests && this.renderRequests()}
-      </div>
-    );
+    return <div>{this.props.requests && this.renderRequests()}</div>;
   }
 }

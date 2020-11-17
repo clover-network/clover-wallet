@@ -7,6 +7,7 @@ import { updateAppLoading } from '../../containers/actions';
 const mapStateToProps = state => ({
   requests: state.dAppReducer.requests,
   accounts: state.accountReducer.accounts,
+  account: state.accountReducer.account,
   balances: state.accountReducer.balances,
 });
 

@@ -66,18 +66,19 @@ export function createAccountObject(accountArr, address) {
   };
 }
 
-export function createTxnUI(result) {
+export function createTxnUI(result, genesis) {
   return [
-    { label: 'From', value: result.url },
-    { label: 'Chain', value: result.chain },
-    { label: 'Version', value: result.sVersion },
-    { label: 'Nonce', value: result.nonce },
-    { label: 'Method', value: result.method },
-    { label: 'Fees', value: result.transferFee },
+    { label: 'from', value: result.url },
+    // { label: 'chain', value: result.chain },
+    { label: 'genesis', value: genesis },
+    { label: 'version', value: result.sVersion },
+    { label: 'nonce', value: result.nonce },
+    { label: 'method data', value: result.method },
+    // { label: 'Fees', value: result.transferFee },
     // TODO MM: Remove for now because we are showing incorrect
     // { label: 'Value', value: result.transferAmount },
     // { label: 'Total Value', value: result.totalTransferAmount },
-    { label: 'Info', value: result.note },
-    { label: 'Lifetime', value: result.mortality },
+    // { label: 'Info', value: result.note },
+    { label: 'lifetime', value: result.mortality },
   ];
 }

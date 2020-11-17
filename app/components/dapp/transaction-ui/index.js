@@ -28,7 +28,7 @@ export default class TransactionUI extends Component {
         {txnUi.map(txn => (
           <div className="txn-txnui" key={txn.label}>
             <FontRegular text={txn.label} className="txn-txnui-label" />
-            {txn.label === 'Info' ? (
+            {txn.label === 'info' ? (
               isInfoExpanded ? (
                 <InfoExpanded value={txn.value} handleInfoExpansion={handleInfoExpansion} />
               ) : (

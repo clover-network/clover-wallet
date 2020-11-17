@@ -44,7 +44,7 @@ export default class AccountDetails extends Component {
             withWhiteColor
           />
         )}
-        <CopyToClipboard text={shortAddress} onCopy={onCopyAddress}>
+        <CopyToClipboard text={address} onCopy={onCopyAddress}>
           <div className="copy-card-container">
             <span className="card-address">{shortAddress}</span>
             <img src={CopyIcon} alt="copy" width="12" />
