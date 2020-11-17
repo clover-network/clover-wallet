@@ -1,15 +1,10 @@
 import BN from 'bn.js';
 import { formatNumber, bnToBn } from '@polkadot/util';
-import { Metadata, TypeRegistry, createType } from '@polkadot/types';
-import {
-  getTransactionFees,
-  isValidTxnAmount,
-  getTxnError,
-  updateTransactionState,
-} from './transaction-service';
+import { Metadata, createType } from '@polkadot/types';
+import { getTransactionFees, getTxnError, updateTransactionState } from './transaction-service';
 import * as TXAPI from '../apis/tx';
-import { getMetaCalls } from '../apis/chain';
-import { getBalance, valueFormatter } from './balance-service';
+import { getMetaCalls, getApi } from '../apis/chain';
+import { valueFormatter } from './balance-service';
 import { findChain } from '../../lib/constants/chain';
 import * as Transaction from '../../lib/constants/transaction';
 import { validateDappTxnObject } from '../../lib/services/validation-service';
@@ -17,7 +12,6 @@ import { getAccount } from './account-service';
 import * as NetworkService from './network-service';
 
 export const PERIOD = 10;
-const registry = new TypeRegistry();
 
 //Original Source: https://github.com/polkadot-js/extension
 //Original Author: Jaco Greeff
@@ -27,13 +21,12 @@ const decodeMethod = (data, isDecoded, chain) => {
 
   try {
     if (isDecoded && chain.specVersion) {
-      registry.register(chain.types || {});
       const metaCalls = getMetaCalls();
       if (metaCalls) {
         // eslint-disable-next-line no-unused-vars
-        const metadata = new Metadata(registry, Buffer.from(metaCalls, 'base64'));
+        const metadata = new Metadata(getApi().registry, Buffer.from(metaCalls, 'base64'));
       }
-      method = registry.createType('Call', data);
+      method = getApi().registry.createType('Call', data);
       json = method.toJSON();
     }
   } catch (error) {
@@ -43,8 +36,9 @@ const decodeMethod = (data, isDecoded, chain) => {
 
   return { json, method };
 };
+
 const getPayload = request => {
-  const payload = createType(registry, 'ExtrinsicPayload', request, {
+  const payload = createType(getApi().registry, 'ExtrinsicPayload', request, {
     version: request.version,
   });
   return payload;
@@ -64,6 +58,7 @@ const mortalityAsString = async (exERA, hexBlockNumber) => {
     return 'working on mortality';
   }
 };
+
 const createTxnUIObject = async txnPayload => {
   const {
     address, blockHash, blockNumber, genesisHash, method, specVersion
@@ -97,6 +92,7 @@ const createTxnUIObject = async txnPayload => {
     note,
   };
 };
+
 export const setNetwork = async txnPayload => {
   const { genesisHash } = txnPayload;
   const chain = findChain(genesisHash);
@@ -113,7 +109,7 @@ export const validateDappTransaction = async transaction => {
   if (vTransaction !== undefined) return vTransaction;
 
   const txnError = getTxnError();
-  const { url, txnPayload, network } = transaction;
+  const { url, txnPayload } = transaction;
 
   // creating txnForUI object
   const txnForUI = await createTxnUIObject(txnPayload);
@@ -124,9 +120,6 @@ export const validateDappTransaction = async transaction => {
   const txnType = Transaction.TRANSFER_COINS;
   const fees = await getTransactionFees(txnType, address, dest, transactionLength); // in femto
   const totalAmount = new BN(value).add(new BN(fees.totalFee));
-  // get current balance
-  const { balance } = await getBalance(address); // in femto
-  const balanceInBN = new BN(balance);
 
   const newTransaction = {
     txnForUI: {
@@ -139,13 +132,6 @@ export const validateDappTransaction = async transaction => {
     txnPayload,
   };
 
-  // check for sufficient balance
-  const isValidAmount = isValidTxnAmount(balanceInBN, totalAmount, network);
-  if (!isValidAmount) {
-    txnError.isError = true;
-    txnError.isAmountError = true;
-    txnError.toAmountErrorMessage = 'Insufficient Balance';
-  }
   return {
     ...newTransaction,
     ...txnError,

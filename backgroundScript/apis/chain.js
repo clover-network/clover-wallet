@@ -15,6 +15,7 @@ const Chain = {
   ss58Format: 42,
   tokenDecimals: 12,
   metadata: undefined,
+  api: undefined,
 };
 
 export const setChain = async api => {
@@ -22,6 +23,7 @@ export const setChain = async api => {
     const { ss58Format, tokenDecimals, tokenSymbol } = await api.rpc.system.properties();
     const ss58 = ss58Format.unwrapOr(DEFAULT_SS58).toNumber();
 
+    Chain.api = api;
     const units = SI.filter(x => x.power >= -tokenDecimals);
     Chain.units = units;
     // eslint-disable-next-line prefer-destructuring
@@ -50,3 +52,5 @@ export const getTokenDecimals = () => Chain.tokenDecimals;
 export const getSs58Format = () => Chain.ss58Format;
 
 export const getMetaCalls = () => Chain.metadata;
+
+export const getApi = () => Chain.api;

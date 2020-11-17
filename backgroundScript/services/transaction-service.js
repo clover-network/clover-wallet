@@ -44,18 +44,18 @@ export const getTxnError = () => ({
 });
 
 export const isValidTxnAmount = (balance, totalAmount, network) => {
-  if (
-    network.value === KUSAMA_NETWORK.value
-    || network.value === ACALA_NETWORK.value
-    || network.value === CLOVER_NETWORK.value
-  ) {
+  if (network.value === KUSAMA_NETWORK.value) {
     return balance.gt(new BN(Transaction.KUSAMA_MINIMUM_BALANCE)) && balance.gte(totalAmount);
   }
   if (network.value === POLKADOT_NETWORK.value) {
     return balance.gt(new BN(Transaction.MINIMUM_BALANCE)) && balance.gt(totalAmount);
   }
+  if (network.value === CLOVER_NETWORK.value) {
+    return balance.gt(new BN(Transaction.CLOVER_MINIMUM_BALANCE)) && balance.gt(totalAmount);
+  }
   return balance.gt(totalAmount);
 };
+
 export const mergeTransactions = async newTransaction => {
   const { transactionArr } = getStore().getState().transactionState;
   // remove Pending duplicate TXN and overide with new Status
