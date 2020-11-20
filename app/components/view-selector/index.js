@@ -14,6 +14,7 @@ import CustomNetwork from '../../views/custom-network';
 import QRCode from '../../views/qr-code';
 import ManageAccount from '../../views/manage-account';
 import AddressBook from '../../views/address-book';
+import NodeSetting from '../../views/node-setting';
 import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
@@ -66,6 +67,8 @@ const getView = page => {
       return <ManageAccount />;
     case NavConstant.ADDRESS_BOOK_PAGE:
       return <AddressBook />;
+    case NavConstant.NODE_SETTING_PAGE:
+      return <NodeSetting />;
     default:
       return <Dashboard />;
   }

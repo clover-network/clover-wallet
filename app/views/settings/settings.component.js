@@ -17,6 +17,8 @@ export default class Settings extends Component {
     if (name === 'Address Book') {
       this.props.updateBackupPage(this.props.page);
       this.props.changePage(NavConstants.ADDRESS_BOOK_PAGE);
+    } else if (name === 'Node Setting') {
+      this.props.changePage(NavConstants.NODE_SETTING_PAGE);
     }
   };
 
@@ -31,11 +33,15 @@ export default class Settings extends Component {
       {
         name: 'Address Book',
       },
-      {
-        name: 'Terms Of Use',
-      },
+      // Terms Of Use 入口暂时隐藏
+      // {
+      //   name: 'Terms Of Use',
+      // },
       {
         name: 'About Clover Wallet Extension',
+      },
+      {
+        name: 'Node Setting',
       },
     ];
     return (

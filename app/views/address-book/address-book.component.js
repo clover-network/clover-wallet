@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import * as NavConstants from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import AddressList from '../../components/address-book/address-list';
-import EmptyDashboard from '../../components/empty-dashboard';
-import ButtonMD from '../../components/common/buttons/button-md';
 import DraggableDialog from '../../components/common/confirm-dialog';
 import { ACCOUNT_MANAGEMENT_OPTIONS, ADD_ADDRESS, REMOVE } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
 import './styles.css';
 import HeaderBack from '../../components/header-back';
 import { CREATE_ADDRESS_BOOK_PAGE } from '../../constants/navigation';
+import ButtonCustom from '../../components/common/buttons/button-custom';
 
 export default class AddressBook extends Component {
   constructor(props) {
@@ -122,14 +121,18 @@ export default class AddressBook extends Component {
                 isMoreVertIconVisible={isMoreVertIconVisible}
                 handelChangeToAddress={this.handelChangeToAddress}
               />
-            ) : (
-              <EmptyDashboard className="empty-list-text" text="Click here to add an address!" />
-            )}
+            ) : null}
             {addressBook.length === 0 ? (
               <div className="address-book-add-button">
-                <ButtonMD color="dashboard" onClick={this.handleAddAddressClick}>
-                  Add Address
-                </ButtonMD>
+                <ButtonCustom
+                  width="90%"
+                  color="#41485D"
+                  background="white"
+                  onClick={this.handleAddAddressClick}
+                  border="1px solid rgba(65, 72, 93, 0.5);"
+                >
+                  CLICK TO ADD AN ADDRESS
+                </ButtonCustom>
               </div>
             ) : null}
 

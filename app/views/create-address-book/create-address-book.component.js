@@ -33,7 +33,7 @@ export default class CreateAddressBook extends Component {
       lnamePropName: 'lname',
       lname: '',
       lnameLabel: 'Lastname',
-      buttonText: 'Submit',
+      buttonText: 'ADD',
       network: '',
       showCurrencySelect: false,
     };

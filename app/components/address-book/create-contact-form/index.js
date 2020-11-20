@@ -18,21 +18,14 @@ export default class CreateContactForm extends Component {
       handleFnameChange,
       handleFnameOnBlur,
       fnameInputRef,
-      lname,
-      lnameLabel,
-      lnamePropName,
-      lnameInputRef,
-      isLnameError,
-      handleLnameChange,
-      handleLnameOnBlur,
       onSubmit,
       buttonName,
     } = this.props;
     return (
       <div className="create-address-book-form">
         <CloverInput
+          className="sign-up-password"
           placeholderText="Input or paste address here"
-          style={{ background: 'rgba(65, 72, 93, 0.1)', border: 'none' }}
           value={address}
           error={isAddressError}
           label="Address"
@@ -43,8 +36,7 @@ export default class CreateContactForm extends Component {
         />
         <CloverInput
           placeholderText="Firstname"
-          style={{ background: 'rgba(65, 72, 93, 0.1)', border: 'none' }}
-          className="contact-fname-input"
+          className="sign-up-password contact-fname-input"
           value={fname}
           onChange={handleFnameChange(fnamePropName)}
           label={fnameLabel}
@@ -52,16 +44,6 @@ export default class CreateContactForm extends Component {
           name={fnamePropName}
           inputRef={fnameInputRef}
           onBlur={handleFnameOnBlur}
-        />
-        <CloverInput
-          className="contact-lname-input"
-          value={lname}
-          onChange={handleLnameChange(lnamePropName)}
-          label={lnameLabel}
-          error={isLnameError}
-          name={lnamePropName}
-          inputRef={lnameInputRef}
-          onBlur={handleLnameOnBlur}
         />
         <FooterButton onClick={onSubmit} name={buttonName} />
       </div>

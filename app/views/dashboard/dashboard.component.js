@@ -52,6 +52,10 @@ export default class Dashboard extends Component {
     this.props.changePage(TRADE_PAGE);
   };
 
+  goToApps = () => {
+    window.open('https://dapp.ownstack.cn/#/', '_blank');
+  };
+
   render() {
     const {
       accounts,
@@ -116,10 +120,12 @@ export default class Dashboard extends Component {
           ))}
         </div>
         <div className="dashboard-button-wrap">
-          <Button className="assets-btn" style={{ marginRight: '10px' }}>
+          <Button onClick={this.goToApps} className="assets-btn" style={{ marginRight: '10px' }}>
             DAPPS
           </Button>
-          <Button className="assets-btn">ASSETS</Button>
+          <Button onClick={this.goToApps} className="assets-btn">
+            ASSETS
+          </Button>
         </div>
       </div>
     );

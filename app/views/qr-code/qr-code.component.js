@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { DASHBOARD_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import { findChainByName } from '../../../lib/constants/chain';
@@ -48,13 +49,11 @@ export default class QRCode extends Component {
             </div>
           </div>
           <div style={{ marginLeft: '18px' }}>
-            <Button
-              className="copy-address-btn"
-              onClick={this.onCopy}
-              style={{ marginRight: '10px' }}
-            >
-              COPY ADDRESS
-            </Button>
+            <CopyToClipboard text={account.address} onCopy={this.onCopy}>
+              <Button className="copy-address-btn" style={{ marginRight: '10px' }}>
+                COPY ADDRESS
+              </Button>
+            </CopyToClipboard>
           </div>
         </div>
         <div className="footer" onClick={this.handleSubheaderBackBtn}>

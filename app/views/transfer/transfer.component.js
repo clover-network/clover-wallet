@@ -123,7 +123,7 @@ export default class Transfer extends Component {
           amount: totalAmount,
         },
       });
-      this.setState({ amount: totalAmount });
+      this.setState({ amount: totalAmount, isAmountError: true });
     }
   };
 

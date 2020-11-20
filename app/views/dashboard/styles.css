@@ -35,6 +35,10 @@
   height: 40px;
 }
 
+.staking-btn:hover, .governance-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1)!important;
+}
+
 .assets-list-wrap {
   margin-top: 15px;
 }
@@ -118,4 +122,8 @@
   width: 152px;
   color: #FB822A!important;
   font-family: Inter-Bold !important;
+}
+
+.assets-btn:hover {
+  background: rgba(255, 205, 168, 0.35)!important;
 }

@@ -14,6 +14,7 @@ import {
   TRANSFER_STATUS_PAGE,
   CREATE_ADDRESS_BOOK_PAGE,
   ADDRESS_BOOK_PAGE,
+  NODE_SETTING_PAGE,
   MANAGE_ACCOUNT_PAGE,
   DAPP_REQUESTS_PAGE,
 } from '../constants/navigation';
@@ -48,6 +49,7 @@ export default class App extends Component {
       TRANSFER_STATUS_PAGE,
       CREATE_ADDRESS_BOOK_PAGE,
       ADDRESS_BOOK_PAGE,
+      NODE_SETTING_PAGE,
       MANAGE_ACCOUNT_PAGE,
       DAPP_REQUESTS_PAGE,
     ];
@@ -57,6 +59,7 @@ export default class App extends Component {
       TRANSFER_STATUS_PAGE,
       CREATE_ADDRESS_BOOK_PAGE,
       ADDRESS_BOOK_PAGE,
+      NODE_SETTING_PAGE,
       MANAGE_ACCOUNT_PAGE,
       DAPP_REQUESTS_PAGE,
     ];
