@@ -14,7 +14,8 @@ import CustomNetwork from '../../views/custom-network';
 import QRCode from '../../views/qr-code';
 import ManageAccount from '../../views/manage-account';
 import AddressBook from '../../views/address-book';
-import NodeSetting from '../../views/node-setting';
+import NodeSetting from '../../views/node-list';
+import NodeList from '../../views/node-setting';
 import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
@@ -69,6 +70,8 @@ const getView = page => {
       return <AddressBook />;
     case NavConstant.NODE_SETTING_PAGE:
       return <NodeSetting />;
+    case NavConstant.NODE_LIST_PAGE:
+      return <NodeList />;
     default:
       return <Dashboard />;
   }

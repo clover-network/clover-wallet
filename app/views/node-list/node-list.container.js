@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import NodeList from './node-setting.component';
-import { submitNode } from './actions';
+import NodeSetting from './node-list.component';
 import { changePage, updateBackupPage } from '../../containers/actions';
 
 const mapStateToProps = state => ({
@@ -9,9 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  submitNode,
   changePage,
   updateBackupPage,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NodeList);
+export default connect(mapStateToProps, mapDispatchToProps)(NodeSetting);

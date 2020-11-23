@@ -100,3 +100,12 @@ export const removeContact = async contact => {
   throwIfNoSuccess({ message, status });
   return { result };
 };
+
+export const submitNode = async node => {
+  const { message, status, result } = await sendMessage({
+    type: MessageTypes.BG_NODE_ADD,
+    node,
+  });
+  throwIfNoSuccess({ message, status });
+  return { result };
+};
