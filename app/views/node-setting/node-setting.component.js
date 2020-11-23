@@ -30,10 +30,15 @@ export default class NodeSetting extends Component {
   };
 
   handleChange = event => {
-    const { nodes } = this.props;
+    const { nodes, network } = this.props;
     nodes[0].selectedNode = event.target.value;
     this.props.updateNodes(nodes);
     this.setState({ selectedNode: event.target.value });
+    network.networkFullUrl = this.props.nodes[0].selectedNode;
+    network.networkURL = this.props.nodes[0].selectedNode;
+    network.transactionUrl = `${this.props.nodes[0].selectedNode}/#/explorer`;
+    nodes[0].selectedNode = event.target.value;
+    this.props.switchNetwork(network);
   };
 
   toggleDrawer = status => () => {

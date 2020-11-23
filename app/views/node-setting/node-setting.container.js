@@ -3,6 +3,7 @@ import NodeSetting from './node-setting.component';
 import { updateNodes } from './actions';
 import { createToast } from '../../constants/toast';
 import { changePage, updateBackupPage } from '../../containers/actions';
+import { switchNetwork } from '../../actions/network';
 
 const mapStateToProps = state => ({
   backupPage: state.appStateReducer.backupPage,
@@ -14,6 +15,7 @@ const mapDispatchToProps = {
   updateNodes,
   changePage,
   createToast,
+  switchNetwork,
   updateBackupPage,
 };
 
