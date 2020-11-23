@@ -1,0 +1,1 @@
+export const UPDATE_NODE_LIST = 'NODE/UPDATE_LIST';

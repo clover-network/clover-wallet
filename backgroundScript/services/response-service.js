@@ -11,6 +11,7 @@ import * as AppService from './app-service';
 import * as AddressBookService from './address-book-service';
 import * as ResponseType from '../../lib/constants/response-types';
 import { sendErrorMessage } from '../../lib/services/static-message-factory-service';
+import * as NodeService from './node-service';
 // use below messages if no return message is needed
 export const success = {
   status: status.SUCCESS,
@@ -422,6 +423,7 @@ export const submitDappTransaction = async (request, sender, sendResponse) => {
     await DAppService.closeRequestAndReplyDApp(request.request.id, pdata);
   }
 };
+
 export const handleDAppValidateTransaction = async (request, sender, sendResponse) => {
   try {
     const result = await DAppService.validateTransaction(request, sender);
@@ -548,5 +550,14 @@ export const getUnits = async (request, sendResponse) => {
     sendResponse({ ...success, result });
   } catch (err) {
     sendResponse({ ...failure, message: 'Error while getting units.' });
+  }
+};
+
+export const getNodes = async (request, sendResponse) => {
+  try {
+    const result = await NodeService.getNodes();
+    sendResponse({ ...success, result });
+  } catch (e) {
+    sendResponse({ ...failure, message: 'Error in getting nodes.' });
   }
 };

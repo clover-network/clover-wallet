@@ -33,7 +33,6 @@ export default class Settings extends Component {
       {
         name: 'Address Book',
       },
-      // Terms Of Use 入口暂时隐藏
       // {
       //   name: 'Terms Of Use',
       // },

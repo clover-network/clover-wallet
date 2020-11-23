@@ -89,8 +89,8 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             ResponseService.getUnits(request, sendResponse);
             break;
           }
-          // Transactions
 
+          // Transactions
           case MessageTypes.BG_TXN_FEE: {
             ResponseService.getTransactionFees(request, sendResponse);
             break;
@@ -111,6 +111,7 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             ResponseService.getTransaction(request, sendResponse);
             break;
           }
+
           // address Book
           case MessageTypes.BG_ADDRESS_BOOK_ADD: {
             ResponseService.submitContact(request, sendResponse);
@@ -124,18 +125,18 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             ResponseService.removeContact(request, sendResponse);
             break;
           }
-
           case MessageTypes.BG_ADDRESS_BOOK_IS_NEW_ADDRESS: {
             ResponseService.isNewAddress(request, sendResponse);
             break;
           }
+
           // validation
           case MessageTypes.BG_ACCOUNT_IS_VALID_ADDRESS: {
             ResponseService.isValidAddress(request, sendResponse);
             break;
           }
 
-          //dApp
+          // dApp
           case MessageTypes.BG_GET_DAPP_REQUESTS: {
             ResponseService.getDAppRequests(request, sendResponse);
             break;
@@ -157,6 +158,11 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             break;
           }
 
+          // nodes
+          case MessageTypes.BG_NODE_LIST: {
+            ResponseService.getNodes(request, sendResponse);
+            break;
+          }
           default:
             ResponseService.handleDefault(request, sendResponse);
         }

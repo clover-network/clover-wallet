@@ -6,6 +6,7 @@ import { changePage, updateBackupPage } from '../../containers/actions';
 const mapStateToProps = state => ({
   backupPage: state.appStateReducer.backupPage,
   network: state.networkReducer.network,
+  nodes: state.nodeReducer.nodes,
 });
 
 const mapDispatchToProps = {
