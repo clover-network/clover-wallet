@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import Drawer from '@material-ui/core/Drawer';
 import FormControl from '@material-ui/core/FormControl';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -18,7 +19,7 @@ export default class NodeSetting extends Component {
     this.state = {
       isNodeAddressError: false,
       nodeAddressErrorMessage: '',
-      nodeValue: 'wss://api.ownstack.cn/',
+      selectedNode: this.props.nodes[0].selectedNode,
       showAddNodes: false,
       addNodeAddress: '',
     };
@@ -29,7 +30,10 @@ export default class NodeSetting extends Component {
   };
 
   handleChange = event => {
-    this.setState({ nodeValue: event.target.value });
+    const { nodes } = this.props;
+    nodes[0].selectedNode = event.target.value;
+    this.props.updateNodes(nodes);
+    this.setState({ selectedNode: event.target.value });
   };
 
   toggleDrawer = status => () => {
@@ -43,6 +47,7 @@ export default class NodeSetting extends Component {
   };
 
   addNodes = () => {
+    const { nodes } = this.props;
     const { addNodeAddress } = this.state;
     const { isNodeAddressError, nodeAddressErrorMessage } = this.validateNodeAddress(
       addNodeAddress,
@@ -52,8 +57,13 @@ export default class NodeSetting extends Component {
       nodeAddressErrorMessage,
     });
     if (!isNodeAddressError) {
-      this.props.submitNode({
-        addNodeAddress,
+      nodes[0].nodes.push(addNodeAddress);
+      this.props.updateNodes(nodes);
+      this.setState({ showAddNodes: false });
+    } else {
+      this.props.createToast({
+        message: nodeAddressErrorMessage,
+        type: 'error',
       });
     }
   };
@@ -63,6 +73,9 @@ export default class NodeSetting extends Component {
     if (address.length === 0) {
       isNodeAddressError = true;
       nodeAddressErrorMessage = 'Node Address required';
+    } else if (!_.startsWith(address, 'wss://')) {
+      isNodeAddressError = true;
+      nodeAddressErrorMessage = 'Node Address Start With "wss://"';
     } else {
       isNodeAddressError = false;
       nodeAddressErrorMessage = '';
@@ -74,7 +87,8 @@ export default class NodeSetting extends Component {
   }
 
   render() {
-    const { nodeValue, showAddNodes, addNodeAddress } = this.state;
+    const { nodes } = this.props;
+    const { selectedNode, showAddNodes, addNodeAddress } = this.state;
     const RedRadio = withStyles(() => ({
       root: {
         color: '#000000',
@@ -84,14 +98,6 @@ export default class NodeSetting extends Component {
       },
       checked: {},
     }))(Radio);
-    const nodeLists = [
-      {
-        url: 'wss://api.ownstack.cn/',
-      },
-      {
-        url: 'wss://api.jisand.com',
-      },
-    ];
     return (
       <div className="container">
         <HeaderBack
@@ -104,11 +110,16 @@ export default class NodeSetting extends Component {
             <RadioGroup
               aria-label="gender"
               name="gender1"
-              value={nodeValue}
+              value={selectedNode}
               onChange={this.handleChange}
             >
-              {nodeLists.map(node => (
-                <FormControlLabel value={node.url} control={<RedRadio />} label={node.url} />
+              {nodes[0].nodes.map((nodeUrl, index) => (
+                <FormControlLabel
+                  value={nodeUrl}
+                  control={<RedRadio />}
+                  label={nodeUrl}
+                  key={`node_list_${index.toString()}`}
+                />
               ))}
             </RadioGroup>
           </FormControl>

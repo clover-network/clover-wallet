@@ -564,7 +564,8 @@ export const getNodes = async (request, sendResponse) => {
 
 export const setNodes = async (request, sendResponse) => {
   try {
-    const result = await NodeService.setNodes();
+    const { nodes } = request;
+    const result = await NodeService.setNodes(nodes);
     sendResponse({ ...success, result });
   } catch (e) {
     sendResponse({ ...failure, message: 'Error in getting nodes.' });

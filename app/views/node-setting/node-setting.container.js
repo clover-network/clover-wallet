@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import NodeSetting from './node-setting.component';
 import { updateNodes } from './actions';
+import { createToast } from '../../constants/toast';
 import { changePage, updateBackupPage } from '../../containers/actions';
 
 const mapStateToProps = state => ({
@@ -12,6 +13,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   updateNodes,
   changePage,
+  createToast,
   updateBackupPage,
 };
 
