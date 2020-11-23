@@ -561,3 +561,12 @@ export const getNodes = async (request, sendResponse) => {
     sendResponse({ ...failure, message: 'Error in getting nodes.' });
   }
 };
+
+export const setNodes = async (request, sendResponse) => {
+  try {
+    const result = await NodeService.setNodes();
+    sendResponse({ ...success, result });
+  } catch (e) {
+    sendResponse({ ...failure, message: 'Error in getting nodes.' });
+  }
+};

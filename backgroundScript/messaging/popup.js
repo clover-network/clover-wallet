@@ -163,6 +163,10 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             ResponseService.getNodes(request, sendResponse);
             break;
           }
+          case MessageTypes.BG_SET_NODE_LIST: {
+            ResponseService.setNodes(request, sendResponse);
+            break;
+          }
           default:
             ResponseService.handleDefault(request, sendResponse);
         }

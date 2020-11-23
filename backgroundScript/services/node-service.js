@@ -26,27 +26,8 @@ export const isNewNode = node => {
   return { isNewAddress: true };
 };
 
-export const validateNode = contact => {
-  const { addressBook } = getNodesState();
-  if (addressBook.length > 0) {
-    const duplicateAddress = addressBook.find(x => x.address === contact.address);
-    if (duplicateAddress) {
-      throw new Error('Duplicate Address');
-    }
-    const duplicateName = addressBook.find(
-      x => x.fname === contact.fname.trim() && x.lname === contact.lname.trim(),
-    );
-    if (duplicateName) {
-      throw new Error('Duplicate name');
-    }
-  }
-};
-
-export const submitNode = node => {
-  validateNode(node);
-  const { addressBook } = getNodesState();
-  const newAddreesBook = [...addressBook, { ...node }];
-  const result = updateNodes(newAddreesBook);
+export const setNodes = nodes => {
+  const result = updateNodes(nodes);
   return { result, ...success };
 };
 

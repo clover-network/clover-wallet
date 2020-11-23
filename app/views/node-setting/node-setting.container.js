@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NodeSetting from './node-setting.component';
-import { submitNode } from './actions';
+import { updateNodes } from './actions';
 import { changePage, updateBackupPage } from '../../containers/actions';
 
 const mapStateToProps = state => ({
@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  submitNode,
+  updateNodes,
   changePage,
   updateBackupPage,
 };

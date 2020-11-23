@@ -1,12 +1,14 @@
 import { createToast } from '../../constants/toast';
 import * as NodeAPI from '../../api/node';
+import { updateNodeList } from '../../actions/node';
 
-export const submitNode = node => async dispatch => {
+export const updateNodes = nodes => async dispatch => {
   try {
-    await NodeAPI.submitNode(node);
+    await NodeAPI.updateNodes(nodes);
+    dispatch(updateNodeList(nodes));
     dispatch(
       createToast({
-        message: 'node added successfully.',
+        message: 'node updated successfully.',
         type: 'success',
       }),
     );
