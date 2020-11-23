@@ -14,11 +14,11 @@ export default class Settings extends Component {
   };
 
   goPageByListName = name => () => {
+    this.props.updateBackupPage(this.props.page);
     if (name === 'Address Book') {
-      this.props.updateBackupPage(this.props.page);
       this.props.changePage(NavConstants.ADDRESS_BOOK_PAGE);
     } else if (name === 'Node Setting') {
-      this.props.changePage(NavConstants.NODE_SETTING_PAGE);
+      this.props.changePage(NavConstants.NODE_LIST_PAGE);
     }
   };
 

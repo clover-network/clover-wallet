@@ -4,7 +4,7 @@ import * as NavConstants from '../../constants/navigation';
 import HeaderBack from '../../components/header-back';
 import ArrowRight from '../../images/arrow_right.svg';
 
-export default class NodeSetting extends Component {
+export default class NodeList extends Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
@@ -15,7 +15,7 @@ export default class NodeSetting extends Component {
   };
 
   handleNodeDetail = () => {
-    this.props.changePage(NavConstants.NODE_LIST_PAGE);
+    this.props.changePage(NavConstants.NODE_SETTING_PAGE);
   };
 
   render() {

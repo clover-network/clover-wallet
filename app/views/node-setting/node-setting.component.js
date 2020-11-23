@@ -9,8 +9,9 @@ import './styles.css';
 import HeaderBack from '../../components/header-back';
 import CloverInput from '../../components/common/clover-input';
 import ButtonXL from '../../components/common/buttons/button-xl';
+import * as NavConstants from '../../constants/navigation';
 
-export default class NodeList extends Component {
+export default class NodeSetting extends Component {
   constructor(props) {
     super(props);
     this.textInput = React.createRef();
@@ -24,7 +25,7 @@ export default class NodeList extends Component {
   }
 
   handleSubheaderBackBtn = () => {
-    this.props.changePage(this.props.backupPage);
+    this.props.changePage(NavConstants.NODE_LIST_PAGE);
   };
 
   handleChange = event => {
