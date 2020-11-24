@@ -35,15 +35,3 @@ export const getNodes = () => {
   const { nodes } = getNodesState();
   return { nodes };
 };
-
-export const removeNode = async node => {
-  // get previous nodes
-  const { address, fname } = node;
-  const { addressBook } = getNodesState();
-  const filteredAddressBook = addressBook.filter(x => x.address !== address || x.fname !== fname);
-
-  // update reducer state
-  await updateNodes(filteredAddressBook);
-
-  return true;
-};

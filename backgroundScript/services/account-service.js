@@ -91,6 +91,19 @@ export const getAccountForUI = account => ({
   keypairType: account.keypairType,
 });
 
+const getFullChainAccounts = accounts => {
+  const wallets = getWallets();
+  const fullChainAccounts = wallets.map(item => ({
+    symbol: item.symbol,
+    accounts: accounts.map(account => ({
+      alias: account.alias,
+      keypairType: account.keypairType,
+      address: item.wallet.getAddress(account.seedWords, account.keypairType),
+    })),
+  }));
+  return fullChainAccounts;
+};
+
 export const updateAccountAlias = async (address, newAlias) => {
   const { accounts, currentAccount } = getAccountState();
   //validate alias
@@ -104,28 +117,17 @@ export const updateAccountAlias = async (address, newAlias) => {
     if (accountIndex >= 0) {
       accounts[accountIndex].alias = newAlias;
       currentAccount.alias = newAlias;
+      const fullChainAccounts = getFullChainAccounts(accounts);
       await Promise.all([
         updatesAccountsState(accounts),
         updateCurrentAccountState(currentAccount),
+        updatesFullChainAccountsState(fullChainAccounts),
       ]);
       return { address, newAlias };
     }
     throw new Error('account is not avalible');
   }
   throw new Error('Duplicate alias');
-};
-
-const getFullChainAccounts = accounts => {
-  const wallets = getWallets();
-  const fullChainAccounts = wallets.map(item => ({
-    symbol: item.symbol,
-    accounts: accounts.map(account => ({
-      alias: account.alias,
-      keypairType: account.keypairType,
-      address: item.wallet.getAddress(account.seedWords, account.keypairType),
-    })),
-  }));
-  return fullChainAccounts;
 };
 
 // isOnboarding Require
