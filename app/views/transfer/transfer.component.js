@@ -103,7 +103,10 @@ export default class Transfer extends Component {
       },
     });
     this.setState({ [prop]: e.target.value, isAmountError: false });
-    if (_.toNumber(e.target.value) > _.toNumber(totalAmount)) {
+    if (
+      _.toNumber(e.target.value) > _.toNumber(totalAmount)
+      || _.toNumber(e.target.value) === _.toNumber(totalAmount)
+    ) {
       this.setState({ isAmountError: true });
     }
   };
