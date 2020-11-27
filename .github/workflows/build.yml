@@ -2,7 +2,7 @@ name: Bithumb interface build action
 on:
   push:
     branches:
-      - lijie/test
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,9 +23,10 @@ jobs:
           cmd: build
         env:
           CI: false
-      
+
+      - name: Compress
       - run: tar -zcvf clover.tar.gz ./build/chrome
-          
+
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:
