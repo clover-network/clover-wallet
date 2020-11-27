@@ -24,7 +24,6 @@ jobs:
         env:
           CI: false
       
-      - name: Compress
       - run: tar -zcvf clover.tar.gz ./build/chrome
           
       - name: Upload to release
