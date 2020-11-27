@@ -2,7 +2,7 @@ name: Bithumb interface build action
 on:
   push:
     tags:
-      - 'v1.0'
+      - 'v*'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
