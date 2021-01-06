@@ -1,4 +1,4 @@
-import { BG_DAPP_RESPONSE } from '../../lib/constants/response-types';
+import { BG_DAPP_RESPONSE, WEB3_RESPONSE } from '../../lib/constants/response-types';
 import { FAILURE } from '../../lib/constants/api';
 
 export function resolveRequest(requestType, opts, metadata) {
@@ -10,14 +10,27 @@ export function resolveRequest(requestType, opts, metadata) {
       window.addEventListener('message', event => {
         // We only accept messages from ourselves
         if (event.source !== window) return;
-        if (event.data && event.data.type && event.data.type === BG_DAPP_RESPONSE) {
-          const {
-            data: { result, status, message },
-          } = event;
-          if (status === FAILURE) {
-            reject(message);
+        if (event.data && event.data.type) {
+          if (BG_DAPP_RESPONSE === event.data.type) {
+            const {
+              data: { result, status, message },
+            } = event;
+            if (status === FAILURE) {
+              reject(message);
+            }
+            resolve(result);
+          } else if (WEB3_RESPONSE === event.data.type) {
+            const {
+              data: { result, status, message },
+            } = event;
+            if (!result || !result.id || result.id !== opts.id) {
+              return;
+            }
+            if (status === FAILURE) {
+              reject(message);
+            }
+            resolve(result);
           }
-          resolve(result);
         }
       });
     } catch (e) {

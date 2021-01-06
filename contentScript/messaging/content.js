@@ -2,6 +2,7 @@
 import extension from 'extensionizer';
 import * as RequestTypes from '../../lib/constants/request-types';
 import * as TransceiverService from '../services/transceiver-service';
+import * as Web3TransceiverService from '../services/web3-transceiver-service';
 import * as ResponseType from '../../lib/constants/response-types';
 
 window.addEventListener('message', async event => {
@@ -23,6 +24,30 @@ window.addEventListener('message', async event => {
         case RequestTypes.SIGN_MESSAGE:
           TransceiverService.signMessage(data);
           break;
+        case RequestTypes.WEB3_REQUEST:
+          const { data } = event;
+          if (
+            !['eth_getBalance', 'eth_accounts', 'net_version', 'eth_getBlockByNumber'].includes(
+              data.opts.method,
+            )
+          ) {
+            console.log('cs:', data);
+          }
+
+          try {
+            if (
+              RequestTypes.SAFE_METHODS.includes(data.opts.method)
+              || data.opts.method === 'eth_accounts'
+            ) {
+              Web3TransceiverService.handleMethod(data);
+            } else {
+              Web3TransceiverService.handleDefault(data);
+            }
+          } catch (err) {
+            const error = { message: err.message, stack: err.stack || {} };
+            Web3TransceiverService.handleError(error, data);
+          }
+          break;
         default:
           TransceiverService.handleDefault(data);
       }
@@ -34,10 +59,14 @@ window.addEventListener('message', async event => {
 });
 
 extension.runtime.onMessage.addListener(response => {
+  console.log('content on message:', response);
   const { type } = response;
   switch (type) {
     case ResponseType.BG_DAPP_RESPONSE:
       TransceiverService.dAppResponse(response);
+      break;
+    case ResponseType.WEB3_RESPONSE:
+      Web3TransceiverService.dAppResponse(response);
       break;
     default:
       TransceiverService.handleDefaultResponse(response);
