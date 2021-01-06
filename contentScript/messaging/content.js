@@ -26,13 +26,13 @@ window.addEventListener('message', async event => {
           break;
         case RequestTypes.WEB3_REQUEST:
           const { data } = event;
-          // if (
-          //   !['eth_getBalance', 'eth_accounts', 'net_version', 'eth_getBlockByNumber'].includes(
-          //     data.opts.method,
-          //   )
-          // ) {
-          //   console.log('cs:', data);
-          // }
+          if (
+            !['eth_getBalance', 'eth_accounts', 'net_version', 'eth_getBlockByNumber'].includes(
+              data.opts.method,
+            )
+          ) {
+            console.log('cs:', data);
+          }
 
           try {
             if (
