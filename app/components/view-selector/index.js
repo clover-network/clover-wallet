@@ -19,6 +19,7 @@ import NodeSetting from '../../views/node-setting';
 import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
+import DAppWeb3Requests from '../../views/dapp-web3-requests';
 import Chain from '../../views/chain';
 import Trade from '../../views/trade';
 import * as NavConstant from '../../constants/navigation';
@@ -64,6 +65,8 @@ const getView = page => {
       return <ConnectRequest />;
     case NavConstant.DAPP_REQUESTS_PAGE:
       return <DAppRequests />;
+    case NavConstant.DAPP_WEB3_REQUESTS_PAGE:
+      return <DAppWeb3Requests />;
     case NavConstant.MANAGE_ACCOUNT_PAGE:
       return <ManageAccount />;
     case NavConstant.ADDRESS_BOOK_PAGE:

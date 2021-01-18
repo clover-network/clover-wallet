@@ -66,7 +66,7 @@ export const closeRequestAndReplyDApp = async (requestID, replyData) => {
   await dapp.reply(replyData);
 };
 
-const queueDAppRequests = async (data, sender, result) => {
+export const queueDAppRequests = async (data, sender, result) => {
   const request = {
     request: data,
     sender,

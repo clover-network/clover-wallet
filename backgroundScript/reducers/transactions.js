@@ -1,8 +1,9 @@
-import { FETCH_TRANSACTION, FETCH_TRANSACTIONS } from '../actions/transactions';
+import { FETCH_TRANSACTION, FETCH_TRANSACTIONS, FETCH_WEB3_TRANSACTIONS } from '../actions/transactions';
 
 const initialState = {
   transaction: undefined,
   transactionArr: [],
+  web3TransactionArr: []
 };
 const transactionState = (state = initialState, action) => {
   switch (action.type) {
@@ -16,6 +17,11 @@ const transactionState = (state = initialState, action) => {
         ...state,
         transactionArr: action.payload,
       };
+    case FETCH_WEB3_TRANSACTIONS:
+      return {
+        ...state,
+        web3TransactionArr: action.payload,
+      }
     default:
       return state;
   }

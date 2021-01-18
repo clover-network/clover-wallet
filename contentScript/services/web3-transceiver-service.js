@@ -34,18 +34,23 @@ export const handleError = (err, data) => {
 };
 
 export const handleMethod = async data => {
-  const response = await sendMessage({
-    ...data,
-    type: MessageTypes.WEB3_REQUEST,
-  });
-  // console.log('content handle method:', response);
-  if (response.result !== undefined || response.status === status.FAILURE) {
-    const out = {
-      ...response,
-      type: ResponseTypes.WEB3_RESPONSE,
-    };
-    window.postMessage(out, data.metadata.origin);
+  try {
+    const response = await sendMessage({
+      ...data,
+      type: MessageTypes.WEB3_REQUEST,
+    });
+    // console.log('content handle method:', response);
+    if (response.result !== undefined || response.status === status.FAILURE) {
+      const out = {
+        ...response,
+        type: ResponseTypes.WEB3_RESPONSE,
+      };
+      window.postMessage(out, data.metadata.origin);
+    }
+  } catch (err) {
+    console.log(err)
   }
+  
 };
 
 export const dAppResponse = async request => {

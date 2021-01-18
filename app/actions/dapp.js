@@ -40,9 +40,13 @@ export const navigateAndServiceIfDappRequest = () => async dispatch => {
         req => req.request.requestType === RequestType.ENABLE
           || req.request.requestType === RequestType.CHANGE_ACCOUNT,
       );
+      console.log('navigateAndServiceIfDappRequest', requests)
       if (enableRequest) {
         dispatch(setEnableRequest(enableRequest));
         dispatch(AppActions.changePage(NavConstants.CONNECT_REQUEST_PAGE));
+      } else if (requests.find((r) => r.request.opts.method === 'eth_sendTransaction')) {
+        dispatch(setDAppRequests(requests));
+        dispatch(AppActions.changePage(NavConstants.DAPP_WEB3_REQUESTS_PAGE));
       } else {
         dispatch(setDAppRequests(requests));
         dispatch(AppActions.changePage(NavConstants.DAPP_REQUESTS_PAGE));

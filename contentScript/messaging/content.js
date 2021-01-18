@@ -13,16 +13,16 @@ window.addEventListener('message', async event => {
     try {
       switch (data.requestType) {
         case RequestTypes.ENABLE:
-          TransceiverService.authorizeDApp(data);
+          TransceiverService.authorizeDApp(event.data);
           break;
         case RequestTypes.GET_ACCOUNTS:
-          TransceiverService.getAccounts(data);
+          TransceiverService.getAccounts(event.data);
           break;
         case RequestTypes.SEND:
-          TransceiverService.submitTransaction(data);
+          TransceiverService.submitTransaction(event.data);
           break;
         case RequestTypes.SIGN_MESSAGE:
-          TransceiverService.signMessage(data);
+          TransceiverService.signMessage(event.data);
           break;
         case RequestTypes.WEB3_REQUEST:
           const { data } = event;
@@ -49,7 +49,7 @@ window.addEventListener('message', async event => {
           }
           break;
         default:
-          TransceiverService.handleDefault(data);
+          TransceiverService.handleDefault(event.data);
       }
     } catch (err) {
       const error = { message: err.message, stack: err.stack || {} };

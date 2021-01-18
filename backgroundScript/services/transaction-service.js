@@ -210,3 +210,9 @@ export const confirmTransaction = async (
   }
   return { ...newTransaction, ...txnError };
 };
+
+export const updateWeb3Transactions = async (transaction) => {
+  const { web3TransactionArr } = getStore().getState().transactionState;
+  web3TransactionArr.push(transaction)
+  getStore().dispatch(transactionActions.fetchWeb3Transactions(web3TransactionArr));
+}

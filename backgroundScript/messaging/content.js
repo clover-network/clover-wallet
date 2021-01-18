@@ -31,7 +31,7 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
             ResponseService.signMessage(request, sender, sendResponse);
             break;
           case MessageTypes.WEB3_REQUEST:
-            Web3ResponseService.web3Response(request, sendResponse);
+            Web3ResponseService.web3Response(request, sender, sendResponse);
             break;
           default:
             ResponseService.handledAppDefault(request, sendResponse);

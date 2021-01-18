@@ -47,3 +47,22 @@ export const submitTransaction = async (data, request, dApp = false) => {
   throwIfNoSuccess({ message, status });
   return { result };
 };
+
+// ===================
+export const signWeb3Message = async request => {
+  const { message, status, result } = await sendMessage({
+    type: MessageTypes.WEB3_REQUEST,
+    request,
+  });
+  throwIfNoSuccess({ message, status });
+  return { result };
+};
+
+export const cancelWeb3Request = async request => {
+  const { message, status, result } = await sendMessage({
+    type: MessageTypes.WEB3_CANCEL_REQUEST,
+    request,
+  });
+  throwIfNoSuccess({ message, status });
+  return { result };
+};

@@ -1,6 +1,7 @@
 // receives all messages from Content Script
 import * as MessageTypes from '../../lib/constants/message-types';
 import * as ResponseService from '../services/response-service';
+import * as Web3ResponseService from '../services/web3-response-service'
 
 const extension = require('extensionizer');
 
@@ -165,6 +166,19 @@ extension.runtime.onMessage.addListener((request, sender, sendResponse) => {
           }
           case MessageTypes.BG_SET_NODE_LIST: {
             ResponseService.setNodes(request, sendResponse);
+            break;
+          }
+
+          // web3 request
+          case MessageTypes.WEB3_REQUEST: {
+            if (request.request.request.opts.method === 'eth_sendTransaction') {
+              Web3ResponseService.web3SignAndSend(request, sender, sendResponse)
+            }
+            break;
+          }
+          case MessageTypes.WEB3_CANCEL_REQUEST: {
+            Web3ResponseService.cancelRequest(request, sender, sendResponse)
+
             break;
           }
           default:

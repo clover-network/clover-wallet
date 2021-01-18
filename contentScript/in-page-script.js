@@ -73,7 +73,6 @@ class CloverWalletProvider extends EventEmitter {
   }
 
   async request(args) {
-    // console.log('request args:', args);
     const result = await resolveRequest(RequestTypes.WEB3_REQUEST, args, metadata);
     return result;
   }
@@ -84,14 +83,11 @@ class CloverWalletProvider extends EventEmitter {
         const result = await resolveRequest(RequestTypes.WEB3_REQUEST, methodOrPayload, metadata);
         if ('eth_getTransactionReceipt' === methodOrPayload.method) {
           let r = result.result
-          r._sta = r.status
           if (r.status === true) {
             r.status = '0x1'
           } else {
             r.status = '0x0'
           }
-          
-          // console.log('result:', JSON.stringify(result))
         }
         callbackOrArgs(undefined, result);
       } catch (e) {
