@@ -1,0 +1,17 @@
+.back-wrapper {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.back-wrapper img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.back-wrapper span {
+    color: #333333;
+    font-size: 11px;
+    vertical-align: middle;
+}

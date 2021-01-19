@@ -18,6 +18,7 @@ import {
   NODE_LIST_PAGE,
   MANAGE_ACCOUNT_PAGE,
   DAPP_REQUESTS_PAGE,
+  ENTRY_PAGE,
 } from '../constants/navigation';
 import CloverApp from '../components/clover-app';
 import './styles.css';
@@ -77,7 +78,7 @@ export default class App extends Component {
         };
       }
       return {
-        showHeader: prevProps.page !== QR_CODE_PAGE,
+        showHeader: prevProps.page !== QR_CODE_PAGE && prevProps.page !== ENTRY_PAGE,
         showLogo: false,
         showBanner: true,
         showNetwork: !_.includes(hideNetworkPages, prevProps.page),

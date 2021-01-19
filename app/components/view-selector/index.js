@@ -23,9 +23,15 @@ import Chain from '../../views/chain';
 import Trade from '../../views/trade';
 import * as NavConstant from '../../constants/navigation';
 import Settings from '../../views/settings';
+import EntryPage from '../../views/entry-page';
+import ImportWallet from '../../views/import-wallet';
 
 const getView = page => {
   switch (page) {
+    case NavConstant.ENTRY_PAGE:
+      return <EntryPage />;
+    case NavConstant.IMPORT_WALLET_PAGE:
+      return <ImportWallet />;
     case NavConstant.TERMS_PAGE:
       return <Terms />;
     case NavConstant.DASHBOARD_PAGE:

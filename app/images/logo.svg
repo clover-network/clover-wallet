@@ -1,30 +1,42 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 39.3506C27.1919 39.3506 29.6215 36.8387 29.6215 33.9453H38.2699C38.2699 41.7933 31.7881 47.999 24 47.999V39.3506Z" fill="#FB822A"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M39.3506 24.2158C39.3506 21.2334 36.9278 18.8106 33.9453 18.8106V10.1621C41.7042 10.1621 47.999 16.4569 47.999 24.2158H39.3506Z" fill="url(#paint0_linear)"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.64845 24C8.64845 27.1018 11.1681 29.6215 14.2699 29.6215V38.2699C6.3917 38.2699 0 31.8782 0 24H8.64845Z" fill="url(#paint1_linear)"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2158 8.64845C21.3225 8.64845 18.8106 11.078 18.8106 14.2699H10.1621C10.1621 6.48179 16.3678 0 24.2158 0V8.64845Z" fill="url(#paint2_linear)"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.6225 14.1618C29.6225 11.1197 27.1513 8.64845 24.1091 8.64845V0C31.9277 0 38.2709 6.34327 38.2709 14.1618C38.2709 21.9804 31.9277 28.3237 24.1091 28.3237C21.0669 28.3237 18.5957 30.7949 18.5957 33.8371C18.5957 36.8792 21.0669 39.3504 24.1091 39.3504V47.9989C16.2905 47.9989 9.94727 41.6556 9.94727 33.8371C9.94727 26.0185 16.2905 19.6752 24.1091 19.6752C27.1513 19.6752 29.6225 17.204 29.6225 14.1618Z" fill="url(#paint3_linear)"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.1618 18.5957C11.1197 18.5957 8.64845 21.0669 8.64845 24.1091H0C0 16.2905 6.34327 9.94727 14.1618 9.94727C21.9804 9.94727 28.3237 16.2905 28.3237 24.1091C28.3237 27.1513 30.7949 29.6225 33.8371 29.6225C36.8792 29.6225 39.3504 27.1513 39.3504 24.1091H47.9989C47.9989 31.9277 41.6556 38.2709 33.8371 38.2709C26.0185 38.2709 19.6752 31.9277 19.6752 24.1091C19.6752 21.0669 17.204 18.5957 14.1618 18.5957Z" fill="url(#paint4_linear)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="144px" viewBox="0 0 144 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
     <defs>
-        <linearGradient id="paint0_linear" x1="38.8101" y1="14.4863" x2="38.8101" y2="24.2158" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#E11B7B"/>
-            <stop offset="1" stop-color="#EE4455"/>
+        <linearGradient x1="34.6149577%" y1="30.7691717%" x2="34.6149577%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#094526" offset="0%"></stop>
+            <stop stop-color="#1C834F" offset="100%"></stop>
         </linearGradient>
-        <linearGradient id="paint1_linear" x1="9.29708" y1="24" x2="9.29708" y2="33.9457" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FB822A"/>
-            <stop offset="1" stop-color="#FB822A"/>
+        <linearGradient x1="75.5333478%" y1="0%" x2="50.4518844%" y2="100.909022%" id="linearGradient-2">
+            <stop stop-color="#4BD184" offset="0%"></stop>
+            <stop stop-color="#6BEFA2" offset="100%"></stop>
         </linearGradient>
-        <linearGradient id="paint2_linear" x1="12.7566" y1="11.9997" x2="24.2158" y2="5.7296" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#E11B7B"/>
-            <stop offset="1" stop-color="#EF4A4E"/>
+        <linearGradient x1="18.4613046%" y1="84.0908518%" x2="100%" y2="40.1514476%" id="linearGradient-3">
+            <stop stop-color="#117043" offset="0%"></stop>
+            <stop stop-color="#28A55F" offset="100%"></stop>
         </linearGradient>
-        <linearGradient id="paint3_linear" x1="24.2172" y1="4.32423" x2="40.8439" y2="13.4796" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#ED4454"/>
-            <stop offset="1" stop-color="#FF8212"/>
+        <linearGradient x1="50.1298985%" y1="9.009025%" x2="70.1050415%" y2="28.08325%" id="linearGradient-4">
+            <stop stop-color="#28A55F" offset="0%"></stop>
+            <stop stop-color="#31C971" offset="100%"></stop>
         </linearGradient>
-        <linearGradient id="paint4_linear" x1="0" y1="9.94727" x2="50.8892" y2="16.7965" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF8212"/>
-            <stop offset="1" stop-color="#ED4454"/>
+        <linearGradient x1="0%" y1="32.9861111%" x2="106.0215%" y2="41.2147872%" id="linearGradient-5">
+            <stop stop-color="#56E391" offset="0%"></stop>
+            <stop stop-color="#137545" offset="100%"></stop>
         </linearGradient>
     </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="001-Launch" transform="translate(-284.000000, -372.000000)">
+            <g id="logo/big" transform="translate(234.000000, 372.000000)">
+                <g id="LOGO">
+                    <g id="编组" transform="translate(50.000000, 0.000000)">
+                        <path d="M71,118.05408 C80.8419933,118.05408 88.6139972,110.311011 88.6139972,101.252309 L115,100 C115,124.571053 95.0140936,144 71,144 L71,118.05408 Z" id="路径" fill="#31C971"></path>
+                        <path d="M118.05408,73 C118.05408,63.6625261 110.468469,56.0769086 101.131003,56.0769086 L100,29 C124.291913,29 144,48.708066 144,73 L118.05408,73 Z" id="路径" fill="url(#linearGradient-1)"></path>
+                        <path d="M26.0048307,71.872305 C26.0048307,81.4364285 33.7739374,89.2056832 43.3381718,89.2056832 L44,116 C19.7081846,116 0,96.2919634 0,72 L26.0048307,71.872305 Z" id="路径" fill="url(#linearGradient-2)"></path>
+                        <path d="M72,25.9665066 C62.941329,25.9665066 55.0769809,33.4578545 55.0769809,43.2998478 L28,44 C28,19.9859804 47.429031,0 72,0 L72,25.9665066 Z" id="路径" fill="url(#linearGradient-3)"></path>
+                        <path d="M87.3511776,42.48648 C87.3511776,33.359796 80.0222309,25.945956 71.0000178,25.945956 L71.0000178,0 C94.1875895,0 113,19.030248 113,42.48648 C113,65.94264 94.1875895,84.97296 71.0000178,84.97296 C61.9778047,84.97296 54.648858,92.3868 54.648858,101.51352 C54.648858,110.64024 61.9778047,118.05408 71.0000178,118.05408 L71.0000178,144 C47.8124461,144 29,124.96968 29,101.51352 C29,78.05736 47.8124461,59.02704 71.0000178,59.02704 C80.0222309,59.02704 87.3511776,51.6132 87.3511776,42.48648 Z" id="路径" fill="url(#linearGradient-4)"></path>
+                        <path d="M42.48648,56.6487591 C33.359796,56.6487591 25.945956,63.9777182 25.945956,72.9999466 L0,72.9999466 C0,49.8123356 19.030248,31 42.48648,31 C65.94264,31 84.97296,49.8123356 84.97296,72.9999466 C84.97296,82.022175 92.3868,89.3511342 101.51352,89.3511342 C110.64024,89.3511342 118.05408,82.022175 118.05408,72.9999466 L144,72.9999466 C144,96.1879135 124.96968,115 101.51352,115 C78.05736,115 59.02704,96.1879135 59.02704,72.9999466 C59.02704,63.9777182 51.6132,56.6487591 42.48648,56.6487591 Z" id="路径" fill="url(#linearGradient-5)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

@@ -1,0 +1,78 @@
+.entry-page-container {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+    opacity: 100%;
+}
+
+.launch-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.hide-container {
+    display: none;
+    transition: all 0.5s ease-out;
+}
+
+.splash-container {
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.clover-banner-img {
+    margin-top: 68px;
+}
+
+.entry-container {
+    position: relative;
+    height: 600px;
+}
+
+.entry-content {
+    width: 100%;
+    height: 300px;
+    background: #FFFFFF;
+    box-shadow: -4px -10px 10px 0px rgba(0, 0, 0, 0.03);
+    border-radius: 35px 35px 0px 0px;
+    position: absolute;
+    bottom: 0;
+    padding: 25px;
+}
+
+.entry-item {
+    width: 305px;
+    height: 85px;
+    background: #FAFAFA;
+    border-radius: 25px;
+    margin-top: 30px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entry-item > div {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.entry-item > div > span:last-child {
+    color: #4BA871;
+    margin-top: 7px;
+}
+
+.entry-item img {
+    cursor: pointer;
+}
