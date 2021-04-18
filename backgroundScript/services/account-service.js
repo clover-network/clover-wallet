@@ -9,7 +9,7 @@ import {
   updateCurrentAccountState,
   updatesFullChainAccountsState,
 } from './store-service';
-import { KEYPAIR_EDWARDS, DUPLICATE_ALIAS, BAD_REQUEST } from '../../lib/constants/api';
+import { KEYPAIR_SCHNORRKEL, DUPLICATE_ALIAS, BAD_REQUEST } from '../../lib/constants/api';
 import { getAccountState } from './store/account-store';
 import { validateAddress } from '../../lib/services/validation-service';
 
@@ -138,7 +138,7 @@ export const getAccounts = async () => {
 
 export const createAccount = async (seedWords, keypairType, isOnBoarding, alias) => {
   // default keypair type Edwards
-  const keypairTypeValue = keypairType === undefined ? KEYPAIR_EDWARDS.value : keypairType.value;
+  const keypairTypeValue = keypairType === undefined ? KEYPAIR_SCHNORRKEL.value : keypairType.value;
 
   // grab all the data
   const account = seedWords === undefined
