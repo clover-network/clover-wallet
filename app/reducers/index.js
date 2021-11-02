@@ -6,7 +6,7 @@ import termsReducer from '../views/terms/reducer';
 import appStateReducer from '../containers/reducer';
 import signUpReducer from '../views/sign-up/reducer';
 import createAccountReducer from '../views/create-account/reducer';
-import unlockCloverReducer from '../views/sign-in/reducer';
+import unlockWalletReducer from '../views/sign-in/reducer';
 import transferReducer from '../views/transfer/reducer';
 import dashboardReducer from '../views/dashboard/reducer';
 import connectRequestReducer from '../views/connect-request/reducer';
@@ -22,7 +22,7 @@ export default combineReducers({
   appStateReducer,
   signUpReducer,
   createAccountReducer,
-  unlockCloverReducer,
+  unlockWalletReducer,
   transferReducer,
   dashboardReducer,
   connectRequestReducer,

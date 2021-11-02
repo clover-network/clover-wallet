@@ -212,9 +212,11 @@ export default class Transfer extends Component {
               }}
               endAdornment={(
                 <div className="address-book-icon">
-                  <div onClick={addressBook.length === 0 ? '' : this.toggleAddress(true)}>
-                    <img width="20" height="20" src={MailList} alt="" />
-                  </div>
+                  {addressBook.length > 0 && (
+                    <div onClick={this.toggleAddress(true)}>
+                      <img width="20" height="20" src={MailList} alt="" />
+                    </div>
+                  )}
                   <React.Fragment>
                     <Drawer
                       anchor="bottom"

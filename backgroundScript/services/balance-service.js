@@ -3,7 +3,7 @@ import { getWallet } from './wallet-service';
 import { BAD_REQUEST } from '../../lib/constants/api';
 
 const validateAddress = addresses => {
-  if (addresses === undefined || addresses === [] || addresses === '') {
+  if (!addresses) {
     return {
       status: BAD_REQUEST,
       message: 'The request requires addresses.',

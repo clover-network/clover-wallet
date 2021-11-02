@@ -18,6 +18,7 @@ export const appReady = async hashKey => {
   if (accounts !== undefined) {
     // Start Migration Script
     const latestData = await MigrationService.startMigration(data, hashKey);
+    console.log("=----->" , latestData);
     const {
       network: { currentNetwork },
     } = latestData;

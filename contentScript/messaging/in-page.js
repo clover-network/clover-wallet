@@ -1,5 +1,8 @@
-import { BG_DAPP_RESPONSE, WEB3_RESPONSE } from '../../lib/constants/response-types';
-import { FAILURE } from '../../lib/constants/api';
+import {
+  BG_DAPP_RESPONSE,
+  WEB3_RESPONSE,
+} from "../../lib/constants/response-types";
+import { FAILURE } from "../../lib/constants/api";
 
 export function resolveRequest(requestType, opts, metadata) {
   // eslint-disable-next-line
@@ -7,7 +10,7 @@ export function resolveRequest(requestType, opts, metadata) {
     try {
       const data = { requestType, opts, metadata };
       window.postMessage(data, location.href);
-      window.addEventListener('message', event => {
+      window.addEventListener("message", (event) => {
         // We only accept messages from ourselves
         if (event.source !== window) return;
         if (event.data && event.data.type) {

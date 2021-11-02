@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import withStyles from '@material-ui/core/styles/withStyles';
-import NoScreenShot from '../../images/no_screen_shot.svg';
-import { styles } from './styles';
+import React, { Component } from "react";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import withStyles from "@material-ui/core/styles/withStyles";
+import NoScreenShot from "../../images/no_screen_shot.svg";
+import { styles } from "./styles";
 
-class CloverRadioButtonGroup extends Component {
+class RadioButtonGroup extends Component {
   render() {
-    const {
-      classes, isOpen, handleClose, handleYes
-    } = this.props;
+    const { classes, isOpen, handleClose, handleYes } = this.props;
     return (
       <Dialog
         classes={{
           root: classes.root,
           paper: classes.paper,
         }}
-        disableBackdropClick="true"
+        disableBackdropClick={true}
         open={isOpen}
         onClose={handleClose}
       >
@@ -64,4 +62,4 @@ class CloverRadioButtonGroup extends Component {
   }
 }
 
-export default withStyles(styles)(CloverRadioButtonGroup);
+export default withStyles(styles)(RadioButtonGroup);

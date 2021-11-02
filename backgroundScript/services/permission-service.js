@@ -1,24 +1,24 @@
-import * as PermissionStore from './store/permission-store';
-import * as status from '../../lib/constants/api';
+import * as PermissionStore from "./store/permission-store";
+import * as status from "../../lib/constants/api";
 
-const validateDappURL = url => {
-  if (url === undefined || url === null || url === '') {
+const validateDappURL = (url) => {
+  if (url === undefined || url === null || url === "") {
     return {
       status: status.BAD_REQUEST,
-      message: 'The request require url.',
+      message: "The request require url.",
     };
   }
 };
 
-const validateData = data => {
-  if (data === undefined || data === null || data === '') {
+const validateData = (data) => {
+  if (data === undefined || data === null || data === "") {
     return {
       status: status.BAD_REQUEST,
-      message: 'The request requires data object with url and blockchain.',
+      message: "The request requires data object with url and blockchain.",
     };
   }
 };
-export const getDAppIsAuthorized = data => {
+export const getDAppIsAuthorized = (data) => {
   const vData = validateData(data);
   if (vData) {
     return vData;
@@ -37,7 +37,7 @@ export const getDAppIsAuthorized = data => {
   return false;
 };
 
-export const updateDAppWhiteList = async data => {
+export const updateDAppWhiteList = async (data) => {
   // validation
   const vData = validateData(data);
   if (vData) {

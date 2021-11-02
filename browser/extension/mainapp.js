@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from '../../app/containers/Root';
-import { updateApplicationState } from '../../app/services/watcher-service';
+import React from "react";
+import ReactDOM from "react-dom";
+import Root from "../../app/containers/Root";
+import { updateApplicationState } from "../../app/services/watcher-service";
 
 const { state } = {};
-const initialState = JSON.parse(state || '{}');
+const initialState = JSON.parse(state || "{}");
 
-const createStore = require('../../app/store/configure-store');
+const createStore = require("../../app/store/configure-store").default;
 
 const store = createStore(initialState);
-ReactDOM.render(<Root store={store} />, document.querySelector('#root'));
+ReactDOM.render(<Root store={store} />, document.querySelector("#root"));
 
 updateApplicationState(store);
 
-chrome.runtime.getPlatformInfo(info => {
-  if (info.os === 'mac') {
+chrome.runtime.getPlatformInfo((info) => {
+  if (info.os === "mac") {
     const fontFaceSheet = new CSSStyleSheet();
     fontFaceSheet.insertRule(`
       @keyframes redraw {
@@ -31,6 +31,9 @@ chrome.runtime.getPlatformInfo(info => {
         animation: redraw 1s linear infinite;
       }
     `);
-    document.adoptedStyleSheets = [...document.adoptedStyleSheets, fontFaceSheet];
+    document.adoptedStyleSheets = [
+      ...document.adoptedStyleSheets,
+      fontFaceSheet,
+    ];
   }
 });

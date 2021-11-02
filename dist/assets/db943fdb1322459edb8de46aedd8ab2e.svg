@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="78px" height="78px" viewBox="0 0 78 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <defs>
+        <linearGradient x1="59.34944%" y1="-75.8547415%" x2="33.6568528%" y2="138.444229%" id="linearGradient-1">
+            <stop stop-color="#76B96D" offset="0%"></stop>
+            <stop stop-color="#4BA871" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="003-Have-seed-phrase?" transform="translate(-534.000000, -752.000000)">
+            <g id="编组-4" transform="translate(0.000000, 600.000000)">
+                <g id="创建" transform="translate(50.000000, 99.000000)">
+                    <g id="编组" transform="translate(484.345313, 53.290323)">
+                        <ellipse id="椭圆形" fill="url(#linearGradient-1)" cx="38.0625" cy="38.0645161" rx="38.0625" ry="38.0645161"></ellipse>
+                        <path d="M40.9171875,28.5483871 C46.5714264,34.2029255 49.3985458,37.0301947 49.3985458,37.0301947 L40.9171875,45.1518948" id="路径-5" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <line x1="27.5953134" y1="38.0645033" x2="47.5781241" y2="36.1613031" id="路径-4" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" transform="translate(37.586719, 37.112903) rotate(1.383388) translate(-37.586719, -37.112903) "></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

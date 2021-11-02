@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountDetails from '../account-details';
 import { WalletDropHorizonIcon } from '../../common/icon';
-import CloverMenu from '../../common/clover-menu';
+import FusoMenu from '../../common/menu';
 
 export default class AccountPanel extends Component {
   state = {
@@ -20,6 +20,7 @@ export default class AccountPanel extends Component {
     const { anchorEl } = this.state;
     const {
       selectedAccount,
+      assetsList,
       onCopyAddress,
       onAccountMenuOptionsChange,
       accountMenu,
@@ -35,6 +36,7 @@ export default class AccountPanel extends Component {
           className="account-detail"
           address={selectedAccount.address}
           alias={selectedAccount.alias}
+          assetsList={assetsList}
           onCopyAddress={onCopyAddress}
           inputRef={inputRef}
           editMode={selectedAccount.editMode ? selectedAccount.editMode : false}
@@ -54,7 +56,7 @@ export default class AccountPanel extends Component {
           }}
         />
         <WalletDropHorizonIcon onClick={this.handleClick} />
-        <CloverMenu
+        <FusoMenu
           options={accountMenu}
           onChange={option => {
             onAccountMenuOptionsChange(option, selectedAccount);

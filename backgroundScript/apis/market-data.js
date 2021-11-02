@@ -1,7 +1,7 @@
-import axios from 'axios';
-import * as AppConfig from '../../lib/constants/config';
+import axios from "axios";
+import AppConfig from "../../lib/constants/config";
 
-export const getUSDValue = async tokenId => {
+export const getUSDValue = async (tokenId) => {
   try {
     const url = `${AppConfig.marketDataApiUrl}/${tokenId}`;
     const response = await axios.get(url);

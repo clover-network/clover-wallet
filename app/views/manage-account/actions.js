@@ -1,16 +1,16 @@
-import { Account } from '../../api';
-import * as AccountActions from '../../actions/account';
-import * as AppActions from '../../containers/actions';
-import { createToast } from '../../constants/toast';
-import { onRemoveAccount } from '../../../lib/services/static-message-factory-service';
+import { Account } from "../../api";
+import * as AccountActions from "../../actions/account";
+import * as AppActions from "../../containers/actions";
+import { createToast } from "../../constants/toast";
+import { onRemoveAccount } from "../../../lib/services/static-message-factory-service";
 
-export const addAccount = () => async dispatch => {
+export const addAccount = () => async (dispatch) => {
   dispatch(AppActions.updateAppLoading(true));
   await dispatch(AccountActions.getSeedWords());
   dispatch(AppActions.updateAppLoading(false));
 };
 
-export const changeAccount = account => async dispatch => {
+export const changeAccount = (account) => async (dispatch) => {
   try {
     dispatch(AppActions.updateAppLoading(true));
     const { address } = account;
@@ -23,13 +23,13 @@ export const changeAccount = account => async dispatch => {
   }
 };
 
-export const removeAccount = accountToRemove => async dispatch => {
+export const removeAccount = (accountToRemove) => async (dispatch) => {
   try {
     const { address, alias } = accountToRemove;
-    await Account.removeAccount(address);
+    await Account.removeAccount(address, alias);
     AccountActions.fetchAndSetAccounts(dispatch);
-    dispatch(createToast({ message: onRemoveAccount(alias), type: 'success' }));
+    dispatch(createToast({ message: onRemoveAccount(alias), type: "success" }));
   } catch (e) {
-    dispatch(createToast({ message: 'Error removing account', type: 'error' }));
+    dispatch(createToast({ message: "Error removing account", type: "error" }));
   }
 };

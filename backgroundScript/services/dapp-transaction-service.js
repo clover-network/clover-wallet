@@ -1,11 +1,11 @@
 import BN from 'bn.js';
 import { formatNumber, bnToBn } from '@polkadot/util';
-import { Metadata, createType } from '@polkadot/types';
+import { createType } from '@polkadot/types';
 import { getTransactionFees, getTxnError, updateTransactionState } from './transaction-service';
 import * as TXAPI from '../apis/tx';
-import { getMetaCalls, getApi } from '../apis/chain';
+import { getApi } from '../apis/chain';
 import { valueFormatter } from './balance-service';
-import { findChain } from '../../lib/constants/chain';
+import { findChain, findChainByName } from '../../lib/constants/chain';
 import * as Transaction from '../../lib/constants/transaction';
 import { validateDappTxnObject } from '../../lib/services/validation-service';
 import { getAccount } from './account-service';
@@ -15,19 +15,20 @@ export const PERIOD = 10;
 
 //Original Source: https://github.com/polkadot-js/extension
 //Original Author: Jaco Greeff
-const decodeMethod = (data, isDecoded, chain) => {
+const decodeMethod = (data, isDecoded, sVersion) => {
   let json = null;
   let method = null;
 
   try {
-    if (isDecoded && chain.specVersion) {
-      const metaCalls = getMetaCalls();
-      if (metaCalls) {
-        // eslint-disable-next-line no-unused-vars
-        const metadata = new Metadata(getApi().registry, Buffer.from(metaCalls, 'base64'));
-      }
+    if (isDecoded && sVersion) {
+      // const metaCalls = getMetaCalls();
+      // if (metaCalls) {
+      //   alert(JSON.stringify(metaCalls));
+      //   const metadata = new Metadata(getApi().registry, Buffer.from(metaCalls, 'base64'));
+      //   alert(JSON.stringify(metadata));
+      // }
       method = getApi().registry.createType('Call', data);
-      json = method.toJSON();
+      json = method.toHuman();
     }
   } catch (error) {
     json = null;
@@ -59,23 +60,24 @@ const mortalityAsString = async (exERA, hexBlockNumber) => {
   }
 };
 
-const createTxnUIObject = async txnPayload => {
+const createTxnUIObject = async (txnPayload, network) => {
   const {
-    address, blockHash, blockNumber, genesisHash, method, specVersion
+    address, blockHash, blockNumber, method, specVersion
   } = txnPayload;
-  const chain = findChain(genesisHash);
+  const chain = findChainByName(network.value);
   const payload = getPayload(txnPayload);
   const { era, nonce, tip } = payload;
 
   const sVersion = bnToBn(specVersion).toNumber();
   const mortality = await mortalityAsString(era, blockNumber);
-  const decodedMethod = decodeMethod(method, true, chain, sVersion);
+  const decodedMethod = decodeMethod(method, true, sVersion);
   const {
-    method: { sectionName, methodName, meta },
+    method: { dest, value },
     json,
   } = decodedMethod;
-  const note = meta.documentation.join(' ');
-  const { dest, value } = json.args;
+  const note = '';
+  const sectionName = json.section;
+  const methodName = json.method;
 
   return {
     address,
@@ -109,10 +111,10 @@ export const validateDappTransaction = async transaction => {
   if (vTransaction !== undefined) return vTransaction;
 
   const txnError = getTxnError();
-  const { url, txnPayload } = transaction;
+  const { url, txnPayload, network } = transaction;
 
   // creating txnForUI object
-  const txnForUI = await createTxnUIObject(txnPayload);
+  const txnForUI = await createTxnUIObject(txnPayload, network);
   const { address, value, dest } = txnForUI;
 
   // get Txn Fees.
@@ -139,11 +141,11 @@ export const validateDappTransaction = async transaction => {
 };
 
 export const signTransaction = async txnPayload => {
+  const network = NetworkService.getCurrentNetwork();
   // For storing txn in TXN_LIST
-  const txnForUI = await createTxnUIObject(txnPayload);
+  const txnForUI = await createTxnUIObject(txnPayload, network);
   const { address, value, dest } = txnForUI;
   const account = getAccount(address);
-  const network = NetworkService.getCurrentNetwork();
   const metadata = {
     to: dest,
     fAmount: value,

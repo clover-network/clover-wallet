@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Wallet from '../../components/wallet';
 import { TRADE_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
 import { RENAME } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
-import Governance from '../../images/governance_icon.svg';
-import Staking from '../../images/staking_icon.svg';
+// import Governance from '../../images/governance_icon.svg';
+// import Staking from '../../images/staking_icon.svg';
 import ArrowRight from '../../images/arrow_right.svg';
 import { getCurrencyIcon } from '../../utils/dashboard';
 
@@ -57,14 +57,7 @@ export default class Dashboard extends Component {
   };
 
   render() {
-    const {
-      accounts,
-      account,
-      balances,
-      balance: { balanceFormatted },
-      network,
-      accountMenu,
-    } = this.props;
+    const { account, network, accountMenu } = this.props;
     const assetsList = this.props.balance.tokens ? this.props.balance.tokens : [];
     const chain = findChainByName(network.value);
     const theme = chain.icon || 'polkadot';
@@ -73,10 +66,8 @@ export default class Dashboard extends Component {
         <Wallet
           className="wallet-container"
           inputRef={this.textInput}
-          accounts={accounts}
-          balances={balances}
-          balance={balanceFormatted}
           selectedAccount={account}
+          assetsList={assetsList}
           theme={theme}
           onAliasChange={this.handleAliasChange}
           onAliasInputBlur={this.handleAliasInputBlur}
@@ -85,7 +76,7 @@ export default class Dashboard extends Component {
           accountMenu={accountMenu}
           onAccountMenuOptionsChange={this.handleAccountMenuOptionsChange}
         />
-        <div className="staking-gov-btn-container">
+        {/* <div className="staking-gov-btn-container">
           <Button variant="contained" className="staking-btn">
             <img
               width="22"
@@ -108,7 +99,7 @@ export default class Dashboard extends Component {
             />
             GOVERNANCE
           </Button>
-        </div>
+        </div> */}
         <div className="assets-list-wrap">
           <h3 className="assets-list-title">Assets</h3>
           {assetsList.map((asset, idx) => (
@@ -118,14 +109,6 @@ export default class Dashboard extends Component {
               key={`chain_assets_${idx.toString()}}`}
             />
           ))}
-        </div>
-        <div className="dashboard-button-wrap">
-          <Button onClick={this.goToApps} className="assets-btn" style={{ marginRight: '10px' }}>
-            DAPPS
-          </Button>
-          <Button onClick={this.goToApps} className="assets-btn">
-            ASSETS
-          </Button>
         </div>
       </div>
     );
@@ -151,7 +134,7 @@ class AssetsList extends React.Component {
           <span>{this.props.assetInfo.token}</span>
         </div>
         <div className="asset-list-right">
-          <span>{this.props.assetInfo.amount}</span>
+          <span>{this.props.assetInfo.taoTotal}</span>
           <img src={ArrowRight} alt="" />
         </div>
       </div>

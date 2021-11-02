@@ -1,8 +1,8 @@
-import * as MessageTypes from '../../lib/constants/message-types';
-import { sendMessage } from '../../lib/services/extension/messages';
-import { throwIfNoSuccess } from './helper';
+import * as MessageTypes from "../../lib/constants/message-types";
+import { sendMessage } from "../../lib/services/extension/messages";
+import { throwIfNoSuccess } from "./helper";
 
-export const updateWhiteListedDApps = async request => {
+export const updateWhiteListedDApps = async (request) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_DAPP_UPDATE_WHITELIST,
     request,
@@ -19,7 +19,7 @@ export const getDAppRequests = async () => {
   return { result };
 };
 
-export const cancelRequest = async request => {
+export const cancelRequest = async (request) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_DAPP_CANCEL_REQUEST,
     request,
@@ -28,7 +28,7 @@ export const cancelRequest = async request => {
   return { result };
 };
 
-export const signMessage = async request => {
+export const signMessage = async (request) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_DAPP_GET_SIGN_MESSAGE,
     request,
@@ -43,6 +43,25 @@ export const submitTransaction = async (data, request, dApp = false) => {
     data,
     request,
     dApp,
+  });
+  throwIfNoSuccess({ message, status });
+  return { result };
+};
+
+// ===================
+export const signWeb3Message = async (request) => {
+  const { message, status, result } = await sendMessage({
+    type: MessageTypes.WEB3_REQUEST,
+    request,
+  });
+  throwIfNoSuccess({ message, status });
+  return { result };
+};
+
+export const cancelWeb3Request = async (request) => {
+  const { message, status, result } = await sendMessage({
+    type: MessageTypes.WEB3_CANCEL_REQUEST,
+    request,
   });
   throwIfNoSuccess({ message, status });
   return { result };

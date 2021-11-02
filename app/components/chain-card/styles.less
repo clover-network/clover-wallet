@@ -1,0 +1,45 @@
+.text-container {
+  color: white;
+  padding: 10px;
+  flex: 1;
+}
+
+.account-name {
+  font-family: Inter-Bold;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.address {
+  font-family: Inter-Regular;
+  font-size: 11px;
+}
+
+.card-container {
+  height: 60px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.account-options {
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  background-color: rgb(38, 38, 38);
+  li {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 32px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.87);
+    &:hover {
+      background-color: rgba(77, 77, 77, 1);
+    }
+    &.disabled {
+      cursor: not-allowed;
+      background-color: #ccc;
+    }
+  }
+}

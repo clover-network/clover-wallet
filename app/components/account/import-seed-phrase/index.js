@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContentHeader from '../../common/content-header';
-import CloverMultilineInput from '../../common/clover-multiline-input';
+import MultilineInput from '../../common/multil-input';
 import './styles.css';
 
 export default class ImportSeedPhrase extends Component {
@@ -29,7 +29,7 @@ export default class ImportSeedPhrase extends Component {
           title="Import Seed Phrase"
           description="This seed phrase is used to generate your first account. Make sure it's saved somewhere safe and don't share it."
         />
-        <CloverMultilineInput
+        <MultilineInput
           className="import-seed-phrase-input"
           placeholder="Type or paste your seed phrase..."
           error={isError}

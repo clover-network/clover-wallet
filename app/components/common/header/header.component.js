@@ -11,7 +11,7 @@ export default class Header extends Component {
 }
 
 Header.defaultProps = {
-  text: 'Clover Wallet',
+  text: 'FUSOTAO Wallet',
 };
 
 Header.propTypes = {

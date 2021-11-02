@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CloverInputAdornment from '../../clover-input-adornment';
+import FusoInputAdornment from '../../input-adornment';
 import IconContainer from '../../icon-container';
 import PasswordVisibility from '../password-visibility';
 
@@ -9,7 +9,7 @@ export default class PasswordAdornment extends Component {
       onClick, showPassword, showColor, hideColor, ...otherProps
     } = this.props;
     return (
-      <CloverInputAdornment {...otherProps}>
+      <FusoInputAdornment {...otherProps}>
         <IconContainer aria-label="Toggle password visibility" onClick={onClick}>
           <PasswordVisibility
             showPassword={showPassword}
@@ -17,7 +17,7 @@ export default class PasswordAdornment extends Component {
             hideColor={hideColor}
           />
         </IconContainer>
-      </CloverInputAdornment>
+      </FusoInputAdornment>
     );
   }
 }

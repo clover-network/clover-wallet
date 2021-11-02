@@ -1,4 +1,4 @@
-import CLV from '../images/clover.svg';
+import TAO from '../images/tao.svg';
 import CETH from '../images/ceth.svg';
 import CUSDT from '../images/cusdt.svg';
 import KSM from '../images/kusama.svg';
@@ -6,8 +6,8 @@ import DOT from '../images/polkadot.svg';
 import ACA from '../images/acala.svg';
 
 export function getCurrencyIcon(type) {
-  if (type === 'CLV') {
-    return CLV;
+  if (type === 'TAO') {
+    return TAO;
   }
   if (type === 'CUSDT') {
     return CUSDT;

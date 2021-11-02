@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FontMedium from '../fonts/font-medium';
 import IconContainer from '../icon-container';
 import { MoreVertIcon } from '../icon';
-import CloverMenu from '../clover-menu';
+import FusoMenu from '../menu';
 import './styles.css';
 
 export default class SubHeader extends Component {
@@ -33,7 +33,7 @@ export default class SubHeader extends Component {
         {subMenu && subMenu.length > 0 && (
           <div>
             <MoreVertIcon onClick={this.handleClick} className="more-list-icon" />
-            <CloverMenu
+            <FusoMenu
               options={subMenu}
               onChange={option => {
                 onSubMenuOptionsChange(option);

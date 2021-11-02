@@ -1,9 +1,9 @@
 import { UPDATE_NODE_LIST } from '../actions/nodes';
-import { CLOVER_NODES } from '../../lib/constants/nodes';
+import { FUSO_NODES } from '../../lib/constants/nodes';
 
 const initialState = {
   // array of node object
-  nodes: [CLOVER_NODES],
+  nodes: [FUSO_NODES],
 };
 
 const nodeState = (state = initialState, action) => {

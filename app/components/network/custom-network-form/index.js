@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CloverInput from '../../common/clover-input';
+import FusoInput from '../../common/input';
 import FooterButton from '../../common/footer-button';
 import './styles.css';
 
@@ -17,7 +17,7 @@ export default class CustomNetworkForm extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <CloverInput
+        <FusoInput
           value={url}
           onChange={onChange}
           label="Custom URL"

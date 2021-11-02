@@ -43,6 +43,7 @@ class AccountList extends Component {
         >
           {accounts.map(account => (
             <ListItemCard
+              key={account.alias}
               theme={theme}
               listItem={account}
               handleListItemAvatarClick={handleChangeAccount}

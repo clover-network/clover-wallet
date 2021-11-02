@@ -23,7 +23,7 @@ export default class SelectAssets extends Component {
               <div className="select-asset-title">select Assets</div>
               <List>
                 {assetsList.map(token => (
-                  <div>
+                  <div key={token.token}>
                     <DarkDivider />
                     <ListItem button key={token.amount} onClick={handleCurrencyChange(token)}>
                       <div className="select-asset-item-left">

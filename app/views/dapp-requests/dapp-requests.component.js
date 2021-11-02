@@ -74,9 +74,8 @@ export default class DAppRequests extends Component {
                   isSendExpanded
                   fromAccount={request.result.account}
                   toAccount={
-                    request.result.txnForUI.dest
-                      ? request.result.txnForUI
-                        && createAccountObject(accounts, request.result.txnForUI.dest)
+                    request.result.txnForUI && request.result.txnForUI.dest
+                      ? createAccountObject(accounts, request.result.txnForUI.dest)
                       : null
                   }
                   onCopyAddress={this.onCopyAddress}

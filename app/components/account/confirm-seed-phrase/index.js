@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ContentHeader from '../../common/content-header';
-import CloverMultilineInput from '../../common/clover-multiline-input';
+import MultilineInput from '../../common/multil-input';
 import './styles.css';
 
 export default class ConfirmSeedPhrase extends Component {
@@ -31,7 +31,7 @@ export default class ConfirmSeedPhrase extends Component {
           title="Verify Seed Phrase"
           description="Type or paste your seed phrase here to verify that you've saved it."
         />
-        <CloverMultilineInput
+        <MultilineInput
           className="confirm-seed-phrase-input"
           placeholder={`Confirm seed phrase was used to generate your ${alias} account`}
           error={isError}

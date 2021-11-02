@@ -1,0 +1,60 @@
+.display-none {
+  display: none;
+}
+
+.fuso-logo {
+  width: 36px;
+  height: 28px;
+}
+
+.fuso-banner {
+  height: 30px;
+}
+
+.fuso-header {
+  display: flex;
+  flex-direction: row;
+  background-color: #FAFAFA;
+  padding: 11px 17.1px 11px 15px;
+  height: 62px;
+  width: 360px;
+  align-items: center;
+}
+
+.fuso-header-banner {
+  justify-content: left;
+}
+
+.fuso-header-boarded {
+  justify-content: space-between;
+}
+
+.fuso-network {
+  background: #FFFFFF;
+  border: 1px solid #FB822A;
+  box-sizing: border-box;
+  border-radius: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.fuso-network-status {
+  margin-right: 13.37px;
+}
+
+.fuso-config {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.fuso-settings {
+  margin-left: 16px;
+  align-self: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+}

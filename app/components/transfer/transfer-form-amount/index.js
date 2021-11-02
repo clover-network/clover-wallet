@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CloverInput from '../../common/clover-input';
+import FusoInput from '../../common/input';
 import DropDown from '../../common/drop-down';
 
 export default class TransferFormAmount extends Component {
@@ -26,7 +26,7 @@ export default class TransferFormAmount extends Component {
         }}
         {...otherProps}
       >
-        <CloverInput
+        <FusoInput
           style={{ width: '171.23px' }}
           error={error}
           label={label}

@@ -1,6 +1,6 @@
-import * as MessageTypes from '../../lib/constants/message-types';
-import { sendMessage } from '../../lib/services/extension/messages';
-import { throwIfNoSuccess } from './helper';
+import * as MessageTypes from "../../lib/constants/message-types";
+import { sendMessage } from "../../lib/services/extension/messages";
+import { throwIfNoSuccess } from "./helper";
 
 export const getSeedWords = async () => {
   const { message, status, result } = await sendMessage({
@@ -10,7 +10,12 @@ export const getSeedWords = async () => {
   return result;
 };
 
-export const createAccount = async (seedWords, isOnBoarding = false, keypairType, alias) => {
+export const createAccount = async (
+  seedWords,
+  isOnBoarding = false,
+  keypairType,
+  alias
+) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_ACCOUNTS_CREATE_ACCOUNT,
     seedWords,
@@ -38,7 +43,7 @@ export const getAccounts = async () => {
   return { result };
 };
 
-export const getCurrentBalance = async addresses => {
+export const getCurrentBalance = async (addresses) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_ACCOUNT_BALANCE,
     addresses,
@@ -57,7 +62,7 @@ export const updateAccountAlias = async (alias, address) => {
   return { result };
 };
 
-export const updateCurrentAccount = async address => {
+export const updateCurrentAccount = async (address) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_CURRENT_ACCOUNTS_UPDATE,
     address,
@@ -66,16 +71,17 @@ export const updateCurrentAccount = async address => {
   return result;
 };
 
-export const removeAccount = async address => {
+export const removeAccount = async (address, alias) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_ACCOUNTS_REMOVE_ACCOUNT,
     address,
+    alias,
   });
   throwIfNoSuccess({ message, status });
   return { result };
 };
 
-export const submitContact = async contact => {
+export const submitContact = async (contact) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_ADDRESS_BOOK_ADD,
     contact,
@@ -92,7 +98,7 @@ export const getContacts = async () => {
   return { result };
 };
 
-export const removeContact = async contact => {
+export const removeContact = async (contact) => {
   const { message, status, result } = await sendMessage({
     type: MessageTypes.BG_ADDRESS_BOOK_REMOVE,
     contact,

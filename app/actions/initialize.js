@@ -11,8 +11,7 @@ export const onBoard = () => async dispatch => {
     const { isAgree } = await dispatch(verifyTermsVersion());
     if (!isAgree) {
       dispatch(AppActions.updateAppLoading(false));
-      dispatch(AppActions.changePage(NavConstants.ENTRY_PAGE));
-      // dispatch(AppActions.changePage(NavConstants.TERMS_PAGE));
+      dispatch(AppActions.changePage(NavConstants.TERMS_PAGE));
     } else {
       await dispatch(AccountActions.fetchAndSetAccounts);
       const { result } = await OnBoarding.getIsAppOnBoarded();
@@ -28,6 +27,9 @@ export const onBoard = () => async dispatch => {
     dispatch(AppActions.updateAppLoading(false));
     switch (e.code) {
       case APIConstants.UNAUTHORIZED:
+        dispatch(AppActions.changePage(NavConstants.SIGN_IN_PAGE));
+        break;
+      case APIConstants.FAILURE:
         dispatch(AppActions.changePage(NavConstants.SIGN_IN_PAGE));
         break;
       case APIConstants.BAD_REQUEST:

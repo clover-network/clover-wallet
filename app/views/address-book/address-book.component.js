@@ -126,7 +126,7 @@ export default class AddressBook extends Component {
               <div className="address-book-add-button">
                 <ButtonCustom
                   width="90%"
-                  color="#41485D"
+                  color="primary"
                   background="white"
                   onClick={this.handleAddAddressClick}
                   border="1px solid rgba(65, 72, 93, 0.5);"

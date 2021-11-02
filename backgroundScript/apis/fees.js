@@ -9,7 +9,9 @@ import { getApi } from './api';
 export const checkCreationFee = async (toAddress, creationFee) => {
   try {
     const api = getApi();
-    const { free } = await api.query.balances.account(toAddress);
+    const {
+      data: { free },
+    } = await api.query.system.account(toAddress);
     return free.isZero() ? creationFee : new BN(0);
   } catch (err) {
     // eslint-disable-next-line no-console
