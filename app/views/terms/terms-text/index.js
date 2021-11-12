@@ -16,36 +16,12 @@ export default class TermsText extends Component {
         </p>
         <ol className="c7 lst-kix_ibdn0zobuwho-0 start" start="1">
           <li className="c1 c3">
-            <span>API Consulting dba BlockX Labs </span>
-            <span>
-              provides FUSOTAO Wallet as a platform for managing Polkadot Network accounts, and
-              allowing ordinary websites to interact with the Polkadot Network, while keeping the
-              user in control over what transactions they approve, through our website located at
-            </span>
-            <span>&nbsp;</span>
-            <span className="c13">
-              <Link className="c12" href="https://fusotao.org/">
-                fusotao.org
-              </Link>
-            </span>
-            <span>&nbsp; </span>
-            <span>and browser plugin (the &ldquo;Site&rdquo;) </span>
-            <span className="c0">
-              &mdash; which includes text, images, audio, code and other materials (collectively,
-              the &ldquo;Content&rdquo;) and all of the features, and services provided. This Site,
-              and any other features, tools, materials, or other services offered from time to time
-              by BlockX Labs &nbsp;are referred to here as the &ldquo;Service.&rdquo;
-              {' '}
-              <br />
-            </span>
+            <span>FUSOTAO Wallet as a platform for managing Polkadot Network accounts provided by API Consulting dba BlockX Labs, and allowing ordinary websites to interact with the Polkadot Network, while keeping the user in control over what transactions they approve, through our website located at fusotao.org and browser plugin (the “Site”) — which includes text, images, audio, code and other materials (collectively, the “Content”) and all of the features, and services provided. This Site, and any other features, tools, materials, or other services offered from time to time by BlockX Labs are referred to here as the “Service.”</span>
+            
+           
           </li>
           <li className="c1 c3">
-            <span className="c0">
-              Please read these Terms of Use (the &ldquo;Terms&rdquo; or &ldquo;Terms of Use&rdquo;)
-              carefully before using the Service.
-              {' '}
-              <br />
-            </span>
+            <span className="c0">Please read these Terms of Use (the “Terms” or “Terms of Use”) carefully before using the Service.</span>
           </li>
         </ol>
         <p className="c1 c4">

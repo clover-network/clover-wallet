@@ -52,6 +52,7 @@
 .balance-info p{
   margin-top: 10px;
   font-size: 12px;
+  line-height: 18px;
 }
 .roate0{
   transition: all ease 0.3s;

@@ -4,7 +4,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FusoPassword from "../../components/common/password/fuso-password";
 import FooterButton from "../../components/common/footer-button";
-import Logo from "../../images/logo.svg";
+import Logo from "../../images/logo.png";
 import Error from "../../images/error.svg";
 import "./styles.css";
 

@@ -65,7 +65,7 @@ export default class AccountDetails extends Component {
         <div className="card-balance">
           <span>{assetsList&&assetsList.length?assetsList[0].taoTotal:'--'}</span><img src={ArrowIcon} className={`${itemLable?'roate180':'roate0'}`} onClick={this.handleToggleCondition} alt="arrow" width="13" />
         </div>
-        <div className="balance-info" style={{ transition: 'all ease .4s',height: itemLable ? '56px' : '0px', overflow: 'hidden' }}>
+        <div className="balance-info" style={{ transition: 'all ease .4s',height: itemLable ? '60px' : '0px', overflow: 'hidden' }}>
           <p>Free: <span>{assetsList&&assetsList.length?assetsList[0].amount:'--'}</span></p>
           <p>Reserved: <span>{assetsList&&assetsList.length?assetsList[0].reserved:'--'}</span></p>
         </div>

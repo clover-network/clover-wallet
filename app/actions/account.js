@@ -2,6 +2,8 @@ import * as AccountActionTypes from "../constants/account";
 import * as AddressBookActionTypes from "../constants/address-book";
 import { Account } from "../api";
 import { getDummyBalanceObject } from "../utils/helper";
+import * as AppActions from '../containers/actions';
+import * as NavConstants from '../constants/navigation';
 
 export const selectTokenAction = (selectedToken) => ({
   type: AccountActionTypes.SELECT_TOKEN,
@@ -65,6 +67,11 @@ export const fetchAndSetBalances = async (dispatch, getState) => {
   const { accounts, account } = getState().accountReducer;
   const addrArray = accounts.map(({ address }) => address);
   const { result: balances } = await Account.getCurrentBalance(addrArray);
+  if(balances[0].status === 500){
+    //已断开链接 
+    // dispatch(AppActions.changePage(NavConstants.SIGN_IN_PAGE));
+    // return;
+  }
   const balObj = balances.find((acc) => acc.address === account.address);
   // Link Faucets with No Transaction yet.
   const { network } = getState().networkReducer;

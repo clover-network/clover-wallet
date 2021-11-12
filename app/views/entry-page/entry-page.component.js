@@ -3,7 +3,7 @@ import "./styles.css";
 import Logo from "../../images/logo.svg";
 import FusoLogo from "../../images/fusotao.svg";
 import Splash from "../../images/splash.svg";
-import FusoBanner from "../../images/fuso_banner.svg";
+import FusoBanner from "../../images/fuso_banner.png";
 import EntryImg from "../../images/entry_img.svg";
 import EntryArrow from "../../images/entry_arrow.svg";
 import {
