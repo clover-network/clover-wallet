@@ -3,7 +3,7 @@ name: Report End User Bug
 about: Clover wallet UX UI issues
 title: ''
 labels: ''
-assignees: zadmarbella
+assignees: ''
 
 ---
 
