@@ -71,7 +71,7 @@ export const getBalance = async address => {
           amount: taoBalance,
           marketData: '0.00',
           balanceFormatted,
-        },
+        }
       ],
       status: SUCCESS,
     };

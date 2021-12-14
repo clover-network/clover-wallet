@@ -55,7 +55,7 @@ export default class AccountPanel extends Component {
             onAliasInputBlur(selectedAccount);
           }}
         />
-        <WalletDropHorizonIcon onClick={this.handleClick} />
+        {/* <WalletDropHorizonIcon onClick={this.handleClick} /> */}
         <FusoMenu
           options={accountMenu}
           onChange={option => {
