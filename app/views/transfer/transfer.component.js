@@ -103,7 +103,7 @@ export default class Transfer extends Component {
         amount: e.target.value,
       },
     });
-    this.setState({ [prop]: e.target.value, isAmountError: false });
+    this.setState({ [prop]: e.target.value.replace('-',''), isAmountError: false });
     if (
       _.toNumber(e.target.value) > _.toNumber(totalAmount)
     ) {
