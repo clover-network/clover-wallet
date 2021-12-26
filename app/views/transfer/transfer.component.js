@@ -15,6 +15,7 @@ import SelectDown from '../../images/select_down_icon.svg';
 import Avatar from '../../components/common/identicon';
 import { shortenAddress } from '../../services/wallet-service';
 import { findChainByName } from '../../../lib/constants/chain';
+import BigNumber from "bignumber.js";
 
 export default class Transfer extends Component {
   constructor(props) {
@@ -105,7 +106,6 @@ export default class Transfer extends Component {
     this.setState({ [prop]: e.target.value, isAmountError: false });
     if (
       _.toNumber(e.target.value) > _.toNumber(totalAmount)
-      || _.toNumber(e.target.value) === _.toNumber(totalAmount)
     ) {
       this.setState({ isAmountError: true });
     }
@@ -119,14 +119,15 @@ export default class Transfer extends Component {
   getMaxAmount = () => {
     const totalAmount = _.find(this.props.balance.tokens, t => t.token === this.props.selectedToken)
       .amount;
-    if (totalAmount !== '') {
+    const amountToNumber = totalAmount !== '' ? new BigNumber(totalAmount.replace(',', '')).toNumber() : 0;
+    if (amountToNumber > 0) {
       this.props.dispatchSetTransferDetails({
         metadata: {
           ...this.props.confirmDetails.metadata,
-          amount: totalAmount,
+          amount: amountToNumber,
         },
       });
-      this.setState({ amount: totalAmount, isAmountError: true });
+      this.setState({ amount: amountToNumber, isAmountError: false });
     }
   };
 
