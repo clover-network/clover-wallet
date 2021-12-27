@@ -1,3 +1,53 @@
 .confirm-seed-phrase-input {
   margin-top: 17px;
 }
+
+.seedContainer{
+  height: 24px;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.seedContainer.origin {
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.seedContainer.disabled{
+  background: #dedede;
+}
+
+.seedContainer .error{
+  position: absolute; 
+  right: -5px; 
+  top: -5px;
+}
+
+.errorMessage{
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.errorBar{
+  color: #FA5050;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 4px 8px;
+  width: 100%;
+}
+
+.mixedWordsContainer{
+  margin-top: 8px !important;
+}
+
+.addSeedContainer{
+  background: #f0f0f0;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
