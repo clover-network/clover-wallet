@@ -1561,7 +1561,16 @@
     "@polkadot/util" "^6.11.1"
     "@zondax/ledger-substrate" "^0.16.2"
 
-"@polkadot/keyring@^6.0.5", "@polkadot/keyring@^6.4.1", "@polkadot/keyring@^6.7.1":
+"@polkadot/keyring@^3.6.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/keyring/download/@polkadot/keyring-3.7.1.tgz#91c17ed9824d6ed3f909ab43565f8e34bfbe321c"
+  integrity sha1-kcF+2YJNbtP5CatDVl+ONL++Mhw=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@polkadot/util" "^3.7.1"
+    "@polkadot/util-crypto" "^3.7.1"
+
+"@polkadot/keyring@^6.0.5", "@polkadot/keyring@^6.7.1":
   version "6.11.1"
   resolved "https://registry.nlark.com/@polkadot/keyring/download/@polkadot/keyring-6.11.1.tgz#2510c349c965c74cc2f108f114f1048856940604"
   integrity sha1-JRDDScllx0zC8QjxFPEEiFaUBgQ=
@@ -1582,29 +1591,34 @@
     "@polkadot/util-crypto" "^6.0.5"
     bn.js "^4.11.9"
 
-"@polkadot/networks@6.11.1", "@polkadot/networks@^6.0.5", "@polkadot/networks@^6.4.1", "@polkadot/networks@^6.7.1":
+"@polkadot/networks@6.11.1", "@polkadot/networks@^6.0.5", "@polkadot/networks@^6.7.1":
   version "6.11.1"
   resolved "https://registry.nlark.com/@polkadot/networks/download/@polkadot/networks-6.11.1.tgz#8fd189593f6ee4f8bf64378d0aaae09e39a37d35"
   integrity sha1-j9GJWT9u5Pi/ZDeNCqrgnjmjfTU=
   dependencies:
     "@babel/runtime" "^7.14.6"
 
-"@polkadot/react-identicon@^0.76.1":
-  version "0.76.1"
-  resolved "https://registry.npmmirror.com/@polkadot/react-identicon/download/@polkadot/react-identicon-0.76.1.tgz#6e7b0aef1d50bb00057fb59b906d3c4651448078"
-  integrity sha1-bnsK7x1QuwAFf7WbkG08RlFEgHg=
+"@polkadot/networks@^3.6.1", "@polkadot/networks@^3.7.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/networks/download/@polkadot/networks-3.7.1.tgz#01e568e0f7791c22eb896ffabc23e936ede57c43"
+  integrity sha1-AeVo4Pd5HCLriW/6vCPpNu3lfEM=
   dependencies:
-    "@babel/runtime" "^7.14.0"
-    "@polkadot/keyring" "^6.4.1"
-    "@polkadot/ui-settings" "0.76.1"
-    "@polkadot/ui-shared" "0.76.1"
-    "@polkadot/util" "^6.4.1"
-    "@polkadot/util-crypto" "^6.4.1"
+    "@babel/runtime" "^7.12.1"
+
+"@polkadot/react-identicon@^0.61.1":
+  version "0.61.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/react-identicon/download/@polkadot/react-identicon-0.61.1.tgz#24d1be48431b50b8680864e83a17b4459714d97c"
+  integrity sha1-JNG+SEMbULhoCGToOhe0RZcU2Xw=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@polkadot/keyring" "^3.6.1"
+    "@polkadot/ui-settings" "0.61.1"
+    "@polkadot/ui-shared" "0.61.1"
+    "@polkadot/util" "^3.6.1"
+    "@polkadot/util-crypto" "^3.6.1"
     color "^3.1.3"
-    ethereum-blockies-base64 "^1.0.2"
-    jdenticon "3.1.0"
-    react-copy-to-clipboard "^5.0.3"
-    styled-components "^5.3.0"
+    jdenticon "2.2.0"
+    react-copy-to-clipboard "^5.0.2"
 
 "@polkadot/rpc-core@4.4.1":
   version "4.4.1"
@@ -1671,14 +1685,14 @@
     mkdirp "^1.0.4"
     store "^2.0.12"
 
-"@polkadot/ui-settings@0.76.1":
-  version "0.76.1"
-  resolved "https://registry.nlark.com/@polkadot/ui-settings/download/@polkadot/ui-settings-0.76.1.tgz#693c6de30bbe9ed1b0101c647756be8af8d995d4"
-  integrity sha1-aTxt4wu+ntGwEBxkd1a+ivjZldQ=
+"@polkadot/ui-settings@0.61.1":
+  version "0.61.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/ui-settings/download/@polkadot/ui-settings-0.61.1.tgz#29c8fcbca03e76b1dbf42f08479ec8401f4d1062"
+  integrity sha1-Kcj8vKA+drHb9C8IR57IQB9NEGI=
   dependencies:
-    "@babel/runtime" "^7.14.0"
-    "@polkadot/networks" "^6.4.1"
-    "@polkadot/util" "^6.4.1"
+    "@babel/runtime" "^7.12.1"
+    "@polkadot/networks" "^3.6.1"
+    "@polkadot/util" "^3.6.1"
     eventemitter3 "^4.0.7"
     store "^2.0.12"
 
@@ -1693,15 +1707,15 @@
     eventemitter3 "^4.0.7"
     store "^2.0.12"
 
-"@polkadot/ui-shared@0.76.1":
-  version "0.76.1"
-  resolved "https://registry.npmmirror.com/@polkadot/ui-shared/download/@polkadot/ui-shared-0.76.1.tgz#7edf63c239c83b7950888cea8dd15caf9f64a532"
-  integrity sha1-ft9jwjnIO3lQiIzqjdFcr59kpTI=
+"@polkadot/ui-shared@0.61.1":
+  version "0.61.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/ui-shared/download/@polkadot/ui-shared-0.61.1.tgz#3260ac3c0a46403ea2a17654b4d3ff3559fac1d8"
+  integrity sha1-MmCsPApGQD6ioXZUtNP/NVn6wdg=
   dependencies:
-    "@babel/runtime" "^7.14.0"
+    "@babel/runtime" "^7.12.1"
     color "^3.1.3"
 
-"@polkadot/util-crypto@6.11.1", "@polkadot/util-crypto@^6.0.5", "@polkadot/util-crypto@^6.3.1", "@polkadot/util-crypto@^6.4.1":
+"@polkadot/util-crypto@6.11.1", "@polkadot/util-crypto@^6.0.5", "@polkadot/util-crypto@^6.3.1":
   version "6.11.1"
   resolved "https://registry.nlark.com/@polkadot/util-crypto/download/@polkadot/util-crypto-6.11.1.tgz#7a36acf5c8bf52541609ec0b0b2a69af295d652e"
   integrity sha1-ejas9ci/UlQWCewLCyppryldZS4=
@@ -1723,7 +1737,27 @@
     tweetnacl "^1.0.3"
     xxhashjs "^0.2.2"
 
-"@polkadot/util@6.11.1", "@polkadot/util@^6.0.5", "@polkadot/util@^6.11.1", "@polkadot/util@^6.3.1", "@polkadot/util@^6.4.1", "@polkadot/util@^6.7.1":
+"@polkadot/util-crypto@^3.6.1", "@polkadot/util-crypto@^3.7.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/util-crypto/download/@polkadot/util-crypto-3.7.1.tgz#69e1cca5adc521cf0880b244dc1ae0d086c42e4c"
+  integrity sha1-aeHMpa3FIc8IgLJE3Brg0IbELkw=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@polkadot/networks" "^3.7.1"
+    "@polkadot/util" "^3.7.1"
+    "@polkadot/wasm-crypto" "^1.4.1"
+    base-x "^3.0.8"
+    blakejs "^1.1.0"
+    bn.js "^5.1.3"
+    create-hash "^1.2.0"
+    elliptic "^6.5.3"
+    js-sha3 "^0.8.0"
+    pbkdf2 "^3.1.1"
+    scryptsy "^2.1.0"
+    tweetnacl "^1.0.3"
+    xxhashjs "^0.2.2"
+
+"@polkadot/util@6.11.1", "@polkadot/util@^6.0.5", "@polkadot/util@^6.11.1", "@polkadot/util@^6.3.1", "@polkadot/util@^6.7.1":
   version "6.11.1"
   resolved "https://registry.nlark.com/@polkadot/util/download/@polkadot/util-6.11.1.tgz#8950b038ba3e6ebfc0a7ff47feeb972e81b2626c"
   integrity sha1-iVCwOLo+br/Ap/9H/uuXLoGyYmw=
@@ -1735,6 +1769,19 @@
     bn.js "^4.11.9"
     camelcase "^5.3.1"
     ip-regex "^4.3.0"
+
+"@polkadot/util@^3.6.1", "@polkadot/util@^3.7.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/util/download/@polkadot/util-3.7.1.tgz#b7585380a6177814f7e28dc2165814864ef2c67b"
+  integrity sha1-t1hTgKYXeBT34o3CFlgUhk7yxns=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    "@polkadot/x-textdecoder" "^3.7.1"
+    "@polkadot/x-textencoder" "^3.7.1"
+    "@types/bn.js" "^4.11.6"
+    bn.js "^5.1.3"
+    camelcase "^5.3.1"
+    ip-regex "^4.2.0"
 
 "@polkadot/wasm-crypto-asmjs@^4.2.1":
   version "4.2.1"
@@ -1749,6 +1796,11 @@
   integrity sha1-Kob5tAXnGVw/UjeYxs5K//0Zc34=
   dependencies:
     "@babel/runtime" "^7.15.3"
+
+"@polkadot/wasm-crypto@^1.4.1":
+  version "1.4.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/wasm-crypto/download/@polkadot/wasm-crypto-1.4.1.tgz#0a053d0c2587da30fb5313cef81f8d9a52029c68"
+  integrity sha1-CgU9DCWH2jD7UxPO+B+NmlICnGg=
 
 "@polkadot/wasm-crypto@^4.0.2":
   version "4.2.1"
@@ -1800,6 +1852,13 @@
     "@babel/runtime" "^7.14.6"
     "@polkadot/x-global" "6.11.1"
 
+"@polkadot/x-textdecoder@^3.7.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/x-textdecoder/download/@polkadot/x-textdecoder-3.7.1.tgz#2d02bd33df0e5d4818b8d96892a5c8290e967573"
+  integrity sha1-LQK9M98OXUgYuNlokqXIKQ6WdXM=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+
 "@polkadot/x-textencoder@6.11.1":
   version "6.11.1"
   resolved "https://registry.nlark.com/@polkadot/x-textencoder/download/@polkadot/x-textencoder-6.11.1.tgz#73e89da5b91954ae380042c19314c90472f59d9e"
@@ -1807,6 +1866,13 @@
   dependencies:
     "@babel/runtime" "^7.14.6"
     "@polkadot/x-global" "6.11.1"
+
+"@polkadot/x-textencoder@^3.7.1":
+  version "3.7.1"
+  resolved "https://rg.cnpmjs.org/@polkadot/x-textencoder/download/@polkadot/x-textencoder-3.7.1.tgz#1fe1884821f255565735b1b5dbb17ee61de51fa3"
+  integrity sha1-H+GISCHyVVZXNbG127F+5h3lH6M=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
 
 "@polkadot/x-ws@^6.0.5":
   version "6.11.1"
@@ -2825,9 +2891,9 @@ bindings@^1.3.0, bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-"bip32-ed25519@git+https://github.com/Zondax/bip32-ed25519.git":
+"bip32-ed25519@https://github.com/Zondax/bip32-ed25519":
   version "0.0.4"
-  resolved "git+https://github.com/Zondax/bip32-ed25519.git#0949df01b5c93885339bc28116690292088f6134"
+  resolved "https://github.com/Zondax/bip32-ed25519#0949df01b5c93885339bc28116690292088f6134"
   dependencies:
     bn.js "^5.1.1"
     elliptic "^6.4.1"
@@ -2885,9 +2951,9 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.11.1, bn.js@^4.11.6, bn.js@^4.11.8, bn.js@^
   resolved "https://registry.npm.taobao.org/bn.js/download/bn.js-4.12.0.tgz#775b3f278efbb9718eec7361f483fb36fbbfea88"
   integrity sha1-d1s/J477uXGO7HNh9IP7Nvu/6og=
 
-bn.js@^5.0.0, bn.js@^5.1.1, bn.js@^5.1.2, bn.js@^5.2.0:
+bn.js@^5.0.0, bn.js@^5.1.1, bn.js@^5.1.2, bn.js@^5.1.3, bn.js@^5.2.0:
   version "5.2.0"
-  resolved "https://registry.npm.taobao.org/bn.js/download/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
+  resolved "https://rg.cnpmjs.org/bn.js/download/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
   integrity sha1-NYhgZ0OWxpl3canQUfzBtX1K4AI=
 
 body-parser@1.19.0, body-parser@^1.16.0:
@@ -3270,12 +3336,10 @@ caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.300012
   dependencies:
     nanocolors "^0.1.0"
 
-canvas-renderer@~2.2.0:
-  version "2.2.0"
-  resolved "https://registry.nlark.com/canvas-renderer/download/canvas-renderer-2.2.0.tgz#512151f5494aaac5270802fba22599785114716d"
-  integrity sha1-USFR9UlKqsUnCAL7oiWZeFEUcW0=
-  dependencies:
-    "@types/node" "*"
+canvas-renderer@~2.1.1:
+  version "2.1.1"
+  resolved "https://rg.cnpmjs.org/canvas-renderer/download/canvas-renderer-2.1.1.tgz#d91fe9511ab48056ff9fa8a04514bede76535f55"
+  integrity sha1-2R/pURq0gFb/n6igRRS+3nZTX1U=
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -4829,13 +4893,6 @@ eth-lib@^0.1.26:
     ws "^3.0.0"
     xhr-request-promise "^0.1.2"
 
-ethereum-blockies-base64@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmmirror.com/ethereum-blockies-base64/download/ethereum-blockies-base64-1.0.2.tgz#4aebca52142bf4d16a3144e6e2b59303e39ed2b3"
-  integrity sha1-SuvKUhQr9NFqMUTm4rWTA+Oe0rM=
-  dependencies:
-    pnglib "0.0.1"
-
 ethereum-bloom-filters@^1.0.6:
   version "1.0.10"
   resolved "https://registry.nlark.com/ethereum-bloom-filters/download/ethereum-bloom-filters-1.0.10.tgz#3ca07f4aed698e75bd134584850260246a5fed8a"
@@ -6213,7 +6270,7 @@ ip-regex@^2.1.0:
   resolved "https://registry.npm.taobao.org/ip-regex/download/ip-regex-2.1.0.tgz?cache=0&sync_timestamp=1611327510930&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fip-regex%2Fdownload%2Fip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
   integrity sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
 
-ip-regex@^4.1.0, ip-regex@^4.3.0:
+ip-regex@^4.1.0, ip-regex@^4.2.0, ip-regex@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npm.taobao.org/ip-regex/download/ip-regex-4.3.0.tgz?cache=0&sync_timestamp=1611327510930&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fip-regex%2Fdownload%2Fip-regex-4.3.0.tgz#687275ab0f57fa76978ff8f4dddc8a23d5990db5"
   integrity sha1-aHJ1qw9X+naXj/j03dyKI9WZDbU=
@@ -6729,12 +6786,13 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-jdenticon@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.nlark.com/jdenticon/download/jdenticon-3.1.0.tgz#37ea02a527a038a82fd61ea8fc30332c0e15c4da"
-  integrity sha1-N+oCpSegOKgv1h6o/DAzLA4VxNo=
+jdenticon@2.2.0:
+  version "2.2.0"
+  resolved "https://rg.cnpmjs.org/jdenticon/download/jdenticon-2.2.0.tgz#6a9d9cb2134a7848ff21d59b3871148cbc6af87f"
+  integrity sha1-ap2cshNKeEj/IdWbOHEUjLxq+H8=
   dependencies:
-    canvas-renderer "~2.2.0"
+    "@types/node" "*"
+    canvas-renderer "~2.1.1"
 
 jest-worker@^27.0.6:
   version "27.2.0"
@@ -8596,9 +8654,9 @@ pbf@^3.2.0:
     ieee754 "^1.1.12"
     resolve-protobuf-schema "^2.1.0"
 
-pbkdf2@^3.0.17, pbkdf2@^3.0.3, pbkdf2@^3.0.9:
+pbkdf2@^3.0.17, pbkdf2@^3.0.3, pbkdf2@^3.0.9, pbkdf2@^3.1.1:
   version "3.1.2"
-  resolved "https://registry.nlark.com/pbkdf2/download/pbkdf2-3.1.2.tgz#dd822aa0887580e52f1a039dc3eda108efae3075"
+  resolved "https://rg.cnpmjs.org/pbkdf2/download/pbkdf2-3.1.2.tgz#dd822aa0887580e52f1a039dc3eda108efae3075"
   integrity sha1-3YIqoIh1gOUvGgOdw+2hCO+uMHU=
   dependencies:
     create-hash "^1.1.2"
@@ -8657,11 +8715,6 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   integrity sha1-8JkTPfft5CLoHR2ESCcO6z5CYfM=
   dependencies:
     find-up "^4.0.0"
-
-pnglib@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npm.taobao.org/pnglib/download/pnglib-0.0.1.tgz#f9ab6f9c688f4a9d579ad8be28878a716e30c096"
-  integrity sha1-+atvnGiPSp1Xmti+KIeKcW4wwJY=
 
 popper.js@1.16.1-lts:
   version "1.16.1-lts"
@@ -9530,9 +9583,9 @@ react-block-ui@^1.3.3:
   dependencies:
     prop-types "^15.6.2"
 
-react-copy-to-clipboard@^5.0.1, react-copy-to-clipboard@^5.0.3:
+react-copy-to-clipboard@^5.0.1, react-copy-to-clipboard@^5.0.2:
   version "5.0.4"
-  resolved "https://registry.nlark.com/react-copy-to-clipboard/download/react-copy-to-clipboard-5.0.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-copy-to-clipboard%2Fdownload%2Freact-copy-to-clipboard-5.0.4.tgz#42ec519b03eb9413b118af92d1780c403a5f19bf"
+  resolved "https://rg.cnpmjs.org/react-copy-to-clipboard/download/react-copy-to-clipboard-5.0.4.tgz#42ec519b03eb9413b118af92d1780c403a5f19bf"
   integrity sha1-QuxRmwPrlBOxGK+S0XgMQDpfGb8=
   dependencies:
     copy-to-clipboard "^3"
@@ -10792,7 +10845,7 @@ style-loader@^2.0.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-styled-components@^5.2.0, styled-components@^5.3.0:
+styled-components@^5.2.0:
   version "5.3.1"
   resolved "https://registry.nlark.com/styled-components/download/styled-components-5.3.1.tgz?cache=0&sync_timestamp=1629798319830&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstyled-components%2Fdownload%2Fstyled-components-5.3.1.tgz#8a86dcd31bff7049c2ed408bae36fa23f03f071a"
   integrity sha1-iobc0xv/cEnC7UCLrjb6I/A/Bxo=

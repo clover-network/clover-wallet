@@ -22,6 +22,7 @@ export const NODE_SETTING_PAGE = 'NODE_SETTING';
 export const NODE_LIST_PAGE = 'NODE_LIST_PAGE';
 export const CHAIN_PAGE = 'CHAIN_PAGE';
 export const TRADE_PAGE = 'TRADE_PAGE';
+export const ADD_TOKEN_PAGE = 'ADD_TOKEN_PAGE';
 export const SETTINGS_PAGE = 'SETTINGS_PAGE';
 export const DAPP_WEB3_REQUESTS_PAGE = 'DAPP_WEB3_REQUESTS_PAGE';
 

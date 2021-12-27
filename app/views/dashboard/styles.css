@@ -42,7 +42,10 @@
 .assets-list-wrap {
   margin-top: 15px;
 }
-
+.assets-box{
+  max-height: 255px;
+  overflow-y: auto;
+}
 .assets-list-title {
   margin-left: 18px;
   margin-top: 30px;
@@ -127,3 +130,4 @@
 .assets-btn:hover {
   background: rgba(255, 205, 168, 0.35)!important;
 }
+

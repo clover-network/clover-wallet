@@ -6,10 +6,9 @@ import {
   formatBalance, isHex, hexToU8a, u8aToHex, u8aToString
 } from '@polkadot/util';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
-import { getApi } from '../api';
+import { connectToApi,getApi } from '../api';
 import { SUCCESS, FAILURE } from '../../../lib/constants/api';
 import * as ChainApi from '../chain';
-
 export const getAddress = (seedWords, keypairType) => {
   try {
     setSS58Format(42);
@@ -42,7 +41,39 @@ export const isValidAddress = value => {
     return false;
   }
 };
-
+export const checkToken = async (address,tokenId,network) => {
+  await connectToApi(network);
+  const api = getApi();
+  const data = await api.query.token.balances([tokenId,address]);
+  return data.isEmpty;
+}
+const getTokenBalance = async (address,tokenId,tokenName,api_) => {
+  const api = api_;
+  const data = await api.query.token.balances([Number(tokenId),address]);
+  const balance = data.free.toString();
+  const reserved = data.reserved.toString();
+  // const totalAssets = (Number(data.free)+Number(data.reserved)).toString();
+  const decimals = ChainApi.getTokenDecimals();
+  const token = ChainApi.getTokenSymbol();
+  formatBalance.setDefaults({ unit: token });
+  const balanceFormatted = formatBalance(balance, true, decimals);
+  const taoBalance = formatBalance(balance, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
+  const taoReserved = formatBalance(reserved, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
+  const totalAssets = Number(taoBalance.split(',').join("")) + Number(taoReserved.split(',').join(""));
+  const taoTotalAssets = thousands(totalAssets);
+  const obj =  {
+    token:tokenName,
+    originalReserved:reserved.toString(),
+    reserved:taoReserved,
+    originalTaoTotal:totalAssets.toString(),
+    taoTotal:taoTotalAssets,
+    balance: balance.toString(),
+    amount: taoBalance,
+    marketData: '0.00',
+    balanceFormatted,
+  };
+  return obj
+}
 export const getBalance = async address => {
   try {
     const api = getApi();
@@ -58,6 +89,8 @@ export const getBalance = async address => {
     const taoReserved = formatBalance(reserved, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
     const totalAssets = Number(taoBalance.split(',').join("")) + Number(taoReserved.split(',').join(""));
     const taoTotalAssets = thousands(totalAssets);
+
+    const tokenList = JSON.parse(localStorage.getItem("tokenList")) || [];
     const balanceObj = {
       address,
       tokens: [
@@ -75,8 +108,16 @@ export const getBalance = async address => {
       ],
       status: SUCCESS,
     };
+    if(tokenList.length){
+      for(let item of tokenList){
+        let obj = await getTokenBalance(address,item.tokenId,item.tokenName,api);
+        balanceObj.tokens.push(obj);
+      }
+    }
     return balanceObj;
   } catch (err) {
+    // const network = JSON.parse(localStorage.getItem("network"));
+    // await connectToApi(network);
     const balanceObj = {
       address,
       tokens: [
@@ -87,6 +128,8 @@ export const getBalance = async address => {
           amount: '--',
           marketData: '0',
           balanceFormatted: formatBalance('0', true, 18),
+          err,
+          isBolt:true
         },
       ],
       status: FAILURE,

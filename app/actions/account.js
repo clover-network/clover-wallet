@@ -67,11 +67,6 @@ export const fetchAndSetBalances = async (dispatch, getState) => {
   const { accounts, account } = getState().accountReducer;
   const addrArray = accounts.map(({ address }) => address);
   const { result: balances } = await Account.getCurrentBalance(addrArray);
-  if(balances[0].status === 500){
-    //已断开链接 
-    // dispatch(AppActions.changePage(NavConstants.SIGN_IN_PAGE));
-    // return;
-  }
   const balObj = balances.find((acc) => acc.address === account.address);
   // Link Faucets with No Transaction yet.
   const { network } = getState().networkReducer;

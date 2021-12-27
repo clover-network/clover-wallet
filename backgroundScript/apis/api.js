@@ -103,6 +103,7 @@ export const connectToApi = async (network) => {
       return connection;
     }
   }
+  localStorage.setItem("network",JSON.stringify(network));
   return connect(network);
 };
 

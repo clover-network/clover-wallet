@@ -1,0 +1,105 @@
+.transfer-form-card {
+  width: 320px;
+  margin: 10px 18px;
+  padding: 0 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.transfer-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.transfer-padding {
+  padding: 15px 0 10px 0;
+}
+
+.transfer-padding-top {
+  padding-top: 15px;
+}
+
+.transfer-card-span {
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.address-book-icon {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.transfer-amount-max {
+  cursor: pointer;
+  font-size: 14px;
+  color: #FB822A;
+  font-family: Inter-Bold;
+  margin-right: 5px;
+}
+
+.insufficient-balance {
+  display: none;
+  color: #FA5050;
+}
+
+.show-insufficient-balance {
+  display: block;
+}
+
+.transfer-select-asset-item-wrapper {
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.transfer-select-asset-item-left {
+  display: inline-block;
+}
+
+.transfer-select-asset-item-currency-type {
+  font-family: Inter-Bold;
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+
+.transfer-select-asset-item-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.transfer-select-asset-item-amount {
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.transfer-select-down-icon {
+  float: right;
+  margin: 10px;
+}
+
+.select-address-account-avatar {
+  display: inline-block!important;
+}
+
+.select-address-info-wrapper {
+  display: inline-block;
+}
+
+.select-address-info-wrapper div {
+  font-family: Inter-Bold;
+  margin-bottom: 10px;
+}
+
+.select-address-list-wrapper {
+  padding: 10px 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+.Mui-error input{color: red;}
+
+.addErrorText{
+  color:red;
+  margin-top: 20px;
+  padding: 0 20px;
+}
