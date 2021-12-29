@@ -64,20 +64,6 @@ export default class AddToken extends Component{
    handleSendButton = async () => {
     const {address} = this.props.account;
     const {network} = this.props;
-    let reg1 = /^\+?[1-9]\d*$/,reg2 = /^[A-Za-z]+$/;
-    if (!reg1.test(this.state.tokenId)) {
-      this.tokenIdInput.focus();
-      this.setState({isTokenIdError:true});
-      this.setState({textError:"The input format is a positive integer greater than 0!"});
-      return false;
-    }
-    if (!reg2.test(this.state.tokenName)) {
-      this.tokenNameInput.focus();
-      this.setState({isTokenNameError:true});
-      this.setState({textError:"The value is in uppercase or lowercase letters!"});
-      return false;
-    }
-
     this.setState({btnLoading:true});
     const wallet = getWallet();
     const isEmpty = await wallet.checkToken(address,this.state.tokenId,network);
@@ -97,14 +83,6 @@ export default class AddToken extends Component{
 
     this.setState({btnLoading:false});
     this.handleBack();
-
-    // if(isEmpty){
-    //   this.tokenIdInput.focus();
-    //   this.setState({isTokenIdError:true});
-    //   this.setState({textError:"The tokenID was entered incorrectly!"});
-    //   return false;
-    // }
-
   }
   render(){
     const {tokenId,tokenName,isTokenIdError,isTokenNameError,textError,btnLoading} = this.state;
