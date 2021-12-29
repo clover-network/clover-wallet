@@ -10,6 +10,7 @@ export default class CreateAccountForm extends Component {
       value,
       generatedSeedWords,
       onChange,
+      handleConfirmChange,
       importedSeedWords,
       isError,
       errorMessage,
@@ -25,10 +26,11 @@ export default class CreateAccountForm extends Component {
       onCopy,
       ...otherProps
     } = this.props;
+    const originGeneratedSeedWords = generatedSeedWords
     return (
       <div {...otherProps}>
         {value === Account.CREATE_ACCOUNT && (
-          <GenerateSeedPhrase seedWords={generatedSeedWords} onCopy={onCopy} />
+          <GenerateSeedPhrase seedWords={originGeneratedSeedWords} onCopy={onCopy} />
         )}
         {value === Account.IMPORT_ACCOUNT && (
           <ImportSeedPhrase
@@ -47,12 +49,14 @@ export default class CreateAccountForm extends Component {
             alias={alias}
             onChange={onChange}
             seedWords={confirmedSeedWords}
+            originalSeedWords={originGeneratedSeedWords}
             isError={isError}
             errorMessage={errorMessage}
             handleSeedWordConfirmOnMount={handleSeedWordImportOnMount}
             confirmSeedPhraseInputName={confirmSeedPhraseInputName}
             confirmSeedRef={confirmSeedRef}
             handleConfirmSeedWordsOnBlur={handleConfirmSeedWordsOnBlur}
+            handleChange={handleConfirmChange}
           />
         )}
       </div>

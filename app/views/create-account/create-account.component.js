@@ -90,6 +90,14 @@ export default class CreateAccount extends Component {
     });
   };
 
+  handleConfirmSeedWordsChange = (value) =>{
+    this.setState({
+      confirmSeedPhrase: value,
+      isError: false,
+      errorMessage: '',
+    });
+  }
+
   handleSeedWordImportOnMount = () => {
     this.setState({
       importedSeedPhrase: "",
@@ -247,6 +255,7 @@ export default class CreateAccount extends Component {
           importedSeedWords={importedSeedPhrase}
           confirmedSeedWords={confirmSeedPhrase}
           onChange={this.handleImportSeedWordsChange}
+          handleConfirmChange={this.handleConfirmSeedWordsChange}
           isError={isError}
           errorMessage={errorMessage}
           handleSeedWordImportOnMount={this.handleSeedWordImportOnMount}
@@ -263,13 +272,15 @@ export default class CreateAccount extends Component {
           handleConfirmSeedWordsOnBlur={this.handleConfirmSeedWordsOnBlur}
           className="create-account-form"
         />
-        <CreateAccountSettings
-          disableAccountSettings={disableAccountSettings}
-          keypairType={keypairType}
-          keypairTypes={keypairTypes}
-          onKeypairTypeChange={this.onKeypairTypeChange}
-          className="create-account-settings"
-        />
+        {formValue !== Account.CONFIRM_ACCOUNT ? (
+          <CreateAccountSettings
+            disableAccountSettings={disableAccountSettings}
+            keypairType={keypairType}
+            keypairTypes={keypairTypes}
+            onKeypairTypeChange={this.onKeypairTypeChange}
+            className="create-account-settings"
+          />
+        ) : null}
         {formValue === Account.CONFIRM_ACCOUNT || account !== undefined ? (
           <FooterWithTwoButton
             onNextClick={onSubmit}
