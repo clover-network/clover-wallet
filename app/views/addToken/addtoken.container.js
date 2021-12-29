@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import AddToken from './addtoken.component';
-import { changePage } from '../../containers/actions';
+import { changePage,updateAppLoading } from '../../containers/actions';
 import { createToast } from '../../constants/toast';
 import { resetToAddress } from '../../actions/address-book';
 import { getUnits } from '../../actions/network';
 import { selectToken } from '../../actions/account';
+
 const mapStateToProps = state => ({
   accounts: state.accountReducer.accounts,
   account: state.accountReducer.account,
@@ -20,6 +21,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   changePage,
+  updateAppLoading,
   createToast,
   resetToAddress,
   getUnits,

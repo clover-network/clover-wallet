@@ -20,19 +20,46 @@ export default class AddToken extends Component{
       isTokenIdError:false,
       isTokenNameError:false,
       textError:"",
-      btnLoading:false
+      btnLoading:false,
     }
   }
   handleBack = () => {
     this.props.changePage(NavConstants.DASHBOARD_PAGE);
   };
-  handleToChange = prop => e => {
+  handleLoading = (stu) => {
+    this.props.updateAppLoading(stu);
+  }
+  handleToChange = prop => async e => {
+    const {network} = this.props;
+    let reg1 = /^\+?[1-9]\d*$/;
+    if (!reg1.test(e.target.value) && e.target.value!="") {
+      return;
+    }
     this.setState({
       [prop]: e.target.value,
       isTokenIdError:false,
       isTokenNameError:false,
       textError:"",
     });
+    if(e.target.value == ""){
+      this.setState({tokenName:""});
+      return;
+    }
+    this.handleLoading(true);
+    const wallet = getWallet();
+    const checkIsTokenId = await wallet.getNextTokenId(e.target.value,network);
+    let selfTokenName = "-";
+    if(checkIsTokenId){
+      selfTokenName = await wallet.getTokenName(this.state.tokenId,network);
+      this.setState({tokenName:selfTokenName});
+      this.handleLoading(false);
+    }else{
+      this.handleLoading(false);
+      this.tokenIdInput.focus();
+      this.setState({isTokenIdError:true,tokenName:""});
+      this.setState({textError:"The tokenId query result does not exist!"});
+    }
+    
   };
    handleSendButton = async () => {
     const {address} = this.props.account;
@@ -105,13 +132,13 @@ export default class AddToken extends Component{
           <div className="transfer-padding">
             <span className="transfer-card-span">Token Name</span>
             <InputBase
-              style={{ fontSize: '12px' }}
+              style={{ fontSize: '12px',color: '#000'}}
               fullWidth
+              disabled
               error={isTokenNameError}
               placeholder="-"
               value={tokenName}
               name="tokenName"
-              onChange={this.handleToChange('tokenName')}
               inputRef={input => {
                 this.tokenNameInput = input;
               }}

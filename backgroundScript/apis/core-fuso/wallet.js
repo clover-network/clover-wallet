@@ -47,6 +47,24 @@ export const checkToken = async (address,tokenId,network) => {
   const data = await api.query.token.balances([tokenId,address]);
   return data.isEmpty;
 }
+export const getNextTokenId = async (tokenId,network) =>{
+  await connectToApi(network);
+  const api = getApi();
+  const data = await api.query.token.nextTokenId();
+  const nextId = data.toString();
+  if(Number(tokenId) < Number(nextId)){
+    return true;
+  }else {
+    return false;
+  }
+}
+export const getTokenName = async (tokenId,network) => {
+  await connectToApi(network);
+  const api = getApi();
+  const data = await api.query.token.tokens(Number(tokenId));
+  const tokenObj = JSON.parse(data.toString());
+  return tokenObj.symbol;
+}
 const getTokenBalance = async (address,tokenId,tokenName,api_) => {
   const api = api_;
   const data = await api.query.token.balances([Number(tokenId),address]);
