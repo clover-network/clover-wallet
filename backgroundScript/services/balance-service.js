@@ -10,9 +10,7 @@ const validateAddress = addresses => {
     };
   }
 };
-
 export const getBalances = async addresses => {
-  console.log("addresss",addresses)
   const vResult = validateAddress(addresses);
   if (vResult !== undefined) return vResult;
 
@@ -28,15 +26,17 @@ export const getBalances = async addresses => {
 };
 
 export const getBalance = async address => {
-  console.log("address",address)
-
   const wallet = getWallet();
+  console.log("wallet --- 2" , wallet);
+
   const balance = await wallet.getBalance(address);
   return balance;
 };
 
 export const valueFormatter = (value, token) => {
   const wallet = getWallet();
+  console.log("wallet --- 3" , wallet);
+
   const fBalance = wallet.valueFormatter(value, token);
   return fBalance;
 };

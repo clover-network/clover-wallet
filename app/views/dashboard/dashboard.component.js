@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import Button from '@material-ui/core/Button';
+import FooterButton from '../../components/common/footer-button';
 import Wallet from '../../components/wallet';
-import { TRADE_PAGE } from '../../constants/navigation';
+import { TRADE_PAGE,ADD_TOKEN_PAGE,SIGN_IN_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import './styles.css';
 import { RENAME } from '../../constants/options';
@@ -51,6 +51,10 @@ export default class Dashboard extends Component {
     this.props.selectToken(currency);
     this.props.changePage(TRADE_PAGE);
   };
+
+  gotoAddToken = () => {
+    this.props.changePage(ADD_TOKEN_PAGE);
+  }
 
   goToApps = () => {
     window.open('https://dapp.ownstack.cn/#/', '_blank');
@@ -102,15 +106,22 @@ export default class Dashboard extends Component {
         </div> */}
         <div className="assets-list-wrap">
           <h3 className="assets-list-title">Assets</h3>
-          {assetsList.map((asset, idx) => (
-            <AssetsList
-              assetInfo={asset}
-              goToTrade={this.goToTrade}
-              key={`chain_assets_${idx.toString()}}`}
-            />
-          ))}
+          <div className="assets-box">
+            {assetsList.map((asset, idx) => (
+              <AssetsList
+                assetInfo={asset}
+                goToTrade={this.goToTrade}
+                key={`chain_assets_${idx.toString()}}`}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+        <FooterButton
+          style={{ left: 0 }}
+          onClick={this.gotoAddToken}
+          name="+ Add ToKen"
+        />
+        </div>
     );
   }
 }
@@ -120,7 +131,6 @@ class AssetsList extends React.Component {
     super(props, context);
     this.state = {};
   }
-
   render() {
     return (
       <div

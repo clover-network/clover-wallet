@@ -76,7 +76,7 @@ async function updateApplicationStateHelper(store) {
 export async function updateApplicationState(store) {
   await updateApplicationStateHelper(store);
   setInterval(async () => {
-    console.log("ping--")
+    console.log("-- ping --")
     await updateApplicationStateHelper(store);
   }, FUSOTAO_UPDATE_TIME);
 }

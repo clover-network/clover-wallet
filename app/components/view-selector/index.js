@@ -22,6 +22,7 @@ import DAppRequests from '../../views/dapp-requests';
 import DAppWeb3Requests from '../../views/dapp-web3-requests';
 import Chain from '../../views/chain';
 import Trade from '../../views/trade';
+import AddToken from '../../views/addToken';
 import * as NavConstant from '../../constants/navigation';
 import Settings from '../../views/settings';
 import EntryPage from '../../views/entry-page';
@@ -43,6 +44,8 @@ const getView = page => {
       return <Settings />;
     case NavConstant.TRADE_PAGE:
       return <Trade />;
+    case NavConstant.ADD_TOKEN_PAGE:
+      return <AddToken />;
     case NavConstant.LOADER_OVERLAY:
       return <LoaderOverlay />;
     case NavConstant.SIGN_IN_PAGE:
