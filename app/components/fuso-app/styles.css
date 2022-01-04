@@ -14,7 +14,9 @@
 .fuso-header {
   display: flex;
   flex-direction: row;
-  background-color: #FAFAFA;
+  /* background-color: #FAFAFA; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  position: relative;
   padding: 11px 17.1px 11px 15px;
   height: 62px;
   width: 360px;

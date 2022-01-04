@@ -1486,7 +1486,7 @@ table th {
   text-align: left;
 }
 .terms-text .c0 {
-  color: #000000;
+  color: #666666;
   font-weight: 400;
   text-decoration: none;
   vertical-align: baseline;
@@ -1495,7 +1495,7 @@ table th {
   font-style: normal;
 }
 .terms-text .c6 {
-  color: #000000;
+  color: #666666;
   text-decoration: none;
   vertical-align: baseline;
   font-size: 14px;
@@ -1515,9 +1515,9 @@ table th {
   text-decoration: none;
 }
 .terms-text {
-  background-color: white;
-  padding-right: 40px;
-  width: 360px;
+  background-color: #F5F5F5;
+  padding:  0 16px;
+  border-radius: 12px;
 }
 .terms-text .c9 {
   margin-left: 20pt;
@@ -1547,7 +1547,7 @@ table th {
 }
 .terms-text .title {
   padding-top: 0pt;
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   padding-bottom: 3pt;
   font-family: "Inter-Regular";
@@ -1570,19 +1570,19 @@ table th {
   text-align: left;
 }
 .terms-text li {
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   font-family: "Inter-Regular";
 }
 .terms-text p {
   margin: 0;
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   font-family: "Inter-Regular";
 }
 .terms-text h1 {
   padding-top: 20pt;
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   padding-bottom: 6pt;
   font-family: "Inter-Regular";
@@ -1594,7 +1594,7 @@ table th {
 }
 .terms-text h2 {
   padding-top: 18pt;
-  color: #000000;
+  color: #666666;
   font-size: 14px;
   padding-bottom: 6pt;
   font-family: "Inter-Regular";

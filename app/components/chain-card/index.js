@@ -49,6 +49,9 @@ export default class ChainCard extends Component {
         }
         this.setState({ open: true });
         break;
+      case "rename":
+
+        break;
       case "export":
         keyring.backupAccount(keyring.getPair(account.address), password);
       default:
@@ -97,7 +100,9 @@ export default class ChainCard extends Component {
                 }}
               >
                 <ul className="account-options">
-                  <li>Rename</li>
+                  <li onClick={() => {
+                      this.handleAccountOption("rename");
+                    }}>Rename</li>
                   <li
                     onClick={() => {
                       this.handleAccountOption("export");

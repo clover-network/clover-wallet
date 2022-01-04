@@ -36,9 +36,9 @@ export default class Settings extends Component {
       // {
       //   name: 'Terms Of Use',
       // },
-      {
-        name: 'About FUSOTAO Wallet Extension',
-      },
+      // {
+      //   name: 'About FUSOTAO Wallet Extension',
+      // },
       {
         name: 'Node Setting',
       },
