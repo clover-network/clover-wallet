@@ -15,7 +15,10 @@ export default class AccountPanel extends Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-
+  resetAlias = () => {
+    const {accountMenu,selectedAccount,onAccountMenuOptionsChange} = this.props;
+    onAccountMenuOptionsChange(accountMenu[0], selectedAccount);
+  }
   render() {
     const { anchorEl } = this.state;
     const {
@@ -30,6 +33,9 @@ export default class AccountPanel extends Component {
       inputRef,
       ...otherProps
     } = this.props;
+    // console.log("accountMenu -- > ",accountMenu[0])
+    // console.log("selectedAccount -- > ",selectedAccount)
+
     return (
       <div {...otherProps}>
         <AccountDetails
@@ -38,6 +44,7 @@ export default class AccountPanel extends Component {
           alias={selectedAccount.alias}
           assetsList={assetsList}
           onCopyAddress={onCopyAddress}
+          resetAlias={this.resetAlias}
           inputRef={inputRef}
           editMode={selectedAccount.editMode ? selectedAccount.editMode : false}
           onAliasChange={event => {
@@ -55,7 +62,7 @@ export default class AccountPanel extends Component {
             onAliasInputBlur(selectedAccount);
           }}
         />
-        <WalletDropHorizonIcon onClick={this.handleClick} />
+        {/* <WalletDropHorizonIcon onClick={this.handleClick} /> */}
         <FusoMenu
           options={accountMenu}
           onChange={option => {

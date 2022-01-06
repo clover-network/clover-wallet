@@ -1,8 +1,18 @@
+.account-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.31);
+}
 .account-alias {
   font-size: 16px;
   font-family: Inter-Regular;
-  line-height: 30px;
-  margin-left: 10px;
+  line-height: 24px;
+  max-width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .account-address {
@@ -20,37 +30,29 @@
 }
 
 .copy-card-container {
-  margin-top: 5px;
   display: flex;
-  margin-left: 10px;
   cursor: pointer;
 }
-
+.account-top-box{
+  display: flex;
+  align-items: center;
+}
+.account-top-box img{margin-left: 5px;display: none;}
+.account-top-box:hover img{display: block;cursor: pointer;}
 .card-address {
-  font-size: 10px;
-  margin-right: 15px;
-  font-family: Inter-Regular;
+  font-size: 12px;
+  margin-right: 7px;
+  color: rgba(255, 255, 255, 0.6);
 }
 .card-balance{
   margin-top: 20px;
-  margin-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .card-balance span{
   font-family: Inter-Regular;
   font-size: 24px;
 }
-.card-balance img{
-  margin-left: 10px;
-  cursor: pointer;
-}
-.balance-info{
-  margin-left: 10px;
-}
 .balance-info p{
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 12px;
   line-height: 18px;
 }
@@ -64,13 +66,25 @@
 }
 .balance-info span{
   font-size: 16px;
+  margin-left: 5px;
 }
 .card-input-root {
   font-size: 16px !important;
-  border-radius: 8px !important;
+  border-radius: 3px !important;
   border: none !important;
-}
+  width: 140px;
 
+}
+.card-more{
+  margin-top: 30px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.card-more img {margin-left: 5px;}
 .card-input {
   padding: 5px 5px 5px 10px !important;
 }

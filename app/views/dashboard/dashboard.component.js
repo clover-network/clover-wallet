@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FooterButton from '../../components/common/footer-button';
 import Wallet from '../../components/wallet';
 import { TRADE_PAGE,ADD_TOKEN_PAGE,SIGN_IN_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
@@ -8,7 +7,7 @@ import { RENAME } from '../../constants/options';
 import { findChainByName } from '../../../lib/constants/chain';
 // import Governance from '../../images/governance_icon.svg';
 // import Staking from '../../images/staking_icon.svg';
-import ArrowRight from '../../images/arrow_right.svg';
+import AddTokenIcon from '../../images/add_token_icon.svg';
 import { getCurrencyIcon } from '../../utils/dashboard';
 
 export default class Dashboard extends Component {
@@ -116,12 +115,10 @@ export default class Dashboard extends Component {
             ))}
           </div>
         </div>
-        <FooterButton
-          style={{ left: 0 }}
-          onClick={this.gotoAddToken}
-          name="+ Add ToKen"
-        />
+        <div className='addBtn' onClick={this.gotoAddToken}>
+          <img src={AddTokenIcon} alt="" width={20}/>
         </div>
+      </div>
     );
   }
 }
@@ -145,7 +142,6 @@ class AssetsList extends React.Component {
         </div>
         <div className="asset-list-right">
           <span>{this.props.assetInfo.taoTotal}</span>
-          <img src={ArrowRight} alt="" />
         </div>
       </div>
     );

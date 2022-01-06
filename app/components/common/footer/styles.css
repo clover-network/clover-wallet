@@ -2,6 +2,8 @@
   display: flex;
   max-width: 360px;
   width: 100vw;
+  justify-content: center;
+  margin-top: 14px;
 }
 
 .footer-content {

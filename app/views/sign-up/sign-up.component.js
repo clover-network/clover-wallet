@@ -99,12 +99,12 @@ export default class SignUp extends Component {
       <div className="sign-up-container">
         <ContentHeader
           className="sign-up-content-header"
-          title="Create A Password To Secure Your Account"
+          title="Create A Password"
           description="The password is used to protect your Enigma seed phrase(s) so that other Chrome extensions can't access them."
         />
-
+        <p className='inputTitle wallet-name-margin'>Wallet Name</p>
         <FusoInput
-          className="sign-up-password wallet-name-margin"
+          className="sign-up-password"
           type="text"
           labelWidth={0}
           placeholder="Wallet Name"
@@ -120,7 +120,7 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
+        <p className='inputTitle'>Password</p>
         <FusoPassword
           className="sign-up-password"
           onChange={e => this.handleOnChange('password', e)}
@@ -134,7 +134,7 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
+        <p className='inputTitle'>Repeat Password</p>
         <FusoInput
           className="sign-up-password"
           onChange={this.handleOnChange('passwordRepeat')}
