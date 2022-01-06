@@ -3,12 +3,11 @@
 }
 
 .account-detail-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  background-image: url("../../images/tao_sy.svg");
+  background-repeat: no-repeat;
+  background-position: right bottom;
 }
-
 .account-detail {
   display: flex;
   flex-direction: column;

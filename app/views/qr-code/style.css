@@ -4,7 +4,7 @@
 }
 
 .qr-code-wrapper {
-    background-color: #FB822A;
+    background-color: #F23E5F;
     height: 600px;
 }
 
@@ -51,12 +51,13 @@
 
 .copy-address-btn {
     font-size: 14px;
-    height: 40px;
+    height: 48px;
     border: 1px solid #ffffff !important;
-    border-radius: 26px !important;
+    border-radius: 6px !important;
     width: 320px;
     color: #ffffff!important;
     font-family: Inter-Bold !important;
+    margin-top: 20px;
 }
 
 .footer {

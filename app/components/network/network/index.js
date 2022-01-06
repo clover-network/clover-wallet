@@ -29,10 +29,11 @@ export default class Network extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <img src={getChainLogo(network.unit)} alt="img" width="25" />
+        {/* <img src={getChainLogo(network.unit)} alt="img" width="25" /> */}
         <FontRegular
           className="network-text"
-          text={`${shortenName(network.text)}`}
+          // text={`${shortenName(network.text)}`}
+          text="TAO"
           onClick={onNetworkClick}
         />
         <FusoMenu

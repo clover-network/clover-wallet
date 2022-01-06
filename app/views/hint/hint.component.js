@@ -25,7 +25,7 @@ class RadioButtonGroup extends Component {
             root: classes.contentRoot,
           }}
         >
-          <img src={NoScreenShot} alt="no-screen-shot" width="80" />
+          <img src={NoScreenShot} alt="no-screen-shot" width="96" />
           <DialogContentText
             classes={{
               root: classes.title,
@@ -38,17 +38,13 @@ class RadioButtonGroup extends Component {
               root: classes.desc,
             }}
           >
-            This seed phrase is used to create your account.
+            This seed phrase is used to create your account. Save this somewhere safe and don&#39;t share it
           </DialogContentText>
-          <DialogContentText
-            classes={{
-              root: classes.desc,
-            }}
-          >
-            Save this somewhere safe and don&#39;t share it
-          </DialogContentText>
+
         </DialogContent>
-        <DialogActions onClick={handleYes}>
+        <DialogActions
+          classes={{root: classes.confirmbox}}
+          onClick={handleYes}>
           <DialogContentText
             classes={{
               root: classes.confirm,

@@ -144,10 +144,9 @@ export const getBalance = async address => {
           reserved:'--',
           balance: '0',
           amount: '--',
+          taoTotal:"--",
           marketData: '0',
           balanceFormatted: formatBalance('0', true, 18),
-          err,
-          isBolt:true
         },
       ],
       status: FAILURE,

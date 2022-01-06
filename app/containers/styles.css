@@ -158,3 +158,6 @@ p {
 .app {
   height: 600px;
 }
+.Toastify__toast--success{
+  background:#009905 !important;
+}

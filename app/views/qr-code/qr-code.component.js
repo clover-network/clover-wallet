@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { DASHBOARD_PAGE } from '../../constants/navigation';
+import { TRADE_PAGE } from '../../constants/navigation';
 import { copyAccountMessage } from '../../../lib/services/static-message-factory-service';
 import { findChainByName } from '../../../lib/constants/chain';
 import HeaderBack from '../../components/header-back';
@@ -12,7 +12,7 @@ import CloseWhite from '../../images/close_white.svg';
 
 export default class QRCode extends Component {
   handleSubheaderBackBtn = () => {
-    this.props.changePage(DASHBOARD_PAGE);
+    this.props.changePage(TRADE_PAGE);
   };
 
   onCopy = () => {
@@ -56,12 +56,12 @@ export default class QRCode extends Component {
             </CopyToClipboard>
           </div>
         </div>
-        <div className="footer" onClick={this.handleSubheaderBackBtn}>
+        {/* <div className="footer" onClick={this.handleSubheaderBackBtn}>
           <img src={CloseWhite} alt="close" aria-hidden="true" width="20" />
           <span className="close" style={{ color: '#ffffff' }}>
             CLOSE
           </span>
-        </div>
+        </div> */}
       </div>
     );
   }

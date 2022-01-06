@@ -3,11 +3,11 @@ import PasswordAdornment from '../password-adornment';
 import FusoInput from '../../input';
 
 const showColor = {
-  color: 'black',
+  color: '#8A8C9B',
 };
 
 const hideColor = {
-  color: 'black',
+  color: '#8A8C9B',
 };
 
 export default class FusoPassword extends Component {
