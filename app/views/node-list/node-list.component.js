@@ -29,7 +29,7 @@ export default class NodeList extends Component {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="SETTING"
-          style={{ textAlign: 'left', marginLeft: '25px' }}
+          // style={{ textAlign: 'left', marginLeft: '25px' }}
         />
         <div className="node-setting-list-wrapper">
           {nodes.map((node, index) => (

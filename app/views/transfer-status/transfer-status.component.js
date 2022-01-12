@@ -43,7 +43,7 @@ export default class TransferStatus extends Component {
         <HeaderBack
           handleBack={this.handleBack}
           title={selectedToken}
-          style={{ textAlign: 'left', marginLeft: '20px' }}
+          // style={{ textAlign: 'left', marginLeft: '20px' }}
         />
         <div className="transfer-status-wrapper">
           <img

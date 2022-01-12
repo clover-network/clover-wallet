@@ -34,7 +34,7 @@ export function getChainLogo(symbol, on = true) {
 export function getChainCardStyle(symbol) {
   if (symbol === "TAO") {
     return {
-      background: "linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%)",
+      background: "linear-gradient(90deg, #F23E5F 0%, #E0305A 100%)",
       img: TAO_CARD,
     };
   }

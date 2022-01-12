@@ -102,7 +102,7 @@ export default class AddressBook extends Component {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title={headerText}
-          style={{ textAlign: 'left', marginLeft: '25px' }}
+          // style={{ textAlign: 'left', marginLeft: '25px' }}
           rightButton={(
             <div className="add-address-btn" onClick={this.openAddressBook}>
               Add

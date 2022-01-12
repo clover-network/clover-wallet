@@ -17,12 +17,14 @@ class ButtonCustom extends Component {
   render() {
     const { className, ...otherProps } = this.props;
     const ButtonCustomDom = styled(Button)`
-      margin: 0 10px;
       font-size: 14px;
       font-family: "Inter-Bold";
       font-style: normal;
+      color: ${this.props.color ? this.props.color : "#F23E5F"};
       border: ${this.props.border ? this.props.border : "none"};
       width: ${this.props.width ? this.props.width : "320px"};
+      height: ${this.props.height ? this.props.height : "auto"};
+      background: ${this.props.background ? this.props.background : "auto"};
     `;
     return (
       <div className={className}>

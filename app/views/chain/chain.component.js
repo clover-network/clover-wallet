@@ -3,6 +3,8 @@ import { getChainLogo } from "../../utils/chain";
 import "./styles.css";
 import ChainCard from "../../components/chain-card";
 import Close from "../../images/close.svg";
+import HeaderBack from '../../components/header-back';
+import ArrowLeft from '../../images/arrow_back.svg';
 
 export default class Chain extends Component {
   constructor(props, context) {
@@ -10,6 +12,7 @@ export default class Chain extends Component {
     this.state = {
       chain: props.network.unit,
       networks: props.networks,
+      activeIndex:0
     };
   }
 
@@ -19,9 +22,10 @@ export default class Chain extends Component {
     });
   }
 
-  chainClicked = (name) => {
+  chainClicked = (name,index) => {
     this.setState({
       chain: name,
+      activeIndex:index,
       networks:
         name === "ALL"
           ? this.props.networks
@@ -52,16 +56,18 @@ export default class Chain extends Component {
     const { chain, networks } = this.state;
     return (
       <div className="container">
+        <HeaderBack icon={ArrowLeft} handleBack={this.handleClose} title="SELECT ACCOUNTS" />
         <div className="panel-container">
           <div className="left-panel">
             <img
               src={getChainLogo("ALL", chain === "ALL")}
               alt="logo"
               width="35"
-              onClick={() => this.chainClicked("ALL")}
+              onClick={() => this.chainClicked("ALL",0)}
               aria-hidden="true"
               className="can-click"
             />
+            <span className="activeStatus" style={{top:chain === "ALL" ?"8px":(Number(this.state.activeIndex)*59+68)+"px"}}></span>
             <span
               className={chain === "ALL" ? "split split-select" : "split"}
             />
@@ -71,9 +77,9 @@ export default class Chain extends Component {
                   src={getChainLogo(nt.unit, chain === nt.unit)}
                   alt="logo"
                   width="35"
-                  onClick={() => this.chainClicked(nt.unit)}
+                  onClick={() => this.chainClicked(nt.unit,index)}
                   aria-hidden="true"
-                  className="can-click"
+                  className={chain === nt.unit ? "can-click active" : "can-click"}
                 />
                 <span
                   className={chain === nt.unit ? "split split-select" : "split"}
@@ -96,10 +102,10 @@ export default class Chain extends Component {
             )}
           </div>
         </div>
-        <div className="footer" onClick={this.handleClose}>
+        {/* <div className="footer" onClick={this.handleClose}>
           <img src={Close} alt="close" aria-hidden="true" width="20" />
           <span className="close">CLOSE</span>
-        </div>
+        </div> */}
       </div>
     );
   }

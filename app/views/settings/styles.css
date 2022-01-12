@@ -61,9 +61,11 @@
 }
 
 .manage-account-btn {
-    background-color: #ffffff!important;
+    background-color: #F9F9F9!important;
+    border-radius: 12px !important;
     width: 324px;
-    height: 40px;
+    height: 64px;
+    color: #F23E5F;
     margin: 0 18px!important;
 }
 

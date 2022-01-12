@@ -2,7 +2,9 @@
   margin: 15px 18px;
   height: 70px;
   padding: 15px 10px;
-  background: linear-gradient(94.54deg, #ff8212 0%, #ed4454 100%);
+  background-image: url("../../../images/card_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   box-sizing: border-box;
   border-radius: 10px;
 }
