@@ -108,7 +108,7 @@ export default class NodeSetting extends Component {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="NODE SETTING"
-          style={{ textAlign: 'left', marginLeft: '25px' }}
+          // style={{ textAlign: 'left', marginLeft: '25px' }}
         />
         <div className="node-list-wrapper">
           <FormControl component="fieldset">

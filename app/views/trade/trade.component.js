@@ -10,6 +10,8 @@ import {
 } from "../../constants/navigation";
 import HeaderBack from "../../components/header-back";
 import ButtonCustom from "../../components/common/buttons/button-custom";
+import LogoIcon from '../../images/logo.png';
+
 
 export default class Trade extends Component {
   handleBack = () => {
@@ -46,6 +48,7 @@ export default class Trade extends Component {
           no={() => (
             <React.Fragment>
               <div className="trade-amount-wrapper">
+              <img width="36" height="36" src={LogoIcon} alt="" />
                 <div className="trade-amount">
                   <Find
                     collection={balance.tokens}
@@ -97,20 +100,25 @@ export default class Trade extends Component {
                   bottom: "20px",
                   right: "20px",
                   left: "20px",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                   display: "flex",
                 }}
               >
                 <ButtonCustom
                   onClick={this.handleDeposit}
-                  width="150px"
+                  width="150px !important"
+                  height="48px !important"
+                  border="1px solid #F23E5F"
                   className="button-sm-primary"
                 >
                   RECEIVE
                 </ButtonCustom>
                 <ButtonCustom
                   onClick={this.handleSend}
-                  width="150px"
+                  width="150px !important"
+                  height="48px !important"
+                  color="#fff !important"
+                  background="#F23E5F !important"
                   className="button-sm-primary"
                 >
                   SEND

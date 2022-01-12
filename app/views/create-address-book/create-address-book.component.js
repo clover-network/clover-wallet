@@ -214,7 +214,7 @@ export default class CreateAddressBook extends PureComponent {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="CONTACT"
-          style={{ textAlign: "left", marginLeft: "25px" }}
+          // style={{ textAlign: "left", marginLeft: "25px" }}
         />
         <div className="create-address-book-form">
           <div

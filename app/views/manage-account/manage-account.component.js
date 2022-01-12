@@ -12,6 +12,7 @@ export default class ManageAccount extends Component {
     this.state = {
       chain: props.network.unit,
       networks: props.networks,
+      activeIndex:0
     };
   }
 
@@ -30,9 +31,10 @@ export default class ManageAccount extends Component {
     this.props.changePage(CREATE_ACCOUNT_PAGE);
   };
 
-  chainClicked = (name) => {
+  chainClicked = (name,index) => {
     this.setState({
       chain: name,
+      activeIndex:index,
       networks:
         name === "ALL"
           ? this.props.networks
@@ -55,7 +57,7 @@ export default class ManageAccount extends Component {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="SETTING"
-          style={{ textAlign: "left", marginLeft: "25px" }}
+          // style={{ textAlign: "left", marginLeft: "25px" }}
         />
         <div className="panel-container manage-account-list">
           <div className="left-panel" style={{ height: "415px" }}>
@@ -63,10 +65,11 @@ export default class ManageAccount extends Component {
               src={getChainLogo("ALL", chain === "ALL")}
               alt="logo"
               width="35"
-              onClick={() => this.chainClicked("ALL")}
+              onClick={() => this.chainClicked("ALL",0)}
               aria-hidden="true"
               className="can-click"
             />
+            <span className="activeStatus" style={{top:chain === "ALL" ?"8px":(Number(this.state.activeIndex)*59+68)+"px"}}></span>
             <span
               className={chain === "ALL" ? "split split-select" : "split"}
             />
@@ -76,7 +79,7 @@ export default class ManageAccount extends Component {
                   src={getChainLogo(nt.unit, chain === nt.unit)}
                   alt="logo"
                   width="35"
-                  onClick={() => this.chainClicked(nt.unit)}
+                  onClick={() => this.chainClicked(nt.unit,index)}
                   aria-hidden="true"
                   className="can-click"
                 />

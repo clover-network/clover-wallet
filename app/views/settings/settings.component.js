@@ -3,11 +3,12 @@ import './styles.css';
 import Button from '@material-ui/core/Button';
 import Close from '../../images/close.svg';
 import SettingAccountDetails from '../../components/account/setting-account-info';
-import ManageAccount from '../../images/manage_account.svg';
+import ManageAccount from '../../images/manage_account_red.svg';
 import ArrowRight from '../../images/arrow_right.svg';
 import { DASHBOARD_PAGE, MANAGE_ACCOUNT_PAGE } from '../../constants/navigation';
 import * as NavConstants from '../../constants/navigation';
-
+import HeaderBack from '../../components/header-back';
+import ArrowLeft from '../../images/arrow_back.svg';
 export default class Settings extends Component {
   handleClose = () => {
     this.props.changePage(DASHBOARD_PAGE);
@@ -45,7 +46,8 @@ export default class Settings extends Component {
     ];
     return (
       <div className="container">
-        <div style={{ height: '470px', borderBottom: '1px solid rgba(0, 0, 0, 0.05)' }}>
+        <HeaderBack icon={ArrowLeft} handleBack={this.handleClose} title="ACCOUNTS" />
+        <div>
           <SettingAccountDetails alias={account.alias} address={account.address} />
           <Button
             variant="contained"
@@ -72,10 +74,10 @@ export default class Settings extends Component {
             ))}
           </div>
         </div>
-        <div className="footer" onClick={this.handleClose}>
+        {/* <div className="footer" onClick={this.handleClose}>
           <img src={Close} alt="close" aria-hidden="true" width="20" />
           <span className="close">CLOSE</span>
-        </div>
+        </div> */}
       </div>
     );
   }

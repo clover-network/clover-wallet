@@ -131,7 +131,7 @@ export default class ChainCard extends Component {
                 <DialogActions>
                   <Button
                     onClick={this.handleConfirmClose}
-                    variant="contained"
+                    variant="outlined" 
                     color="secondary"
                     size="small"
                   >
@@ -139,7 +139,7 @@ export default class ChainCard extends Component {
                   </Button>
                   <Button
                     onClick={this.handleDeleteAccount}
-                    color="primary"
+                    color="secondary"
                     variant="contained"
                     size="small"
                     autoFocus

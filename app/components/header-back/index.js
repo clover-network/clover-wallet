@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArrowLeft from '../../images/arrow_left.svg';
+import ArrowBack from '../../images/arrow_back.svg';
 import './styles.css';
 
 export default class HeaderBack extends Component {
@@ -10,7 +10,7 @@ export default class HeaderBack extends Component {
     return (
       <div {...otherProps} className="header-wrapper">
         <div className="header-back-btn" onClick={handleBack}>
-          <img width="12" height="12" src={icon || ArrowLeft} alt="" />
+          <img width="16" height="16" src={icon || ArrowBack} alt="" />
         </div>
         <div className="header-title" style={{ ...style }}>
           {title}
