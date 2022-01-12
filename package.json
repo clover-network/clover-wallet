@@ -78,9 +78,15 @@
     "@polkadot/extension-inject": "^0.37.2",
     "@polkadot/react-identicon": "^0.61.1",
     "@polkadot/ui-keyring": "^0.79.1",
+<<<<<<< HEAD
     "@polkadot/util": "^6.3.1",
     "@polkadot/util-crypto": "^6.3.1",
     "@types/react": "^17.0.37",
+=======
+    "@polkadot/util": "^8.3.1",
+    "@polkadot/util-crypto": "^8.3.1",
+    "@types/react": "^17.0.6",
+>>>>>>> feature-lsg
     "@types/react-redux": "^7.1.16",
     "assert": "^2.0.0",
     "autoprefixer": "^9.8.6",

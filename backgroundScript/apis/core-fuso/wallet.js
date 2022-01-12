@@ -70,14 +70,14 @@ const getTokenBalance = async (address,tokenId,tokenName,api_) => {
   const data = await api.query.token.balances([Number(tokenId),address]);
   const balance = data.free.toString();
   const reserved = data.reserved.toString();
-  // const totalAssets = (Number(data.free)+Number(data.reserved)).toString();
   const decimals = ChainApi.getTokenDecimals();
   const token = ChainApi.getTokenSymbol();
   formatBalance.setDefaults({ unit: token });
   const balanceFormatted = formatBalance(balance, true, decimals);
   const taoBalance = formatBalance(balance, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
   const taoReserved = formatBalance(reserved, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
-  const totalAssets = Number(taoBalance.split(',').join("")) + Number(taoReserved.split(',').join(""));
+  const total = Number(balance)+Number(reserved);
+  const totalAssets = formatBalance(toolNumber(total), { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
   const taoTotalAssets = thousands(totalAssets);
   const obj =  {
     token:tokenName,
@@ -98,14 +98,14 @@ export const getBalance = async address => {
     const { data } = await api.query.system.account(address);
     const balance = data.free.toString();
     const reserved = data.reserved.toString();
-    // const totalAssets = (Number(data.free)+Number(data.reserved)).toString();
     const decimals = ChainApi.getTokenDecimals();
     const token = ChainApi.getTokenSymbol();
     formatBalance.setDefaults({ unit: token });
     const balanceFormatted = formatBalance(balance, true, decimals);
     const taoBalance = formatBalance(balance, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
     const taoReserved = formatBalance(reserved, { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
-    const totalAssets = Number(taoBalance.split(',').join("")) + Number(taoReserved.split(',').join(""));
+    const total = Number(balance)+Number(reserved);
+    const totalAssets = formatBalance(toolNumber(total), { forceUnit: token, withSi: true }, decimals).replace(` ${token}`, '');
     const taoTotalAssets = thousands(totalAssets);
 
     const tokenList = JSON.parse(localStorage.getItem("tokenList")) || [];
@@ -186,4 +186,26 @@ function thousands(num){
   var str = num.toString();
   var reg = str.indexOf(".") > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
   return str.replace(reg,"$1,");
+}
+
+const toolNumber = (param) => {
+	let strParam = String(param)
+	let flag = /e/.test(strParam)
+	if (!flag) return param
+  
+	// 指数符号 true: 正，false: 负
+	let sysbol = true
+	if (/e-/.test(strParam)) {
+	  sysbol = false
+	}
+	// 指数
+	let index = Number(strParam.match(/\d+$/)[0])
+	// 基数
+	let basis = strParam.match(/^[\d\.]+/)[0].replace(/\./, '')
+  
+	if (sysbol) {
+	  return basis.padEnd(index + 1, 0)
+	} else {
+	  return basis.padStart(index + basis.length, 0).replace(/^0/, '0.')
+	}
 }
