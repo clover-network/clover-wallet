@@ -50,7 +50,7 @@ export default class ManageAccount extends Component {
     this.props.changePage(this.props.backupPage);
   };
   render() {
-    const { fullChainAccounts, removeAccount, account } = this.props;
+    const { fullChainAccounts, removeAccount, account,renameAlias } = this.props;
     const { chain, networks } = this.state;
     return (
       <div className="container">
@@ -102,6 +102,8 @@ export default class ManageAccount extends Component {
                   key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
                   accountClicked={this.accountClicked}
                   removeAccount={removeAccount}
+                  renameAccount={renameAlias}
+                  isEditor={true}
                 />
               ))
             )}

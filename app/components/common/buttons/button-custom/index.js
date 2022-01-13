@@ -25,7 +25,7 @@ class ButtonCustom extends Component {
       width: 100% !important;
     `;
     return (
-      <div className={className} style={{width: this.props.width ? this.props.width : "45%"}}>
+      <div className={className} style={{margin:"0 auto",width: this.props.width ? this.props.width : "45%"}}>
         <ButtonCustomDom
           disabled={this.props.disabled}
           onClick={this.props.onClick}

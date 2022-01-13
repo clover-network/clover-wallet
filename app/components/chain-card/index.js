@@ -7,7 +7,7 @@ import { Popover } from "@material-ui/core";
 import classnames from "classnames";
 import { Button, Dialog, DialogActions, DialogTitle } from "@material-ui/core/";
 import keyring from "@polkadot/ui-keyring";
-import "./styles.css";
+import "./styles.less";
 import EditIcon from '../../images/edit.svg';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
@@ -106,7 +106,8 @@ export default class ChainCard extends Component {
       network,
       accountClicked,
       showDot = false,
-      inputRef
+      inputRef,
+      isEditor
     } = this.props;
 
     const classes = classnames({
@@ -129,7 +130,8 @@ export default class ChainCard extends Component {
                 <div className="account-name" onClick={(e) => e.stopPropagation()}>
                   {!editMode ? (
                     <>
-                      {account.alias} <img src={EditIcon} alt="rename" width="16" onClick={this.resetAlias}/>
+                      {account.alias} 
+                      {isEditor?<img src={EditIcon} alt="rename" width="16" onClick={this.resetAlias}/>:""}
                     </>
                   ):(
                     <OutlinedInput
@@ -164,9 +166,9 @@ export default class ChainCard extends Component {
                 }}
               >
                 <ul className="account-options">
-                  <li onClick={() => {
+                  {/* <li onClick={() => {
                       this.handleAccountOption("rename");
-                    }}>Rename</li>
+                    }}>Rename</li> */}
                   <li
                     onClick={() => {
                       this.handleAccountOption("export");

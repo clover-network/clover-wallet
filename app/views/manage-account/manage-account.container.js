@@ -4,7 +4,7 @@ import { changePage, updateAppLoading } from "../../containers/actions";
 import { createToast } from "../../constants/toast";
 import { addAccount, changeAccount, removeAccount } from "./actions";
 import { switchNetwork } from "../../actions/network";
-
+import {renameAlias} from '../dashboard/actions';
 const mapStateToProps = (state) => ({
   account: state.accountReducer.account,
   accountMenu: state.dashboardReducer.accountMenu,
@@ -23,6 +23,7 @@ const mapDispatchToProps = {
   removeAccount,
   updateAppLoading,
   switchNetwork,
+  renameAlias
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageAccount);

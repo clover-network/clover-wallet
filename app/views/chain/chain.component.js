@@ -52,7 +52,7 @@ export default class Chain extends Component {
   };
 
   render() {
-    const { fullChainAccounts } = this.props;
+    const { fullChainAccounts,renameAlias } = this.props;
     const { chain, networks } = this.state;
     return (
       <div className="container">
@@ -97,7 +97,8 @@ export default class Chain extends Component {
                   )}
                   key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
                   accountClicked={this.accountClicked}
-                  renameAccount={this.props.renameAlias}
+                  renameAccount={renameAlias}
+                  isEditor={false}
                 />
               ))
             )}
