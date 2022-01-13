@@ -5,7 +5,7 @@
   },
   "name": "FUSOTAO",
   "manifest_version": 2,
-  "description": "Polkadot DApp Wallet",
+  "description": "Fusotao DApp Wallet",
   "browser_action": {
     "default_title": "FUSOTAO",
     "default_popup": "popup.html"
