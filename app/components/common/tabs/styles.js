@@ -1,31 +1,40 @@
 export const styles = () => ({
   tabsRoot: {
-    backgroundColor: 'rgba(255, 255, 255, 1)',
+    padding: '10px 18px'
+  },
+  group:{
+    boxShadow: '0 0 0',
   },
   tabsIndicator: {
-    backgroundColor: '#FB822A',
+    backgroundColor: 'transparent',
     height: '2px',
   },
   tabRoot: {
-    color: 'black',
-    width: '180px',
-    height: '48px',
+    height: '32px',
     opacity: '1',
-    textTransform: 'capitalise',
+    textTransform: 'capitalize',
     fontSize: '16px',
     fontFamily: 'Inter-Bold',
+    backgroundColor: 'rgba(245,245,245, 1)',
+    color: '#8A8C9B',
+    boxShadow: '0 0 0',
+    border: '0 !important',
     '&:hover': {
-      color: '#FB822A',
+      background: 'rgba(242,62,95, 0.75)',
+      color: '#FFFFFF',
       opacity: 1,
     },
-    '&$tabSelected': {
-      color: '#FB822A',
-      opacity: '1',
-      fontSize: '16px',
-    },
     '&:focus': {
-      color: '#FB822A',
+      background: 'rgba(242,62,95, 1)',
+      color: '#FFFFFF',
     },
   },
-  tabSelected: {},
+  buttonRoot:{
+    border: '0 !important',
+  },
+  tabSelected: {
+    background: '#F23E5F',
+    color: '#FFFFFF',
+    opacity: 1,
+  },
 });

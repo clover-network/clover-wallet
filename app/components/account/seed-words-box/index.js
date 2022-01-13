@@ -7,11 +7,21 @@ export default class SeedWordsBox extends Component {
     const { value, ...otherProps } = this.props;
     const seedWordsList = value.split(' ');
     return (
-      <div {...otherProps} style={{background: '#f0f0f0', padding: 8}} >
+      <div {...otherProps} style={{marginBottom: 16}}>
         <Grid container spacing={1}>
-          {seedWordsList.map(item => (
+          {seedWordsList.map((item, index) => (
             <Grid item sm={4} xs={4} key={item}>
-              <Grid  style={{background: '#fff', borderRadius: 4, textAlign: 'center', padding: 8}}>{item}</Grid>
+              <Grid container>
+                <span 
+                  style={{color: '#8A8C9B'}}
+                >
+                  {index+1 < 10 ? `0${index+1}` : index+1}
+                </span>
+                &ensp;
+                <span>
+                  {item}
+                </span>
+              </Grid>
             </Grid>
           ))}
         </Grid>

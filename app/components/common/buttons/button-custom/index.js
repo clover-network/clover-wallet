@@ -22,12 +22,10 @@ class ButtonCustom extends Component {
       font-style: normal;
       color: ${this.props.color ? this.props.color : "#F23E5F"};
       border: ${this.props.border ? this.props.border : "none"};
-      width: ${this.props.width ? this.props.width : "320px"};
-      height: ${this.props.height ? this.props.height : "auto"};
-      background: ${this.props.background ? this.props.background : "auto"};
+      width: 100% !important;
     `;
     return (
-      <div className={className}>
+      <div className={className} style={{width: this.props.width ? this.props.width : "45%"}}>
         <ButtonCustomDom
           disabled={this.props.disabled}
           onClick={this.props.onClick}

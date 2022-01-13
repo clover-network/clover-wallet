@@ -97,6 +97,7 @@ export default class Chain extends Component {
                   )}
                   key={`card_logo_${netIdx.toString()}_${accIdx.toString()}`}
                   accountClicked={this.accountClicked}
+                  renameAccount={this.props.renameAlias}
                 />
               ))
             )}

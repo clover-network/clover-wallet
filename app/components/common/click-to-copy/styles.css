@@ -1,14 +1,14 @@
 .copy-container {
-  background: rgba(251, 130, 42, 0.1);
+  background: rgba(242, 62, 95, 0.1);
   border-radius: 5px;
-  color: #fb822a;
+  color: #F23E5F;
   display: inline-block;
   margin: 10px 0;
   padding: 5px;
 }
 
 .copy-container:hover {
-  background: #fb822a;
+  background: #F23E5F;
   color: white;
 }
 

@@ -272,15 +272,15 @@ export default class CreateAccount extends Component {
           handleConfirmSeedWordsOnBlur={this.handleConfirmSeedWordsOnBlur}
           className="create-account-form"
         />
-        {formValue !== Account.CONFIRM_ACCOUNT ? (
-          <CreateAccountSettings
-            disableAccountSettings={disableAccountSettings}
-            keypairType={keypairType}
-            keypairTypes={keypairTypes}
-            onKeypairTypeChange={this.onKeypairTypeChange}
-            className="create-account-settings"
-          />
-        ) : null}
+        
+        {/* <CreateAccountSettings
+          disableAccountSettings={disableAccountSettings}
+          keypairType={keypairType}
+          keypairTypes={keypairTypes}
+          onKeypairTypeChange={this.onKeypairTypeChange}
+          className="create-account-settings"
+        /> */}
+        
         {formValue === Account.CONFIRM_ACCOUNT || account !== undefined ? (
           <FooterWithTwoButton
             onNextClick={onSubmit}

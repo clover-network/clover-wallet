@@ -7,14 +7,29 @@ import { Popover } from "@material-ui/core";
 import classnames from "classnames";
 import { Button, Dialog, DialogActions, DialogTitle } from "@material-ui/core/";
 import keyring from "@polkadot/ui-keyring";
-import "./styles.less";
+import "./styles.css";
+import EditIcon from '../../images/edit.svg';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+
+
 export default class ChainCard extends Component {
   constructor() {
     super();
+    this.textInput = React.createRef();
     this.state = {
       anchorEl: null,
       open: false,
+      editMode: false,
+      editValue: ''
     };
+  }
+
+  componentDidMount() {
+    const {account} = this.props;
+    this.setState({
+      ...this.state,
+      editValue: account.alias
+    })
   }
   handleClick = (event) => {
     this.setState({
@@ -50,7 +65,9 @@ export default class ChainCard extends Component {
         this.setState({ open: true });
         break;
       case "rename":
-
+        this.setState({editMode: true})
+        this.textInput.current.focus();
+        this.textInput.current.maxLength = 20;
         break;
       case "export":
         keyring.backupAccount(keyring.getPair(account.address), password);
@@ -58,6 +75,30 @@ export default class ChainCard extends Component {
         return;
     }
   };
+  onAliasChange = (e) => {
+    e.stopPropagation();
+    this.setState({...this.state, editValue: e.target.value})
+  }
+  resetAlias = (e) => {
+    e.stopPropagation();
+    this.setState({editMode: true})
+    this.textInput.current.focus();
+    this.textInput.current.maxLength = 20;
+  } 
+  onAliasInputBlur = (e) => {
+    e.stopPropagation();
+    const {account} = this.props;
+    if(this.state.editValue.length){
+      this.props.renameAccount({...account, editAlias: this.state.editValue})
+    }
+    this.setState({...this.state, editMode: false})
+  }
+  onKeyPress = (e) => {
+    e.stopPropagation();
+    if(e.key === 'Enter') {
+      this.onAliasInputBlur(e)
+    }
+  }
   render() {
     const {
       account,
@@ -65,10 +106,13 @@ export default class ChainCard extends Component {
       network,
       accountClicked,
       showDot = false,
+      inputRef
     } = this.props;
+
     const classes = classnames({
       disabled: currentAccount && account.alias === currentAccount.alias,
     });
+    const {editMode, editValue} = this.state;
     return (
       <IsEmpty
         value={network}
@@ -82,7 +126,27 @@ export default class ChainCard extends Component {
               onClick={() => accountClicked(account, network)}
             >
               <div className="text-container">
-                <div className="account-name">{account.alias}</div>
+                <div className="account-name" onClick={(e) => e.stopPropagation()}>
+                  {!editMode ? (
+                    <>
+                      {account.alias} <img src={EditIcon} alt="rename" width="16" onClick={this.resetAlias}/>
+                    </>
+                  ):(
+                    <OutlinedInput
+                      inputRef={inputRef}
+                      value={editValue}
+                      onBlur={this.onAliasInputBlur}
+                      onChange={this.onAliasChange}
+                      classes={{
+                        root: 'card-input-root',
+                        input: 'card-input',
+                        focused: 'card-input-focused',
+                        notchedOutline: 'card-input-focused',
+                      }}
+                      onKeyPress={this.onKeyPress}
+                    />
+                  )}
+                </div>
                 <div className="address">{shortenAddress(account.address)}</div>
               </div>
               <img src={info.img} alt="logo" width="30" className="card-logo" />
