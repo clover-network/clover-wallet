@@ -15,7 +15,7 @@ export default class GenerateSeedPhrase extends Component {
           don't share it."
         />
         <SeedWordsBox className="seed-phrase-text-area" value={seedWords} />
-        <ClickToCopy className="seed-phrase-copy" text="Copy" value={seedWords} onCopy={onCopy} />
+        {/* <ClickToCopy className="seed-phrase-copy" text="Copy" value={seedWords} onCopy={onCopy} /> */}
       </div>
     );
   }

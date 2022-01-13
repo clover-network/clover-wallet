@@ -27,6 +27,9 @@ export default class FooterWithTwoButton extends Component {
         <ButtonCustom
           onClick={onBackClick}
           className="button-sm-primary"
+          width="150px"
+          height="48px"
+          border="1px solid #F23E5F"
         >
           {backButtonName}
         </ButtonCustom>
