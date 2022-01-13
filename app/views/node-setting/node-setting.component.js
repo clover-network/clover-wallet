@@ -139,7 +139,7 @@ export default class NodeSetting extends Component {
         </div>
         <React.Fragment>
           <Drawer anchor="bottom" open={showAddNodes} onClose={this.toggleDrawer(false)}>
-            <div className="select-asset-wrapper">
+            <div className="select-asset-wrapper" style={{marginBottom:"18px"}}>
               <div className="select-asset-title">Add a custom node</div>
               <div className="node-address-input">
                 <FusoInput
