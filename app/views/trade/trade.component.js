@@ -10,8 +10,6 @@ import {
 } from "../../constants/navigation";
 import HeaderBack from "../../components/header-back";
 import ButtonCustom from "../../components/common/buttons/button-custom";
-import LogoIcon from '../../images/logo.png';
-
 
 export default class Trade extends Component {
   handleBack = () => {
@@ -48,7 +46,7 @@ export default class Trade extends Component {
           no={() => (
             <React.Fragment>
               <div className="trade-amount-wrapper">
-              <img width="36" height="36" src={LogoIcon} alt="" />
+              <img width="36" height="36" src={`https://www.fusotao.org/share/${selectedToken.toLowerCase()}.svg`} alt="" />
                 <div className="trade-amount">
                   <Find
                     collection={balance.tokens}

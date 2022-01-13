@@ -70,7 +70,12 @@ export default class ChainCard extends Component {
         this.textInput.current.maxLength = 20;
         break;
       case "export":
-        keyring.backupAccount(keyring.getPair(account.address), password);
+        const newKeyring = keyring.loadAll({ type: account.keypairType });
+        console.log(account.address)
+        const address = keyring.encodeAddress(account.address);
+        console.log(address)
+
+        keyring.backupAccount(keyring.getPair(address), "123123123");
       default:
         return;
     }
