@@ -174,13 +174,13 @@ export default class ChainCard extends Component {
                   {/* <li onClick={() => {
                       this.handleAccountOption("rename");
                     }}>Rename</li> */}
-                  <li
+                  {/* <li
                     onClick={() => {
                       this.handleAccountOption("export");
                     }}
                   >
                     Export Account
-                  </li>
+                  </li> */}
                   <li
                     className={classes}
                     onClick={() => {
