@@ -3,7 +3,7 @@ import {
   Keyring, setSS58Format, encodeAddress, decodeAddress
 } from '@polkadot/keyring';
 import {
-  formatBalance, isHex, hexToU8a, u8aToHex, u8aToString
+  formatBalance, isHex, hexToU8a, u8aToHex, u8aToString,u8aWrapBytes
 } from '@polkadot/util';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
 import { connectToApi,getApi } from '../api';
@@ -170,7 +170,7 @@ export const getAccountForUI = account => ({
 export const getSignMessage = async (account, message) => {
   const { seedWords, keypairType } = account;
   const accountPair = await getAccountPair(keypairType, seedWords);
-  const signedMessage = u8aToHex(accountPair.sign(message.message));
+  const signedMessage = u8aToHex(accountPair.sign(u8aWrapBytes(message.message)));
   const result = {
     account: getAccountForUI(account),
     message: {
