@@ -13,6 +13,7 @@ import connectRequestReducer from '../views/connect-request/reducer';
 import dAppReducer from './dapp';
 import addressBookReducer from './address-book';
 import nodeReducer from './node';
+import chainsReducer from './chains';
 
 export default combineReducers({
   networkReducer,
@@ -29,4 +30,5 @@ export default combineReducers({
   dAppReducer,
   addressBookReducer,
   nodeReducer,
+  chains: chainsReducer
 });

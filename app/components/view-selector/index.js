@@ -27,7 +27,7 @@ import * as NavConstant from '../../constants/navigation';
 import Settings from '../../views/settings';
 import EntryPage from '../../views/entry-page';
 import ImportWallet from '../../views/import-wallet';
-
+import Chains from '../../views/chains';
 const getView = page => {
   switch (page) {
     case NavConstant.ENTRY_PAGE:
@@ -84,6 +84,8 @@ const getView = page => {
       return <NodeSetting />;
     case NavConstant.NODE_LIST_PAGE:
       return <NodeList />;
+    case NavConstant.CHAINS_PAGE:
+      return <Chains />;
     default:
       return <Dashboard />;
   }

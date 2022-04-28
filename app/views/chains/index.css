@@ -1,0 +1,32 @@
+.container{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    width: 100%;
+    flex-direction: row !important;
+}
+.container .chainsList{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+.chainsList .item{
+    width: 32px;
+    height: 32px;
+    background-color: #E0E0E0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.chainsList .item.active{
+    color: #fff;
+}
+
+.container .accountList{
+    margin-left: 8px;
+    flex: 1 1 auto;
+}
