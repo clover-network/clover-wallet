@@ -20,7 +20,7 @@ import {
   DAPP_REQUESTS_PAGE,
   ENTRY_PAGE,
 } from '../constants/navigation';
-import CloverApp from '../components/clover-app';
+import FusoApp from '../components/fuso-app';
 import './styles.css';
 
 export default class App extends Component {
@@ -134,7 +134,7 @@ export default class App extends Component {
       },
     } = this;
     return (
-      <CloverApp
+      <FusoApp
         className="app"
         isLoading={isLoading}
         page={page}

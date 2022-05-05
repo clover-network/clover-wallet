@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Find, IsEmpty } from 'react-lodash';
-import './styles.css';
-import Transaction from '../../components/transaction/transaction';
+import React, { Component } from "react";
+import { Find, IsEmpty } from "react-lodash";
+import "./styles.css";
+import Transaction from "../../components/transaction/transaction";
 import {
   DASHBOARD_PAGE,
   QR_CODE_PAGE,
   TRANSFER_PAGE,
   TRANSFER_STATUS_PAGE,
-} from '../../constants/navigation';
-import HeaderBack from '../../components/header-back';
-import ButtonCustom from '../../components/common/buttons/button-custom';
+} from "../../constants/navigation";
+import HeaderBack from "../../components/header-back";
+import ButtonCustom from "../../components/common/buttons/button-custom";
 
 export default class Trade extends Component {
   handleBack = () => {
@@ -30,7 +30,7 @@ export default class Trade extends Component {
     this.props.changePage(QR_CODE_PAGE);
   };
 
-  checkTransactionDetail = selectTransaction => {
+  checkTransactionDetail = (selectTransaction) => {
     this.props.updateSelectedTransaction(selectTransaction);
     this.props.changePage(TRANSFER_STATUS_PAGE);
   };
@@ -46,29 +46,37 @@ export default class Trade extends Component {
           no={() => (
             <React.Fragment>
               <div className="trade-amount-wrapper">
+              <img width="36" height="36" src={`https://www.fusotao.org/share/${selectedToken.toLowerCase()}.svg`} alt="" />
                 <div className="trade-amount">
                   <Find
                     collection={balance.tokens}
-                    predicate={token => token.token === selectedToken}
+                    predicate={(token) => token.token === selectedToken}
                   >
-                    {token => token.amount}
+                    {(token) => token.taoTotal}
                   </Find>
                 </div>
-                <span className="trade-conversion-value">≈$0</span>
+                {/* <span className="trade-conversion-value">≈$0</span> */}
               </div>
               <ul className="locked-available-retain-wrapper">
                 <li>
-                  <p>Locked</p>
-                  <span>0</span>
-                </li>
-                <li>
-                  <p>Available</p>
+                  <p>Reserved</p>
                   <span>
                     <Find
                       collection={balance.tokens}
-                      predicate={token => token.token === selectedToken}
+                      predicate={(token) => token.token === selectedToken}
                     >
-                      {token => token.amount}
+                      {(token) => token.reserved}
+                    </Find>
+                  </span>
+                </li>
+                <li>
+                  <p>Free</p>
+                  <span>
+                    <Find
+                      collection={balance.tokens}
+                      predicate={(token) => token.token === selectedToken}
+                    >
+                      {(token) => token.amount}
                     </Find>
                   </span>
                 </li>
@@ -80,31 +88,37 @@ export default class Trade extends Component {
               <Transaction
                 className="transaction-container"
                 checkTransactionDetail={this.checkTransactionDetail}
-                transactions={transactions.filter(t => t.metadata.token === selectedToken)}
+                transactions={transactions.filter(
+                  (t) => t.metadata.token === selectedToken
+                )}
               />
               <div
                 style={{
-                  position: 'absolute',
-                  bottom: '11px',
-                  right: '20px',
-                  left: '20px',
-                  justifyContent: 'space-between',
-                  display: 'flex',
+                  position: "absolute",
+                  bottom: "20px",
+                  right: "20px",
+                  left: "20px",
+                  justifyContent: "space-between",
+                  display: "flex",
                 }}
               >
                 <ButtonCustom
-                  width="100px"
-                  color="#41485D"
-                  background="white"
-                  onClick={() => {}}
-                  border="1px solid rgba(65, 72, 93, 0.5);"
+                  onClick={this.handleDeposit}
+                  width="150px !important"
+                  height="48px !important"
+                  border="1px solid #F23E5F"
+                  className="button-sm-primary"
                 >
-                  SWAP
-                </ButtonCustom>
-                <ButtonCustom onClick={this.handleDeposit} width="100px">
                   RECEIVE
                 </ButtonCustom>
-                <ButtonCustom onClick={this.handleSend} width="100px">
+                <ButtonCustom
+                  onClick={this.handleSend}
+                  width="150px !important"
+                  height="48px !important"
+                  color="#fff !important"
+                  background="#F23E5F !important"
+                  className="button-sm-primary"
+                >
                   SEND
                 </ButtonCustom>
               </div>

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
-import CloverValidator from '../../utils/clover-validator';
-import validator from '../../utils/clover-validator/validator';
-import CreateAccountForm from '../../components/account/create-account-form';
-import CloverTabs from '../../components/common/clover-tabs';
-import { MANAGE_ACCOUNT_PAGE } from '../../constants/navigation';
-import CreateAccountSettings from '../../components/account/create-account-settings';
-import FooterButton from '../../components/common/footer-button';
-import FooterWithTwoButton from '../../components/common/footer-with-two-button';
-import * as Account from '../../constants/account';
-import './styles.css';
-import { copyDataMessage } from '../../../lib/services/static-message-factory-service';
-import HintDialog from '../hint/hint.component';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { toast } from "react-toastify";
+import FusoValidator from "../../utils/fuso-validator";
+import validator from "../../utils/fuso-validator/validator";
+import CreateAccountForm from "../../components/account/create-account-form";
+import FusoTabs from "../../components/common/tabs";
+import { MANAGE_ACCOUNT_PAGE } from "../../constants/navigation";
+import CreateAccountSettings from "../../components/account/create-account-settings";
+import FooterButton from "../../components/common/footer-button";
+import FooterWithTwoButton from "../../components/common/footer-with-two-button";
+import * as Account from "../../constants/account";
+import "./styles.css";
+import { copyDataMessage } from "../../../lib/services/static-message-factory-service";
+import HintDialog from "../hint/hint.component";
 
 export default class CreateAccount extends Component {
   constructor(props) {
@@ -23,17 +23,17 @@ export default class CreateAccount extends Component {
       buttonName: Account.TO_CONFIRM_BUTTON_TEXT,
       backButtonName: Account.BACK_BUTTON_TEXT,
       onSubmit: this.handleNext,
-      importedSeedPhrase: '',
-      confirmSeedPhrase: '',
+      importedSeedPhrase: "",
+      confirmSeedPhrase: "",
       isError: false,
       errorMessage: null,
-      labels: ['create', 'import'],
+      labels: ["create", "import"],
       disableAccountSettings: false,
-      importSeedPhraseInputName: 'importedSeedPhrase',
-      confirmSeedPhraseInputName: 'confirmSeedPhrase',
+      importSeedPhraseInputName: "importedSeedPhrase",
+      confirmSeedPhraseInputName: "confirmSeedPhrase",
       openModal: true,
     };
-    this.validator = new CloverValidator(validator.importSeedPhraseValidation);
+    this.validator = new FusoValidator(validator.importSeedPhraseValidation);
     this.seedInput = React.createRef();
     this.confirmSeedInput = React.createRef();
   }
@@ -48,9 +48,8 @@ export default class CreateAccount extends Component {
   }
 
   handleChange = (e, value) => {
-    let {
-      buttonName, formValue, onSubmit, disableAccountSettings
-    } = this.state;
+    let { buttonName, formValue, onSubmit, disableAccountSettings } =
+      this.state;
     if (value === Account.CREATE_ACCOUNT) {
       buttonName = Account.TO_CONFIRM_BUTTON_TEXT;
       onSubmit = this.handleNext;
@@ -72,7 +71,7 @@ export default class CreateAccount extends Component {
     });
   };
 
-  handleImportSeedWordsChange = prop => e => {
+  handleImportSeedWordsChange = (prop) => (e) => {
     const { value } = e.target;
     let { isError, errorMessage } = this.state;
     const { error, resetImportAccountWithSeedPhraseError } = this.props;
@@ -80,7 +79,7 @@ export default class CreateAccount extends Component {
     if (error) {
       resetImportAccountWithSeedPhraseError();
     }
-    if (value === '') {
+    if (value === "") {
       isError = false;
       errorMessage = null;
     }
@@ -91,16 +90,24 @@ export default class CreateAccount extends Component {
     });
   };
 
+  handleConfirmSeedWordsChange = (value) =>{
+    this.setState({
+      confirmSeedPhrase: value,
+      isError: false,
+      errorMessage: '',
+    });
+  }
+
   handleSeedWordImportOnMount = () => {
     this.setState({
-      importedSeedPhrase: '',
+      importedSeedPhrase: "",
     });
   };
 
   handleBack = () => {
     if (
-      this.state.formValue === Account.CREATE_ACCOUNT
-      || this.state.formValue === Account.IMPORT_ACCOUNT
+      this.state.formValue === Account.CREATE_ACCOUNT ||
+      this.state.formValue === Account.IMPORT_ACCOUNT
     ) {
       this.props.changePage(MANAGE_ACCOUNT_PAGE);
     } else if (this.state.formValue === Account.CONFIRM_ACCOUNT) {
@@ -116,8 +123,8 @@ export default class CreateAccount extends Component {
   handleConfirm = () => {
     const { confirmSeedPhrase } = this.state;
     const { seedWords, alias } = this.props;
-    const trimedSeedWords = seedWords.replace(/\s/g, '');
-    const trimedConfirmSeedPhrase = confirmSeedPhrase.replace(/\s/g, '');
+    const trimedSeedWords = seedWords.replace(/\s/g, "");
+    const trimedConfirmSeedPhrase = confirmSeedPhrase.replace(/\s/g, "");
     if (trimedSeedWords === trimedConfirmSeedPhrase) {
       this.props.createFirstAccountWithSeedPhrase(this.props.seedWords, alias);
     } else {
@@ -144,9 +151,13 @@ export default class CreateAccount extends Component {
   handleImportSeedWordClick = () => {
     const { importedSeedPhrase } = this.state;
     const { alias } = this.props;
-    const { isError, errorMessage } = this.validateSeedPhrase(importedSeedPhrase);
+    const { isError, errorMessage } =
+      this.validateSeedPhrase(importedSeedPhrase);
     if (!isError) {
-      this.props.createFirstAccountWithSeedPhrase(this.state.importedSeedPhrase, alias);
+      this.props.createFirstAccountWithSeedPhrase(
+        this.state.importedSeedPhrase,
+        alias
+      );
     } else if (isError) {
       this.seedInput.focus();
     }
@@ -159,30 +170,37 @@ export default class CreateAccount extends Component {
   onCopy = () => {
     this.props.createToast({
       message: copyDataMessage(),
-      type: 'info',
+      type: "info",
       toastPosition: toast.POSITION.TOP_CENTER,
     });
   };
 
-  onKeypairTypeChange = e => {
+  onKeypairTypeChange = (e) => {
     this.props.setKeypairType(e.target.value);
   };
 
   handleSeedWordsOnBlur = () => {
-    const { isError, errorMessage } = this.validateSeedPhrase(this.state.importedSeedPhrase);
-    if (this.state.importedSeedPhrase === '' || !isError) {
+    const { isError, errorMessage } = this.validateSeedPhrase(
+      this.state.importedSeedPhrase
+    );
+    if (this.state.importedSeedPhrase === "" || !isError) {
       this.setState({ isError, errorMessage });
     }
   };
 
   handleConfirmSeedWordsOnBlur = () => {
-    const { isError, errorMessage } = this.validateSeedPhrase(this.state.confirmSeedPhrase);
-    if (this.state.confirmSeedPhrase === '' || !isError) {
+    const { isError, errorMessage } = this.validateSeedPhrase(
+      this.state.confirmSeedPhrase
+    );
+    if (this.state.confirmSeedPhrase === "" || !isError) {
       this.setState({ isError, errorMessage });
     }
   };
 
-  handleClose = () => {
+  handleClose = (e,reason) => {
+    if(reason === 'escapeKeyDown' || reason === 'backdropClick'){
+      return 
+    }
     this.setState({
       openModal: false,
     });
@@ -208,9 +226,7 @@ export default class CreateAccount extends Component {
   }
 
   render() {
-    const {
-      seedWords, keypairType, keypairTypes, account
-    } = this.props;
+    const { seedWords, keypairType, keypairTypes, account } = this.props;
     const {
       value,
       formValue,
@@ -235,29 +251,31 @@ export default class CreateAccount extends Component {
           handleClose={this.handleClose}
           handleYes={this.handleClose}
         />
-        <CloverTabs value={value} onChange={this.handleChange} labels={labels} />
+        <FusoTabs value={value} onChange={this.handleChange} labels={labels} />
         <CreateAccountForm
           value={formValue}
           generatedSeedWords={seedWords}
           importedSeedWords={importedSeedPhrase}
           confirmedSeedWords={confirmSeedPhrase}
           onChange={this.handleImportSeedWordsChange}
+          handleConfirmChange={this.handleConfirmSeedWordsChange}
           isError={isError}
           errorMessage={errorMessage}
           handleSeedWordImportOnMount={this.handleSeedWordImportOnMount}
           importSeedPhraseInputName={importSeedPhraseInputName}
           confirmSeedPhraseInputName={confirmSeedPhraseInputName}
           onCopy={this.onCopy}
-          seedRef={input => {
+          seedRef={(input) => {
             this.seedInput = input;
           }}
-          confirmSeedRef={input => {
+          confirmSeedRef={(input) => {
             this.confirmSeedInput = input;
           }}
           handleSeedWordsOnBlur={this.handleSeedWordsOnBlur}
           handleConfirmSeedWordsOnBlur={this.handleConfirmSeedWordsOnBlur}
           className="create-account-form"
         />
+        
         <CreateAccountSettings
           disableAccountSettings={disableAccountSettings}
           keypairType={keypairType}
@@ -265,6 +283,7 @@ export default class CreateAccount extends Component {
           onKeypairTypeChange={this.onKeypairTypeChange}
           className="create-account-settings"
         />
+        
         {formValue === Account.CONFIRM_ACCOUNT || account !== undefined ? (
           <FooterWithTwoButton
             onNextClick={onSubmit}
@@ -281,8 +300,8 @@ export default class CreateAccount extends Component {
 }
 
 CreateAccount.defaultProps = {
-  alias: '',
-  seedWords: '',
+  alias: "",
+  seedWords: "",
   createFirstAccountWithSeedPhrase: undefined,
   error: null,
   resetImportAccountWithSeedPhraseError: undefined,

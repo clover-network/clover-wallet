@@ -4,7 +4,7 @@ import {
   CHANGE_CURRENT_ACCOUNT,
   RESET_SEED_WORDS,
   SET_SEED_WORDS,
-} from '../actions/accounts';
+} from "../actions/accounts";
 
 const initialState = {
   accounts: [], // all accounts

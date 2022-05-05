@@ -5,18 +5,37 @@
 
 .panel-container {
     display: flex;
-    padding: 20px;
+    padding: 16px !important;
+    padding-left: 0 !important;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .left-panel {
-    width: 50px;
-    margin: 0 10px 0 0;
+    width: auto !important;
+    margin-right: 18px !important;
     height: 430px;
-    overflow-y: scroll;
+    padding-left: 16px;
+    box-sizing: content-box;
+    overflow-y: auto;
+    position: relative;
 }
-
+/* .left-panel > img.active{
+    background: none;
+}
+.left-panel > img{
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    overflow: hidden;
+} */
+.activeStatus{
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 18px;
+    background: #F23E5F;
+    transition: all ease 0.3s;
+}
 .right-panel {
     flex: 1;
     height: 430px;
@@ -30,12 +49,12 @@
     width: 30px;
     height: 1px;
     display: block;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #fff !important;
     margin: 10px 0;
 }
 
 .split-select {
-    background-color: #FB822A;
+    background-color: #fff !important;
 }
 
 .can-click {

@@ -1,5 +1,5 @@
 {
-  "version": "0.5.6",
+  "version": "0.0.1",
   "applications": {
     "gecko": {
       "id": "info@blockxlabs.com",
@@ -9,12 +9,12 @@
   "background": {
     "page": "background.html"
   },
-  "name": "Clover",
+  "name": "FUSOTAO",
   "manifest_version": 2,
-  "description": "Clover is a wallet for polkadot",
+  "description": "FUSOTAO is a wallet for polkadot",
   "browser_action": {
     "default_icon": "img/icon-32.png",
-    "default_title": "Clover",
+    "default_title": "FUSOTAO",
     "default_popup": "popup.html"
   },
   "icons": {
@@ -22,12 +22,6 @@
     "32": "img/icon-32.png",
     "128": "img/icon-128.png"
   },
-  "web_accessible_resources": [
-    "inject.html",
-    "content-script.js",
-    "/js/inPageScript.bundle.js",
-    "js/inPageScript.bundle.js"
-  ],
   "permissions": [
     "notifications",
     "storage",

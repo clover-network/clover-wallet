@@ -1,0 +1,78 @@
+.text-container {
+  color: white;
+  padding: 10px;
+  flex: 1;
+}
+
+.account-name {
+  font-family: Inter-Bold;
+  font-size: 13px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  img{margin-left: 5px;}
+}
+
+.address {
+  font-family: Inter-Regular;
+  font-size: 11px;
+}
+
+.card-container {
+  height: 68px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  >svg{margin-left: -5px;margin-right: 5px;}
+}
+.moreIcon{margin-left: -5px;}
+.account-options {
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  li {
+    padding: 5px 10px;
+    font-size: 14px;
+    line-height: 40px;
+    cursor: pointer;
+    color: #282828;
+    &:hover {
+      background-color: #F5F5F5;
+      color: #F23E5F;
+    }
+    &.disabled {
+      cursor: not-allowed;
+      // background-color: #ccc;
+      color: #ccc;
+    }
+  }
+}
+.card-input-root {
+  font-size: 16px !important;
+  border-radius: 3px !important;
+  border: none !important;
+  width: 140px;
+
+}
+.card-more{
+  margin-top: 30px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.card-more img {margin-left: 5px;}
+.card-input {
+  padding: 3px 5px 3px 10px !important;
+}
+.card-input-focused {
+  color: white !important;
+  border: 1px solid rgba(236, 237, 239, 0.5) !important;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}

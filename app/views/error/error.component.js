@@ -5,7 +5,7 @@ export default class Error extends Component {
   render() {
     return (
       <div>
-        <FontRegular text="Fatal error occurred. PLease re-open Clover Wallet!" />
+        <FontRegular text="Fatal error occurred. PLease re-open FUSOTAO Wallet!" />
       </div>
     );
   }

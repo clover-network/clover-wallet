@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CloverPassword from '../../components/common/password/clover-password';
+import FusoPassword from '../../components/common/password/fuso-password';
 import ContentHeader from '../../components/common/content-header';
 import FooterButton from '../../components/common/footer-button';
 import './styles.css';
-import CloverInput from '../../components/common/clover-input';
+import FusoInput from '../../components/common/input';
+import Footer from '../../components/common/footer';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -99,12 +100,12 @@ export default class SignUp extends Component {
       <div className="sign-up-container">
         <ContentHeader
           className="sign-up-content-header"
-          title="Create A Password To Secure Your Account"
+          title="Create A Password"
           description="The password is used to protect your Enigma seed phrase(s) so that other Chrome extensions can't access them."
         />
-
-        <CloverInput
-          className="sign-up-password wallet-name-margin"
+        <p className='inputTitle wallet-name-margin'>Wallet Name</p>
+        <FusoInput
+          className="sign-up-password"
           type="text"
           labelWidth={0}
           placeholder="Wallet Name"
@@ -120,8 +121,8 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
-        <CloverPassword
+        <p className='inputTitle'>Password</p>
+        <FusoPassword
           className="sign-up-password"
           onChange={e => this.handleOnChange('password', e)}
           password={password}
@@ -134,8 +135,8 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
-        <CloverInput
+        <p className='inputTitle'>Repeat Password</p>
+        <FusoInput
           className="sign-up-password"
           onChange={this.handleOnChange('passwordRepeat')}
           type="password"
@@ -148,8 +149,9 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
-        <FooterButton onClick={this.handleClick} disabled={this.state.disabled} name="next" />
+        <Footer>
+          <FooterButton onClick={this.handleClick} disabled={this.state.disabled} name="next" />
+        </Footer>
       </div>
     );
   }

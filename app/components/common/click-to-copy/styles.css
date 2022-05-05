@@ -1,14 +1,14 @@
 .copy-container {
-  background: rgba(251, 130, 42, 0.1);
+  background: rgba(242, 62, 95, 0.1);
   border-radius: 5px;
-  color: #FB822A;
+  color: #F23E5F;
   display: inline-block;
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 5px;
 }
 
 .copy-container:hover {
-  background: #FB822A;
+  background: #F23E5F;
   color: white;
 }
 
@@ -32,6 +32,6 @@
   vertical-align: middle;
 }
 
-svg:hover {
+/* svg:hover {
   fill: red;
-}
+} */

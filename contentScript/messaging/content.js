@@ -13,27 +13,18 @@ window.addEventListener('message', async event => {
     try {
       switch (data.requestType) {
         case RequestTypes.ENABLE:
-          TransceiverService.authorizeDApp(data);
+          TransceiverService.authorizeDApp(event.data);
           break;
         case RequestTypes.GET_ACCOUNTS:
-          TransceiverService.getAccounts(data);
+          TransceiverService.getAccounts(event.data);
           break;
         case RequestTypes.SEND:
-          TransceiverService.submitTransaction(data);
+          TransceiverService.submitTransaction(event.data);
           break;
         case RequestTypes.SIGN_MESSAGE:
-          TransceiverService.signMessage(data);
+          TransceiverService.signMessage(event.data);
           break;
         case RequestTypes.WEB3_REQUEST:
-          const { data } = event;
-          if (
-            !['eth_getBalance', 'eth_accounts', 'net_version', 'eth_getBlockByNumber'].includes(
-              data.opts.method,
-            )
-          ) {
-            console.log('cs:', data);
-          }
-
           try {
             if (
               RequestTypes.SAFE_METHODS.includes(data.opts.method)
@@ -49,7 +40,7 @@ window.addEventListener('message', async event => {
           }
           break;
         default:
-          TransceiverService.handleDefault(data);
+          TransceiverService.handleDefault(event.data);
       }
     } catch (err) {
       const error = { message: err.message, stack: err.stack || {} };
@@ -59,7 +50,6 @@ window.addEventListener('message', async event => {
 });
 
 extension.runtime.onMessage.addListener(response => {
-  console.log('content on message:', response);
   const { type } = response;
   switch (type) {
     case ResponseType.BG_DAPP_RESPONSE:

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Avatar from '../../common/identicon';
-import CloverInput from '../../common/clover-input';
+import FusoInput from '../../common/input';
 
 export default class TransferTo extends Component {
   render() {
@@ -29,7 +29,7 @@ export default class TransferTo extends Component {
         {...otherProps}
       >
         <Avatar value={addressValue} size={size} theme={theme} />
-        <CloverInput
+        <FusoInput
           style={{
             width: '251px',
             justifySelf: 'flex-start',

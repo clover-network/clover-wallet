@@ -2,11 +2,13 @@
     text-align: center;
     margin-bottom: 40px;
 }
-
+.trade-amount-wrapper > img{
+    margin: 10px auto 20px;
+}
 .trade-amount {
-    font-family: Inter-Bold;
-    font-size: 32px;
-    color: #FB822A;
+    /* font-family: Inter-Bold; */
+    font-size: 24px;
+    color: #282828;
 }
 
 .trade-conversion-value {
@@ -31,4 +33,5 @@
 
 .locked-available-retain-wrapper li p {
     color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 3px;
 }

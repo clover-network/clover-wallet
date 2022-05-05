@@ -13,12 +13,20 @@
 .sign-up-password fieldset {
   border: 0;
   font-size: 14px;
-  background-color: rgba(65, 72, 93, 0.1);
+  background-color: rgb(173 173 173 / 16%);
+  
 }
-
+.sign-up-password fieldset legend{width: 0 !important;}
+.MuiIconButton-root:hover{
+  background:none !important;
+}
+.MuiIconButton-label > div{
+  display: flex;
+  justify-self: center;
+}
 .sign-up-password:focus-within fieldset {
   background-color: transparent;
-  border: 2px solid #ECEDEF !important;
+  border: 1px solid #BEC1D6 !important;
 }
 
 .input-margin {
@@ -35,15 +43,24 @@
 }
 
 .wallet-name-margin {
-  margin-top: 30px !important;
+  margin-top: 20px !important;
   font-size: 12px;
 }
 
 .error-msg {
   color: #FA5050;
-  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  height: auto;
+}
+
+.inputTitle{
+  line-height: 18px;
+  margin: 12px 0 8px;
+  font-size: 12px;
+  color: #666;
 }
 
 .place-holder {
-  height: 20px;
+  line-height: 20px;
 }

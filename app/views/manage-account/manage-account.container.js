@@ -1,10 +1,11 @@
-import { connect } from 'react-redux';
-import ManageAccount from './manage-account.component';
-import { changePage } from '../../containers/actions';
-import { createToast } from '../../constants/toast';
-import { addAccount, changeAccount, removeAccount } from './actions';
-
-const mapStateToProps = state => ({
+import { connect } from "react-redux";
+import ManageAccount from "./manage-account.component";
+import { changePage, updateAppLoading } from "../../containers/actions";
+import { createToast } from "../../constants/toast";
+import { addAccount, changeAccount, removeAccount } from "./actions";
+import { switchNetwork } from "../../actions/network";
+import {renameAlias} from '../dashboard/actions';
+const mapStateToProps = (state) => ({
   account: state.accountReducer.account,
   accountMenu: state.dashboardReducer.accountMenu,
   accounts: state.accountReducer.accounts,
@@ -20,6 +21,9 @@ const mapDispatchToProps = {
   addAccount,
   changeAccount,
   removeAccount,
+  updateAppLoading,
+  switchNetwork,
+  renameAlias
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageAccount);

@@ -34,6 +34,7 @@ export const signTransaction = async (seedWords, keypairType, transaction) => {
   const {
     to,
     fAmount,
+    token,
     account: { address },
   } = transaction.metadata;
 
@@ -48,9 +49,18 @@ export const signTransaction = async (seedWords, keypairType, transaction) => {
     signTransaction = await api.tx.currencies
       .transfer(to, transaction.metadata.token, new BN(fAmount))
       .sign(accountPair, { nonce });
-  } else {
+  } else if(token == "TAO"){
     signTransaction = await api.tx.balances
       .transfer(to, new BN(fAmount))
+      .sign(accountPair, { nonce });
+  }else{
+    const tokenList = JSON.parse(localStorage.getItem("tokenList"));
+    const selfToken = tokenList.filter(item => {
+      return item.tokenName == token;
+    });
+    const tokenId = selfToken[0].tokenId;
+    signTransaction = await api.tx.token
+      .transfer(Number(tokenId),to, new BN(fAmount))
       .sign(accountPair, { nonce });
   }
   return signTransaction;

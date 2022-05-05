@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CloverMenu from '../common/clover-menu';
+import FusoMenu from '../common/menu';
 import { DISABLE_SETTINGS_PAGES_GROUP } from '../../constants/navigation';
 import Settings from '../../images/setting.svg';
 
@@ -38,7 +38,7 @@ export default class Options extends Component {
           alt="settings"
           width="26"
         />
-        <CloverMenu
+        <FusoMenu
           isDeveloperMode={isDeveloperMode}
           onToggleDeveloperMode={onToggleDeveloperMode}
           options={options}

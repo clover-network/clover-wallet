@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Avatar from '../identicon';
-import CloverMenu from '../clover-menu';
+import FusoMenu from '../menu';
 import DarkDivider from '../divider/dark-divider';
 import './styles.css';
 import { shortenAddress } from '../../../services/wallet-service';
@@ -69,7 +69,7 @@ class ListItemCard extends Component {
               <img width="20" height="20" src={MoreVertIcon} alt="" />
             </div>
           )}
-          <CloverMenu
+          <FusoMenu
             options={moreMenu}
             onChange={option => {
               onMoreMenuOptionsChange(option, listItem);

@@ -25,6 +25,10 @@ class ButtonXL extends Component {
           className={className}
           disabled={this.props.disabled}
           onClick={this.props.onClick}
+          size="large" 
+          variant="contained" 
+          color="primary" 
+          fullWidth={true}
           {...otherProps}
         >
           {this.props.children}

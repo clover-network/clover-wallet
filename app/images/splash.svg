@@ -19,9 +19,9 @@
                         <path d="M248.381911,786.857143 C256.720051,776.32051 262.034075,752.124503 318.113015,774.714053 C374.191954,797.303603 384.420845,774.714053 441.324567,774.714053" id="路径-74" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path d="M822.338569,366.718606 C796.73027,340.313051 767.693017,327.110273 735.22681,327.110273 C686.527499,327.110273 675.199131,385.494785 624.825374,385.494785 C591.242869,385.494785 556.133322,376.531368 519.496733,358.604535" id="路径-75" stroke-width="4"></path>
                     </g>
-                    <text id="welcome-To-Clover" font-family="TrendexBlackSSiBold, Trendex Black SSi" font-size="60" font-weight="bold" line-spacing="70" fill="#333333">
-                        <tspan x="206.598536" y="891.428571">welcome To</tspan>
-                        <tspan x="206.598536" y="961.428571">Clover</tspan>
+                    <text id="Welcome-To-FUSOTAO" font-family="TrendexBlackSSiBold, Trendex Black SSi" font-size="60" font-weight="bold" line-spacing="70" fill="#333333">
+                        <tspan x="206.598536" y="891.428571">Welcome To</tspan>
+                        <tspan x="206.598536" y="961.428571">FUSOTAO</tspan>
                     </text>
                     <g id="飞船" transform="translate(350.117397, 72.857143)">
                         <path d="M385.258877,635.999739 C389.329526,649.001568 388.8304,660.436425 383.761498,670.30431 C379.420253,678.755629 368.270234,684.255453 357.119553,690.785781 C376.924546,691.507844 389.72793,686.713177 395.529705,676.401778 C401.33148,666.090379 397.907871,652.623033 385.258877,635.999739 Z" id="路径-12" fill="#FFE471" transform="translate(377.692889, 663.428200) rotate(-19.000000) translate(-377.692889, -663.428200) "></path>

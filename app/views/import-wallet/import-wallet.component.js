@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import CloverValidator from '../../utils/clover-validator';
-import validator from '../../utils/clover-validator/validator';
+import FusoValidator from '../../utils/fuso-validator';
+import validator from '../../utils/fuso-validator/validator';
 import CreateAccountForm from '../../components/account/create-account-form';
 import { MANAGE_ACCOUNT_PAGE } from '../../constants/navigation';
 import CreateAccountSettings from '../../components/account/create-account-settings';
@@ -29,7 +29,7 @@ export default class ImportWallet extends Component {
       importSeedPhraseInputName: 'importedSeedPhrase',
       confirmSeedPhraseInputName: 'confirmSeedPhrase',
     };
-    this.validator = new CloverValidator(validator.importSeedPhraseValidation);
+    this.validator = new FusoValidator(validator.importSeedPhraseValidation);
     this.seedInput = React.createRef();
     this.confirmSeedInput = React.createRef();
   }

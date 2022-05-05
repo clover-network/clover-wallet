@@ -1,4 +1,4 @@
-import CLV from '../images/clover.svg';
+import TAO from '../images/tao.svg';
 import CETH from '../images/ceth.svg';
 import CUSDT from '../images/cusdt.svg';
 import KSM from '../images/kusama.svg';
@@ -6,22 +6,25 @@ import DOT from '../images/polkadot.svg';
 import ACA from '../images/acala.svg';
 
 export function getCurrencyIcon(type) {
-  if (type === 'CLV') {
-    return CLV;
+  if (type === 'TAO') {
+    return `https://www.fusotao.org/share/${type.toLowerCase()}.svg`;
   }
-  if (type === 'CUSDT') {
+  else if (type === 'CUSDT') {
     return CUSDT;
   }
-  if (type === 'CETH') {
+  else if (type === 'CETH') {
     return CETH;
   }
-  if (type === 'KSM') {
+  else if (type === 'KSM') {
     return KSM;
   }
-  if (type === 'DOT') {
+  else if (type === 'DOT') {
     return DOT;
   }
-  if (type === 'ACA') {
+  else if (type === 'ACA') {
     return ACA;
+  }
+  else{
+    return `https://www.fusotao.org/share/${type.toLowerCase()}.svg`
   }
 }

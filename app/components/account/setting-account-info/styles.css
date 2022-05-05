@@ -1,41 +1,42 @@
 .account-info-wrapper {
-    margin: 15px 18px;
-    height: 70px;
-    padding: 15px 10px;
-    background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    border-radius: 10px;
+  margin: 15px 18px;
+  height: 70px;
+  padding: 15px 10px;
+  background-image: url("../../../images/card_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .account-info-alias {
-    font-family: Inter-Bold;
-    font-size: 14px;
-    color: #ffffff;
-    display: block;
-    margin-bottom: 5px;
+  font-family: Inter-Bold;
+  font-size: 14px;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .account-info-address {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .account-connect-status {
-    float: right;
-    margin-top: -15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    text-align: center;
-    color: #ffffff;
-    padding: 5px;
+  float: right;
+  margin-top: -15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px;
 }
 
-.account-connect-status span:before{
-    content: '';
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    background-color: #ffffff;
-    border-radius: 50%;
-    margin-right: 5px;
+.account-connect-status span:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin-right: 5px;
 }

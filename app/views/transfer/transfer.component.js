@@ -15,6 +15,7 @@ import SelectDown from '../../images/select_down_icon.svg';
 import Avatar from '../../components/common/identicon';
 import { shortenAddress } from '../../services/wallet-service';
 import { findChainByName } from '../../../lib/constants/chain';
+import BigNumber from "bignumber.js";
 
 export default class Transfer extends Component {
   constructor(props) {
@@ -102,10 +103,9 @@ export default class Transfer extends Component {
         amount: e.target.value,
       },
     });
-    this.setState({ [prop]: e.target.value, isAmountError: false });
+    this.setState({ [prop]: e.target.value.replace('-',''), isAmountError: false });
     if (
       _.toNumber(e.target.value) > _.toNumber(totalAmount)
-      || _.toNumber(e.target.value) === _.toNumber(totalAmount)
     ) {
       this.setState({ isAmountError: true });
     }
@@ -119,14 +119,15 @@ export default class Transfer extends Component {
   getMaxAmount = () => {
     const totalAmount = _.find(this.props.balance.tokens, t => t.token === this.props.selectedToken)
       .amount;
-    if (totalAmount !== '') {
+    const amountToNumber = totalAmount !== '' ? new BigNumber(totalAmount.replace(',', '')).toNumber() : 0;
+    if (amountToNumber > 0) {
       this.props.dispatchSetTransferDetails({
         metadata: {
           ...this.props.confirmDetails.metadata,
-          amount: totalAmount,
+          amount: amountToNumber,
         },
       });
-      this.setState({ amount: totalAmount, isAmountError: true });
+      this.setState({ amount: amountToNumber, isAmountError: false });
     }
   };
 
@@ -212,9 +213,11 @@ export default class Transfer extends Component {
               }}
               endAdornment={(
                 <div className="address-book-icon">
-                  <div onClick={addressBook.length === 0 ? '' : this.toggleAddress(true)}>
-                    <img width="20" height="20" src={MailList} alt="" />
-                  </div>
+                  {addressBook.length > 0 && (
+                    <div onClick={this.toggleAddress(true)}>
+                      <img width="20" height="20" src={MailList} alt="" />
+                    </div>
+                  )}
                   <React.Fragment>
                     <Drawer
                       anchor="bottom"
@@ -313,7 +316,7 @@ export default class Transfer extends Component {
             </span>
           </div>
           <FooterButton
-            disabled={this.state.isAmountError || !this.state.amount || !this.state.to}
+            disabled={this.state.isAmountError || !(this.state.amount && this.state.amount > 0) || !this.state.to }
             style={{ left: 0 }}
             onClick={this.handleSendButton}
             name={buttonText}

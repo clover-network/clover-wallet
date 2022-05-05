@@ -29,7 +29,7 @@
     width: 100%;
 }
 
-.clover-banner-img {
+.fuso-banner-img {
     margin-top: 68px;
 }
 
@@ -58,6 +58,7 @@
     padding: 20px 24px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .entry-item > div {
@@ -71,8 +72,4 @@
 .entry-item > div > span:last-child {
     color: #4BA871;
     margin-top: 7px;
-}
-
-.entry-item img {
-    cursor: pointer;
 }

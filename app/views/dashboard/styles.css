@@ -1,15 +1,18 @@
 .asset-container {
   margin: 5px 15px 15px 15px;
 }
-
 .wallet-container {
-  border-radius: 5px;
-  background: linear-gradient(94.54deg, #FF8212 0%, #ED4454 100%);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 5px 24px 20px;
+  background-image: url("../../images/card_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: row;
   color: rgba(255, 255, 255, 1);
-  margin: 5px 15px 20px 15px;
-  padding: 12px 15px 15px 15px;
+  padding: 15px;
+  box-shadow: 0px 10px 12px #fbcdcd;
 }
 
 .transaction-container {
@@ -42,41 +45,48 @@
 .assets-list-wrap {
   margin-top: 15px;
 }
-
+.assets-box{
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 5px 24px;
+}
 .assets-list-title {
-  margin-left: 18px;
+  margin-left: 24px;
   margin-top: 30px;
-  font-size: 16px;
-  font-family: Inter-Bold;
+  font-size: 14px;
+  color: #666;
 }
 
 .assets-list-item {
   cursor: pointer;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
   width: 100%;
-  height: 63px;
-  padding: 0 18px;
+  height: 70px;
+  padding: 0 16px;
+  background: #F9F9F9;
+  border-radius: 12px;
+  transition: all ease 0.3s;
 }
-
+.assets-list-item+.assets-list-item{margin-top: 12px;}
 .assets-list-item:hover {
-  background: #f2f2f2;
+  background: rgb(167 167 167 / 10%);
+  box-shadow: 0px 2px 5px #d7d7d7;
+  transform: scale(1.01);
 }
-
-.assets-list-item:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+.assets-list-item:hover span{
+  color: #000;
 }
-
 .asset-list-left {
   float: left;
 }
 
 .asset-list-left img, .asset-list-left span, .asset-list-right img, .asset-list-right span {
   vertical-align: middle;
-  line-height: 63px;
+  line-height: 70px;
+  color: #282828;
 }
 
 .asset-list-left span {
-  font-family: Inter-Bold;
+  font-size: 16px;
 }
 
 .asset-list-left img {
@@ -93,7 +103,7 @@
 }
 
 .asset-list-right span {
-  line-height: 63px;
+  font-size: 14px;
 }
 
 .asset-list-right img {
@@ -126,4 +136,30 @@
 
 .assets-btn:hover {
   background: rgba(255, 205, 168, 0.35)!important;
+}
+.addBtn{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 50%;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgb(0 0 0 / 26%);
+  transition: all ease 0.3s;
+}
+.addBtn:hover{
+  transform: scale(1.1);
+  box-shadow: 0 0 5px #959595;
+}
+.addBtn img{
+  width: 32px;
+  vertical-align: middle;
+  margin: 0 auto;
 }

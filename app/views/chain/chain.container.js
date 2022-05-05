@@ -4,6 +4,7 @@ import Chain from './chain.component';
 import { switchNetwork } from '../../actions/network';
 import { changeAccount } from '../manage-account/actions';
 import { createToast } from '../../constants/toast';
+import {renameAlias} from '../dashboard/actions';
 
 const mapStateToProps = state => ({
   isLoading: state.appStateReducer.isLoading,
@@ -21,6 +22,7 @@ const mapDispatchToProps = {
   changeAccount,
   createToast,
   updateAppLoading,
+  renameAlias
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chain);

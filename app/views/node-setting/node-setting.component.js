@@ -8,7 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import './styles.css';
 import HeaderBack from '../../components/header-back';
-import CloverInput from '../../components/common/clover-input';
+import FusoInput from '../../components/common/input';
 import ButtonXL from '../../components/common/buttons/button-xl';
 import * as NavConstants from '../../constants/navigation';
 
@@ -108,7 +108,7 @@ export default class NodeSetting extends Component {
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="NODE SETTING"
-          style={{ textAlign: 'left', marginLeft: '25px' }}
+          // style={{ textAlign: 'left', marginLeft: '25px' }}
         />
         <div className="node-list-wrapper">
           <FormControl component="fieldset">
@@ -139,10 +139,10 @@ export default class NodeSetting extends Component {
         </div>
         <React.Fragment>
           <Drawer anchor="bottom" open={showAddNodes} onClose={this.toggleDrawer(false)}>
-            <div className="select-asset-wrapper">
+            <div className="select-asset-wrapper" style={{marginBottom:"18px"}}>
               <div className="select-asset-title">Add a custom node</div>
               <div className="node-address-input">
-                <CloverInput
+                <FusoInput
                   className="sign-up-password"
                   placeholderText="Enter valid node address"
                   value={addNodeAddress}

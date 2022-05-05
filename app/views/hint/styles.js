@@ -9,28 +9,35 @@ export const styles = () => ({
   },
   contentRoot: {
     padding: '40px 15px 20px 15px !important',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
+
   },
   title: {
-    fontFamily: 'Inter-Bold',
-    color: 'black',
-    fontSize: '16px',
+    color: '#282828',
+    fontSize: '20px',
     margin: '20px 0 10px 0',
   },
   desc: {
-    fontFamily: 'Inter-Regular',
+    // fontFamily: 'Inter-Regular',
     fontSize: '12px',
-    color: 'black',
+    color: '#282828',
   },
   confirm: {
-    fontSize: '14px',
-    fontFamily: 'Inter-Bold',
-    height: '36px',
+    fontSize: '16px',
+    // fontFamily: 'Inter-Bold',
+    height: '48px',
     textAlign: 'center',
     width: '100%',
     verticalAlign: 'middle',
-    lineHeight: '36px',
+    lineHeight: '48px',
     cursor: 'pointer',
-    color: '#FB822A',
+    color: '#ffffff',
+    background: '#F23E5F',
+    borderRadius: '6px',
+    "&:hover":{
+      opacity:"0.8"
+    }
   },
+  confirmbox:{
+    padding:"12px 16px"
+  }
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CloverMenu from '../../common/clover-menu';
+import FusoMenu from '../../common/menu';
 import FontRegular from '../../common/fonts/font-regular';
 // import { DISABLE_NETWORKS_PAGES_GROUP } from '../../../constants/navigation';
 import { shortenName } from '../../../services/wallet-service';
@@ -29,13 +29,14 @@ export default class Network extends Component {
     } = this.props;
     return (
       <div {...otherProps}>
-        <img src={getChainLogo(network.unit)} alt="img" width="25" />
+        {/* <img src={getChainLogo(network.unit)} alt="img" width="25" /> */}
         <FontRegular
           className="network-text"
-          text={`${shortenName(network.text)} chain`}
+          // text={`${shortenName(network.text)}`}
+          text="TAO"
           onClick={onNetworkClick}
         />
-        <CloverMenu
+        <FusoMenu
           selected={network}
           options={networks}
           onChange={onNetworkChange}

@@ -6,6 +6,7 @@ export default class Wallet extends Component {
   render() {
     const {
       selectedAccount,
+      assetsList,
       onCopyAddress,
       accountMenu,
       onAccountMenuOptionsChange,
@@ -25,6 +26,7 @@ export default class Wallet extends Component {
           onAliasInputKeyPress={onAliasInputKeyPress}
           onAliasInputBlur={onAliasInputBlur}
           selectedAccount={selectedAccount}
+          assetsList={assetsList}
           onCopyAddress={onCopyAddress}
           className="account-detail-container"
           accountMenu={accountMenu}

@@ -1,0 +1,9 @@
+.dapp-requests-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dapp-requests-card {
+  margin: 15px 18px;
+  background-color: rgba(255, 255, 255, 1);
+}

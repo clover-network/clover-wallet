@@ -7,14 +7,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case Types.UNLOCK_CLOVER_SUCCESS:
+    case Types.UNLOCK_WALLET_SUCCESS:
       return {
         ...state,
         ...{
           success: true,
         },
       };
-    case Types.UNLOCK_CLOVER_ERROR:
+    case Types.UNLOCK_WALLET_ERROR:
       return {
         ...state,
         ...{

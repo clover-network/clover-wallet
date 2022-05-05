@@ -39,12 +39,11 @@
 }
 .tou-main {
   grid-area: main;
-  padding: 0 20px;
+  padding: 24px 24px 0;
   height: 462px;
   overflow: hidden;
   overflow-y: scroll;
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .tou-header {
@@ -65,7 +64,7 @@
 
   opacity: 100%;
 }
-
+/* 
 .button-xl button {
   margin: 20px 20px 10px 20px;
-}
+} */

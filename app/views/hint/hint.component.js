@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import withStyles from '@material-ui/core/styles/withStyles';
-import NoScreenShot from '../../images/no_screen_shot.svg';
-import { styles } from './styles';
+import React, { Component } from "react";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import withStyles from "@material-ui/core/styles/withStyles";
+import NoScreenShot from "../../images/no_screen_shot.svg";
+import { styles } from "./styles";
+import Button from '@material-ui/core/Button'
 
-class CloverRadioButtonGroup extends Component {
+class RadioButtonGroup extends Component {
   render() {
-    const {
-      classes, isOpen, handleClose, handleYes
-    } = this.props;
+    const { classes, isOpen, handleClose, handleYes } = this.props;
     return (
       <Dialog
         classes={{
           root: classes.root,
           paper: classes.paper,
         }}
-        disableBackdropClick="true"
+        //disableBackdropClick={true}
         open={isOpen}
         onClose={handleClose}
       >
@@ -27,7 +26,7 @@ class CloverRadioButtonGroup extends Component {
             root: classes.contentRoot,
           }}
         >
-          <img src={NoScreenShot} alt="no-screen-shot" width="80" />
+          <img src={NoScreenShot} alt="no-screen-shot" width="96" />
           <DialogContentText
             classes={{
               root: classes.title,
@@ -40,28 +39,18 @@ class CloverRadioButtonGroup extends Component {
               root: classes.desc,
             }}
           >
-            This seed phrase is used to create your account.
+            This seed phrase is used to create your account. Save this somewhere safe and don&#39;t share it
           </DialogContentText>
-          <DialogContentText
-            classes={{
-              root: classes.desc,
-            }}
-          >
-            Save this somewhere safe and don&#39;t share it
-          </DialogContentText>
+
         </DialogContent>
-        <DialogActions onClick={handleYes}>
-          <DialogContentText
-            classes={{
-              root: classes.confirm,
-            }}
+        <DialogActions
+          classes={{root: classes.confirmbox}}
           >
-            Yes, I Know
-          </DialogContentText>
+          <Button variant="contained" color="primary" size="medium" fullWidth onClick={handleYes}>Yes, I Know</Button>
         </DialogActions>
       </Dialog>
     );
   }
 }
 
-export default withStyles(styles)(CloverRadioButtonGroup);
+export default withStyles(styles)(RadioButtonGroup);

@@ -19,13 +19,15 @@ import NodeSetting from '../../views/node-setting';
 import About from '../../views/about';
 import ConnectRequest from '../../views/connect-request';
 import DAppRequests from '../../views/dapp-requests';
+import DAppWeb3Requests from '../../views/dapp-web3-requests';
 import Chain from '../../views/chain';
 import Trade from '../../views/trade';
+import AddToken from '../../views/addToken';
 import * as NavConstant from '../../constants/navigation';
 import Settings from '../../views/settings';
 import EntryPage from '../../views/entry-page';
 import ImportWallet from '../../views/import-wallet';
-
+import Chains from '../../views/chains';
 const getView = page => {
   switch (page) {
     case NavConstant.ENTRY_PAGE:
@@ -42,6 +44,8 @@ const getView = page => {
       return <Settings />;
     case NavConstant.TRADE_PAGE:
       return <Trade />;
+    case NavConstant.ADD_TOKEN_PAGE:
+      return <AddToken />;
     case NavConstant.LOADER_OVERLAY:
       return <LoaderOverlay />;
     case NavConstant.SIGN_IN_PAGE:
@@ -70,6 +74,8 @@ const getView = page => {
       return <ConnectRequest />;
     case NavConstant.DAPP_REQUESTS_PAGE:
       return <DAppRequests />;
+    case NavConstant.DAPP_WEB3_REQUESTS_PAGE:
+      return <DAppWeb3Requests />;
     case NavConstant.MANAGE_ACCOUNT_PAGE:
       return <ManageAccount />;
     case NavConstant.ADDRESS_BOOK_PAGE:
@@ -78,6 +84,8 @@ const getView = page => {
       return <NodeSetting />;
     case NavConstant.NODE_LIST_PAGE:
       return <NodeList />;
+    case NavConstant.CHAINS_PAGE:
+      return <Chains />;
     default:
       return <Dashboard />;
   }

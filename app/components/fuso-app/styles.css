@@ -1,0 +1,63 @@
+.display-none {
+  display: none;
+}
+
+.fuso-logo {
+  width: 36px;
+  height: 28px;
+}
+
+.fuso-banner {
+  height: 30px;
+}
+
+.fuso-header {
+  display: flex;
+  flex-direction: row;
+  /* background-color: #FAFAFA; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+  position: relative;
+  padding: 11px 17.1px 11px 15px;
+  height: 62px;
+  width: 360px;
+  align-items: center;
+}
+
+.fuso-header-banner {
+  justify-content: left;
+}
+
+.fuso-header-boarded {
+  justify-content: space-between;
+}
+
+.fuso-network {
+  background: #FFFFFF;
+  border: 1px solid #F23E5F;
+  box-sizing: border-box;
+  border-radius: 40px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #F23E5F;
+}
+
+.fuso-network-status {
+  margin-right: 13.37px;
+}
+
+.fuso-config {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.fuso-settings {
+  margin-left: 16px;
+  align-self: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+}

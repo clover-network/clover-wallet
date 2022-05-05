@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './styles.css';
-import { shortenAddress } from '../../../services/wallet-service';
+import React, { Component } from "react";
+import "./styles.css";
+import { shortenAddress } from "../../../services/wallet-service";
 
 export default class SettingAccountDetails extends Component {
   render() {

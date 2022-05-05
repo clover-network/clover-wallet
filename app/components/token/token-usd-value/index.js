@@ -13,7 +13,7 @@ export default class TokenUSDValue extends Component {
     let usd = 0;
     if (marketData) {
       const { currentPrice } = marketData;
-      usd = Number(currentPrice) * Number(amount && amount);
+      usd = Number(currentPrice) * Number(amount);
     }
     return (
       <div {...otherProps}>

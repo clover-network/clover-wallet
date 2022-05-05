@@ -27,6 +27,7 @@ class AddressList extends Component {
         >
           {addressBook.map(address => (
             <ListItemCard
+              key={address.address}
               listItem={address}
               theme={theme}
               primaryText={`${address.fname}  ${address.lname}`}

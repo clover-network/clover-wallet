@@ -1,4 +1,4 @@
-import { getStore } from '../../store/store-provider';
+import { getStore } from "../../store/store-provider";
 
 export const getAccountState = () => {
   const { accountState } = getStore().getState();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountDetails from '../account-details';
 import { WalletDropHorizonIcon } from '../../common/icon';
-import CloverMenu from '../../common/clover-menu';
+import FusoMenu from '../../common/menu';
 
 export default class AccountPanel extends Component {
   state = {
@@ -15,11 +15,15 @@ export default class AccountPanel extends Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-
+  resetAlias = () => {
+    const {accountMenu,selectedAccount,onAccountMenuOptionsChange} = this.props;
+    onAccountMenuOptionsChange(accountMenu[0], selectedAccount);
+  }
   render() {
     const { anchorEl } = this.state;
     const {
       selectedAccount,
+      assetsList,
       onCopyAddress,
       onAccountMenuOptionsChange,
       accountMenu,
@@ -29,13 +33,18 @@ export default class AccountPanel extends Component {
       inputRef,
       ...otherProps
     } = this.props;
+    // console.log("accountMenu -- > ",accountMenu[0])
+    // console.log("selectedAccount -- > ",selectedAccount)
+
     return (
       <div {...otherProps}>
         <AccountDetails
           className="account-detail"
           address={selectedAccount.address}
           alias={selectedAccount.alias}
+          assetsList={assetsList}
           onCopyAddress={onCopyAddress}
+          resetAlias={this.resetAlias}
           inputRef={inputRef}
           editMode={selectedAccount.editMode ? selectedAccount.editMode : false}
           onAliasChange={event => {
@@ -53,8 +62,8 @@ export default class AccountPanel extends Component {
             onAliasInputBlur(selectedAccount);
           }}
         />
-        <WalletDropHorizonIcon onClick={this.handleClick} />
-        <CloverMenu
+        {/* <WalletDropHorizonIcon onClick={this.handleClick} /> */}
+        <FusoMenu
           options={accountMenu}
           onChange={option => {
             onAccountMenuOptionsChange(option, selectedAccount);

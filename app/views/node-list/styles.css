@@ -1,5 +1,5 @@
 .node-setting-list-wrapper {
-    height: 480px;
+    max-height: 460px;
     overflow-x: hidden;
     overflow-y: auto;
 }

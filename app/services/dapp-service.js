@@ -12,3 +12,7 @@ export const submitTransaction = async transactionObj => {
 export const signMessage = async data => {
   await ApiType.DApp.signMessage(data);
 };
+
+export const signWeb3Message = async data => {
+  await ApiType.DApp.signWeb3Message(data);
+};

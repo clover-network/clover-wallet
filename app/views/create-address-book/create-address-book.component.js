@@ -1,58 +1,51 @@
-import React, { Component } from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import DarkDivider from '../../components/common/divider/dark-divider';
-import CreateContactForm from '../../components/address-book/create-contact-form';
-import CloverValidator from '../../utils/clover-validator';
-import { DASHBOARD_PAGE } from '../../constants/navigation';
-import validator from '../../utils/clover-validator/validator';
-import './styles.css';
-import { findChainByName } from '../../../lib/constants/chain';
-import HeaderBack from '../../components/header-back';
-import SelectDown from '../../images/select_down_icon.svg';
-import ArrowRight from '../../images/arrow_right.svg';
-import { getChainLogo } from '../../utils/chain';
+import React, { PureComponent } from "react";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import DarkDivider from "../../components/common/divider/dark-divider";
+import CreateContactForm from "../../components/address-book/create-contact-form";
+import FusoValidator from "../../utils/fuso-validator";
+import { DASHBOARD_PAGE } from "../../constants/navigation";
+import validator from "../../utils/fuso-validator/validator";
+import "./styles.css";
+import { findChainByName } from "../../../lib/constants/chain";
+import HeaderBack from "../../components/header-back";
+import SelectDown from "../../images/select_down_icon.svg";
+import ArrowRight from "../../images/arrow_right.svg";
+import { getChainLogo } from "../../utils/chain";
 
-const FnameRequiredErrorMessage = 'Firstname required';
-const AddressRequiredErrorMessage = 'Address required';
+const FnameRequiredErrorMessage = "Firstname required";
+const AddressRequiredErrorMessage = "Address required";
 
-export default class CreateAddressBook extends Component {
+export default class CreateAddressBook extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      address: '',
+      address: props.toAddress,
       isAddressError: false,
-      addressErrorMessage: '',
-      addressPropName: 'address',
-      fnamePropName: 'fname',
-      fname: '',
-      fnameLabel: 'Firstname',
+      addressErrorMessage: "",
+      addressPropName: "address",
+      fnamePropName: "fname",
+      fname: "",
+      fnameLabel: "Firstname",
       isFnameError: false,
-      fnameErrorMessage: '',
-      lnamePropName: 'lname',
-      lname: '',
-      lnameLabel: 'Lastname',
-      buttonText: 'ADD',
-      network: '',
+      fnameErrorMessage: "",
+      lnamePropName: "lname",
+      lname: "",
+      lnameLabel: "Lastname",
+      buttonText: "ADD",
+      network: props.network,
       showCurrencySelect: false,
     };
-    this.lnameValidator = new CloverValidator(validator.lnameValidation);
-    this.fnameValidator = new CloverValidator(validator.fnameValidation);
+    this.lnameValidator = new FusoValidator(validator.lnameValidation);
+    this.fnameValidator = new FusoValidator(validator.fnameValidation);
     this.addressInputRef = React.createRef();
     this.fnameInputRef = React.createRef();
     this.lnameInputRef = React.createRef();
   }
 
-  static getDerivedStateFromProps(props, state) {
-    if (state.address === '') return { network: props.network, address: props.toAddress };
-    return state;
-  }
-
   onSubmit = () => {
-    const {
-      address, fname, lname, network
-    } = this.state;
+    const { address, fname, lname, network } = this.state;
     const { isFnameError, fnameErrorMessage } = this.validateFname(fname);
     this.setState({
       isFnameError,
@@ -63,7 +56,8 @@ export default class CreateAddressBook extends Component {
       isLnameError,
       lnameErrorMessage,
     });
-    const { isAddressError, addressErrorMessage } = this.validateAddress(address);
+    const { isAddressError, addressErrorMessage } =
+      this.validateAddress(address);
     this.setState({
       isAddressError,
       addressErrorMessage,
@@ -80,7 +74,8 @@ export default class CreateAddressBook extends Component {
 
   handleAddressOnBlur = () => {
     const { address } = this.state;
-    const { isAddressError, addressErrorMessage } = this.validateAddress(address);
+    const { isAddressError, addressErrorMessage } =
+      this.validateAddress(address);
     this.setState({
       isAddressError,
       addressErrorMessage,
@@ -88,8 +83,10 @@ export default class CreateAddressBook extends Component {
   };
 
   handleFnameOnBlur = () => {
-    const { isFnameError, fnameErrorMessage } = this.validateFname(this.state.fname);
-    if (this.state.fname !== '' || !isFnameError) {
+    const { isFnameError, fnameErrorMessage } = this.validateFname(
+      this.state.fname
+    );
+    if (this.state.fname !== "" || !isFnameError) {
       this.setState({
         isFnameError,
         fnameErrorMessage,
@@ -98,8 +95,10 @@ export default class CreateAddressBook extends Component {
   };
 
   handleLnameOnBlur = () => {
-    const { isLnameError, lnameErrorMessage } = this.validateLname(this.state.lname);
-    if (this.state.lname !== '' || !isLnameError) {
+    const { isLnameError, lnameErrorMessage } = this.validateLname(
+      this.state.lname
+    );
+    if (this.state.lname !== "" || !isLnameError) {
       this.setState({
         isLnameError,
         lnameErrorMessage,
@@ -111,17 +110,17 @@ export default class CreateAddressBook extends Component {
     this.props.changePage(DASHBOARD_PAGE);
   };
 
-  handleInputChange = prop => e => {
+  handleInputChange = (prop) => (e) => {
     this.setState({
       [prop]: e.target.value,
     });
   };
 
-  handleNetworkChange = nt => () => {
+  handleNetworkChange = (nt) => () => {
     this.setState({ network: nt });
   };
 
-  toggleDrawer = status => () => {
+  toggleDrawer = (status) => () => {
     this.setState({ showCurrencySelect: status });
   };
 
@@ -132,7 +131,7 @@ export default class CreateAddressBook extends Component {
       addressErrorMessage = AddressRequiredErrorMessage;
     } else {
       isAddressError = false;
-      addressErrorMessage = '';
+      addressErrorMessage = "";
     }
     return {
       isAddressError,
@@ -145,7 +144,7 @@ export default class CreateAddressBook extends Component {
     if (fname.length === 0) {
       isFnameError = true;
       fnameErrorMessage = FnameRequiredErrorMessage;
-    } else if (fname !== '') {
+    } else if (fname !== "") {
       const fnameValidation = this.fnameValidator.validate({
         fname,
       });
@@ -169,7 +168,7 @@ export default class CreateAddressBook extends Component {
   validateLname(lname) {
     let { isLnameError, lnameErrorMessage } = this.state;
 
-    if (lname !== '') {
+    if (lname !== "") {
       const lnameValidation = this.lnameValidator.validate({
         lname,
       });
@@ -209,16 +208,19 @@ export default class CreateAddressBook extends Component {
     } = this.state;
     const { networks } = this.props;
     const chain = findChainByName(this.props.network.value);
-    const theme = chain.icon || 'polkadot';
+    const theme = chain.icon || "polkadot";
     return (
       <div>
         <HeaderBack
           handleBack={this.handleSubheaderBackBtn}
           title="CONTACT"
-          style={{ textAlign: 'left', marginLeft: '25px' }}
+          // style={{ textAlign: "left", marginLeft: "25px" }}
         />
         <div className="create-address-book-form">
-          <div className="create-address-select-item-wrapper" onClick={this.toggleDrawer(true)}>
+          <div
+            className="create-address-select-item-wrapper"
+            onClick={this.toggleDrawer(true)}
+          >
             <div className="create-address-select-item-left">
               <img
                 className="create-address-select-item-icon"
@@ -227,7 +229,9 @@ export default class CreateAddressBook extends Component {
                 src={getChainLogo(network.unit, true)}
                 alt=""
               />
-              <span className="create-address-select-item-currency-type">{network.text}</span>
+              <span className="create-address-select-item-currency-type">
+                {network.text}
+              </span>
             </div>
             <img
               className="create-address-select-down-icon"
@@ -238,7 +242,11 @@ export default class CreateAddressBook extends Component {
             />
           </div>
           <React.Fragment>
-            <Drawer anchor="bottom" open={showCurrencySelect} onClose={this.toggleDrawer(false)}>
+            <Drawer
+              anchor="bottom"
+              open={showCurrencySelect}
+              onClose={this.toggleDrawer(false)}
+            >
               <div
                 className="select-asset-wrapper"
                 onClick={this.toggleDrawer(false)}
@@ -247,7 +255,7 @@ export default class CreateAddressBook extends Component {
                 <div className="select-asset-title">select Chains</div>
                 <List>
                   {networks.map((nt, index) => (
-                    <div>
+                    <div key={index.toString()}>
                       <DarkDivider />
                       <ListItem
                         button
@@ -262,7 +270,9 @@ export default class CreateAddressBook extends Component {
                             src={getChainLogo(nt.unit, true)}
                             alt=""
                           />
-                          <span className="select-asset-item-currency-type">{nt.text}</span>
+                          <span className="select-asset-item-currency-type">
+                            {nt.text}
+                          </span>
                         </div>
                         <img
                           className="create-address-arrow-right-icon"
@@ -286,7 +296,7 @@ export default class CreateAddressBook extends Component {
           isAddressError={isAddressError}
           addressPropName={addressPropName}
           addressErrorMessage={addressErrorMessage}
-          addressInputRef={input => {
+          addressInputRef={(input) => {
             this.addressInputRef = input;
           }}
           handleToChange={this.handleInputChange}
@@ -295,7 +305,7 @@ export default class CreateAddressBook extends Component {
           fnamePropName={fnamePropName}
           isFnameError={isFnameError}
           fnameErrorMessage={fnameErrorMessage}
-          fnameInputRef={input => {
+          fnameInputRef={(input) => {
             this.fnameInputRef = input;
           }}
           handleFnameChange={this.handleInputChange}
@@ -305,7 +315,7 @@ export default class CreateAddressBook extends Component {
           lnamePropName={lnamePropName}
           isLnameError={isLnameError}
           lnameErrorMessage={lnameErrorMessage}
-          lnameInputRef={input => {
+          lnameInputRef={(input) => {
             this.lnameInputRef = input;
           }}
           handleLnameChange={this.handleInputChange}
