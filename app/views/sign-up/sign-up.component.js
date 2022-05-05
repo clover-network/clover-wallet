@@ -5,6 +5,7 @@ import ContentHeader from '../../components/common/content-header';
 import FooterButton from '../../components/common/footer-button';
 import './styles.css';
 import FusoInput from '../../components/common/input';
+import Footer from '../../components/common/footer';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -148,8 +149,9 @@ export default class SignUp extends Component {
         ) : (
           <span className="place-holder"> </span>
         )}
-
-        <FooterButton onClick={this.handleClick} disabled={this.state.disabled} name="next" />
+        <Footer>
+          <FooterButton onClick={this.handleClick} disabled={this.state.disabled} name="next" />
+        </Footer>
       </div>
     );
   }

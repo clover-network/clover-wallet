@@ -14,8 +14,8 @@ export default class FooterButton extends Component {
           alignSelf: 'center',
           justifyContent: 'center',
           display: 'flex',
-          left:0,
-          right:0,
+          left:16,
+          right:16,
           ...style,
         }}
         {...otherProps}

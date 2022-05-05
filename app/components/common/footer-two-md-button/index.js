@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ButtonMD from '../buttons/button-md';
-import './styles.css';
+//import './styles.css';
 
 export default class FooterTwoMDButton extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class FooterTwoMDButton extends Component {
         <ButtonMD color="primary" onClick={onClickPrimary}>
           {namePrimary}
         </ButtonMD>
-        <ButtonMD color="secondary" onClick={onClickSecondary}>
+        <ButtonMD color="secondary" variant="outlined" onClick={onClickSecondary}>
           {nameSecondary}
         </ButtonMD>
       </div>

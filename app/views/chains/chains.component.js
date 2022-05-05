@@ -14,13 +14,11 @@ const chainLogoProps = {
 
 export default class Chains extends Component {
   state = {
-    activeChain: 'near'
+    activeChain: 'fusotao'
   }
 
   componentDidMount() {
-    this.setState({
-      activeChain: "near",
-    });
+    
   }
 
   createAccount(){
@@ -37,6 +35,7 @@ export default class Chains extends Component {
       ...this.state,
       activeChain: chain
     })
+    console.log(chain, this.state);
   }
 
   render() {
@@ -61,10 +60,10 @@ export default class Chains extends Component {
             null
           ) :(
             <Grid container justifyContent="space-between">
-              <Button color="primary" variant="contained" size="small" onClick={this.createAccount}>
+              <Button color="primary" variant="outlined" size="small" onClick={this.createAccount}>
                 + Create Account
               </Button>
-              <Button color="primary" variant="contained" size="small" onClick={this.importAccount}>
+              <Button color="default" variant="outlined" size="small" onClick={this.importAccount}>
                 + Import Account
               </Button>
             </Grid>

@@ -197,7 +197,10 @@ export default class CreateAccount extends Component {
     }
   };
 
-  handleClose = () => {
+  handleClose = (e,reason) => {
+    if(reason === 'escapeKeyDown' || reason === 'backdropClick'){
+      return 
+    }
     this.setState({
       openModal: false,
     });
@@ -273,13 +276,13 @@ export default class CreateAccount extends Component {
           className="create-account-form"
         />
         
-        {/* <CreateAccountSettings
+        <CreateAccountSettings
           disableAccountSettings={disableAccountSettings}
           keypairType={keypairType}
           keypairTypes={keypairTypes}
           onKeypairTypeChange={this.onKeypairTypeChange}
           className="create-account-settings"
-        /> */}
+        />
         
         {formValue === Account.CONFIRM_ACCOUNT || account !== undefined ? (
           <FooterWithTwoButton

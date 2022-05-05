@@ -19,16 +19,16 @@ class FusoTabs extends Component {
           variant="contained"
           {...otherProps}
           fullWidth
-          classes={{contained: classes.group}}
           disableRipple
+          color="primary"
+          size="medium"
         >
           {labels.map((label, index) => (
             <Button
               key={label}
               disableRipple
               onClick={(e) => onChange(e, index)}
-              classes={{contained: classes.buttonRoot}}
-              className={cn(classes.tabRoot, index === value ? classes.tabSelected : '')}
+              color={index === value ? "primary" : 'default'}
             >{label}</Button>
           ))}
         </ButtonGroup>

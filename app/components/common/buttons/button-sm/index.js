@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import './styles.css';
+//import './styles.css';
 
 class ButtonSM extends Component {
   static propTypes = {
@@ -25,7 +25,7 @@ class ButtonSM extends Component {
 
     return (
       <div className={buttonMDClassNames}>
-        <Button disabled={this.props.disabled} onClick={this.props.onClick} {...otherProps}>
+        <Button disabled={this.props.disabled} onClick={this.props.onClick} size="small" variant="contained" color="primary" fullWidth  {...otherProps}>
           {color === 'dashboard' && <AddIcon className="icon-spacing" />}
           {this.props.children}
         </Button>

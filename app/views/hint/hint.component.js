@@ -6,6 +6,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import withStyles from "@material-ui/core/styles/withStyles";
 import NoScreenShot from "../../images/no_screen_shot.svg";
 import { styles } from "./styles";
+import Button from '@material-ui/core/Button'
 
 class RadioButtonGroup extends Component {
   render() {
@@ -16,7 +17,7 @@ class RadioButtonGroup extends Component {
           root: classes.root,
           paper: classes.paper,
         }}
-        disableBackdropClick={true}
+        //disableBackdropClick={true}
         open={isOpen}
         onClose={handleClose}
       >
@@ -44,14 +45,8 @@ class RadioButtonGroup extends Component {
         </DialogContent>
         <DialogActions
           classes={{root: classes.confirmbox}}
-          onClick={handleYes}>
-          <DialogContentText
-            classes={{
-              root: classes.confirm,
-            }}
           >
-            Yes, I Know
-          </DialogContentText>
+          <Button variant="contained" color="primary" size="medium" fullWidth onClick={handleYes}>Yes, I Know</Button>
         </DialogActions>
       </Dialog>
     );

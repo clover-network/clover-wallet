@@ -4,11 +4,11 @@
     flex-wrap: nowrap !important;
     width: 100%;
     flex-direction: row !important;
+    padding: 0 12px;
 }
 .container .chainsList{
     display: flex;
     flex-direction: column;
-    padding: 12px;
 }
 .chainsList .item{
     width: 32px;
@@ -27,6 +27,7 @@
 }
 
 .container .accountList{
-    margin-left: 8px;
+    margin-left: 12px;
     flex: 1 1 auto;
+    background-color:blanchedalmond;
 }

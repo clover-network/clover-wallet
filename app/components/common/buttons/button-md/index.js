@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
-import './styles.css';
+//import './styles.css';
 
 class ButtonMD extends Component {
   static propTypes = {
@@ -21,7 +21,7 @@ class ButtonMD extends Component {
     });
     return (
       <div className={buttonMDClassNames}>
-        <Button disabled={this.props.disabled} onClick={this.props.onClick} {...otherProps}>
+        <Button disabled={this.props.disabled} onClick={this.props.onClick} size="medium" variant="contained" color="primary" fullWidth {...otherProps}>
           {this.props.children}
         </Button>
       </div>
